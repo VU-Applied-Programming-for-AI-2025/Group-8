@@ -1,6 +1,7 @@
 ### first backend tests file ###
 
 from context import app
+import json
 
 def assert_200(response):
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
@@ -27,7 +28,7 @@ def test_remove_saving():
     assert b"OK" in response.data
     
 
-def test_list_saving():
+def test_list_saving_empty():
     client = app.test_client()
     response = client.get("/savings/1")
     assert_200(response)
@@ -40,9 +41,19 @@ def test_remove_absent():
     assert_200(response)
     #print(response.data)
     assert b"not exist" in response.data
+
+def test_list_saving():
+    client = app.test_client()
+    response = client.get("/savings/1")
+    assert_200(response)
+    savingList = json.loads(response.data)
+    assert 101 == savingList[0]["id"]
     
-test_add_saving()
-test_add_saving_duplicates()
-test_remove_saving()
-test_list_saving()
-test_remove_absent()
+test_list_saving_empty() # list empty
+test_add_saving() # add 1 recipe
+test_add_saving_duplicates() # ignore adding the same recipe
+test_list_saving() # return 1 recipe
+test_remove_saving() # remove the existed recipe
+test_remove_absent() # ignore removing because it's already removed
+test_add_saving() # add 1 recipe
+test_list_saving() # return 1 recipe
