@@ -18,6 +18,13 @@ def test_remove_saving():
     response = client.delete("/savings/1/101")
     assert_200(response)
     assert b"OK" in response.data
+
+def test_list_saving():
+    client = app.test_client()
+    response = client.get("/savings/1")
+    assert_200(response)
+    assert b"[]" in response.data
     
 test_add_saving()
 test_remove_saving()
+test_list_saving()
