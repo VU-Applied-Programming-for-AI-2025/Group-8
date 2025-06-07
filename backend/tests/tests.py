@@ -11,6 +11,16 @@ def test_add_saving():
     response = client.post("/savings/1/101")
     assert_200(response)
     assert b"OK" in response.data
+
+def test_add_saving_duplicates():
+    client = app.test_client()
+    response = client.post("/savings/1/101")
+    assert_200(response)
+    assert b"OK" in response.data
+    
+    response = client.post("/savings/1/101")
+    assert_200(response)
+    assert b"already exist" in response.data
     
 
 def test_remove_saving():

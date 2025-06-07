@@ -20,7 +20,15 @@ app = Flask(__name__)
 
 @app.route('/savings/<user_idx>/<recipe_idx>', methods = ['POST'])
 def add(user_idx, recipe_idx):
+    user_id = int(user_idx)
+    recipe_id = int(recipe_idx)
+    if user_id not in SavingList:
+        SavingList[user_id] = []
+        
+    if recipe_id in SavingList[user_id]:
+        return "already exist"
     
+    SavingList[user_id].append(recipe_id)
     return "OK"
 
 @app.route('/savings/<user_idx>/<recipe_idx>', methods = ['DELETE'])
