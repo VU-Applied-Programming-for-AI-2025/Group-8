@@ -25,6 +25,7 @@ def test_add_saving_duplicates():
 
 def test_remove_saving():
     client = app.test_client()
+    # and removing
     response = client.delete("/savings/1/101")
     assert_200(response)
     assert b"OK" in response.data
