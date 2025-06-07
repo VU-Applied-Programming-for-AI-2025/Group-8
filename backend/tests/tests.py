@@ -1,1 +1,15 @@
 ### first backend tests file ###
+
+from context import app
+
+def assert_200(response):
+    assert response.status_code == 200, f"Expected 200, got {response.status_code}"
+
+
+def test_add_saving():
+    client = app.test_client()
+    response = client.post("/savings/1/101")
+    assert_200(response)
+    assert b"OK" in response.data
+    
+test_add_saving()
