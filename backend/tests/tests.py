@@ -33,7 +33,16 @@ def test_list_saving():
     assert_200(response)
     assert b"[]" in response.data
     
+def test_remove_absent():
+    client = app.test_client()
+    #print(client.get("/savings/1").data)
+    response = client.delete("/savings/1/101")
+    assert_200(response)
+    #print(response.data)
+    assert b"not exist" in response.data
+    
 test_add_saving()
 test_add_saving_duplicates()
 test_remove_saving()
 test_list_saving()
+test_remove_absent()
