@@ -14,6 +14,8 @@ RecipeList[101] = Recipe(101, "Sarma")
 RecipeList[102] = Recipe(102, "Kebap")
 RecipeList[103] = Recipe(103, "Corba")
 
+SavingList: Dict[int, List[int]] = {} # key = user id, value = list of recipe id's
+
 app = Flask(__name__)
 
 @app.route('/savings/<user_idx>/<recipe_idx>', methods = ['POST'])
