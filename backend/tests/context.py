@@ -9,6 +9,7 @@ sys.path.append(root_dir)
 
 try:
     from app import app
+    from user_data.user_profile import UserProfile, UsersData
 
 except ImportError as e:
     print(f"Error importing modules: {e}")
