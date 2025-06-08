@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes matching user's diet</title>
+</head>
+<body>
+    <div class='col-xs-12 col-sm-12 col-md-10 col-lg-10'>
+        {% if response!=undefined and response|length > 0%}
+        <h2>Recipes matching user's diet</h2>
+        {% else %}
+        {% if response!="No recipes found"%}
+        <p>No recipes found</p>
+        {% else %}
+        <p></p>
+        {% endif %}
+        {% endif %}
+        <table>
+            <tr>
+                {% for entry in response %}
+                <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' id="recipeSelectionComponent">
+                    <img id="recipeImage" src="{{entry['image']}}">
+                    <p>{{ entry['title'] }}</p>
+                </div>
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+</body>
