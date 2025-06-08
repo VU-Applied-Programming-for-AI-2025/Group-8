@@ -119,7 +119,13 @@ def login():
 def home():
     if not session.get('logged_in'):
         return redirect(url_for("auth_page"))
-    return "Welcome to the home page!"
+    user = users_data.get_user(session['username'])
+    d = {}
+    d['diet'] = ",".join(user.diet)
+    d['allergies'] = ",".join(user.allergies)
+    d['fullname'] = user.name
+    print(d)
+    return render_template("index.html", response=d)
 
 @app.route("/recommendations")
 def recommendations():
