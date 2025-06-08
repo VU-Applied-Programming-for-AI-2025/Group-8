@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+    <h2>Register New User</h2>
+    <form action="/auth/register" method="post">
+        {% if error %}
+        <p style="color:red;">{{ error }}</p>
+        {% endif %} 
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="0" required><br><br>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+            <option value="">Select</option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+        </select><br><br>
+
+        <label for="hight">Height (cm):</label>
+        <input type="number" id="hight" name="hight" step="0.1" min="0" required><br><br>
+
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" name="weight" step="0.1" min="0" required><br><br>
+
+        <label for="skin_color">Skin Color:</label>
+         <select id="skin_color" name="skin_color" required>
+            <option value="">Select</option>
+            <option value="light">Light</option>
+            <option value="medium">Medium</option>
+            <option value="dark">Dark</option>
+        </select><br><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br><br>
+
+        <label for="medication">Medications (comma separated):</label>
+        <input type="text" id="medication" name="medication"><br><br>
+
+        <label for="diet">Diet (comma separated):</label>
+        <input type="text" id="diet" name="diet"><br><br>
+
+        <label for="existing_conditions">Existing Conditions (comma separated):</label>
+        <input type="text" id="existing_conditions" name="existing_conditions"><br><br>
+
+        <label for="allergies">Allergies (comma separated):</label>
+        <input type="text" id="allergies" name="allergies"><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
