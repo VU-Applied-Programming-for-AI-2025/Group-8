@@ -2,6 +2,7 @@
 
 ## Project documentation
 
+```
 project-root/
 │
 ├── backend/                        # Backend source code
@@ -28,4 +29,4 @@ project-root/
 ├── .gitignore                      # Files and directories to be ignored by Git
 ├── deleteme.txt                    # Temporary or placeholder file
 └── README.md                       # Project documentation (this file)
-
+```
