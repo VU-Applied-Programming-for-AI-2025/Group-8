@@ -24,6 +24,7 @@ project-root/
 │       ├── auth.html               # Authentication form page
 │       ├── consentform.html        # Consent form page
 │       └── registration.html       # Registration form page
+│       └── recommendations.html    # Meal recommendations matching user's diet and allergy requirements
 │
 ├── .env                            # Environment variables 
 ├── .gitignore                      # Files and directories to be ignored by Git

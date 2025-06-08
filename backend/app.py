@@ -1,6 +1,9 @@
 ## develop your flask app here ##
 from flask import Flask, render_template, request, redirect, url_for, session
 from user_data.user_profile import UserProfile, UsersData
+import requests
+import os
+import json
 
 app = Flask(
     __name__,
@@ -8,6 +11,7 @@ app = Flask(
 )
 
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
+spoonacular_api_key = os.getenv("API_KEY") # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
 
 users_data = UsersData() # Initializes the UsersData object where all the user profiles will be stored.
 
@@ -116,6 +120,27 @@ def home():
     if not session.get('logged_in'):
         return redirect(url_for("auth_page"))
     return "Welcome to the home page!"
+
+@app.route("/recommendations")
+def recommendations():
+    """
+    Handles the recommendations request.
+    If the user is logged in, then returns foods and recipes matching the user's conditions.
+    If the user is not logged in, then it will show an error message (that the username is not found in database)
+    """
+    if session['logged_in']:
+        logged_in_user = users_data.get_user(session['username'])
+        diet = ",".join(logged_in_user.diet)
+        intolerance = ",".join(logged_in_user.allergies)
+        response = requests.get("https://api.spoonacular.com/recipes/complexSearch?diet=" + diet \
+                    + "&excludeIngredients=" + intolerance \
+                    + "&apiKey=" + spoonacular_api_key)
+        recipes_matching_diet = json.loads(response.text)
+        print(recipes_matching_diet['results'])
+        return render_template("recipes.html", response=recipes_matching_diet['results']) if recipes_matching_diet != [] \
+            else render_template("recipes.html", response="")
+    else:
+        return redirect(url_for("/auth/login"))
 
 if __name__ == "__main__":
     app.run(debug=True)
