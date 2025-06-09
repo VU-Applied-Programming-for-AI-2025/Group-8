@@ -201,5 +201,24 @@ def save_results():
     
     return "OK"
 
+@app.route('/result_visualization', methods=['POST'])
+def result_visualization():
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+    user = users_data.get_user(session['username'])
+    
+    result = {}
+    CurrentResult = user.analysis_results 
+    
+    for vitamin in CurrentResult:
+        if CurrentResult[vitamin] < 40:
+            result[vitamin] = "Low"
+        elif CurrentResult[vitamin] < 70:
+            result[vitamin] = "Medium"
+        else:
+            result[vitamin] = "High"
+    
+    return jsonify(result)
+
 if __name__ == "__main__":
     app.run(debug=True)

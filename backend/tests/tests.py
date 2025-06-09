@@ -60,24 +60,38 @@ def test_remove_absent():
     #print(response.data)
     assert b"not exist" in response.data
 
-"""def test_list_saving():
+def test_list_saving():
     client = app.test_client()
     response = client.get("/savings")
     assert_200(response)
     savingList = json.loads(response.data)
-    assert 101 == savingList[0]["id"]"""
+    assert 140 == savingList[0]
     
 def test_save_results():
     client = app.test_client()
     set_user(client)
-    TestResults = {"Zink": "70%",
-                   "Iron": "40%"}
+    TestResults = {"Zink": 70,
+                   "Iron": 40,
+                   "Vitamin A": 20}
     
     response = client.post("/save_results", data = json.dumps(TestResults),content_type="application/json")
     
     assert_200(response)
     assert b"OK" in response.data
     
+    
+def test_visualization():
+    client = app.test_client()
+    set_user(client)
+    
+    response = client.post("/result_visualization", data = json.dumps({}),content_type="application/json")
+    
+    assert_200(response)
+    #print(response.data)
+    result = json.loads(response.data)
+    assert "High" in result["Zink"]
+    assert "Low" in result["Vitamin A"]
+    assert "Medium" in result["Iron"]
     
 def assert_ok(response):
     """
@@ -226,4 +240,5 @@ test_remove_absent() # ignore removing because it's already removed
 test_add_saving() # add 1 recipe
 #test_list_saving() # return 1 recipe
 test_save_results()
+test_visualization()
 

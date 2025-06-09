@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 class UserProfile:
     """
@@ -20,7 +20,7 @@ class UserProfile:
             existing_conditions: List[str] = [],
             allergies: List[str] = [],
             saved_recipes = [],
-            analysis_results = {}
+            analysis_results: Dict[str, int] = {}
            
             ) -> None:
         
