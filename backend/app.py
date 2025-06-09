@@ -1,7 +1,10 @@
 ## develop your flask app here ##
 from flask import Flask, render_template, url_for, request, redirect
+from dotenv import load_dotenv
 import os
 from groq import Groq
+
+load_dotenv()
 
 app = Flask(__name__)
 client = Groq(
@@ -30,7 +33,7 @@ def analyze_symptoms():
     ## llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
     
     analysis_results = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
         messages=[
             {
                 "role": "user",
@@ -40,7 +43,6 @@ def analyze_symptoms():
         temperature=1,
         max_completion_tokens=1024,
         top_p=1,
-        stream=True,
         stop=None
     )
     analysis = analysis_results.choices[0].message.content
@@ -48,4 +50,4 @@ def analyze_symptoms():
     return render_template("results.html", symptoms = symptoms, analysis = analysis)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
