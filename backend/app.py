@@ -24,8 +24,6 @@ RecipeList[103] = Recipe(103, "Corba")"""
 
 #SavingList: Dict[int, List[int]] = {} # key = user id, value = list of recipe id's
 
-app = Flask(__name__)
-
 """@app.route('/savings/<user_idx>/<recipe_idx>', methods = ['POST'])
 def add(user_idx, recipe_idx):
     user_id = int(user_idx)
@@ -205,27 +203,6 @@ def recommendations():
             else render_template("recipes.html", response="")
     else:
         return redirect(url_for("/auth/login"))
-
-@app.route("/recommendations")
-def recommendations():
-    """
-    Handles the recommendations request.
-    If the user is logged in, then returns foods and recipes matching the user's conditions.
-    If the user is not logged in, then it will show an error message (that the username is not found in database)
-    """
-    if session['logged_in']:
-        logged_in_user = users_data.get_user(session['username'])
-        diet = ",".join(logged_in_user.diet)
-        intolerance = ",".join(logged_in_user.allergies)
-        response = requests.get("https://api.spoonacular.com/recipes/complexSearch?diet=" + diet \
-                    + "&excludeIngredients=" + intolerance \
-                    + "&apiKey=" + spoonacular_api_key)
-        recipes_matching_diet = json.loads(response.text)
-        print(recipes_matching_diet['results'])
-        return render_template("recipes.html", response=recipes_matching_diet['results']) if recipes_matching_diet != [] \
-            else render_template("recipes.html", response="")
-    else:
-        return redirect(url_for("/auth/login"))
     
     
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
@@ -266,7 +243,7 @@ def show_favorites():
     return jsonify(user.saved_recipes)
 
 @app.route('/save_results', methods=['POST'])
-def save_results(user_idx):
+def save_results():
     if not session.get('logged_in'):
         return redirect(url_for("auth_page"))
     
