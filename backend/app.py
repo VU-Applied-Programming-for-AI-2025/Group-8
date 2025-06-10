@@ -220,26 +220,5 @@ def result_visualization():
     
     return jsonify(result)
 
-@app.route("/recommendations")
-def recommendations():
-    """
-    Handles the recommendations request.
-    If the user is logged in, then returns foods and recipes matching the user's conditions.
-    If the user is not logged in, then it will show an error message (that the username is not found in database)
-    """
-    if session['logged_in']:
-        logged_in_user = users_data.get_user(session['username'])
-        diet = ",".join(logged_in_user.diet)
-        intolerance = ",".join(logged_in_user.allergies)
-        response = requests.get("https://api.spoonacular.com/recipes/complexSearch?diet=" + diet \
-                    + "&excludeIngredients=" + intolerance \
-                    + "&apiKey=" + spoonacular_api_key)
-        recipes_matching_diet = json.loads(response.text)
-        print(recipes_matching_diet['results'])
-        return render_template("recipes.html", response=recipes_matching_diet['results']) if recipes_matching_diet != [] \
-            else render_template("recipes.html", response="")
-    else:
-        return redirect(url_for("/auth/login"))
-
 if __name__ == "__main__":
     app.run(debug=True)
