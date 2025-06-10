@@ -3,6 +3,7 @@ from flask import Flask, render_template, url_for, request, redirect
 from dotenv import load_dotenv
 import os
 from groq import Groq
+import json
 
 load_dotenv()
 
@@ -24,14 +25,35 @@ def home_page():
         if symptoms:
             return redirect(url_for("analyze_symptoms", symptoms = symptoms))
         return redirect(url_for("home_page"))
-    return render_template("homepage.html") #redirect 
+    return render_template("homepage.html")
 
 #analyze symptoms
 @app.route("/results")
 def analyze_symptoms():
+    """
+    This function sends the inputted symptoms to the groq api to analyze, then returns it as text on the /results page.
+    """
     symptoms = request.args.get("symptoms")
+    
+    ai_prompt = f"""
+        user symptoms: {symptoms}
 
-    ai_prompt = f"analyze the possible vitamins/nutrients the user might be lacking for {symptoms}. give the results in a structured way like this:\n- vitamin/nutrient that might be lacking\n- why this vitamin/nutrient matters\n- foods to eat to fix this issue\n"
+        required analysis:
+        1. top 3 likely vitamin/mineral deficiencies for each symptom
+        2. for each deficiency:
+        - biological explanation (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
+        - foods to eat to fix the issue (comma-seperated list, no extra information, list each food on its own)
+        - 1 lifestyle tip
+        3. flag any urgent medical concerns
+
+        return the analysis only in this format:
+        [deficiency name]:
+        - Why: [explanation]
+        - Foods: [comma-separated list]
+        - Tip: [actionable advice]
+
+        [Urgency Note]: (if applicable)
+        """
     
     ## llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
     
@@ -49,9 +71,30 @@ def analyze_symptoms():
         stop=None
     )
     analysis = analysis_results.choices[0].message.content 
+    food_list = extract_food_recs(analysis)
+
+    return render_template("results.html", symptoms = symptoms, analysis = analysis)
+
+def extract_food_recs(groq_response):
+    """
+    This function extracts the food recommendations from the llm response and stores it in a list for backend use.
+    """
+    list_foods = []
+
+    for line in groq_response.split("\n"):
+        line = line.strip()
+        if line.startswith('- Foods:'):
+            all_foods = line[8:].split(',')
+            foods = [food.strip() for food in all_foods]
+            list_foods.extend(foods)
+
+    seen_foods = set() #to check duplicates
+    food_recs = [] #new list w/o duplicates
+    for food in list_foods:
+        if not (food in seen_foods or seen_foods.add(food)):
+            food_recs.append(food)
     
-    return render_template("results.html", symptoms = symptoms, analysis = analysis) #redirect
-    # the  list of foods to eat should be stored as a list in a dictionary
+    return food_recs
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)  
