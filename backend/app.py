@@ -1,5 +1,7 @@
 ## develop your flask app here ##
-from flask import Flask, render_template, request, redirect, url_for, session
+
+from typing import Dict, List
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from user_data.user_profile import UserProfile, UsersData
 import requests
 import os
@@ -9,7 +11,6 @@ app = Flask(
     __name__,
     template_folder="../frontend/templates", 
 )
-
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 spoonacular_api_key = os.getenv("API_KEY") # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
 
@@ -147,27 +148,77 @@ def recommendations():
             else render_template("recipes.html", response="")
     else:
         return redirect(url_for("/auth/login"))
+    
+    
+@app.route('/save_favorite/<recipe_id>', methods = ['POST'])
+def save_favorite(recipe_id):
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+    
+    user = users_data.get_user(session['username'])
+    recipe_id = int(recipe_id)
+    
+    if recipe_id in user.saved_recipes:
+        return "already exist"
+    
+    user.saved_recipes.append(recipe_id)
+    return "OK"
+    
+@app.route('/remove_favorite/<recipe_id>', methods = ['DELETE'])
+def remove_favorite(recipe_id):
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+    
+    user = users_data.get_user(session['username'])
+    recipe_id = int(recipe_id)
+    if recipe_id not in user.saved_recipes:
+        return "not exist"
+    
+    if recipe_id in user.saved_recipes:
+        user.saved_recipes.remove(recipe_id)
+    
+    return "OK" 
 
-@app.route("/recommendations")
-def recommendations():
-    """
-    Handles the recommendations request.
-    If the user is logged in, then returns foods and recipes matching the user's conditions.
-    If the user is not logged in, then it will show an error message (that the username is not found in database)
-    """
-    if session['logged_in']:
-        logged_in_user = users_data.get_user(session['username'])
-        diet = ",".join(logged_in_user.diet)
-        intolerance = ",".join(logged_in_user.allergies)
-        response = requests.get("https://api.spoonacular.com/recipes/complexSearch?diet=" + diet \
-                    + "&excludeIngredients=" + intolerance \
-                    + "&apiKey=" + spoonacular_api_key)
-        recipes_matching_diet = json.loads(response.text)
-        print(recipes_matching_diet['results'])
-        return render_template("recipes.html", response=recipes_matching_diet['results']) if recipes_matching_diet != [] \
-            else render_template("recipes.html", response="")
-    else:
-        return redirect(url_for("/auth/login"))
+@app.route('/show_favorites', methods = ['GET'])
+def show_favorites():
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+    
+    user = users_data.get_user(session['username'])
+    return jsonify(user.saved_recipes)
+
+@app.route('/save_results', methods=['POST'])
+def save_results():
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+    
+    user = users_data.get_user(session['username'])
+    
+    CurrentResults = request.get_json(silent=True)
+    if not CurrentResults:
+        return "No result"
+    user.analysis_results = CurrentResults
+    
+    return "OK"
+
+@app.route('/result_visualization', methods=['POST'])
+def result_visualization():
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+    user = users_data.get_user(session['username'])
+    
+    result = {}
+    CurrentResult = user.analysis_results 
+    
+    for vitamin in CurrentResult:
+        if CurrentResult[vitamin] < 40:
+            result[vitamin] = "Low"
+        elif CurrentResult[vitamin] < 70:
+            result[vitamin] = "Medium"
+        else:
+            result[vitamin] = "High"
+    
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(debug=True)

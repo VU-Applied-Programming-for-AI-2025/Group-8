@@ -1,4 +1,4 @@
-from typing import List, Tuple
+from typing import List, Tuple, Dict
 
 class UserProfile:
     """
@@ -18,7 +18,10 @@ class UserProfile:
             medication: List[str] = [],
             diet: List[str] = [],
             existing_conditions: List[str] = [],
-            allergies: List[str] = []
+            allergies: List[str] = [],
+            saved_recipes = [],
+            analysis_results: Dict[str, int] = {}
+           
             ) -> None:
         
         """
@@ -52,6 +55,8 @@ class UserProfile:
         self.diet = diet
         self.existing_conditions = existing_conditions
         self.allergies = allergies
+        self.saved_recipes = saved_recipes
+        self.analysis_results = analysis_results
 
     # def authentication(self, username: str, password: str) -> bool:
     #     """

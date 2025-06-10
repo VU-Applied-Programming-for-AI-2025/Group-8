@@ -1,6 +1,98 @@
 ### first backend tests file ###
-from context import app, UserProfile, UsersData
 
+import json
+from context import app, UserProfile, UsersData
+from app import app, users_data
+from user_data.user_profile import UserProfile
+
+def set_user(client):
+    if "testusername" not in users_data.users:
+        user = UserProfile(
+            'testusername', 'testpassword', 'Test User', '20', 'Female',
+            '1.75', '70', 'medium', 'The Netherlands'
+        )
+        users_data.add_user(user)
+    
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = 'testusername'
+        
+def assert_200(response):
+    assert response.status_code == 200, f"Expected 200, got {response.status_code}"
+
+def test_add_saving():
+    client = app.test_client()
+    set_user(client)
+    response = client.post("/save_favorite/140")
+    assert_200(response)
+    assert b"OK" in response.data
+
+def test_add_saving_duplicates():
+    client = app.test_client()
+    set_user(client)
+    response = client.post("/save_favorite/140")
+    assert_200(response)
+    assert b"already exist" in response.data
+    
+
+def test_remove_saving():
+    client = app.test_client()
+    # and removing
+    set_user(client)
+    response = client.delete("/remove_favorite/140")
+    assert_200(response)
+    assert b"OK" in response.data
+    
+
+def test_list_saving_empty():
+    client = app.test_client()
+    set_user(client)
+    response = client.get("/show_favorites")
+    assert_200(response)
+    assert b"[]" in response.data
+    
+def test_remove_absent():
+    client = app.test_client()
+    set_user(client)
+    #print(client.get("/savings/1").data)
+    response = client.delete("/remove_favorite/140")
+    assert_200(response)
+    #print(response.data)
+    assert b"not exist" in response.data
+
+def test_list_saving():
+    client = app.test_client()
+    response = client.get("/savings")
+    assert_200(response)
+    savingList = json.loads(response.data)
+    assert 140 == savingList[0]
+    
+def test_save_results():
+    client = app.test_client()
+    set_user(client)
+    TestResults = {"Zink": 70,
+                   "Iron": 40,
+                   "Vitamin A": 20}
+    
+    response = client.post("/save_results", data = json.dumps(TestResults),content_type="application/json")
+    
+    assert_200(response)
+    assert b"OK" in response.data
+    
+    
+def test_visualization():
+    client = app.test_client()
+    set_user(client)
+    
+    response = client.post("/result_visualization", data = json.dumps({}),content_type="application/json")
+    
+    assert_200(response)
+    #print(response.data)
+    result = json.loads(response.data)
+    assert "High" in result["Zink"]
+    assert "Low" in result["Vitamin A"]
+    assert "Medium" in result["Iron"]
+    
 def assert_ok(response):
     """
     Helper function to assert that the response status code is 200.
@@ -139,6 +231,14 @@ test_successful_user_authentication()
 test_wrong_password_user_authentication()
 test_wrong_username_user_authentication()
 
-
-
+test_list_saving_empty() # list empty
+test_add_saving() # add 1 recipe
+test_add_saving_duplicates() # ignore adding the same recipe
+#test_list_saving() # return 1 recipe
+test_remove_saving() # remove the existed recipe
+test_remove_absent() # ignore removing because it's already removed
+test_add_saving() # add 1 recipe
+#test_list_saving() # return 1 recipe
+test_save_results()
+test_visualization()
 
