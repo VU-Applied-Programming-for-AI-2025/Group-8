@@ -6,29 +6,32 @@ from groq import Groq
 
 load_dotenv()
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder = "../frontend/templates",)
+
 client = Groq(
     api_key=os.environ.get("GROQ_API_KEY"),
 )
 
 #homepage
-@app.route("/home", methods = ["GET", "POST"])
+@app.route("/", methods = ["GET", "POST"])
 def home_page():
     """
     This function displays the homepage and handles the submission from the user for their symptoms. After symptoms are provided, redirects to /results
     with the symptoms being the url parameter. 
     """
     if request.method == "POST":
-        symptoms = request.form.get("symptoms")
-        return redirect(url_for("analyze_symptoms", symptoms = symptoms))
-    return render_template("homepage.html")
+        symptoms = request.form.get("symptoms").strip()
+        if symptoms:
+            return redirect(url_for("analyze_symptoms", symptoms = symptoms))
+        return redirect(url_for("home_page"))
+    return render_template("homepage.html") #redirect 
 
 #analyze symptoms
 @app.route("/results")
 def analyze_symptoms():
     symptoms = request.args.get("symptoms")
 
-    ai_prompt = f"analyze the possible vitamins/nutrients the user might be lacking for hair loss and acne. give the results in a structured way like this:\n- vitamin/nutrient that might be lacking\n- why this vitamin/nutrient matters\n- foods to eat to fix this issue\n"
+    ai_prompt = f"analyze the possible vitamins/nutrients the user might be lacking for {symptoms}. give the results in a structured way like this:\n- vitamin/nutrient that might be lacking\n- why this vitamin/nutrient matters\n- foods to eat to fix this issue\n"
     
     ## llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
     
@@ -40,14 +43,15 @@ def analyze_symptoms():
                 "content": ai_prompt,
             }
         ],
-        temperature=1,
+        temperature=0.7,
         max_completion_tokens=1024,
         top_p=1,
         stop=None
     )
-    analysis = analysis_results.choices[0].message.content
+    analysis = analysis_results.choices[0].message.content 
     
-    return render_template("results.html", symptoms = symptoms, analysis = analysis)
+    return render_template("results.html", symptoms = symptoms, analysis = analysis) #redirect
+    # the  list of foods to eat should be stored as a list in a dictionary
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', debug=True)  
