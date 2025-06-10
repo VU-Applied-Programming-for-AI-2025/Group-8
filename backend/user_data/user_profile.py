@@ -53,25 +53,6 @@ class UserProfile:
         self.existing_conditions = existing_conditions
         self.allergies = allergies
 
-    # def authentication(self, username: str, password: str) -> bool:
-    #     """
-    #     Authenticates the user by checking if the provided username and password match the stored ones.
-    #     :param username (str): The username given by the user.
-    #     :param password (str): The password given by the user.
-    #     :return (bool): True if the parameters match the stored date, False otherwise.
-    #     """
-    #     if self.username == username and self.password == password:
-    #         return True
-    #     return False
-    
-    # def add_user(self, username: str, password: str) -> None:
-    #     """
-    #     Creates a new profile for a user, with the given parameters as username and password.
-    #     :param username (str): The username given by the user.
-    #     :param password (str): The password given by the user.
-    #     """
-    #     self.username = username
-    #     self.password = password
 
 class UsersData:
     """
