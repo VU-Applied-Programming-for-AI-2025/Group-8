@@ -118,9 +118,9 @@ def login():
 
 @app.route("/home")
 def home():
-    if not session.get('logged_in'):
+    user = userAuthHelper()
+    if not user:
         return redirect(url_for("auth_page"))
-    user = users_data.get_user(session['username'])
     d = {}
     d['diet'] = ",".join(user.diet)
     d['allergies'] = ",".join(user.allergies)
@@ -134,10 +134,9 @@ def recommendations():
     Provides categorized recipe recommendations for breakfast, lunch, and dinner.
     Falls back to random recipes if no results are found.
     """
-    if not session.get('logged_in'):
+    logged_in_user = userAuthHelper()
+    if not logged_in_user:
         return redirect(url_for("auth_page"))
-
-    logged_in_user = users_data.get_user(session['username'])
     diet = ",".join(logged_in_user.diet)
     intolerance = ",".join(logged_in_user.allergies)
     print(f"api key: {spoonacular_api_key}")
@@ -208,10 +207,9 @@ def recommendations():
     
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
 def save_favorite(recipe_id):
-    if not session.get('logged_in'):
+    user = userAuthHelper()
+    if not user:
         return redirect(url_for("auth_page"))
-    
-    user = users_data.get_user(session['username'])
     recipe_id = int(recipe_id)
     
     if recipe_id in user.saved_recipes:
@@ -222,10 +220,9 @@ def save_favorite(recipe_id):
     
 @app.route('/remove_favorite/<recipe_id>', methods = ['DELETE'])
 def remove_favorite(recipe_id):
-    if not session.get('logged_in'):
+    user = userAuthHelper()
+    if not user:
         return redirect(url_for("auth_page"))
-    
-    user = users_data.get_user(session['username'])
     recipe_id = int(recipe_id)
     if recipe_id not in user.saved_recipes:
         return "not exist"
@@ -237,18 +234,16 @@ def remove_favorite(recipe_id):
 
 @app.route('/show_favorites', methods = ['GET'])
 def show_favorites():
-    if not session.get('logged_in'):
+    user = userAuthHelper()
+    if not user:
         return redirect(url_for("auth_page"))
-    
-    user = users_data.get_user(session['username'])
     return jsonify(user.saved_recipes)
 
 @app.route('/save_results', methods=['POST'])
 def save_results():
-    if not session.get('logged_in'):
+    user = userAuthHelper()
+    if not user:
         return redirect(url_for("auth_page"))
-    
-    user = users_data.get_user(session['username'])
     
     CurrentResults = request.get_json(silent=True)
     if not CurrentResults:
@@ -259,9 +254,9 @@ def save_results():
 
 @app.route('/result_visualization', methods=['POST'])
 def result_visualization():
-    if not session.get('logged_in'):
+    user = userAuthHelper()
+    if not user:
         return redirect(url_for("auth_page"))
-    user = users_data.get_user(session['username'])
     
     result = {}
     CurrentResult = user.analysis_results 
@@ -275,6 +270,16 @@ def result_visualization():
             result[vitamin] = "High"
     
     return jsonify(result)
+
+def userAuthHelper():
+    if not session.get('logged_in'):
+        return False
+    logged_in_user = users_data.get_user(session['username'])
+    if not logged_in_user:
+        session['logged_in'] = False
+        session['username'] = ""
+        return False
+    return logged_in_user
 
 if __name__ == "__main__":
     app.run(debug=True)
