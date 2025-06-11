@@ -2,28 +2,50 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Recipes matching user's diet</title>
+    <title>Recipes Matching Your Diet</title>
+    <style>
+        .meal-section {
+            margin-bottom: 40px;
+        }
+        .recipe-card {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
-    <div class='col-xs-12 col-sm-12 col-md-10 col-lg-10'>
-        {% if response!=undefined and response|length > 0%}
-        <h2>Recipes matching user's diet</h2>
-        {% else %}
-        {% if response!="No recipes found"%}
-        <p>No recipes found</p>
-        {% else %}
-        <p></p>
-        {% endif %}
-        {% endif %}
-        <table>
-            <tr>
-                {% for entry in response %}
-                <div class='col-xs-3 col-sm-3 col-md-3 col-lg-3' id="recipeSelectionComponent">
-                    <img id="recipeImage" src="{{entry['image']}}">
-                    <p>{{ entry['title'] }}</p>
-                </div>
-                {% endfor %}
-            </tr>
-        </table>
-    </div>
+
+    <h1>Recipes Matching Your Diet</h1>
+
+    {% if recipes_by_meal %}
+        {% for category, recipes in recipes_by_meal.items() %}
+            <div class="meal-section">
+                <h2>{{ category.capitalize() }}</h2>
+                {% if recipes %}
+                    {% for entry in recipes %}
+                        <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
+                            <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
+                            <p>{{ entry['title'] }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No recipes found for {{ category }}.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recipes found.</p>
+    {% endif %}
+
 </body>
+</html>

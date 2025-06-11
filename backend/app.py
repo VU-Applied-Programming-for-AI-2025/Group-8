@@ -131,23 +131,79 @@ def home():
 @app.route("/recommendations")
 def recommendations():
     """
-    Handles the recommendations request.
-    If the user is logged in, then returns foods and recipes matching the user's conditions.
-    If the user is not logged in, then it will show an error message (that the username is not found in database)
+    Provides categorized recipe recommendations for breakfast, lunch, and dinner.
+    Falls back to random recipes if no results are found.
     """
-    if session['logged_in']:
-        logged_in_user = users_data.get_user(session['username'])
-        diet = ",".join(logged_in_user.diet)
-        intolerance = ",".join(logged_in_user.allergies)
-        response = requests.get("https://api.spoonacular.com/recipes/complexSearch?diet=" + diet \
-                    + "&excludeIngredients=" + intolerance \
-                    + "&apiKey=" + spoonacular_api_key)
-        recipes_matching_diet = json.loads(response.text)
-        print(recipes_matching_diet['results'])
-        return render_template("recipes.html", response=recipes_matching_diet['results']) if recipes_matching_diet != [] \
-            else render_template("recipes.html", response="")
-    else:
-        return redirect(url_for("/auth/login"))
+    if not session.get('logged_in'):
+        return redirect(url_for("auth_page"))
+
+    logged_in_user = users_data.get_user(session['username'])
+    diet = ",".join(logged_in_user.diet)
+    intolerance = ",".join(logged_in_user.allergies)
+    print(f"api key: {spoonacular_api_key}")
+
+    print("Diet:", diet)
+    print("Allergies:", intolerance)
+
+    category_to_types = {
+        "breakfast": ["breakfast"],
+        "lunch": ["main course", "salad", "soup"],
+        "dinner": ["main course", "side dish", "appetizer"]
+    }
+
+    meal_recipes = {}
+
+    for category, types in category_to_types.items():
+        collected_recipes = []
+
+        for t in types:
+            print(f"Fetching recipes for {category} ({t})...")
+            response = requests.get(
+                "https://api.spoonacular.com/recipes/complexSearch",
+                params={
+                    "diet": diet,
+                    "excludeIngredients": intolerance,
+                    "type": t,
+                    "number": 3,
+                    "apiKey": spoonacular_api_key
+                }
+            )
+            print("URL:", response.url)
+            print("Status:", response.status_code)
+            print("Response:", response.text[:200])  # just preview the text
+
+            try:
+                data = response.json()
+                collected_recipes.extend(data.get("results", []))
+            except Exception as e:
+                print(f"Error parsing {category} ({t}):", e)
+
+        # fallback if no recipes found for this category
+        if not collected_recipes:
+            print(f"No recipes found for {category} with filters. Trying fallback.")
+            fallback_response = requests.get(
+                "https://api.spoonacular.com/recipes/random",
+                params={
+                    "number": 3,
+                    "apiKey": spoonacular_api_key
+                }
+            )
+            try:
+                fallback_data = fallback_response.json()
+                collected_recipes = fallback_data.get("recipes", [])
+            except Exception as e:
+                print(f"Fallback error for {category}:", e)
+                collected_recipes = []
+
+        # remove duplicates by ID
+        unique = {r['id']: r for r in collected_recipes}
+        meal_recipes[category] = list(unique.values())
+
+    print(meal_recipes)
+
+    return render_template("recipes.html", recipes_by_meal=meal_recipes)
+
+
     
     
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
