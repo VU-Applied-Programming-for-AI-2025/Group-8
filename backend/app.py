@@ -23,15 +23,15 @@ def home_page():
     if request.method == "POST":
         symptoms = request.form.get("symptoms").strip()
         if symptoms:
-            return redirect(url_for("analyze_symptoms", symptoms = symptoms))
+            return redirect(url_for("display_results", symptoms = symptoms))
         return redirect(url_for("home_page"))
     return render_template("homepage.html")
 
 #analyze symptoms
-@app.route("/results")
+# @app.route("/results")
 def analyze_symptoms():
     """
-    This function sends the inputted symptoms to the groq api to analyze, then returns it as text on the /results page.
+    This function sends the inputted symptoms to the groq api to analyze(, then returns it as text on the /results page.)
     """
     symptoms = request.args.get("symptoms")
     
@@ -57,7 +57,7 @@ def analyze_symptoms():
     
     ## llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
     
-    analysis_results = client.chat.completions.create(
+    response = client.chat.completions.create(
         model="meta-llama/llama-4-scout-17b-16e-instruct",
         messages=[
             {
@@ -70,15 +70,25 @@ def analyze_symptoms():
         top_p=1,
         stop=None
     )
-    analysis = analysis_results.choices[0].message.content 
-    food_list = extract_food_recs(analysis)
+    analysis_results = response.choices[0].message.content 
+    return analysis_results
+    # return render_template("results.html", symptoms = symptoms, analysis_results = analysis_results)
+
+@app.route("/results")
+def display_results():
+    """
+    This function displays the groq llm analysis on the webpage.
+    """
+    analysis = analyze_symptoms()
+    symptoms = request.args.get("symptoms")
 
     return render_template("results.html", symptoms = symptoms, analysis = analysis)
 
-def extract_food_recs(groq_response):
+def extract_food_recs():
     """
     This function extracts the food recommendations from the llm response and stores it in a list for backend use.
     """
+    groq_response = analyze_symptoms()
     list_foods = []
 
     for line in groq_response.split("\n"):
