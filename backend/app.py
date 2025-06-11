@@ -27,8 +27,7 @@ def home_page():
         return redirect(url_for("home_page"))
     return render_template("homepage.html")
 
-#analyze symptoms
-# @app.route("/results")
+#function to analyze symptoms 
 def analyze_symptoms():
     """
     This function sends the inputted symptoms to the groq api to analyze(, then returns it as text on the /results page.)
@@ -72,8 +71,8 @@ def analyze_symptoms():
     )
     analysis_results = response.choices[0].message.content 
     return analysis_results
-    # return render_template("results.html", symptoms = symptoms, analysis_results = analysis_results)
 
+#results page to display analysis results
 @app.route("/results")
 def display_results():
     """
@@ -84,9 +83,12 @@ def display_results():
 
     return render_template("results.html", symptoms = symptoms, analysis = analysis)
 
+#helper to function extract foods from the groq response
 def extract_food_recs():
     """
     This function extracts the food recommendations from the llm response and stores it in a list for backend use.
+
+    Call this function to extract a list with foods to eat from the groq llm response.
     """
     groq_response = analyze_symptoms()
     list_foods = []
