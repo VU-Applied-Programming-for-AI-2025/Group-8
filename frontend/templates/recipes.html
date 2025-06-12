@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recipes Matching Your Diet</title>
+    <style>
+        .meal-section {
+            margin-bottom: 40px;
+        }
+        .recipe-card {
+            display: inline-block;
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+        }
+        .recipe-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Recipes Matching Your Diet</h1>
+
+    {% if recipes_by_meal %}
+        {% for category, recipes in recipes_by_meal.items() %}
+            <div class="meal-section">
+                <h2>{{ category.capitalize() }}</h2>
+                {% if recipes %}
+                    {% for entry in recipes %}
+                        <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
+                            <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
+                            <p>{{ entry['title'] }}</p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>No recipes found for {{ category }}.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No recipes found.</p>
+    {% endif %}
+
+</body>
+</html>
