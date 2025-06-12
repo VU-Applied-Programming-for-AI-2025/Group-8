@@ -1,1 +1,44 @@
 ### specify files and folders to exclude from version control ###
+# macOS system files
+.DS_Store
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+env/
+venv/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings (optional)
+.vscode/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# SQLite database
+*.sqlite3
+
+# Test coverage reports
+htmlcov/
+coverage.xml
+*.cover
+
+# Pytest cache
+.pytest_cache/
+
+# MyPy cache
+.mypy_cache/
+
+# Others
+*.swp
+*.bak
