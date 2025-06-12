@@ -1,11 +1,14 @@
 ## develop your flask app here ##
-
-from typing import Dict, List
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-from user_data.user_profile import UserProfile, UsersData
-import requests
+from flask import Flask, render_template, url_for, request, redirect, session, jsonify
+from dotenv import load_dotenv
 import os
 import json
+import requests
+from groq import Groq
+from typing import Dict, List
+from user_data.user_profile import UserProfile, UsersData
+
+load_dotenv()
 
 app = Flask(
     __name__,
@@ -13,7 +16,9 @@ app = Flask(
 )
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 spoonacular_api_key = os.getenv("API_KEY") # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
-
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
 users_data = UsersData() # Initializes the UsersData object where all the user profiles will be stored.
 
 # Consent form page
@@ -127,6 +132,101 @@ def home():
     d['fullname'] = user.name
     print(d)
     return render_template("index.html", response=d)
+
+#homepage
+@app.route("/", methods = ["GET", "POST"])
+def home_page():
+    """
+    This function displays the homepage and handles the submission from the user for their symptoms. After symptoms are provided, redirects to /results
+    with the symptoms being the url parameter. 
+    """
+    if request.method == "POST":
+        symptoms = request.form.get("symptoms").strip()
+        if symptoms:
+            return redirect(url_for("display_results", symptoms = symptoms))
+        return redirect(url_for("home_page"))
+    return render_template("homepage.html")
+
+#function to analyze symptoms 
+def analyze_symptoms():
+    """
+    This function sends the inputted symptoms to the groq api to analyze(, then returns it as text on the /results page.)
+    """
+    symptoms = request.args.get("symptoms")
+    
+    ai_prompt = f"""
+        user symptoms: {symptoms}
+
+        required analysis:
+        1. top 3 likely vitamin/mineral deficiencies for each symptom
+        2. for each deficiency:
+        - biological explanation (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
+        - foods to eat to fix the issue (comma-seperated list, no extra information, list each food on its own)
+        - 1 lifestyle tip
+        3. flag any urgent medical concerns
+
+        return the analysis only in this format:
+        [deficiency name]:
+        - Why: [explanation]
+        - Foods: [comma-separated list]
+        - Tip: [actionable advice]
+
+        [Urgency Note]: (if applicable)
+        """
+    
+    ## llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
+    
+    response = client.chat.completions.create(
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        messages=[
+            {
+                "role": "user",
+                "content": ai_prompt,
+            }
+        ],
+        temperature=0.7,
+        max_completion_tokens=1024,
+        top_p=1,
+        stop=None
+    )
+    analysis_results = response.choices[0].message.content 
+    return analysis_results
+
+#results page to display analysis results
+@app.route("/results")
+def display_results():
+    """
+    This function displays the groq llm analysis on the webpage.
+    """
+    analysis = analyze_symptoms()
+    symptoms = request.args.get("symptoms")
+
+    return render_template("results.html", symptoms = symptoms, analysis = analysis)
+
+#helper to function extract foods from the groq response
+def extract_food_recs():
+    """
+    This function extracts the food recommendations from the llm response and stores it in a list for backend use.
+
+    Call this function to extract a list with foods to eat from the groq llm response.
+    """
+    groq_response = analyze_symptoms()
+    list_foods = []
+
+    for line in groq_response.split("\n"):
+        line = line.strip()
+        if line.startswith('- Foods:'):
+            all_foods = line[8:].split(',')
+            foods = [food.strip() for food in all_foods]
+            list_foods.extend(foods)
+
+    seen_foods = set() #to check duplicates
+    food_recs = [] #new list w/o duplicates
+    for food in list_foods:
+        if not (food in seen_foods or seen_foods.add(food)):
+            food_recs.append(food)
+    
+    return food_recs
 
 @app.route("/recommendations")
 def recommendations():
