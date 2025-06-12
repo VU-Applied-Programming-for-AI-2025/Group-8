@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Symptoms analyzer</title>
+    <title>Homepage - Symptoms Analyzer & Meal Recommendations</title>
 </head>
 <body>
+    <div>
+        <h2>Welcome {{response.fullname}}</h2>
+        <a href="/recommendations">Click here to get meal recommendations matching your {{response.diet}} diet and {{response.allergies}} allergies</a>
+    </div>
+
     <h1>Symptoms analyzer</h1>
     <form method = "POST" action = "/">
         <label for = "symptoms"> Enter your symptoms:</label>
