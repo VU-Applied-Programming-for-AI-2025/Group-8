@@ -35,7 +35,7 @@ class UserProfile:
             skin_color (str): The skin color of the user (light, medium, dark).
             country (str): The country where the user lives.
             medication (List[str]): The medications that the user consumes.
-            diet (List[str]): The user's diet's wishes 
+            diet (List[str]): The user's diet's wishes (Gluten Free, Ketogenic, Vegetarian, Lacto-Vegetarian, Ovo-Vegetarian, Vegan, Pescetarian, Paleo, Primal, Low FODMAP, Whole30)
             existing_conditions (List[str]): The user's existing conditions.
             allergies (List[str]): The users allergies.
         """

@@ -1,1 +1,2 @@
 ### specify files and folders to exclude from version control ###
+__pycache__/
