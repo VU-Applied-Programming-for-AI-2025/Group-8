@@ -145,20 +145,6 @@ def home():
     
     return render_template("homepage.html", response=d)
 
-# #homepage
-# @app.route("/", methods = ["GET", "POST"])
-# def home_page():
-#     """
-#     This function displays the homepage and handles the submission from the user for their symptoms. After symptoms are provided, redirects to /results
-#     with the symptoms being the url parameter. 
-#     """
-#     if request.method == "POST":
-#         symptoms = request.form.get("symptoms").strip()
-#         if symptoms:
-#             return redirect(url_for("display_results", symptoms = symptoms))
-#         return redirect(url_for("home_page"))
-#     return render_template("homepage.html")
-
 #function to analyze symptoms 
 def analyze_symptoms():
     """
