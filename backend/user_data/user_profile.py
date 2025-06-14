@@ -1,4 +1,5 @@
 from typing import List, Tuple, Dict
+import json
 
 class UserProfile:
     """
@@ -38,7 +39,7 @@ class UserProfile:
             skin_color (str): The skin color of the user (light, medium, dark).
             country (str): The country where the user lives.
             medication (List[str]): The medications that the user consumes.
-            diet (List[str]): The user's diet's wishes 
+            diet (List[str]): The user's diet's wishes (none, gluten free, ketogenic, vegetarian, lacto-vegetarian, ovo-vegetarian, vegan, pescetarian, paloe, primal, low fodmap, whole30).
             existing_conditions (List[str]): The user's existing conditions.
             allergies (List[str]): The users allergies.
         """
@@ -58,51 +59,54 @@ class UserProfile:
         self.saved_recipes = saved_recipes
         self.analysis_results = analysis_results
 
-    # def authentication(self, username: str, password: str) -> bool:
-    #     """
-    #     Authenticates the user by checking if the provided username and password match the stored ones.
-    #     :param username (str): The username given by the user.
-    #     :param password (str): The password given by the user.
-    #     :return (bool): True if the parameters match the stored date, False otherwise.
-    #     """
-    #     if self.username == username and self.password == password:
-    #         return True
-    #     return False
-    
-    # def add_user(self, username: str, password: str) -> None:
-    #     """
-    #     Creates a new profile for a user, with the given parameters as username and password.
-    #     :param username (str): The username given by the user.
-    #     :param password (str): The password given by the user.
-    #     """
-    #     self.username = username
-    #     self.password = password
-
 class UsersData:
     """
-    Class representing a data storage of the users.
+    Class managing the data storage of the user profiles.
+    Stores user profiles in a JSON file.
     """
-    def __init__(self)-> None:
+    def __init__(self, file_path='backend/user_data/users.json')-> None:
         """
-        Initializes a Userdata object. 
-        Creates an empty dictionary with username as the keys and their corresponding userprofile username as the value.
+        Initializes a Userdata object. Loads user profiles from the users.json file if it exists.
+        :param file_path (str): The path to the JSON file where user profiles are stored.
         """
-        self.users = {} 
+        self.users = {}
+        self.file_path = file_path
+        self.load_from_file() 
     
     def add_user(self, user_profile: UserProfile)-> None:
         """
-        Add's a user profile to the users dictionary.
+        Add's a new user profile to the data file.
         If the username already exists in the database, it raises a ValueError.
-        :param user_profile (UserProfile): A user profile object.
+        :param user_profile (UserProfile): A user profile object that will be added to the storage.
         """
         username: str = user_profile.username
         if username in self.users:
             raise ValueError(f"User with username '{username}' already exists.")
         self.users[username] = user_profile
+        self.save_to_file()
+
+    def save_to_file(self):
+        """
+        Saves user profiles to the JSON file where the data will be stored.
+        """
+        with open(self.file_path, "w") as file:
+            json.dump({u: vars(p) for u, p in self.users.items()}, file)
+
+    def load_from_file(self):
+        """
+        Loads user profiles from the JSON file.
+        Raises an FileNotFoundError if the file does not exist."""
+        try:
+            with open(self.file_path, "r") as file:
+                user_data = json.load(file)
+                for username, user_profile in user_data.items():
+                    self.users[username] = UserProfile(**user_profile)
+        except FileNotFoundError:
+            pass
 
     def get_user(self, username: str) -> UserProfile:
         """
-        Returns the user profile object for the given username.
+        Returns the user profile object for the given username. If no user is found, it returns None.
         :param username (str): The username of the user.
         :return (UserProfile): The user profile object for the given username.
         """
@@ -123,4 +127,6 @@ class UsersData:
                 return True, "Authentication successful"
             else:
                 return False, "Wrong password"
+    
+    
        

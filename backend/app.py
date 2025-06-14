@@ -87,7 +87,7 @@ def register():
         skin_color = request.form.get("skin_color")
         country = request.form.get("country")
         medication = request.form.get("medication", "").split(",")
-        diet = request.form.get("diet", "").split(",")
+        diet = request.form.get("diet")
         existing_conditions = request.form.get("existing_conditions", "").split(",")
         allergies = request.form.get("allergies", "").split(",")
         
@@ -131,7 +131,7 @@ def home():
     if not user:
         return redirect(url_for("auth_page"))
     d = {}
-    d['diet'] = ",".join(user.diet)
+    d['diet'] = user.diet
     d['allergies'] = ",".join(user.allergies)
     d['fullname'] = user.name
     print(d)
@@ -185,7 +185,7 @@ def analyze_symptoms():
         [Urgency Note]: (if applicable)
         """
     
-    ## llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
+    # llm should incorporate the pesonal details of the user like allergies, pregnancy, etc 
     
     response = client.chat.completions.create(
         model="meta-llama/llama-4-scout-17b-16e-instruct",
@@ -391,6 +391,42 @@ def userAuthHelper():
         session['username'] = ""
         return False
     return logged_in_user
+
+@app.route('/profile', methods=["GET", "POST"])
+def profile():
+    """
+    Displays the user profile page with the information from the user profile
+    Users can update their profile information and save it.
+    """
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+    
+    if request.method == "POST":
+        user.password = request.form.get("password")
+        user.name = request.form.get("name")
+        user.age = request.form.get("age")
+        user.sex = request.form.get("sex")
+        user.hight = request.form.get("hight")
+        user.weight = request.form.get("weight")
+        user.skin_color = request.form.get("skin_color")
+        user.country = request.form.get("country")
+        user.medication = request.form.get("medication", "").split(",")
+        user.diet = request.form.get("diet")
+        user.existing_conditions = request.form.get("existing_conditions", "").split(",")
+        user.allergies = request.form.get("allergies", "").split(",")
+        users_data.save_to_file()
+        message = "Profile updated!"
+        return render_template("profile.html", user=user, message=message)
+    return render_template("profile.html", user=user)
+
+@app.route('/logout')
+def logout():
+    """
+    Will logout the user by clearing the session and redirects to the authentication page.
+    """
+    session.clear()
+    return redirect(url_for("auth_page"))
 
 if __name__ == "__main__":
     app.run(debug=True)
