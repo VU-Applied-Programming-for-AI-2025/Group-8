@@ -313,6 +313,19 @@ def recommendations():
 @app.route("/recommendations")
 def go_to_mealplans():
     return redirect(url_for("recommendations"))
+
+#display recipe details
+@app.route("/recipe/<recipe_id>")
+def recipe_details(recipe_id):
+    response = requests.get(
+        f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+        params = {
+            "apiKey": spoonacular_api_key,
+            "includeNutrition": True    
+            }
+        )
+    recipe_info = response.json()
+    return render_template("recipe_details.html", recipe = recipe_info)
     
     
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
