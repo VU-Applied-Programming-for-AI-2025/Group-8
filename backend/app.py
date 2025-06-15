@@ -449,15 +449,11 @@ def save_favorite(recipe_id):
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
 
-    favorite = db.session.query.filter_by(
-        user=fav_recipe.user_id, recipe_id=fav_recipe.id
-    )
-    if favorite:
-        return "already exists"
+    if recipe_id in user.saved_recipes:
+        return "Already saved"
 
-    add_favorite = FavoriteRecipe(recipe_id=fav_recipe.id, user=fav_recipe.user_id)
-    db.session.add(add_favorite)
-    db.session.commit()
+    user.saved_recipes.append(recipe_id)
+    users_data.save_to_file()
 
     return "OK"
 
@@ -467,19 +463,13 @@ def remove_favorite(recipe_id):
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    recipe_id = int(recipe_id)
 
-    favorite = db.session.query.filter(
-        user=fav_recipe.user_id, recipe_id=fav_recipe.id
-    ).first()
-    if favorite:
-        return "already exists"
+    if recipe_id in user.saved_recipes:
+        user.saved_recipes.remove(recipe_id)
+        users_data.save_to_file()
 
-    add_favorite = FavoriteRecipe(recipe_id=fav_recipe.id, user=fav_recipe.user_id)
-    db.session.remove(add_favorite)
-    db.session.commit()
-
-    return "OK"
+        return "OK"
+    return "Not exists"
 
 
 @app.route("/show_favorites", methods=["GET"])
@@ -487,7 +477,17 @@ def show_favorites():
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    return jsonify(fav_recipe)
+
+    recipes = []
+    for recipe_id in user.saved_recipes:
+        response = requests.get(
+            f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+            params={"apiKey": spoonacular_api_key},
+        )
+        if response.ok:
+            recipes.append(response.json)
+
+    return render_template("favorites.html", recipes=recipes)
 
 
 @app.route("/save_results", methods=["POST"])
@@ -496,32 +496,13 @@ def save_results():
     if not user:
         return redirect(url_for("auth_page"))
 
-    CurrentResults = request.get_json(silent=True)
-    if not CurrentResults:
+    analysis = request.get_json(silent=True)
+    if not analysis:
         return "No result"
-    user.analysis_results = CurrentResults
+    user.analysis_results = analysis
+    users_data.save_to_file()
 
     return "OK"
-
-
-@app.route("/result_visualization", methods=["POST"])
-def result_visualization():
-    user = userAuthHelper()
-    if not user:
-        return redirect(url_for("auth_page"))
-
-    result = {}
-    CurrentResult = user.analysis_results
-
-    for vitamin in CurrentResult:
-        if CurrentResult[vitamin] < 40:
-            result[vitamin] = "Low"
-        elif CurrentResult[vitamin] < 70:
-            result[vitamin] = "Medium"
-        else:
-            result[vitamin] = "High"
-
-    return jsonify(result)
 
 
 def userAuthHelper():
