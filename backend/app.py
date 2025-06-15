@@ -310,6 +310,24 @@ def recommendations():
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
+#go to recipe recs from the sympstoms analysis page
+@app.route("/recommendations")
+def go_to_mealplans():
+    return redirect(url_for("recommendations"))
+
+#display recipe details
+@app.route("/recipe/<recipe_id>")
+def recipe_details(recipe_id):
+    response = requests.get(
+        f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+        params = {
+            "apiKey": spoonacular_api_key,
+            "includeNutrition": True    
+            }
+        )
+    recipe_info = response.json()
+    return render_template("recipe_details.html", recipe = recipe_info)
+
 # Meal planner creation page
 @app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
 def meal_planner():
