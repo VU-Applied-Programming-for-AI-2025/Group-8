@@ -311,11 +311,6 @@ def recommendations():
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
-#go to recipe recs from the sympstoms analysis page
-@app.route("/recommendations")
-def go_to_mealplans():
-    return redirect(url_for("recommendations"))
-
 #display recipe details
 @app.route("/recipe/<recipe_id>")
 def recipe_details(recipe_id):
@@ -363,6 +358,8 @@ def spoonacular_builtin_mealplanner():
         response = requests.get("https://api.spoonacular.com/mealplanner/generate", params=params)
         if response.status_code == 200:
             user.mealplan = response.json()
+            print("spoonacular response mealplan")
+            print(user.mealplan)
             users_data.save_to_file()
             return redirect(url_for("edit_meal_planner"))
         else:
@@ -397,13 +394,35 @@ def meal_planner():
         if not user:
             return redirect(url_for("auth_page"))
 
-        meal_plan = get_meal_plan(
-            api_key=spoonacular_api_key,
-            diet=user.diet,
-            exclude=",".join(user.allergies),
-            calories=calories,
-            time_frame=time_frame
-        )
+        meal_plan = {}
+        meal_plan['meals'] = []
+        meal_plan['nutrients'] = {
+            'calories': 0,
+            'protein': 0,
+            'fat': 0,
+            'carbohydrates': 0
+        }
+        nutrients_to_check = set(['calories', 'protein', 'fat'])
+        selected_meals = request.form.getlist("meals")
+        print("selected_meals")
+        print(selected_meals)
+        for id in selected_meals:
+            print(f"id = {id}")
+            response = requests.get(
+                f"https://api.spoonacular.com/recipes/{id}/information",
+                    params = {
+                        "apiKey": spoonacular_api_key,
+                        "includeNutrition": True
+                    }
+                )
+            recipe_info = response.json()
+            print('recipe_info')
+            print(recipe_info)
+            meal_plan['meals'].append(recipe_info)
+
+            for n in recipe_info['nutrition']['nutrients']:
+                if n['name'].lower() in nutrients_to_check:
+                    meal_plan['nutrients'][n['name'].lower()] += n['amount']
 
         user.mealplan = meal_plan
         users_data.save_to_file()
