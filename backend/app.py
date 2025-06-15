@@ -8,6 +8,7 @@ from groq import Groq
 from typing import Dict, List
 from user_data.user_profile import UserProfile, UsersData
 import random
+import requests
 
 load_dotenv()
 
@@ -310,11 +311,6 @@ def recommendations():
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
-#go to recipe recs from the sympstoms analysis page
-@app.route("/recommendations")
-def go_to_mealplans():
-    return redirect(url_for("recommendations"))
-
 #display recipe details
 @app.route("/recipe/<recipe_id>")
 def recipe_details(recipe_id):
@@ -329,16 +325,111 @@ def recipe_details(recipe_id):
     return render_template("recipe_details.html", recipe = recipe_info)
 
 # Meal planner creation page
+@app.route("/recommendations/mealplanner/select", methods=["GET", "POST"])
+def choose_meal_planner():
+    if request.method == "POST":
+        selected = request.form.get("type")
+        if selected == "auto":
+            return redirect(url_for("spoonacular_builtin_mealplanner"))
+        elif selected == "custom":
+            return redirect(url_for("meal_planner"))
+    return render_template("select_meal_plan_type.html")
+
+
+@app.route("/recommendations/mealplanner/spoonacular", methods=["GET", "POST"])
+def spoonacular_builtin_mealplanner():
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    if request.method == "POST":
+        time_frame = request.form.get("timeFrame", "day")
+        calories = request.form.get("calories")
+
+        params = {
+            "apiKey": spoonacular_api_key,
+            "timeFrame": time_frame,
+            "diet": user.diet,
+            "exclude": ",".join(user.allergies)
+        }
+        if calories:
+            params["targetCalories"] = calories
+
+        response = requests.get("https://api.spoonacular.com/mealplanner/generate", params=params)
+        if response.status_code == 200:
+            user.mealplan = response.json()
+            print("spoonacular response mealplan")
+            print(user.mealplan)
+            users_data.save_to_file()
+            return redirect(url_for("edit_meal_planner"))
+        else:
+            return render_template("builtin_meal_planner.html", error="Failed to fetch meal plan.")
+
+    return render_template("builtin_meal_planner.html")
+
+def get_meal_plan(api_key, diet=None, exclude=None, calories=None, time_frame="day"):
+    url = "https://api.spoonacular.com/mealplanner/generate"
+    params = {
+        "apiKey": api_key,
+        "timeFrame": time_frame,
+    }
+    if diet:
+        params["diet"] = diet
+    if exclude:
+        params["exclude"] = exclude
+    if calories:
+        params["targetCalories"] = calories
+
+    response = requests.get(url, params=params)
+    return response.json()
+
+
 @app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
 def meal_planner():
     if request.method == "POST":
-        days = int(request.form["days"])
-        meals = request.form.getlist("meals")
+        time_frame = request.form.get("timeFrame", "day")  # "day" or "week"
+        calories = request.form.get("calories")
+
         user = userAuthHelper()
-        user.mealplan = generate_mealplan(days, meals, user)
+        if not user:
+            return redirect(url_for("auth_page"))
+
+        meal_plan = {}
+        meal_plan['meals'] = []
+        meal_plan['nutrients'] = {
+            'calories': 0,
+            'protein': 0,
+            'fat': 0,
+            'carbohydrates': 0
+        }
+        nutrients_to_check = set(['calories', 'protein', 'fat'])
+        selected_meals = request.form.getlist("meals")
+        print("selected_meals")
+        print(selected_meals)
+        for id in selected_meals:
+            print(f"id = {id}")
+            response = requests.get(
+                f"https://api.spoonacular.com/recipes/{id}/information",
+                    params = {
+                        "apiKey": spoonacular_api_key,
+                        "includeNutrition": True
+                    }
+                )
+            recipe_info = response.json()
+            print('recipe_info')
+            print(recipe_info)
+            meal_plan['meals'].append(recipe_info)
+
+            for n in recipe_info['nutrition']['nutrients']:
+                if n['name'].lower() in nutrients_to_check:
+                    meal_plan['nutrients'][n['name'].lower()] += n['amount']
+
+        user.mealplan = meal_plan
         users_data.save_to_file()
-        return redirect(url_for("/recommendations/mealplanner/view"))
+        return redirect(url_for("edit_meal_planner"))
+
     return render_template("create_meal_planner.html")
+
 
 @app.route("/recommendations/mealplanner/view", methods=["GET"])
 def edit_meal_planner():
@@ -348,12 +439,21 @@ def edit_meal_planner():
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    
+
     mealplan = user.mealplan
     if not mealplan:
         return render_template("mealplanner.html", message="No meal plan found. Please create one.")
-    
-    return render_template("mealplanner.html", mealplan=mealplan)
+
+    # Determine if it's a daily or weekly plan
+    if "meals" in mealplan:
+        # Day plan
+        return render_template("mealplanner.html", day_plan=mealplan)
+    elif "week" in mealplan:
+        # Week plan
+        return render_template("mealplanner.html", week_plan=mealplan["week"])
+    else:
+        return render_template("mealplanner.html", message="Unexpected meal plan format.")
+
 
 def generate_mealplan(days: int, meals: List[str], user: UserProfile) -> Dict[str, List[Dict]]:
     """
