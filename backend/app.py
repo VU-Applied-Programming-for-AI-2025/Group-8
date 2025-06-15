@@ -235,12 +235,16 @@ def recommendations():
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
+    
     diet = ",".join(logged_in_user.diet)
     intolerance = ",".join(logged_in_user.allergies)
     print(f"api key: {spoonacular_api_key}")
 
     print("Diet:", diet)
     print("Allergies:", intolerance)
+
+    recommended_foods = extract_food_recs()
+    print("Recommended foods: ", recommended_foods)
 
     category_to_types = {
         "breakfast": ["breakfast"],
@@ -255,16 +259,21 @@ def recommendations():
 
         for t in types:
             print(f"Fetching recipes for {category} ({t})...")
-            response = requests.get(
-                "https://api.spoonacular.com/recipes/complexSearch",
-                params={
+            
+            params={
                     "diet": diet,
                     "excludeIngredients": intolerance,
                     "type": t,
                     "number": 3,
                     "apiKey": spoonacular_api_key
                 }
+            if recommended_foods:
+                params["includeIngredients"] = ",".join(recommended_foods)
+
+            response = requests.get(
+                "https://api.spoonacular.com/recipes/complexSearch", params = params
             )
+
             print("URL:", response.url)
             print("Status:", response.status_code)
             print("Response:", response.text[:200])  # just preview the text
@@ -300,7 +309,10 @@ def recommendations():
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
-
+#go to recipe recs from the sympstoms analysis page
+@app.route("/recommendations")
+def go_to_mealplans():
+    return redirect(url_for("recommendations"))
     
     
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
