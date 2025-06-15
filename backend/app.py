@@ -3,6 +3,7 @@
 from typing import Dict, List
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from user_data.user_profile import UserProfile, UsersData
+from FavRecipe import FavoriteRecipe, db
 import requests
 import os
 import json
@@ -15,6 +16,7 @@ app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 spoonacular_api_key = os.getenv("API_KEY") # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
 
 users_data = UsersData() # Initializes the UsersData object where all the user profiles will be stored.
+fav_recipe = FavoriteRecipe()
 
 # Consent form page
 @app.route('/')
@@ -203,8 +205,6 @@ def recommendations():
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
 
-    
-    
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
 def save_favorite(recipe_id):
     user = userAuthHelper()
@@ -212,10 +212,14 @@ def save_favorite(recipe_id):
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
     
-    if recipe_id in user.saved_recipes:
-        return "already exist"
-    
-    user.saved_recipes.append(recipe_id)
+    favorite = db.session.query.filter_by(user = fav_recipe.user_id, recipe_id = fav_recipe.id)
+    if favorite:
+        return "already exists"
+        
+    add_favorite = FavoriteRecipe(recipe_id = fav_recipe.id, user = fav_recipe.user_id)
+    db.session.add(add_favorite)
+    db.session.commit()
+
     return "OK"
     
 @app.route('/remove_favorite/<recipe_id>', methods = ['DELETE'])
@@ -224,12 +228,15 @@ def remove_favorite(recipe_id):
     if not user:
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
-    if recipe_id not in user.saved_recipes:
-        return "not exist"
     
-    if recipe_id in user.saved_recipes:
-        user.saved_recipes.remove(recipe_id)
-    
+    favorite = db.session.query.filter(user = fav_recipe.user_id, recipe_id = fav_recipe.id).first()
+    if favorite:
+        return "already exists"
+        
+    add_favorite = FavoriteRecipe(recipe_id = fav_recipe.id, user = fav_recipe.user_id)
+    db.session.remove(add_favorite)
+    db.session.commit()
+        
     return "OK" 
 
 @app.route('/show_favorites', methods = ['GET'])
@@ -237,7 +244,7 @@ def show_favorites():
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    return jsonify(user.saved_recipes)
+    return jsonify(fav_recipe)
 
 @app.route('/save_results', methods=['POST'])
 def save_results():
