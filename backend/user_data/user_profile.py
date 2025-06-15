@@ -21,8 +21,8 @@ class UserProfile:
             existing_conditions: List[str] = [],
             allergies: List[str] = [],
             saved_recipes = [],
-            analysis_results: Dict[str, int] = {}
-           
+            analysis_results: Dict[str, int] = {},
+            mealplan = []
             ) -> None:
         
         """
@@ -42,6 +42,9 @@ class UserProfile:
             diet (List[str]): The user's diet's wishes (none, gluten free, ketogenic, vegetarian, lacto-vegetarian, ovo-vegetarian, vegan, pescetarian, paloe, primal, low fodmap, whole30).
             existing_conditions (List[str]): The user's existing conditions.
             allergies (List[str]): The users allergies.
+            saved_recipes
+            analysis_results
+            mealplan: The user's generated meal plan.
         """
         self.username = username
         self.password = password
@@ -58,6 +61,7 @@ class UserProfile:
         self.allergies = allergies
         self.saved_recipes = saved_recipes
         self.analysis_results = analysis_results
+        self.mealplan = mealplan
 
 class UsersData:
     """

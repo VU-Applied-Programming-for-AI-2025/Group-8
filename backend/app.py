@@ -7,6 +7,7 @@ import requests
 from groq import Groq
 from typing import Dict, List
 from user_data.user_profile import UserProfile, UsersData
+import random
 
 load_dotenv()
 
@@ -309,12 +310,90 @@ def recommendations():
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
-#go to recipe recs from the sympstoms analysis page
-@app.route("/recommendations")
-def go_to_mealplans():
-    return redirect(url_for("recommendations"))
+# Meal planner creation page
+@app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
+def meal_planner():
+    if request.method == "POST":
+        days = int(request.form["days"])
+        meals = request.form.getlist("meals")
+        user = userAuthHelper()
+        user.mealplan = generate_mealplan(days, meals, user)
+        users_data.save_to_file()
+        return redirect(url_for("/recommendations/mealplanner/view"))
+    return render_template("create_meal_planner.html")
+
+@app.route("/recommendations/mealplanner/view", methods=["GET"])
+def edit_meal_planner():
+    """
+    Shows the meal plan for the user, where the user can edit.
+    """
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
     
+    mealplan = user.mealplan
+    if not mealplan:
+        return render_template("mealplanner.html", message="No meal plan found. Please create one.")
     
+    return render_template("mealplanner.html", mealplan=mealplan)
+
+def generate_mealplan(days: int, meals: List[str], user: UserProfile) -> Dict[str, List[Dict]]:
+    """
+    Provides a mealplan with categorized recipe recommendations for breakfast, lunch, and / or dinner.
+    Falls back to random recipes if no results are found.
+    :param days (int): The number of days for the meal plan.
+    :param meals (List[str]): A list of meals to include in the meal plan (breakfast, lunch, dinner).
+    :param user (UserProfile): The UserProfile object containing user information.
+    :return (Dict[str, List[Dict]]): A dictionary with meal plan details.
+    """
+    if not user:
+        return redirect(url_for("auth_page"))
+    mealplan = {}
+    for day in range(1, days + 1):
+        mealplan[day] = {}
+        for meal in meals:
+            recipe = generate_recipe(meal)
+            mealplan[day][meal] = recipe
+    return mealplan
+
+def generate_recipe(meal:str, exclude_ingredients: List[str] = []) -> Dict:
+    """
+    Generates a recipe based on the user's preferences and dietary restrictions.
+    :param meal (str): The type of meal to generate a recipe for (e.g., breakfast, lunch, dinner).
+    :param exclude_ingredients (List[str]): A optional list of ingredients to exclude from the recipe.
+    :return (Dict): A dictionary containing the generated recipe details.
+    """
+    user = userAuthHelper()
+    diet = user.diet
+    intolerance = ",".join(user.allergies).join(exclude_ingredients)
+    
+    category_to_types = {
+        "breakfast": ["breakfast"],
+        "lunch": ["main course", "salad", "soup"],
+        "dinner": ["main course", "side dish", "appetizer"]
+    }
+    
+    types = category_to_types.get(meal, [meal])
+    selected_type = random.choice(types)
+
+    params = {
+        "diet": diet,
+        "excludeIngredients": intolerance,
+        "type": selected_type,
+        "number": 1,
+        "apiKey": spoonacular_api_key
+    }
+    response = requests.get(
+        "https://api.spoonacular.com/recipes/random", params=params
+    )
+    if response.status_code == 200:
+        data = response.json()
+        recipe = data.get("recipes", [])[0]
+        return jsonify(recipe)
+    else:
+        return jsonify({"error": "Failed to fetch recipe"}), 500    
+
+
 @app.route('/save_favorite/<recipe_id>', methods = ['POST'])
 def save_favorite(recipe_id):
     user = userAuthHelper()
