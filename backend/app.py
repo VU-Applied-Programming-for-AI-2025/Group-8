@@ -1,36 +1,48 @@
 ## develop your flask app here ##
-
 from typing import Dict, List
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from user_data.user_profile import UserProfile, UsersData
 from FavRecipe import FavoriteRecipe, db
 import requests
+from dotenv import load_dotenv
 import os
-import json
+
+# import json
+from groq import Groq
+import random
+
+load_dotenv()
 
 app = Flask(
     __name__,
-    template_folder="../frontend/templates", 
+    template_folder="../frontend/templates",
 )
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
-spoonacular_api_key = os.getenv("API_KEY") # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
-
-users_data = UsersData() # Initializes the UsersData object where all the user profiles will be stored.
+spoonacular_api_key = os.getenv(
+    "API_KEY"
+)  # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
+users_data = (
+    UsersData()
+)  # Initializes the UsersData object where all the user profiles will be stored.
 fav_recipe = FavoriteRecipe()
 
+
 # Consent form page
-@app.route('/')
+@app.route("/")
 def show_consent():
     """
     Checks if the consent form should be given (when the user has not given consent yet). Redirects to the consent form page.
     Redirects to the authentication page if the user has already given consent.
     """
-    if not session.get('consent_given'):
-        return render_template('consentform.html')
+    if not session.get("consent_given"):
+        return render_template("consentform.html")
     return redirect(url_for("auth_page"))
 
 
-@app.route('/consentform', methods=['POST'])
+@app.route("/consentform", methods=["POST"])
 def handle_consent():
     """
     Checks if the user has given consent to redirect to auth page.
@@ -38,41 +50,42 @@ def handle_consent():
     accepted = request.form.get("accept", "false")
 
     if accepted.lower() == "true":
-        session['consent_given'] = True
+        session["consent_given"] = True
         return redirect(url_for("auth_page"))
     else:
-        session['consent_given'] = False
+        session["consent_given"] = False
 
 
 # Authentication page
-@app.route("/auth", methods=['GET', 'POST'])
+@app.route("/auth", methods=["GET", "POST"])
 def auth_page():
     """
     Makes sure that the authentication page is only accassible if consent has been given, otherwise redirects to the consent form.
     If the user is logged in already, they will be redirected to the home page.
     If the user has not ben logged in yet, it will be redirected to the /auth/register page.
     """
-    if session.get('consent_given') and not session.get('logged_in'):
+    if session.get("consent_given") and not session.get("logged_in"):
         return render_template("auth.html")
-    
-    if not session.get('consent_given'):
+
+    if not session.get("consent_given"):
         return redirect(url_for("show_consent"))
-    
-    if session.get('logged_in'):
+
+    if session.get("logged_in"):
         return redirect(url_for("home"))
+
 
 @app.route("/auth/register", methods=["GET", "POST"])
 def register():
     """
-    Handles the registration for a new user profile. 
+    Handles the registration for a new user profile.
     If the user is already logged in, redirects to the home page.
     Processes the registration form and adds a new user profile.
-    If the registration is successful, redirects to the home page. 
+    If the registration is successful, redirects to the home page.
     If the registration fails because of an existing username, it shows an error message on the registration page.
     """
-    if session.get('logged_in'):
+    if session.get("logged_in"):
         return redirect(url_for("home"))
-    
+
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -84,20 +97,35 @@ def register():
         skin_color = request.form.get("skin_color")
         country = request.form.get("country")
         medication = request.form.get("medication", "").split(",")
-        diet = request.form.get("diet", "").split(",")
+        diet = request.form.get("diet")
         existing_conditions = request.form.get("existing_conditions", "").split(",")
         allergies = request.form.get("allergies", "").split(",")
-        
-        try: 
-            user_profile = UserProfile(username, password, name, age, sex, hight, weight, skin_color, country, medication, diet, existing_conditions, allergies)
+
+        try:
+            user_profile = UserProfile(
+                username,
+                password,
+                name,
+                age,
+                sex,
+                hight,
+                weight,
+                skin_color,
+                country,
+                medication,
+                diet,
+                existing_conditions,
+                allergies,
+            )
             users_data.add_user(user_profile)
-            session['logged_in'] = True
-            session['username'] = username
+            session["logged_in"] = True
+            session["username"] = username
             return redirect(url_for("home"))
         except ValueError as e:
             return render_template("auth.html", error=str(e))
-    
+
     return render_template("registration.html")
+
 
 @app.route("/auth/login", methods=["POST"])
 def login():
@@ -111,24 +139,121 @@ def login():
         password = request.form.get("password")
         authenticated, message = users_data.user_authentication(username, password)
         if authenticated:
-            session['logged_in'] = True
-            session['username'] = username
+            session["logged_in"] = True
+            session["username"] = username
             return redirect(url_for("home"))
         else:
             return render_template("auth.html", error=message)
 
 
-@app.route("/home")
+@app.route("/home", methods=["GET", "POST"])
 def home():
+    """
+    This function displays the homepage and handles the submission from the user for their symptoms. After symptoms are provided, redirects to /results
+    with the symptoms being the url parameter.
+    """
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
+
     d = {}
-    d['diet'] = ",".join(user.diet)
-    d['allergies'] = ",".join(user.allergies)
-    d['fullname'] = user.name
+    d["diet"] = user.diet
+    d["allergies"] = ",".join(user.allergies)
+    d["fullname"] = user.name
     print(d)
-    return render_template("index.html", response=d)
+
+    if request.method == "POST":
+        symptoms = request.form.get("symptoms").strip()
+        if symptoms:
+            return redirect(url_for("display_results", symptoms=symptoms))
+        return redirect(url_for("home_page"))
+
+    return render_template("homepage.html", response=d)
+
+
+# function to analyze symptoms
+def analyze_symptoms():
+    """
+    This function sends the inputted symptoms to the groq api to analyze(, then returns it as text on the /results page.)
+    """
+    symptoms = request.args.get("symptoms")
+
+    ai_prompt = f"""
+        user symptoms: {symptoms}
+
+        required analysis:
+        1. top 3 likely vitamin/mineral deficiencies for each symptom
+        2. for each deficiency:
+        - biological explanation (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
+        - foods to eat to fix the issue (comma-seperated list, no extra information, list each food on its own)
+        - 1 lifestyle tip
+        3. flag any urgent medical concerns
+
+        return the analysis only in this format:
+        [deficiency name]:
+        - Why: [explanation]
+        - Foods: [comma-separated list]
+        - Tip: [actionable advice]
+
+        [Urgency Note]: (if applicable)
+        """
+
+    # llm should incorporate the pesonal details of the user like allergies, pregnancy, etc
+
+    response = client.chat.completions.create(
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        messages=[
+            {
+                "role": "user",
+                "content": ai_prompt,
+            }
+        ],
+        temperature=0.7,
+        max_completion_tokens=1024,
+        top_p=1,
+        stop=None,
+    )
+    analysis_results = response.choices[0].message.content
+    return analysis_results
+
+
+# results page to display analysis results
+@app.route("/results")
+def display_results():
+    """
+    This function displays the groq llm analysis on the webpage.
+    """
+    analysis = analyze_symptoms()
+    symptoms = request.args.get("symptoms")
+
+    return render_template("results.html", symptoms=symptoms, analysis=analysis)
+
+
+# helper to function extract foods from the groq response
+def extract_food_recs():
+    """
+    This function extracts the food recommendations from the llm response and stores it in a list for backend use.
+
+    Call this function to extract a list with foods to eat from the groq llm response.
+    """
+    groq_response = analyze_symptoms()
+    list_foods = []
+
+    for line in groq_response.split("\n"):
+        line = line.strip()
+        if line.startswith("- Foods:"):
+            all_foods = line[8:].split(",")
+            foods = [food.strip() for food in all_foods]
+            list_foods.extend(foods)
+
+    seen_foods = set()  # to check duplicates
+    food_recs = []  # new list w/o duplicates
+    for food in list_foods:
+        if not (food in seen_foods or seen_foods.add(food)):
+            food_recs.append(food)
+
+    return food_recs
+
 
 @app.route("/recommendations")
 def recommendations():
@@ -139,6 +264,7 @@ def recommendations():
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
+
     diet = ",".join(logged_in_user.diet)
     intolerance = ",".join(logged_in_user.allergies)
     print(f"api key: {spoonacular_api_key}")
@@ -146,10 +272,13 @@ def recommendations():
     print("Diet:", diet)
     print("Allergies:", intolerance)
 
+    recommended_foods = extract_food_recs()
+    print("Recommended foods: ", recommended_foods)
+
     category_to_types = {
         "breakfast": ["breakfast"],
         "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"]
+        "dinner": ["main course", "side dish", "appetizer"],
     }
 
     meal_recipes = {}
@@ -159,16 +288,21 @@ def recommendations():
 
         for t in types:
             print(f"Fetching recipes for {category} ({t})...")
+
+            params = {
+                "diet": diet,
+                "excludeIngredients": intolerance,
+                "type": t,
+                "number": 3,
+                "apiKey": spoonacular_api_key,
+            }
+            if recommended_foods:
+                params["includeIngredients"] = ",".join(recommended_foods)
+
             response = requests.get(
-                "https://api.spoonacular.com/recipes/complexSearch",
-                params={
-                    "diet": diet,
-                    "excludeIngredients": intolerance,
-                    "type": t,
-                    "number": 3,
-                    "apiKey": spoonacular_api_key
-                }
+                "https://api.spoonacular.com/recipes/complexSearch", params=params
             )
+
             print("URL:", response.url)
             print("Status:", response.status_code)
             print("Response:", response.text[:200])  # just preview the text
@@ -184,10 +318,7 @@ def recommendations():
             print(f"No recipes found for {category} with filters. Trying fallback.")
             fallback_response = requests.get(
                 "https://api.spoonacular.com/recipes/random",
-                params={
-                    "number": 3,
-                    "apiKey": spoonacular_api_key
-                }
+                params={"number": 3, "apiKey": spoonacular_api_key},
             )
             try:
                 fallback_data = fallback_response.json()
@@ -197,7 +328,7 @@ def recommendations():
                 collected_recipes = []
 
         # remove duplicates by ID
-        unique = {r['id']: r for r in collected_recipes}
+        unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
 
     print(meal_recipes)
@@ -205,69 +336,183 @@ def recommendations():
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
 
-@app.route('/save_favorite/<recipe_id>', methods = ['POST'])
+# go to recipe recs from the sympstoms analysis page
+@app.route("/recommendations")
+def go_to_mealplans():
+    return redirect(url_for("recommendations"))
+
+
+# display recipe details
+@app.route("/recipe/<recipe_id>")
+def recipe_details(recipe_id):
+    response = requests.get(
+        f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+        params={"apiKey": spoonacular_api_key, "includeNutrition": True},
+    )
+    recipe_info = response.json()
+    return render_template("recipe_details.html", recipe=recipe_info)
+
+
+# Meal planner creation page
+@app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
+def meal_planner():
+    if request.method == "POST":
+        days = int(request.form["days"])
+        meals = request.form.getlist("meals")
+        user = userAuthHelper()
+        user.mealplan = generate_mealplan(days, meals, user)
+        users_data.save_to_file()
+        return redirect(url_for("/recommendations/mealplanner/view"))
+    return render_template("create_meal_planner.html")
+
+
+@app.route("/recommendations/mealplanner/view", methods=["GET"])
+def edit_meal_planner():
+    """
+    Shows the meal plan for the user, where the user can edit.
+    """
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    mealplan = user.mealplan
+    if not mealplan:
+        return render_template(
+            "mealplanner.html", message="No meal plan found. Please create one."
+        )
+
+    return render_template("mealplanner.html", mealplan=mealplan)
+
+
+def generate_mealplan(
+    days: int, meals: List[str], user: UserProfile
+) -> Dict[str, List[Dict]]:
+    """
+    Provides a mealplan with categorized recipe recommendations for breakfast, lunch, and / or dinner.
+    Falls back to random recipes if no results are found.
+    :param days (int): The number of days for the meal plan.
+    :param meals (List[str]): A list of meals to include in the meal plan (breakfast, lunch, dinner).
+    :param user (UserProfile): The UserProfile object containing user information.
+    :return (Dict[str, List[Dict]]): A dictionary with meal plan details.
+    """
+    if not user:
+        return redirect(url_for("auth_page"))
+    mealplan = {}
+    for day in range(1, days + 1):
+        mealplan[day] = {}
+        for meal in meals:
+            recipe = generate_recipe(meal)
+            mealplan[day][meal] = recipe
+    return mealplan
+
+
+def generate_recipe(meal: str, exclude_ingredients: List[str] = []) -> Dict:
+    """
+    Generates a recipe based on the user's preferences and dietary restrictions.
+    :param meal (str): The type of meal to generate a recipe for (e.g., breakfast, lunch, dinner).
+    :param exclude_ingredients (List[str]): A optional list of ingredients to exclude from the recipe.
+    :return (Dict): A dictionary containing the generated recipe details.
+    """
+    user = userAuthHelper()
+    diet = user.diet
+    intolerance = ",".join(user.allergies).join(exclude_ingredients)
+
+    category_to_types = {
+        "breakfast": ["breakfast"],
+        "lunch": ["main course", "salad", "soup"],
+        "dinner": ["main course", "side dish", "appetizer"],
+    }
+
+    types = category_to_types.get(meal, [meal])
+    selected_type = random.choice(types)
+
+    params = {
+        "diet": diet,
+        "excludeIngredients": intolerance,
+        "type": selected_type,
+        "number": 1,
+        "apiKey": spoonacular_api_key,
+    }
+    response = requests.get("https://api.spoonacular.com/recipes/random", params=params)
+    if response.status_code == 200:
+        data = response.json()
+        recipe = data.get("recipes", [])[0]
+        return jsonify(recipe)
+    else:
+        return jsonify({"error": "Failed to fetch recipe"}), 500
+
+
+@app.route("/save_favorite/<recipe_id>", methods=["POST"])
 def save_favorite(recipe_id):
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
-    
-    favorite = db.session.query.filter_by(user = fav_recipe.user_id, recipe_id = fav_recipe.id)
+
+    favorite = db.session.query.filter_by(
+        user=fav_recipe.user_id, recipe_id=fav_recipe.id
+    )
     if favorite:
         return "already exists"
-        
-    add_favorite = FavoriteRecipe(recipe_id = fav_recipe.id, user = fav_recipe.user_id)
+
+    add_favorite = FavoriteRecipe(recipe_id=fav_recipe.id, user=fav_recipe.user_id)
     db.session.add(add_favorite)
     db.session.commit()
 
     return "OK"
-    
-@app.route('/remove_favorite/<recipe_id>', methods = ['DELETE'])
+
+
+@app.route("/remove_favorite/<recipe_id>", methods=["DELETE"])
 def remove_favorite(recipe_id):
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
-    
-    favorite = db.session.query.filter(user = fav_recipe.user_id, recipe_id = fav_recipe.id).first()
+
+    favorite = db.session.query.filter(
+        user=fav_recipe.user_id, recipe_id=fav_recipe.id
+    ).first()
     if favorite:
         return "already exists"
-        
-    add_favorite = FavoriteRecipe(recipe_id = fav_recipe.id, user = fav_recipe.user_id)
+
+    add_favorite = FavoriteRecipe(recipe_id=fav_recipe.id, user=fav_recipe.user_id)
     db.session.remove(add_favorite)
     db.session.commit()
-        
-    return "OK" 
 
-@app.route('/show_favorites', methods = ['GET'])
+    return "OK"
+
+
+@app.route("/show_favorites", methods=["GET"])
 def show_favorites():
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
     return jsonify(fav_recipe)
 
-@app.route('/save_results', methods=['POST'])
+
+@app.route("/save_results", methods=["POST"])
 def save_results():
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    
+
     CurrentResults = request.get_json(silent=True)
     if not CurrentResults:
         return "No result"
     user.analysis_results = CurrentResults
-    
+
     return "OK"
 
-@app.route('/result_visualization', methods=['POST'])
+
+@app.route("/result_visualization", methods=["POST"])
 def result_visualization():
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    
+
     result = {}
-    CurrentResult = user.analysis_results 
-    
+    CurrentResult = user.analysis_results
+
     for vitamin in CurrentResult:
         if CurrentResult[vitamin] < 40:
             result[vitamin] = "Low"
@@ -275,18 +520,60 @@ def result_visualization():
             result[vitamin] = "Medium"
         else:
             result[vitamin] = "High"
-    
+
     return jsonify(result)
 
+
 def userAuthHelper():
-    if not session.get('logged_in'):
+    if not session.get("logged_in"):
         return False
-    logged_in_user = users_data.get_user(session['username'])
+    logged_in_user = users_data.get_user(session["username"])
     if not logged_in_user:
-        session['logged_in'] = False
-        session['username'] = ""
+        session["logged_in"] = False
+        session["username"] = ""
         return False
     return logged_in_user
+
+
+@app.route("/profile", methods=["GET", "POST"])
+def profile():
+    """
+    Displays the user profile page with the information from the user profile
+    Users can update their profile information and save it.
+    """
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    if request.method == "POST":
+        user.password = request.form.get("password")
+        user.name = request.form.get("name")
+        user.age = request.form.get("age")
+        user.sex = request.form.get("sex")
+        user.hight = request.form.get("hight")
+        user.weight = request.form.get("weight")
+        user.skin_color = request.form.get("skin_color")
+        user.country = request.form.get("country")
+        user.medication = request.form.get("medication", "").split(",")
+        user.diet = request.form.get("diet")
+        user.existing_conditions = request.form.get("existing_conditions", "").split(
+            ","
+        )
+        user.allergies = request.form.get("allergies", "").split(",")
+        users_data.save_to_file()
+        message = "Profile updated!"
+        return render_template("profile.html", user=user, message=message)
+    return render_template("profile.html", user=user)
+
+
+@app.route("/logout")
+def logout():
+    """
+    Will logout the user by clearing the session and redirects to the authentication page.
+    """
+    session.clear()
+    return redirect(url_for("auth_page"))
+
 
 if __name__ == "__main__":
     app.run(debug=True)

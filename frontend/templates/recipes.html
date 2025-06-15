@@ -21,6 +21,13 @@
             height: auto;
             border-radius: 6px;
         }
+        .view-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
@@ -36,6 +43,7 @@
                         <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
                             <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
                             <p>{{ entry['title'] }}</p>
+                            <a href = "{{ url_for('recipe_details', recipe_id = entry['id']) }}" class = "view-button">View details</a>
                         </div>
                     {% endfor %}
                 {% else %}
@@ -46,6 +54,10 @@
     {% else %}
         <p>No recipes found.</p>
     {% endif %}
+
+<div style="margin-top: 40px; text-align: center;">
+<a href="/recommendations/mealplanner/create">Create Mealplanner</a>
+</div>
 
 </body>
 </html>
