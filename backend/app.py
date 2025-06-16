@@ -2,7 +2,6 @@
 from typing import Dict, List
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from user_data.user_profile import UserProfile, UsersData
-from FavRecipe import FavoriteRecipe, db
 import requests
 from dotenv import load_dotenv
 import os
@@ -27,7 +26,6 @@ client = Groq(
 users_data = (
     UsersData()
 )  # Initializes the UsersData object where all the user profiles will be stored.
-fav_recipe = FavoriteRecipe()
 
 
 # Consent form page
@@ -444,36 +442,50 @@ def generate_recipe(meal: str, exclude_ingredients: List[str] = []) -> Dict:
 
 @app.route("/save_favorite/<recipe_id>", methods=["POST"])
 def save_favorite(recipe_id):
+    """
+    Saves recipes to user profile when users decide to save the recipe to the favorites.
+    It returns 401 if the recipe is already saved.
+    :param recipe_id: ID of the recipe on the Spoonacular API
+    """
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
 
     if recipe_id in user.saved_recipes:
-        return "Already saved"
+        return "Already saved", 401
+    else:
+        user.saved_recipes.append(recipe_id)
+        users_data.save_to_file()
+        # return redirect(request.referrer or url_for("recommendations"))
+        return "OK", 200
 
-    user.saved_recipes.append(recipe_id)
-    users_data.save_to_file()
 
-    return "OK"
-
-
-@app.route("/remove_favorite/<recipe_id>", methods=["DELETE"])
+@app.route("/remove_favorite/<recipe_id>", methods=["POST"])
 def remove_favorite(recipe_id):
+    """
+    Removes recipes to user profile when users decide to remove the recipe from the favorites.
+    It returns 401 if the recipe does not exist on the user profile.
+    :param recipe_id: ID of the recipe on the Spoonacular API
+    """
+
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
 
+    recipe_id = int(recipe_id)
     if recipe_id in user.saved_recipes:
         user.saved_recipes.remove(recipe_id)
         users_data.save_to_file()
-
-        return "OK"
-    return "Not exists"
+        return "OK", 200
+    return "Not exists", 401
 
 
 @app.route("/show_favorites", methods=["GET"])
 def show_favorites():
+    """
+    Shows the recipes that were saved as a favorite before.
+    """
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -492,13 +504,22 @@ def show_favorites():
 
 @app.route("/save_results", methods=["POST"])
 def save_results():
+    """
+    Saves analysis results to the user profile that were given by the Groq API
+    It returns 401 if the there is no result.
+    It returns 401 if the format of the analysis is not a json file.
+    """
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
 
+    if not request.is_json:
+        return "No result", 401
+
     analysis = request.get_json(silent=True)
     if not analysis:
-        return "No result"
+        return "No result", 401
+
     user.analysis_results = analysis
     users_data.save_to_file()
 

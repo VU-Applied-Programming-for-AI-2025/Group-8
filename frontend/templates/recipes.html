@@ -50,13 +50,8 @@
             <p>{{ entry['title'] }}</p>
             <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}" class="view-button">View details</a>
 
-            <form method="post" action="/save_favorite/{{ entry['id'] }}">
-                <button type="submit">❤️ Save</button>
-            </form>
+            <button class="favorite-toggle-btn" data-id="{{ entry['id'] }}" data-saved="false">Save</button>
 
-            <form method="post" action="/remove_favorite/{{ entry['id'] }}">
-                <button type="submit">💔 Remove</button>
-            </form>
         </div>
         {% endfor %}
         {% else %}
@@ -75,3 +70,30 @@
 </body>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".favorite-toggle-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const recipeId = this.getAttribute("data-id");
+                const isSaved = this.getAttribute("data-saved") === "true";
+
+                const url = isSaved ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+                const newLabel = isSaved ? "Save" : "Remove";
+                const newSavedState = !isSaved;
+
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                }).then(res => {
+                    if (res.ok) {
+                        this.textContent = newLabel;
+                        this.setAttribute("data-saved", newSavedState);
+                    }
+                });
+            });
+        });
+    });
+</script>
