@@ -2,37 +2,33 @@
 from typing import Dict, List
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from user_data.user_profile import UserProfile, UsersData
-import requests
 from dotenv import load_dotenv
-import os
-
-# import json
 from groq import Groq
+import os
+import json
+import requests
 import random
 
 load_dotenv()
 
 app = Flask(
     __name__,
-    template_folder="../frontend/templates",
+    template_folder="../frontend/templates"
 )
-app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
-spoonacular_api_key = os.getenv(
-    "API_KEY"
-)  # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
-client = Groq(
-    api_key=os.environ.get("GROQ_API_KEY"),
-)
-users_data = (
-    UsersData()
-)  # Initializes the UsersData object where all the user profiles will be stored.
 
+app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
+
+spoonacular_api_key = os.getenv("API_KEY") # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
+
+client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+
+users_data = UsersData() # Initializes the UsersData object where all the user profiles will be stored in a json file.
 
 # Consent form page
 @app.route("/")
 def show_consent():
     """
-    Checks if the consent form should be given (when the user has not given consent yet). Redirects to the consent form page.
+    Checks if the consent form is shown when the user has not given consent yet.
     Redirects to the authentication page if the user has already given consent.
     """
     if not session.get("consent_given"):
@@ -43,7 +39,7 @@ def show_consent():
 @app.route("/consentform", methods=["POST"])
 def handle_consent():
     """
-    Checks if the user has given consent to redirect to auth page.
+    This page shows a consentform. Once accepted it will redirect to the authentication page. 
     """
     accepted = request.form.get("accept", "false")
 
@@ -58,9 +54,9 @@ def handle_consent():
 @app.route("/auth", methods=["GET", "POST"])
 def auth_page():
     """
-    Makes sure that the authentication page is only accassible if consent has been given, otherwise redirects to the consent form.
+    Shows the authentication page where users can log in or choose to register if consent has been given, otherwise redirects to the consent form.
     If the user is logged in already, they will be redirected to the home page.
-    If the user has not ben logged in yet, it will be redirected to the /auth/register page.
+    If the user has not ben logged in yet, they will be redirected to the /auth/register page.
     """
     if session.get("consent_given") and not session.get("logged_in"):
         return render_template("auth.html")
@@ -68,22 +64,23 @@ def auth_page():
     if not session.get("consent_given"):
         return redirect(url_for("show_consent"))
 
-    if session.get("logged_in"):
+    
+    if session.get('logged_in'):
         return redirect(url_for("home"))
 
 
 @app.route("/auth/register", methods=["GET", "POST"])
 def register():
     """
-    Handles the registration for a new user profile.
-    If the user is already logged in, redirects to the home page.
+    Handles the registration for a new user profile. 
     Processes the registration form and adds a new user profile.
     If the registration is successful, redirects to the home page.
     If the registration fails because of an existing username, it shows an error message on the registration page.
     """
     if session.get("logged_in"):
         return redirect(url_for("home"))
-
+    
+    # Collecting user data from the registration form
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
@@ -98,23 +95,10 @@ def register():
         diet = request.form.get("diet")
         existing_conditions = request.form.get("existing_conditions", "").split(",")
         allergies = request.form.get("allergies", "").split(",")
-
-        try:
-            user_profile = UserProfile(
-                username,
-                password,
-                name,
-                age,
-                sex,
-                hight,
-                weight,
-                skin_color,
-                country,
-                medication,
-                diet,
-                existing_conditions,
-                allergies,
-            )
+        
+        # Makes a user profile object and adds it to the users_data object
+        try: 
+            user_profile = UserProfile(username, password, name, age, sex, hight, weight, skin_color, country, medication, diet, existing_conditions, allergies)
             users_data.add_user(user_profile)
             session["logged_in"] = True
             session["username"] = username
@@ -130,11 +114,13 @@ def login():
     """
     Handles the login form submission.
     If the username and password is authenticated, then the user will be redirected to the homepage.
-    If the authentication fails, it will show an error message (that the username is not found in the database)
+    If the authentication fails, it will show the corresponding error message on the authentication page.
     """
+    # Retrieves the username and password from the login form
     if request.method == "POST":
         username = request.form.get("name")
         password = request.form.get("password")
+        # Checks if the username and password corresponds to a user profile in the users_data object
         authenticated, message = users_data.user_authentication(username, password)
         if authenticated:
             session["logged_in"] = True
@@ -147,9 +133,10 @@ def login():
 @app.route("/home", methods=["GET", "POST"])
 def home():
     """
-    This function displays the homepage and handles the submission from the user for their symptoms. After symptoms are provided, redirects to /results
-    with the symptoms being the url parameter.
+    This function displays the homepage.
+    Users can generate a mealplan, submit their symtoms for a more custom mealplan and analyze their symptoms.
     """
+    # Checks if user is logged in, if not redirects to the authentication page.
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -259,6 +246,7 @@ def recommendations():
     Provides categorized recipe recommendations for breakfast, lunch, and dinner.
     Falls back to random recipes if no results are found.
     """
+    # Checks if user is logged in, if not redirects to the authentication page.
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
@@ -333,14 +321,7 @@ def recommendations():
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
-
-# go to recipe recs from the sympstoms analysis page
-@app.route("/recommendations")
-def go_to_mealplans():
-    return redirect(url_for("recommendations"))
-
-
-# display recipe details
+#display recipe details
 @app.route("/recipe/<recipe_id>")
 def recipe_details(recipe_id):
     response = requests.get(
@@ -352,15 +333,109 @@ def recipe_details(recipe_id):
 
 
 # Meal planner creation page
+@app.route("/recommendations/mealplanner/select", methods=["GET", "POST"])
+def choose_meal_planner():
+    if request.method == "POST":
+        selected = request.form.get("type")
+        if selected == "auto":
+            return redirect(url_for("spoonacular_builtin_mealplanner"))
+        elif selected == "custom":
+            return redirect(url_for("meal_planner"))
+    return render_template("select_meal_plan_type.html")
+
+
+@app.route("/recommendations/mealplanner/spoonacular", methods=["GET", "POST"])
+def spoonacular_builtin_mealplanner():
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    if request.method == "POST":
+        time_frame = request.form.get("timeFrame", "day")
+        calories = request.form.get("calories")
+
+        params = {
+            "apiKey": spoonacular_api_key,
+            "timeFrame": time_frame,
+            "diet": user.diet,
+            "exclude": ",".join(user.allergies)
+        }
+        if calories:
+            params["targetCalories"] = calories
+
+        response = requests.get("https://api.spoonacular.com/mealplanner/generate", params=params)
+        if response.status_code == 200:
+            user.mealplan = response.json()
+            print("spoonacular response mealplan")
+            print(user.mealplan)
+            users_data.save_to_file()
+            return redirect(url_for("edit_meal_planner"))
+        else:
+            return render_template("builtin_meal_planner.html", error="Failed to fetch meal plan.")
+
+    return render_template("builtin_meal_planner.html")
+
+def get_meal_plan(api_key, diet=None, exclude=None, calories=None, time_frame="day"):
+    url = "https://api.spoonacular.com/mealplanner/generate"
+    params = {
+        "apiKey": api_key,
+        "timeFrame": time_frame,
+    }
+    if diet:
+        params["diet"] = diet
+    if exclude:
+        params["exclude"] = exclude
+    if calories:
+        params["targetCalories"] = calories
+
+    response = requests.get(url, params=params)
+    return response.json()
+
+
 @app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
 def meal_planner():
     if request.method == "POST":
-        days = int(request.form["days"])
-        meals = request.form.getlist("meals")
+        time_frame = request.form.get("timeFrame", "day")  # "day" or "week"
+        calories = request.form.get("calories")
+
         user = userAuthHelper()
-        user.mealplan = generate_mealplan(days, meals, user)
+        if not user:
+            return redirect(url_for("auth_page"))
+
+        meal_plan = {}
+        meal_plan['meals'] = []
+        meal_plan['nutrients'] = {
+            'calories': 0,
+            'protein': 0,
+            'fat': 0,
+            'carbohydrates': 0
+        }
+        nutrients_to_check = set(['calories', 'protein', 'fat'])
+        selected_meals = request.form.getlist("meals")
+        print("selected_meals")
+        print(selected_meals)
+        for id in selected_meals:
+            print(f"id = {id}")
+            response = requests.get(
+                f"https://api.spoonacular.com/recipes/{id}/information",
+                    params = {
+                        "apiKey": spoonacular_api_key,
+                        "includeNutrition": True
+                    }
+                )
+            recipe_info = response.json()
+            print('recipe_info')
+            print(recipe_info)
+            meal_plan['meals'].append(recipe_info)
+
+            for n in recipe_info['nutrition']['nutrients']:
+                if n['name'].lower() in nutrients_to_check:
+                    meal_plan['nutrients'][n['name'].lower()] += n['amount']
+
+        user.mealplan = meal_plan
         users_data.save_to_file()
-        return redirect(url_for("/recommendations/mealplanner/view"))
+
+        return redirect(url_for("edit_meal_planner"))
     return render_template("create_meal_planner.html")
 
 
@@ -369,17 +444,25 @@ def edit_meal_planner():
     """
     Shows the meal plan for the user, where the user can edit.
     """
+    # Checks if user is logged in, if not redirects to the authentication page.
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
 
     mealplan = user.mealplan
     if not mealplan:
-        return render_template(
-            "mealplanner.html", message="No meal plan found. Please create one."
-        )
+        return render_template("mealplanner.html", message="No meal plan found. Please create one.")
 
-    return render_template("mealplanner.html", mealplan=mealplan)
+    # Determine if it's a daily or weekly plan
+    if "meals" in mealplan:
+        # Day plan
+        return render_template("mealplanner.html", day_plan=mealplan)
+    elif "week" in mealplan:
+        # Week plan
+        return render_template("mealplanner.html", week_plan=mealplan["week"])
+    else:
+        return render_template("mealplanner.html", message="Unexpected meal plan format.")
+
 
 
 def generate_mealplan(
@@ -447,6 +530,7 @@ def save_favorite(recipe_id):
     It returns 401 if the recipe is already saved.
     :param recipe_id: ID of the recipe on the Spoonacular API
     """
+
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -504,11 +588,13 @@ def show_favorites():
 
 @app.route("/save_results", methods=["POST"])
 def save_results():
+
     """
     Saves analysis results to the user profile that were given by the Groq API
     It returns 401 if the there is no result.
     It returns 401 if the format of the analysis is not a json file.
     """
+  
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -527,7 +613,10 @@ def save_results():
 
 
 def userAuthHelper():
-    if not session.get("logged_in"):
+    """
+    Helper function to check whether the user is logged in or not and returns the user profile.
+    """
+    if not session.get('logged_in'):
         return False
     logged_in_user = users_data.get_user(session["username"])
     if not logged_in_user:
@@ -540,12 +629,15 @@ def userAuthHelper():
 @app.route("/profile", methods=["GET", "POST"])
 def profile():
     """
-    Displays the user profile page with the information from the user profile
+    Displays the user profile page with the information from the user profile.
     Users can update their profile information and save it.
     """
+    # Checks if user is logged in, if not redirects to the authentication page.
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
+
+    # Retrieves the form data from the profile page and updates the user profile.
 
     if request.method == "POST":
         user.password = request.form.get("password")
