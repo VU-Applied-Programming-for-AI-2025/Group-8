@@ -5,6 +5,11 @@ from dotenv import load_dotenv
 import os, json, requests, random
 from groq import Groq
 from user_data.user_profile import UserProfile, UsersData
+<<<<<<< HEAD
+=======
+import random
+import requests
+>>>>>>> Feruza
 
 load_dotenv()
 
@@ -337,7 +342,10 @@ def choose_meal_planner():
 
 @app.route("/recommendations/mealplanner/spoonacular", methods=["GET", "POST"])
 def spoonacular_builtin_mealplanner():
+<<<<<<< HEAD
     # Checks if user is logged in, if not redirects to the authentication page.
+=======
+>>>>>>> Feruza
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -387,12 +395,51 @@ def get_meal_plan(api_key, diet=None, exclude=None, calories=None, time_frame="d
 @app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
 def meal_planner():
     if request.method == "POST":
-        days = int(request.form["days"])
-        meals = request.form.getlist("meals")
+        time_frame = request.form.get("timeFrame", "day")  # "day" or "week"
+        calories = request.form.get("calories")
+
         user = userAuthHelper()
-        user.mealplan = generate_mealplan(days, meals, user)
+        if not user:
+            return redirect(url_for("auth_page"))
+
+        meal_plan = {}
+        meal_plan['meals'] = []
+        meal_plan['nutrients'] = {
+            'calories': 0,
+            'protein': 0,
+            'fat': 0,
+            'carbohydrates': 0
+        }
+        nutrients_to_check = set(['calories', 'protein', 'fat'])
+        selected_meals = request.form.getlist("meals")
+        print("selected_meals")
+        print(selected_meals)
+        for id in selected_meals:
+            print(f"id = {id}")
+            response = requests.get(
+                f"https://api.spoonacular.com/recipes/{id}/information",
+                    params = {
+                        "apiKey": spoonacular_api_key,
+                        "includeNutrition": True
+                    }
+                )
+            recipe_info = response.json()
+            print('recipe_info')
+            print(recipe_info)
+            meal_plan['meals'].append(recipe_info)
+
+            for n in recipe_info['nutrition']['nutrients']:
+                if n['name'].lower() in nutrients_to_check:
+                    meal_plan['nutrients'][n['name'].lower()] += n['amount']
+
+        user.mealplan = meal_plan
         users_data.save_to_file()
+<<<<<<< HEAD
         return redirect(url_for("recommendations/mealplanner/view"))
+=======
+        return redirect(url_for("edit_meal_planner"))
+
+>>>>>>> Feruza
     return render_template("create_meal_planner.html")
 
 
@@ -413,7 +460,14 @@ def edit_meal_planner():
     # Determine if it's a daily or weekly plan
     if "meals" in mealplan:
         # Day plan
+<<<<<<< HEAD
         return render_template("edit_mealplanner.html", day_plan=mealplan)
+=======
+        return render_template("mealplanner.html", day_plan=mealplan)
+    elif "week" in mealplan:
+        # Week plan
+        return render_template("mealplanner.html", week_plan=mealplan["week"])
+>>>>>>> Feruza
     else:
         return render_template("mealplanner.html", message="Unexpected meal plan format.")
 
