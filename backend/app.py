@@ -333,17 +333,6 @@ def recipe_details(recipe_id):
 
 
 # Meal planner creation page
-@app.route("/recommendations/mealplanner/select", methods=["GET", "POST"])
-def choose_meal_planner():
-    if request.method == "POST":
-        selected = request.form.get("type")
-        if selected == "auto":
-            return redirect(url_for("spoonacular_builtin_mealplanner"))
-        elif selected == "custom":
-            return redirect(url_for("meal_planner"))
-    return render_template("select_meal_plan_type.html")
-
-
 @app.route("/recommendations/mealplanner/spoonacular", methods=["GET", "POST"])
 def spoonacular_builtin_mealplanner():
     user = userAuthHelper()
