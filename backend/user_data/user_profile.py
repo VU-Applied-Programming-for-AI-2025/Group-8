@@ -1,30 +1,31 @@
 from typing import List, Tuple, Dict
 import json
 
+
 class UserProfile:
     """
     Class representing a user profile in the system.
     """
+
     def __init__(
-            self, 
-            username: str, 
-            password: str,
-            name: str,
-            age: int,
-            sex: str,
-            hight: float,
-            weight: float,
-            skin_color: str,
-            country: str,
-            medication: List[str] = [],
-            diet: List[str] = [],
-            existing_conditions: List[str] = [],
-            allergies: List[str] = [],
-            saved_recipes = [],
-            analysis_results: Dict[str, int] = {},
-            mealplan = []
-            ) -> None:
-        
+        self,
+        username: str,
+        password: str,
+        name: str,
+        age: int,
+        sex: str,
+        hight: float,
+        weight: float,
+        skin_color: str,
+        country: str,
+        medication: List[str] = [],
+        diet: List[str] = [],
+        existing_conditions: List[str] = [],
+        allergies: List[str] = [],
+        saved_recipes=[],
+        analysis_results: Dict[str, int] = {},
+        mealplan=[],
+    ) -> None:
         """
         Initializes a User Profile object.
 
@@ -63,21 +64,23 @@ class UserProfile:
         self.analysis_results = analysis_results
         self.mealplan = mealplan
 
+
 class UsersData:
     """
     Class managing the data storage of the user profiles.
     Stores user profiles in a JSON file.
     """
-    def __init__(self, file_path='backend/user_data/users.json')-> None:
+
+    def __init__(self, file_path="backend/user_data/users.json") -> None:
         """
         Initializes a Userdata object. Loads user profiles from the users.json file if it exists.
         :param file_path (str): The path to the JSON file where user profiles are stored.
         """
         self.users = {}
         self.file_path = file_path
-        self.load_from_file() 
-    
-    def add_user(self, user_profile: UserProfile)-> None:
+        self.load_from_file()
+
+    def add_user(self, user_profile: UserProfile) -> None:
         """
         Add's a new user profile to the data file.
         If the username already exists in the database, it raises a ValueError.
@@ -116,7 +119,7 @@ class UsersData:
         """
         return self.users.get(username, None)
 
-    def user_authentication(self, username: str, password: str)-> Tuple[bool, str]:
+    def user_authentication(self, username: str, password: str) -> Tuple[bool, str]:
         """
         Authenticates a user by checking if the provided username matches a stored one and if so, if the password matches the stored one.
         :param username (str): The username given by the user.
@@ -124,13 +127,10 @@ class UsersData:
         :return (Tuple[bool, str]): True if the parameters match the stored date, False otherwise. Gives a message with the result.
         """
         if username not in self.users:
-            return False, 'Username not found in database'
+            return False, "Username not found in database"
         else:
             user_profile = self.get_user(username)
             if user_profile.username == username and user_profile.password == password:
                 return True, "Authentication successful"
             else:
                 return False, "Wrong password"
-    
-    
-       

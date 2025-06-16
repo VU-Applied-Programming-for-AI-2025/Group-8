@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <title>Recipes Matching Your Diet</title>
@@ -7,6 +8,7 @@
         .meal-section {
             margin-bottom: 40px;
         }
+
         .recipe-card {
             display: inline-block;
             width: 200px;
@@ -16,11 +18,13 @@
             padding: 10px;
             text-align: center;
         }
+
         .recipe-card img {
             width: 100%;
             height: auto;
             border-radius: 6px;
         }
+
         .view-button {
             display: inline-block;
             margin-top: 10px;
@@ -30,6 +34,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <h1>Recipes Matching Your Diet</h1>
@@ -46,6 +51,7 @@
                             <p>{{ entry['title'] }}</p>
                             <a href = "{{ url_for('recipe_details', recipe_id = entry['id']) }}" class = "view-button">View details</a>
                         <input type="checkbox" id="{{entry['id']}}" name="meals" value="{{entry['id']}}">
+                        <button class="favorite-toggle-btn" data-id="{{ entry['id'] }}" data-saved="false">Save</button>
                         </div>
                     {% endfor %}
                 {% else %}
@@ -55,13 +61,39 @@
         {% endfor %}
         <button type="submit">Create mealplan from selected meals</button>
     </form>
-    {% else %}
-        <p>No recipes found.</p>
-    {% endif %}
+
 
 <div style="margin-top: 40px; text-align: center;">
-<a href="/recommendations/mealplanner/spoonacular">Use Spoonacular Built-in Plan</a>
+  <a href="/recommendations/mealplanner/spoonacular">Use Spoonacular Built-in Plan</a>
 </div>
 
 </body>
+
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".favorite-toggle-btn").forEach(button => {
+            button.addEventListener("click", function () {
+                const recipeId = this.getAttribute("data-id");
+                const isSaved = this.getAttribute("data-saved") === "true";
+
+                const url = isSaved ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+                const newLabel = isSaved ? "Save" : "Remove";
+                const newSavedState = !isSaved;
+
+                fetch(url, {
+                    method: "POST",
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                }).then(res => {
+                    if (res.ok) {
+                        this.textContent = newLabel;
+                        this.setAttribute("data-saved", newSavedState);
+                    }
+                });
+            });
+        });
+    });
+</script>
