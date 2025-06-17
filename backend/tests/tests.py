@@ -436,6 +436,18 @@ def test_save_results():
     assert b"OK" in response.data
 
 
+def test_nutrient_page():
+    pass
+
+
+def test_search_bar():
+    pass
+
+
+def test_navigation_bar():
+    pass
+
+
 """Run tests for the consent form"""
 # test_show_consent()
 # test_handle_consent()
