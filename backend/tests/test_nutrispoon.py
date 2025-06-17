@@ -3,7 +3,7 @@
 import json, os, pytest
 from context import app, UserProfile, UsersData
 from app import app, users_data
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 
 @pytest.fixture
 def client():
@@ -418,9 +418,141 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
     assert updated_user.password == "testpassword"
     assert_200(response)
 
+###############################################################################
+#                                                                             #
+#                   RECOMMENDATIONS AND MEAL PLANNER TESTS                    #
+#                                                                             #
+###############################################################################
+
+def test_extract_food_recs_parsing():
+    with patch("app.analyze_symptoms", return_value="""
+Vitamin D:
+- Why: lack of sunlight causes poor absorption of calcium
+- Foods: salmon, egg yolk, mushrooms
+- Tip: spend 15 minutes in the sun daily
+"""):
+        from app import extract_food_recs
+        foods = extract_food_recs()
+        assert "salmon" in foods
+        assert "egg yolk" in foods
+        assert "mushrooms" in foods
+        assert len(foods) == 3
 
 
+def test_generate_recipe_structure():
+    from app import generate_recipe
+    with patch("app.requests.get") as mock_get:
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = {
+            "recipes": [{"title": "Test Recipe", "id": 1234}]
+        }
+        with patch("app.userAuthHelper") as mock_auth:
+            mock_auth.return_value = MagicMock(diet="", allergies=[])
+            result = generate_recipe("breakfast")
+            assert result.status_code == 200
 
+
+def test_generate_mealplan_structure():
+    from app import generate_mealplan, UserProfile
+    user = UserProfile("testuser", "pw", "Test User", 20, "M", 180, 70, "light", "DE", [], "None", [], [])
+    with patch("app.generate_recipe") as mock_gen:
+        mock_gen.return_value = {"title": "Test Recipe"}
+        plan = generate_mealplan(2, ["breakfast", "dinner"], user)
+        assert 1 in plan and 2 in plan
+        assert "breakfast" in plan[1]
+        assert "dinner" in plan[1]
+
+
+def test_spoonacular_builtin_mealplanner_success(client, set_users_data):
+    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    set_users_data.add_user(user)
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = "testusername"
+
+    with patch("app.requests.get") as mock_get:
+        mock_get.return_value.status_code = 200
+        mock_get.return_value.json.return_value = {"meals": []}
+        response = client.post("/recommendations/mealplanner/spoonacular", data={"timeFrame": "day"}, follow_redirects=True)
+        assert_200(response)
+
+
+def test_spoonacular_builtin_mealplanner_fail(client, set_users_data):
+    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    set_users_data.add_user(user)
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = "testusername"
+
+    with patch("app.requests.get") as mock_get:
+        mock_get.return_value.status_code = 500
+        response = client.post("/recommendations/mealplanner/spoonacular", data={"timeFrame": "day"}, follow_redirects=True)
+        assert_200(response)
+        assert b"failed to fetch" in response.data.lower()
+
+
+def test_mealplanner_create_nutrient_calculation(client, set_users_data):
+    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    set_users_data.add_user(user)
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = "testusername"
+
+    mock_nutrients = {
+        "nutrition": {
+            "nutrients": [
+                {"name": "Calories", "amount": 500},
+                {"name": "Protein", "amount": 30},
+                {"name": "Fat", "amount": 20},
+                {"name": "Carbohydrates", "amount": 50}
+            ]
+        }
+    }
+    with patch("app.requests.get") as mock_get:
+        mock_get.return_value.json.return_value = mock_nutrients
+        mock_get.return_value.status_code = 200
+
+        response = client.post("/recommendations/mealplanner/create", data={"meals": ["123"]}, follow_redirects=True)
+        assert_200(response)
+
+
+def test_mealplanner_view_day(client, set_users_data):
+    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user.mealplan = {"meals": ["meal1", "meal2"]}
+    set_users_data.add_user(user)
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = "testusername"
+
+    response = client.get("/recommendations/mealplanner/view")
+    assert_200(response)
+    assert b"meal" in response.data.lower()
+
+
+def test_mealplanner_view_week(client, set_users_data):
+    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user.mealplan = {"week": {"monday": [], "tuesday": []}}
+    set_users_data.add_user(user)
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = "testusername"
+
+    response = client.get("/recommendations/mealplanner/view")
+    assert_200(response)
+    assert b"monday" in response.data.lower()
+
+
+def test_mealplanner_view_empty(client, set_users_data):
+    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user.mealplan = None
+    set_users_data.add_user(user)
+    with client.session_transaction() as sess:
+        sess["logged_in"] = True
+        sess["username"] = "testusername"
+
+    response = client.get("/recommendations/mealplanner/view")
+    assert_200(response)
+    assert b"no meal plan found" in response.data.lower()
 
 
 # def test_add_saving():
