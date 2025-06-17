@@ -85,10 +85,10 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         name = request.form.get("name")
-        age = request.form.get("age")
+        age = int(request.form.get("age"))
         sex = request.form.get("sex")
-        hight = request.form.get("hight")
-        weight = request.form.get("weight")
+        hight = float(request.form.get("hight"))
+        weight = float(request.form.get("weight"))
         skin_color = request.form.get("skin_color")
         country = request.form.get("country")
         medication = request.form.get("medication", "").split(",")
@@ -118,7 +118,7 @@ def register():
             session["username"] = username
             return redirect(url_for("home"))
         except ValueError as e:
-            return render_template("auth.html", error=str(e))
+            return render_template("registration.html", error=str(e))
 
     return render_template("registration.html")
 
@@ -348,17 +348,6 @@ def recipe_details(recipe_id):
 
 
 # Meal planner creation page
-@app.route("/recommendations/mealplanner/select", methods=["GET", "POST"])
-def choose_meal_planner():
-    if request.method == "POST":
-        selected = request.form.get("type")
-        if selected == "auto":
-            return redirect(url_for("spoonacular_builtin_mealplanner"))
-        elif selected == "custom":
-            return redirect(url_for("meal_planner"))
-    return render_template("select_meal_plan_type.html")
-
-
 @app.route("/recommendations/mealplanner/spoonacular", methods=["GET", "POST"])
 def spoonacular_builtin_mealplanner():
     user = userAuthHelper()
@@ -659,25 +648,47 @@ def profile():
     # Retrieves the form data from the profile page and updates the user profile.
 
     if request.method == "POST":
+
+        error = validate_required_fields_profile(request.form)
+        if error:
+            return render_template("profile.html", user=user, message=error)
+        
         user.password = request.form.get("password")
         user.name = request.form.get("name")
-        user.age = request.form.get("age")
+        user.age = int(request.form.get("age"))
         user.sex = request.form.get("sex")
-        user.hight = request.form.get("hight")
-        user.weight = request.form.get("weight")
+        user.hight = float(request.form.get("hight"))
+        user.weight = float(request.form.get("weight"))
         user.skin_color = request.form.get("skin_color")
         user.country = request.form.get("country")
         user.medication = request.form.get("medication", "").split(",")
         user.diet = request.form.get("diet")
-        user.existing_conditions = request.form.get("existing_conditions", "").split(
-            ","
-        )
+        user.existing_conditions = request.form.get("existing_conditions", "").split(",")
         user.allergies = request.form.get("allergies", "").split(",")
         users_data.save_to_file()
         message = "Profile updated!"
         return render_template("profile.html", user=user, message=message)
     return render_template("profile.html", user=user)
 
+def validate_required_fields_profile(form):
+    """
+    Helper function for the profile page to check whether the required fields are left blank to return the correct error.
+    """
+    required_fields = [
+        "name", "age", "sex", "hight", "weight", "skin_color", "country", "password"
+    ]
+    for field in required_fields:
+        value = form.get(field)
+        if value is None or str(value).strip() == "":
+            return f"{field.capitalize()} is required."
+    
+    try:
+        int(form.get("age"))
+        float(form.get("hight"))
+        float(form.get("weight"))
+    except (TypeError, ValueError):
+        return "Age, hight, and weight must be numbers."
+    return None
 
 @app.route("/logout")
 def logout():
