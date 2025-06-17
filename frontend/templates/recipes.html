@@ -40,60 +40,65 @@
     <h1>Recipes Matching Your Diet</h1>
 
     <form action="/recommendations/mealplanner/create" method="POST">
-    {% if recipes_by_meal %}
+        {% if recipes_by_meal %}
         {% for category, recipes in recipes_by_meal.items() %}
-            <div class="meal-section">
-                <h2>{{ category.capitalize() }}</h2>
-                {% if recipes %}
-                    {% for entry in recipes %}
-                        <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
-                            <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
-                            <p>{{ entry['title'] }}</p>
-                            <a href = "{{ url_for('recipe_details', recipe_id = entry['id']) }}" class = "view-button">View details</a>
-                        <input type="checkbox" id="{{entry['id']}}" name="meals" value="{{entry['id']}}">
-                        <button class="favorite-toggle-btn" data-id="{{ entry['id'] }}" data-saved="false">Save</button>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <p>No recipes found for {{ category }}.</p>
-                {% endif %}
+        <div class="meal-section">
+            <h2>{{ category.capitalize() }}</h2>
+            {% if recipes %}
+            {% for entry in recipes %}
+            <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
+                <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
+                <p>{{ entry['title'] }}</p>
+                <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}" class="view-button">View details</a>
+                <input type="checkbox" id="{{ entry['id'] }}" name="meals" value="{{ entry['id'] }}">
+
+                <button class="favorite-btn" data-id="{{ entry['id'] }}" data-saved="false">Save</button>
+
             </div>
+            {% endfor %}
+            {% else %}
+            <p>No recipes found for {{ category }}.</p>
+            {% endif %}
+        </div>
         {% endfor %}
         <button type="submit">Create mealplan from selected meals</button>
-    {% endif %}
+        {% endif %}
     </form>
 
 
-<div style="margin-top: 40px; text-align: center;">
-  <a href="/recommendations/mealplanner/spoonacular">Use Spoonacular Built-in Plan</a>
-</div>
+
+    <div style="margin-top: 40px; text-align: center;">
+        <a href="/recommendations/mealplanner/spoonacular">Use Spoonacular Built-in Plan</a>
+    </div>
 
 </body>
 
 </html>
 
+</html>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".favorite-toggle-btn").forEach(button => {
-            button.addEventListener("click", function () {
-                const recipeId = this.getAttribute("data-id");
-                const isSaved = this.getAttribute("data-saved") === "true";
+        document.querySelectorAll(".favorite-btn").forEach(button => {
+            button.addEventListener("click", async function (event) {
+                event.preventDefault();  // ← THIS is what stops the form submission
 
-                const url = isSaved ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
-                const newLabel = isSaved ? "Save" : "Remove";
-                const newSavedState = !isSaved;
+                const recipeId = this.dataset.id;
+                const isUnsave = this.textContent.trim().toLowerCase() === "unsave";
+                const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
 
-                fetch(url, {
-                    method: "POST",
-                    headers: {
-                        "X-Requested-With": "XMLHttpRequest"
+                try {
+                    const response = await fetch(endpoint, { method: "POST" });
+                    if (response.ok) {
+                        this.textContent = isUnsave ? "Save" : "Unsave";
+                    } else {
+                        const msg = await response.text();
+                        alert(msg || "Failed to update favorites.");
                     }
-                }).then(res => {
-                    if (res.ok) {
-                        this.textContent = newLabel;
-                        this.setAttribute("data-saved", newSavedState);
-                    }
-                });
+                } catch (err) {
+                    console.error("Network error:", err);
+                    alert("Network error. Please try again.");
+                }
             });
         });
     });
