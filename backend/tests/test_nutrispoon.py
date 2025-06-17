@@ -472,6 +472,17 @@ def test_recipe_details(client):
         assert_200(response)
         assert b"test recipe" in response.data
     
+def test_homepage(client):
+    """
+    Tests if the homepage is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/home")
+    assert_200(response)
+
+
 
 
 
