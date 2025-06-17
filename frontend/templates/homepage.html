@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- templates/home.html -->
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Homepage - Symptoms Analyzer & Meal Recommendations</title>
-</head>
+{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
 
+{% block content %}
 <form method="POST" action="{{ url_for('search_bar') }}">
     {{ form.hidden_tag() }}
     {{ form.search_bar.label }}
@@ -14,53 +12,16 @@
 </form>
 
 
-<body>
-    <div>
-        <h2>Welcome {{response.fullname}}</h2>
-        <a href="/recommendations">Click here to get meal recommendations matching your {{response.diet}} diet and
-            {{response.allergies}} allergies</a>
-    </div>
+<div>
+    <h2>Welcome {{response.fullname}}</h2>
+    <a href="/recommendations">Get meal recommendations for your {{response.diet}} diet and {{response.allergies}}
+        allergies</a>
+</div>
 
-
-    <h1>Symptoms analyzer</h1>
-    <form method="POST" action="/home">
-        <label for="symptoms"> Enter your symptoms:</label>
-        <input type="text" id="symptoms" name="symptoms" required>
-        <button type="submit">Analyze</button>
-    </form>
-    <br><br>
-    <div>
-        <a href="/profile">Profile</a> |
-        <a href="/logout">Logout</a>
-    </div>
-
-    <form action="{{ url_for('nutrients') }}" method="get">
-        <label for="nutrient">Choose a nutrient:</label>
-        <select name="nutrient" id="nutrient" required>
-            <option disabled selected>Select</option>
-            <option value="Iron">Iron</option>
-            <option value="Vitamin D">Vitamin D</option>
-            <option value="B12">B12</option>
-            <option value="Magnesium">Magnesium</option>
-            <option value="Zinc">Zinc</option>
-            <option value="Vitamin A">Vitamin A</option>
-            <option value="Folate">Folate</option>
-            <option value="Calcium">Calcium</option>
-            <option value="Iodine">Iodine</option>
-            <option value="Omega-3">Omega-3</option>
-        </select>
-        <button type="submit">Go</button>
-    </form>
-
-</body>
-
-</html>
-
-<script>
-    document.getElementById('nutrient').addEventListener('change', function () {
-        const selected = this.value;
-        if (selected) {
-            window.location.href = `/nutrient/?nutrient=${encodeURIComponent(selected)}`;
-        }
-    });
-</script>
+<h1>Symptoms analyzer</h1>
+<form method="POST" action="/home">
+    <label for="symptoms">Enter your symptoms:</label>
+    <input type="text" id="symptoms" name="symptoms" required>
+    <button type="submit">Analyze</button>
+</form>
+{% endblock %}

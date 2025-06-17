@@ -3,12 +3,12 @@ from typing import Dict, List
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from user_data.user_profile import UserProfile, UsersData
 from dotenv import load_dotenv
+from forms import SearchForm
 from groq import Groq
 import os
 import json
 import requests
 import random
-from forms import SearchForm
 
 load_dotenv()
 
@@ -151,6 +151,7 @@ def home():
     Users can generate a mealplan, submit their symtoms for a more custom mealplan and analyze their symptoms.
     """
     # Checks if user is logged in, if not redirects to the authentication page.
+    form = SearchForm()
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -167,7 +168,7 @@ def home():
             return redirect(url_for("display_results", symptoms=symptoms))
         return redirect(url_for("home_page"))
 
-    return render_template("homepage.html", response=d)
+    return render_template("homepage.html", response=d, form=form)
 
 
 # function to analyze symptoms
@@ -620,6 +621,59 @@ def save_results():
     return "OK"
 
 
+def get_nutrient_info():
+    """
+    Gets the information from nutrient_info.json file
+    """
+    path = os.path.join(os.path.dirname(__file__), "data", "nutrient_info.json")
+    with open(path, "r") as f:
+        nutrients_data = json.load(f)
+    return nutrients_data
+
+
+@app.route("/nutrient", methods=["GET", "POST"])
+def nutrients():
+    nutrient = request.args.get("nutrient")
+    if not nutrient:
+        assert 404
+    return redirect(url_for("nutrients_info_page", nutrient_name=nutrient))
+
+
+@app.route("/nutrient/<nutrient_name>", methods=["GET", "POST"])
+def nutrients_info_page(nutrient_name):
+    nutrient_info = get_nutrient_info()
+    nutrient = nutrient_info.get(nutrient_name.upper())
+
+    if nutrient:
+        return render_template(
+            "nutrient_info_page.html", name=nutrient_name.upper(), info=nutrient
+        )
+
+    assert 404
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search_bar():
+    form = SearchForm()
+    if request.method == "POST" and form.validate_on_submit():
+        query = form.search_bar.data
+        return redirect((url_for("search_results", query=query)))
+    return redirect((url_for("home")))
+
+
+@app.route("/search_bar_result/<query>")
+def search_results(query):
+    nutrient_info = get_nutrient_info()
+    nutrient = nutrient_info.get(query.upper())
+
+    if nutrient:
+        return render_template(
+            "nutrient_info_page.html", name=query.upper(), info=nutrient
+        )
+
+    return "No nutrient", 404
+
+
 def userAuthHelper():
     """
     Helper function to check whether the user is logged in or not and returns the user profile.
@@ -648,11 +702,10 @@ def profile():
     # Retrieves the form data from the profile page and updates the user profile.
 
     if request.method == "POST":
-
         error = validate_required_fields_profile(request.form)
         if error:
             return render_template("profile.html", user=user, message=error)
-        
+
         user.password = request.form.get("password")
         user.name = request.form.get("name")
         user.age = int(request.form.get("age"))
@@ -663,25 +716,35 @@ def profile():
         user.country = request.form.get("country")
         user.medication = request.form.get("medication", "").split(",")
         user.diet = request.form.get("diet")
-        user.existing_conditions = request.form.get("existing_conditions", "").split(",")
+        user.existing_conditions = request.form.get("existing_conditions", "").split(
+            ","
+        )
         user.allergies = request.form.get("allergies", "").split(",")
         users_data.save_to_file()
         message = "Profile updated!"
         return render_template("profile.html", user=user, message=message)
     return render_template("profile.html", user=user)
 
+
 def validate_required_fields_profile(form):
     """
     Helper function for the profile page to check whether the required fields are left blank to return the correct error.
     """
     required_fields = [
-        "name", "age", "sex", "hight", "weight", "skin_color", "country", "password"
+        "name",
+        "age",
+        "sex",
+        "hight",
+        "weight",
+        "skin_color",
+        "country",
+        "password",
     ]
     for field in required_fields:
         value = form.get(field)
         if value is None or str(value).strip() == "":
             return f"{field.capitalize()} is required."
-    
+
     try:
         int(form.get("age"))
         float(form.get("hight"))
@@ -689,6 +752,7 @@ def validate_required_fields_profile(form):
     except (TypeError, ValueError):
         return "Age, hight, and weight must be numbers."
     return None
+
 
 @app.route("/logout")
 def logout():
