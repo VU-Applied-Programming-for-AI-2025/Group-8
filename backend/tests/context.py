@@ -1,5 +1,4 @@
 # Copied this code from Marton's demo in Canvas to let the tests.py file import the app module correctly.
-
 import sys
 from pathlib import Path
 
