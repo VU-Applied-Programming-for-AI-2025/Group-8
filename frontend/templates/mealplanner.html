@@ -1,0 +1,58 @@
+<!-- templates/mealplanner.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Meal Plan</title>
+</head>
+<body>
+  <h1>Your Meal Plan</h1>
+
+  {% if message %}
+    <p>{{ message }}</p>
+  {% elif day_plan %}
+    <h2>Day Plan</h2>
+    <ul>
+      {% for meal in day_plan.meals %}
+        <li>
+          <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) -
+          <a href="{{ meal.sourceUrl }}" target="_blank">View Recipe</a>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <h3>Nutrients</h3>
+    <ul>
+      {% for key, value in day_plan.nutrients.items() %}
+        <li>{{ key }}: {{ value }}</li>
+      {% endfor %}
+    </ul>
+
+  {% elif week_plan %}
+    <h2>Week Plan</h2>
+    {% for day, data in week_plan.items() %}
+      <h3>{{ day.capitalize() }}</h3>
+      <ul>
+        {% for meal in data.meals %}
+          <li>
+            <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) -
+            <a href="{{ meal.sourceUrl }}" target="_blank">View Recipe</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+
+  {% else %}
+    {% for day, meals in mealplan.items() %}
+      <h3>Day {{ day }}</h3>
+      <ul>
+        {% for meal_name, recipe in meals.items() %}
+          <li><strong>{{ meal_name.capitalize() }}:</strong>
+            <a href="{{ recipe.sourceUrl }}" target="_blank">{{ recipe.title }}</a>
+            ({{ recipe.readyInMinutes }} min)
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  {% endif %}
+</body>
+</html>
