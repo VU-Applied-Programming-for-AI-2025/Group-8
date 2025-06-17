@@ -118,7 +118,7 @@ def register():
             session["username"] = username
             return redirect(url_for("home"))
         except ValueError as e:
-            return render_template("registration.html", error=str(e))
+            return render_template("auth.html", error=str(e))
 
     return render_template("registration.html")
 
@@ -230,7 +230,7 @@ def display_results():
 
 
 # helper to function extract foods from the groq response
-def extract_food_recs():
+def extract_food_recs() -> List[str]:
     """
     This function extracts the food recommendations from the llm response and stores it in a list for backend use.
 
@@ -340,6 +340,9 @@ def recommendations():
 # display recipe details
 @app.route("/recipe/<recipe_id>")
 def recipe_details(recipe_id):
+    """
+    This function fetches the recipe details from the spoonacular api and returns it as info on recipe_details.html.
+    """
     response = requests.get(
         f"https://api.spoonacular.com/recipes/{recipe_id}/information",
         params={"apiKey": spoonacular_api_key, "includeNutrition": True},
