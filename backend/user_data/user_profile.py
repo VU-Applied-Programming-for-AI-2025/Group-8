@@ -64,6 +64,32 @@ class UserProfile:
         self.analysis_results = analysis_results
         self.mealplan = mealplan
 
+        # Validates the information
+        if not username:
+            raise ValueError("Username is required")
+        if not password:
+            raise ValueError("Password is required")
+        if not name:
+            raise ValueError("Name is required")
+        if not isinstance(age, int):
+            raise ValueError("Age needs to be an integer")
+        if not age:
+            raise ValueError("Age is required")
+        if not sex:
+            raise ValueError("Sex is required")
+        if not isinstance(hight, float):
+            raise ValueError("Hight needs to be a float")
+        if not hight:
+            raise ValueError("Hight is required")
+        if not isinstance(weight, float):
+            raise ValueError("Weight must be a float.")
+        if not weight:
+            raise ValueError("Weight is required")
+        if not skin_color:
+            raise ValueError("Skin color is required")
+        if not country:
+            raise ValueError("Country is required")
+    
 
 class UsersData:
     """
@@ -71,7 +97,7 @@ class UsersData:
     Stores user profiles in a JSON file.
     """
 
-    def __init__(self, file_path="backend/user_data/users.json") -> None:
+    def __init__(self, file_path= "backend/user_data/users.json") -> None:
         """
         Initializes a Userdata object. Loads user profiles from the users.json file if it exists.
         :param file_path (str): The path to the JSON file where user profiles are stored.
