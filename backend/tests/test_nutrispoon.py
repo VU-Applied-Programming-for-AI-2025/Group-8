@@ -482,7 +482,16 @@ def test_homepage(client):
     response = client.get("/home")
     assert_200(response)
 
-
+def test_homepage_results_redirect(client):
+    """
+    Tests that entering symptoms on the homepage correctly redirects to the results page.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.post("/home", data = {"symptoms": "acne"}, follow_redirects = False)
+    assert response.status_code == 302
+    assert "/results?symptoms=acne" in response.headers["Location"]
 
 
 
