@@ -2,8 +2,11 @@
 
 import json, os, pytest
 from context import app, UserProfile, UsersData
-from app import app, users_data
+from app import app, users_data, home, analyze_symptoms, extract_food_recs, display_results, recipe_details
 from unittest.mock import patch
+from dotenv import load_dotenv
+
+load_dotenv()
 
 @pytest.fixture
 def client():
@@ -419,7 +422,76 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
     assert_200(response)
 
 
+###############################################################################
+#                                                                             #
+#                   HOME PAGE TEST                                            #
+#                                                                             #
+###############################################################################
 
+def test_extract_food_recs_list():
+    """
+    Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
+    """
+    test_response = (" - Foods: almonds, dairy, strawberries\n"
+    "- Foods: carrots, red meat, apple"
+    )
+
+    with patch("app.analyze_symptoms", return_value = test_response):
+        result = extract_food_recs()
+        assert set(result) == {"almonds", "dairy", "strawberries", "carrots", "red meat", "apple"}
+
+def test_display_results(client):
+    """
+    Tests if the display_results function and /results route correctly display groq ai's response as in the prompt, so explanation, foods and a tip.
+    """
+    test_response = (
+        "Vitamin A\n"
+        "- Why: acne\n"
+        "- Foods: carrot, eggs\n"
+        "- Tip: foods rich in vitamin A"
+    )
+    with patch("app.analyze_symptoms", return_value = test_response):
+
+        with client.session_transaction() as session:
+            session["logged_in"] = True
+            session["username"] = "testusername"
+
+        result = client.get("/results?symptoms=acne")
+        assert b"acne" in result.data
+        assert b"carrot" in result.data
+        assert b"eggs" in result.data
+        assert b"foods rich in vitamin A" in result.data
+
+def test_recipe_details(client):
+    """
+    Tests if the recipe_details function correctly retrieves the recipe details such as ingredients, nutrients and instructions.
+    """
+    with patch("app.requests.get") as test_get:
+        test_get.return_value.json.return_value = {"title": "test recipe", "ingredients": "a, b, c", "nutrition": "A, B, C", "instructions": "step1"}
+        response = client.get("/recipe/12345")
+        assert_200(response)
+        assert b"test recipe" in response.data
+    
+def test_homepage(client):
+    """
+    Tests if the homepage is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/home")
+    assert_200(response)
+
+def test_homepage_results_redirect(client):
+    """
+    Tests that entering symptoms on the homepage correctly redirects to the results page.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.post("/home", data = {"symptoms": "acne"}, follow_redirects = False)
+    assert response.status_code == 302
+    assert "/results?symptoms=acne" in response.headers["Location"]
 
 
 
