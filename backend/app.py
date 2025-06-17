@@ -85,10 +85,10 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
         name = request.form.get("name")
-        age = int(request.form.get("age"))
+        age = request.form.get("age")
         sex = request.form.get("sex")
-        hight = float(request.form.get("hight"))
-        weight = float(request.form.get("weight"))
+        hight = request.form.get("hight")
+        weight = request.form.get("weight")
         skin_color = request.form.get("skin_color")
         country = request.form.get("country")
         medication = request.form.get("medication", "").split(",")
@@ -104,7 +104,7 @@ def register():
             session["username"] = username
             return redirect(url_for("home"))
         except ValueError as e:
-            return render_template("registration.html", error=str(e))
+            return render_template("auth.html", error=str(e))
 
     return render_template("registration.html")
 
@@ -215,7 +215,7 @@ def display_results():
 
 
 # helper to function extract foods from the groq response
-def extract_food_recs():
+def extract_food_recs() -> List[str]:
     """
     This function extracts the food recommendations from the llm response and stores it in a list for backend use.
 
@@ -324,6 +324,9 @@ def recommendations():
 #display recipe details
 @app.route("/recipe/<recipe_id>")
 def recipe_details(recipe_id):
+    """
+    This function fetches the recipe details from the spoonacular api and returns it as info on recipe_details.html.
+    """
     response = requests.get(
         f"https://api.spoonacular.com/recipes/{recipe_id}/information",
         params={"apiKey": spoonacular_api_key, "includeNutrition": True},
@@ -629,22 +632,19 @@ def profile():
     # Retrieves the form data from the profile page and updates the user profile.
 
     if request.method == "POST":
-
-        error = validate_required_fields_profile(request.form)
-        if error:
-            return render_template("profile.html", user=user, message=error)
-        
         user.password = request.form.get("password")
         user.name = request.form.get("name")
-        user.age = int(request.form.get("age"))
+        user.age = request.form.get("age")
         user.sex = request.form.get("sex")
-        user.hight = float(request.form.get("hight"))
-        user.weight = float(request.form.get("weight"))
+        user.hight = request.form.get("hight")
+        user.weight = request.form.get("weight")
         user.skin_color = request.form.get("skin_color")
         user.country = request.form.get("country")
         user.medication = request.form.get("medication", "").split(",")
         user.diet = request.form.get("diet")
-        user.existing_conditions = request.form.get("existing_conditions", "").split(",")
+        user.existing_conditions = request.form.get("existing_conditions", "").split(
+            ","
+        )
         user.allergies = request.form.get("allergies", "").split(",")
         users_data.save_to_file()
         message = "Profile updated!"
