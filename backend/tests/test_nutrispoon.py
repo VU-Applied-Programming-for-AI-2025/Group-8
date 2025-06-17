@@ -462,7 +462,16 @@ def test_display_results(client):
         assert b"eggs" in result.data
         assert b"foods rich in vitamin A" in result.data
 
-
+def test_recipe_details(client):
+    """
+    Tests if the recipe_details function correctly retrieves the recipe details such as ingredients, nutrients and instructions.
+    """
+    with patch("app.requests.get") as test_get:
+        test_get.return_value.json.return_value = {"title": "test recipe", "ingredients": "a, b, c", "nutrition": "A, B, C", "instructions": "step1"}
+        response = client.get("/recipe/12345")
+        assert_200(response)
+        assert b"test recipe" in response.data
+    
 
 
 
