@@ -198,26 +198,21 @@ def test_register_works_correctly(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the register form with the information of a test user
-    client.post(
-        "/auth/register",
-        data={
-            "username": "testuser",
-            "password": "testpassword",
-            "name": "Test User",
-            "age": 25,
-            "sex": "Female",
-            "hight": 170.0,
-            "weight": 60.0,
-            "skin_color": "medium",
-            "country": "The Netherlands",
-            "medication": "",
-            "diet": "None",
-            "existing_conditions": "",
-            "allergies": "",
-        },
-        follow_redirects=True,
-    )
-
+    client.post("/auth/register", data={
+        "username": "testuser",
+        "password": "testpassword",
+        "name": "Test User",
+        "age": 25,
+        "sex": "Female",
+        "height": 170.0,
+        "weight": 60.0,
+        "skin_color": "medium",
+        "country": "The Netherlands",
+        "medication": "",
+        "diet": "None",
+        "existing_conditions": "",
+        "allergies": ""}, follow_redirects=True)
+   
     # Checks if the testuser's data is stored in the test users data file.
     assert "testuser" in set_users_data.users
 
@@ -235,25 +230,20 @@ def test_register_with_missing_password_fails(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the users information to the register form without a password
-    response = client.post(
-        "/auth/register",
-        data={
-            "username": "testuser",
-            "name": "Test User",
-            "age": 25,
-            "sex": "Female",
-            "hight": 170.0,
-            "weight": 60.0,
-            "skin_color": "medium",
-            "country": "The Netherlands",
-            "medication": "",
-            "diet": "None",
-            "existing_conditions": "",
-            "allergies": "",
-        },
-        follow_redirects=True,
-    )
-
+    response = client.post("/auth/register", data={
+        "username": "testuser",
+        "name": "Test User",
+        "age": 25,
+        "sex": "Female",
+        "height": 170.0,
+        "weight": 60.0,
+        "skin_color": "medium",
+        "country": "The Netherlands",
+        "medication": "",
+        "diet": "None",
+        "existing_conditions": "",
+        "allergies": ""}, follow_redirects=True)
+    
     # Checks if the user's data has not been stored as a userprofile object.
     assert "testuser" not in set_users_data.users
 
@@ -293,7 +283,7 @@ def test_register_with_missing_password_fails(client, set_users_data):
 #         "name": "Test User",
 #         "age": 25,
 #         "sex": "Female",
-#         "hight": 170,
+#         "height": 170,
 #         "weight": 60,
 #         "skin_color": "medium",
 #         "country": "The Netherlands",
@@ -386,7 +376,7 @@ def test_profile_page_change_age(client, set_users_data):
             "name": "Test User",
             "age": 19,  # Age changed to 19
             "sex": "Female",
-            "hight": 175.0,
+            "height": 175.0,
             "weight": 70.0,
             "skin_color": "medium",
             "country": "The Netherlands",
@@ -440,7 +430,7 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
             "name": "Test User",
             "age": 19,
             "sex": "Female",
-            "hight": 175.0,
+            "height": 175.0,
             "weight": 70.0,
             "skin_color": "medium",
             "country": "The Netherlands",
