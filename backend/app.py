@@ -272,9 +272,9 @@ def recommendations():
     print("Recommended foods: ", recommended_foods)
 
     category_to_types = {
-        "breakfast": ["breakfast"],
-        "lunch": ["main course", "salad", "soup", "bread"],
-        "dinner": ["main course", "side dish"],
+        "breakfast": "egg, toast, oatmeal",
+        "lunch": "warm, sandwich, grain bowl, salad",
+        "dinner": "protein, vegetables, rice, pasta, warm",
     }
 
     meal_recipes = {}
@@ -291,6 +291,7 @@ def recommendations():
                 "type": t,
                 "number": 3,
                 "apiKey": spoonacular_api_key,
+                "query": category_to_types.get(category, ""),
             }
             if recommended_foods:
                 params["includeIngredients"] = ",".join(recommended_foods)
