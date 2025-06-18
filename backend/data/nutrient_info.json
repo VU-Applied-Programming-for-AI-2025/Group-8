@@ -1,0 +1,517 @@
+{
+    "COPPER": {
+        "symptoms": [
+            "fatigue",
+            "frequent illness",
+            "brittle bones",
+            "problems with memory and learning",
+            "difficulty walking"
+        ],
+        "function": "Helps form red blood cells, maintain healthy bones, blood vessels, nerves, and immune function.",
+        "why": "Copper is vital for iron metabolism, energy production, and neurotransmitter synthesis.",
+        "foods": [
+            "liver",
+            "shellfish",
+            "nuts",
+            "seeds",
+            "whole-grain products"
+        ]
+    },
+    "CHOLINE": {
+        "symptoms": [
+            "muscle damage",
+            "fatty liver",
+            "memory problems",
+            "mood changes",
+            "nerve dysfunction"
+        ],
+        "function": "Supports brain development, liver function, nerve function, and muscle movement.",
+        "why": "Choline is essential for making acetylcholine, a neurotransmitter involved in memory and mood.",
+        "foods": [
+            "eggs",
+            "beef liver",
+            "salmon",
+            "chicken breast",
+            "broccoli"
+        ]
+    },
+    "CHOLESTEROL": {
+        "symptoms": [
+            "hormonal imbalance",
+            "fatigue",
+            "digestive issues",
+            "low mood",
+            "memory problems"
+        ],
+        "function": "Essential for building cell membranes and producing hormones like estrogen and testosterone.",
+        "why": "Cholesterol is needed for vitamin D and bile acid production, which helps digest fats.",
+        "foods": [
+            "eggs",
+            "cheese",
+            "shellfish",
+            "meat",
+            "butter"
+        ]
+    },
+    "FLUORIDE": {
+        "symptoms": [
+            "dental cavities",
+            "weak bones",
+            "increased fracture risk"
+        ],
+        "function": "Helps prevent dental caries and maintains bone structure.",
+        "why": "Fluoride strengthens tooth enamel and helps rebuild weakened tooth structures.",
+        "foods": [
+            "fluoridated water",
+            "tea",
+            "grapes",
+            "raisins",
+            "spinach"
+        ]
+    },
+    "SATURATEDFAT": {
+        "symptoms": [
+            "low energy (from overly restricted fat intake)",
+            "poor hormone production",
+            "reduced nutrient absorption"
+        ],
+        "function": "Provides energy and supports cell membrane structure and hormone production.",
+        "why": "Some saturated fats play a role in immune function and are precursors to key hormones.",
+        "foods": [
+            "butter",
+            "cheese",
+            "red meat",
+            "coconut oil",
+            "palm oil"
+        ]
+    },
+    "VITAMINC": {
+        "symptoms": [
+            "frequent infections",
+            "bleeding gums",
+            "slow wound healing",
+            "dry, scaly skin",
+            "fatigue"
+        ],
+        "function": "Supports immune function, collagen production, and absorption of iron.",
+        "why": "Vitamin C is an antioxidant that protects cells and is needed for skin, bone, and blood vessel health.",
+        "foods": [
+            "oranges",
+            "strawberries",
+            "kiwi",
+            "bell peppers",
+            "broccoli"
+        ]
+    },
+    "VITAMINE": {
+        "symptoms": [
+            "muscle weakness",
+            "vision problems",
+            "immune dysfunction",
+            "numbness"
+        ],
+        "function": "Acts as an antioxidant, protecting cells from oxidative damage.",
+        "why": "Vitamin E maintains skin and eye health and strengthens the body's natural defense against illness.",
+        "foods": [
+            "almonds",
+            "sunflower seeds",
+            "spinach",
+            "avocados",
+            "plant oils"
+        ]
+    },
+    "VITAMINK": {
+        "symptoms": [
+            "easy bruising",
+            "excessive bleeding",
+            "heavy menstrual periods",
+            "blood in urine or stool"
+        ],
+        "function": "Essential for blood clotting and bone metabolism.",
+        "why": "Vitamin K activates proteins that play a role in blood clotting, bone health, and heart health.",
+        "foods": [
+            "kale",
+            "spinach",
+            "broccoli",
+            "brussels sprouts",
+            "green beans"
+        ]
+    },
+    "VITAMINA": {
+        "symptoms": [
+            "night blindness",
+            "dry skin",
+            "frequent infections",
+            "slow wound healing",
+            "dry eyes"
+        ],
+        "function": "Promotes vision, immune function, reproduction, and cell growth.",
+        "why": "Vitamin A maintains epithelial tissues and supports vision and immune defense.",
+        "foods": [
+            "carrots",
+            "sweet potatoes",
+            "kale",
+            "spinach",
+            "apricots",
+            "liver"
+        ]
+    },
+    "VITAMIND": {
+        "symptoms": [
+            "bone pain",
+            "muscle weakness",
+            "frequent illness",
+            "depression",
+            "slow wound healing"
+        ],
+        "function": "Regulates calcium absorption, immune function, and bone health.",
+        "why": "Vitamin D enhances calcium uptake and supports immune and mood regulation.",
+        "foods": [
+            "salmon",
+            "sardines",
+            "fortified milk",
+            "egg yolks",
+            "mushrooms"
+        ]
+    },
+    "VITAMINB1": {
+        "symptoms": [
+            "fatigue",
+            "irritability",
+            "depression",
+            "poor memory",
+            "muscle weakness"
+        ],
+        "function": "Helps convert nutrients into energy and supports nerve function.",
+        "why": "Thiamine (B1) is essential for glucose metabolism and nerve, muscle, and heart function.",
+        "foods": [
+            "whole grains",
+            "pork",
+            "sunflower seeds",
+            "legumes"
+        ]
+    },
+    "VITAMINB2": {
+        "symptoms": [
+            "cracks at mouth corners",
+            "sore throat",
+            "red tongue",
+            "skin disorders",
+            "light sensitivity"
+        ],
+        "function": "Supports energy production and cellular function.",
+        "why": "Riboflavin (B2) is a key enzyme cofactor involved in metabolism and red blood cell formation.",
+        "foods": [
+            "milk",
+            "eggs",
+            "almonds",
+            "leafy vegetables"
+        ]
+    },
+    "VITAMINB3": {
+        "symptoms": [
+            "fatigue",
+            "skin inflammation",
+            "diarrhea",
+            "mental confusion",
+            "mouth sores"
+        ],
+        "function": "Aids digestion, skin health, and nerve function.",
+        "why": "Niacin (B3) is essential for converting food into energy and repairing DNA.",
+        "foods": [
+            "chicken",
+            "tuna",
+            "salmon",
+            "brown rice",
+            "peanuts"
+        ]
+    },
+    "VITAMINB5": {
+        "symptoms": [
+            "headache",
+            "fatigue",
+            "irritability",
+            "numbness",
+            "muscle cramps"
+        ],
+        "function": "Supports metabolism, hormone synthesis, and wound healing.",
+        "why": "Pantothenic acid (B5) helps convert food into energy and makes neurotransmitters and hormones.",
+        "foods": [
+            "avocados",
+            "yogurt",
+            "eggs",
+            "mushrooms",
+            "broccoli"
+        ]
+    },
+    "VITAMINB6": {
+        "symptoms": [
+            "irritability",
+            "depression",
+            "confusion",
+            "weakened immune function",
+            "cracks in lips"
+        ],
+        "function": "Involved in amino acid metabolism, red blood cell production, and neurotransmitter function.",
+        "why": "Vitamin B6 is critical for brain development and helps regulate mood and sleep.",
+        "foods": [
+            "chickpeas",
+            "salmon",
+            "potatoes",
+            "bananas",
+            "chicken"
+        ]
+    },
+    "VITAMINB12": {
+        "symptoms": [
+            "fatigue",
+            "weakness",
+            "constipation",
+            "loss of appetite",
+            "nerve problems"
+        ],
+        "function": "Essential for red blood cell formation and neurological function.",
+        "why": "Vitamin B12 is vital for nerve function and the production of DNA and red blood cells.",
+        "foods": [
+            "beef",
+            "clams",
+            "fortified cereals",
+            "eggs",
+            "milk"
+        ]
+    },
+    "FIBER": {
+        "symptoms": [
+            "constipation",
+            "bloating",
+            "irregular bowel movements",
+            "blood sugar spikes"
+        ],
+        "function": "Supports digestive health and regulates blood sugar.",
+        "why": "Fiber adds bulk to stool and feeds gut bacteria, improving overall gut health.",
+        "foods": [
+            "oats",
+            "beans",
+            "apples",
+            "carrots",
+            "broccoli"
+        ]
+    },
+    "FOLICACID": {
+        "symptoms": [
+            "fatigue",
+            "gray hair",
+            "mouth sores",
+            "tongue swelling",
+            "poor growth"
+        ],
+        "function": "Crucial for cell division and during pregnancy to prevent neural tube defects.",
+        "why": "Folic acid is the synthetic form of folate and supports DNA and red blood cell formation.",
+        "foods": [
+            "fortified grains",
+            "green vegetables",
+            "citrus fruits",
+            "beans",
+            "peas"
+        ]
+    },
+    "CALCIUM": {
+        "symptoms": [
+            "muscle cramps",
+            "brittle nails",
+            "osteoporosis",
+            "numbness in fingers",
+            "tooth decay"
+        ],
+        "function": "Strengthens bones and teeth, supports nerve signaling, muscle contraction, and blood clotting.",
+        "why": "Calcium is stored in bones and used to maintain bone density. It also plays a critical role in heart and muscle contractions.",
+        "foods": [
+            "milk",
+            "yogurt",
+            "broccoli",
+            "sardines",
+            "cheese",
+            "fortified tofu"
+        ]
+    },
+    "FOLATE": {
+        "symptoms": [
+            "fatigue",
+            "irritability",
+            "poor growth",
+            "mouth sores",
+            "gray hair"
+        ],
+        "function": "Essential for DNA synthesis, red blood cell production, and during pregnancy for fetal development.",
+        "why": "Folate helps form and repair DNA and RNA. It prevents neural tube defects in pregnancy and supports heart health.",
+        "foods": [
+            "leafy greens",
+            "asparagus",
+            "legumes",
+            "oranges",
+            "beets",
+            "avocado"
+        ]
+    },
+    "IODINE": {
+        "symptoms": [
+            "goiter",
+            "fatigue",
+            "weight gain",
+            "cold sensitivity",
+            "dry skin"
+        ],
+        "function": "Needed for thyroid hormone production, metabolism regulation, and cognitive function.",
+        "why": "Iodine is essential for synthesizing thyroid hormones that control metabolism, brain development, and temperature regulation.",
+        "foods": [
+            "iodized salt",
+            "seaweed",
+            "cod",
+            "shrimp",
+            "dairy",
+            "eggs"
+        ]
+    },
+    "IRON": {
+        "symptoms": [
+            "fatigue",
+            "pale skin",
+            "shortness of breath",
+            "dizziness",
+            "cold hands and feet"
+        ],
+        "function": "Carries oxygen in red blood cells, supports metabolism and immune function.",
+        "why": "Iron is a component of hemoglobin and myoglobin, crucial for oxygen transport and muscle function. It also supports enzyme activity and immunity.",
+        "foods": [
+            "red meat",
+            "lentils",
+            "spinach",
+            "tofu",
+            "chickpeas",
+            "pumpkin seeds"
+        ]
+    },
+    "MAGNESIUM": {
+        "symptoms": [
+            "muscle cramps",
+            "irritability",
+            "poor sleep",
+            "nausea",
+            "abnormal heart rhythms"
+        ],
+        "function": "Regulates muscle and nerve function, blood pressure, glucose control, and protein synthesis.",
+        "why": "Magnesium acts as a cofactor in over 300 enzyme systems and is crucial for energy production, nervous system balance, and muscle relaxation.",
+        "foods": [
+            "almonds",
+            "spinach",
+            "avocados",
+            "black beans",
+            "cashews",
+            "whole grains"
+        ]
+    },
+    "MANGANESE": {
+        "symptoms": [
+            "poor bone growth",
+            "skin problems",
+            "slow wound healing"
+        ],
+        "function": "Supports bone formation, blood clotting, and reduces inflammation.",
+        "why": "Manganese is a cofactor for enzymes involved in metabolism, antioxidant defenses, and bone development.",
+        "foods": [
+            "whole grains",
+            "nuts",
+            "tea",
+            "spinach",
+            "pineapple"
+        ]
+    },
+    "PHOSPHORUS": {
+        "symptoms": [
+            "weak muscles",
+            "bone pain",
+            "fatigue"
+        ],
+        "function": "Helps build bones and teeth and is involved in energy production.",
+        "why": "Phosphorus is essential for ATP production, bone health, and the formation of DNA and RNA.",
+        "foods": [
+            "meat",
+            "fish",
+            "poultry",
+            "dairy",
+            "nuts",
+            "seeds"
+        ]
+    },
+    "POTASSIUM": {
+        "symptoms": [
+            "muscle weakness",
+            "irregular heartbeat",
+            "fatigue",
+            "constipation"
+        ],
+        "function": "Regulates fluid balance, muscle contractions, and nerve signals.",
+        "why": "Potassium helps maintain normal blood pressure and supports muscle and nerve function.",
+        "foods": [
+            "bananas",
+            "potatoes",
+            "oranges",
+            "beans",
+            "spinach",
+            "yogurt"
+        ]
+    },
+    "SELENIUM": {
+        "symptoms": [
+            "hair loss",
+            "fatigue",
+            "weakened immunity",
+            "mental fog"
+        ],
+        "function": "Protects cells from oxidative stress and supports thyroid function.",
+        "why": "Selenium is a component of antioxidant enzymes and is critical for metabolism and DNA synthesis.",
+        "foods": [
+            "brazil nuts",
+            "tuna",
+            "eggs",
+            "sunflower seeds",
+            "brown rice"
+        ]
+    },
+    "SODIUM": {
+        "symptoms": [
+            "low blood pressure",
+            "dizziness",
+            "muscle cramps",
+            "nausea"
+        ],
+        "function": "Maintains fluid balance, nerve function, and muscle contractions.",
+        "why": "Sodium regulates blood volume and is vital for electrical signaling in the nervous system.",
+        "foods": [
+            "table salt",
+            "pickles",
+            "cheese",
+            "canned soups",
+            "processed meats"
+        ]
+    },
+    "ZINC": {
+        "symptoms": [
+            "slow wound healing",
+            "hair loss",
+            "loss of taste or smell",
+            "frequent infections",
+            "diarrhea"
+        ],
+        "function": "Supports immune defense, cell division, wound healing, and DNA synthesis.",
+        "why": "Zinc is needed for enzyme function, protein synthesis, and immunity. Its deficiency impairs growth and infection resistance.",
+        "foods": [
+            "pumpkin seeds",
+            "chickpeas",
+            "beef",
+            "cashews",
+            "oysters",
+            "milk"
+        ]
+    }
+}

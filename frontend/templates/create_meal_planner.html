@@ -1,0 +1,10 @@
+<form method="POST" action="/recommendations/mealplanner/create">
+    <label>Number of days:</label>
+    <input type="number" name="days" min="1" max="31" value="7" required><br>
+    <label>Meals to plan:</label>
+    <input type="checkbox" name="meals" value="breakfast" checked> Breakfast
+    <input type="checkbox" name="meals" value="lunch" checked> Lunch
+    <input type="checkbox" name="meals" value="dinner" checked> Dinner
+    <br>
+    <button type="submit">Create Meal Planner</button>
+</form>

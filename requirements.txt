@@ -1,1 +1,6 @@
-pydantic==2.7.1
+Flask
+python-dotenv
+requests
+pytest
+groq
+Flask-WTF
