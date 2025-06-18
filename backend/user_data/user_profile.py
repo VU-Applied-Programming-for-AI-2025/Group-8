@@ -72,7 +72,7 @@ class UserProfile:
         if not name:
             raise ValueError("Name is required")
         if not isinstance(age, int):
-            raise ValueError("Age needs to be an integer")
+            raise ValueError(f"Age needs to be an integer, but it was {type(age)} and the value was {age}")
         if not age:
             raise ValueError("Age is required")
         if not sex:
@@ -82,7 +82,7 @@ class UserProfile:
         if not height:
             raise ValueError("Height is required")
         if not isinstance(weight, float):
-            raise ValueError("Weight must be a float.")
+            raise ValueError(f"Weight must be a float, but it was {type(weight)} and the value was {weight}")
         if not weight:
             raise ValueError("Weight is required")
         if not skin_color:

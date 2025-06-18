@@ -1,0 +1,76 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My App{% endblock %}</title>
+    <style>
+        nav {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e0e0e0;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="/profile">Profile</a> |
+        <div class="dropdown">
+            <button class="dropbtn">Nutrients</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Vitamin+D">Vitamin D</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=B12">B12</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Vitamin+A">Vitamin A</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Omega-3">Omega-3</a>
+            </div>
+        </div> |
+        <a href="/logout">Logout</a>
+    </nav>
+
+    {% block content %}{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }} Info</title>
+</head>
+
+<body>
+    <h1>{{ name }}</h1>
+
+    <h2>Function</h2>
+    <p>{{ info.function }}</p>
+
+    <h2>Why It's Important</h2>
+    <p>{{ info.why }}</p>
+
+    <h2>Deficiency Symptoms</h2>
+    <ul>
+        {% for symptom in info.symptoms %}
+        <li>{{ symptom }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Top Food Sources</h2>
+    <ul>
+        {% for food in info.foods %}
+        <li>{{ food }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('home') }}">← Back to nutrient list</a>
+</body>
+
+</html>
+
+<script>
+    document.getElementById('nutrient').addEventListener('change', function () {
+        const selected = this.value;
+        if (selected) {
+            window.location.href = `/nutrient/${encodeURIComponent(selected)}`;
+        }
+    });
+</script>
