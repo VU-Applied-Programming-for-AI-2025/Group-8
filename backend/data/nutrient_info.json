@@ -1,0 +1,192 @@
+{
+    "IRON": {
+        "symptoms": [
+            "fatigue",
+            "pale skin",
+            "shortness of breath",
+            "dizziness",
+            "cold hands and feet"
+        ],
+        "function": "Carries oxygen in red blood cells, supports metabolism and immune function.",
+        "why": "Iron is a component of hemoglobin and myoglobin, crucial for oxygen transport and muscle function. It also supports enzyme activity and immunity.",
+        "foods": [
+            "red meat",
+            "lentils",
+            "spinach",
+            "tofu",
+            "chickpeas",
+            "pumpkin seeds"
+        ]
+    },
+    "VITAMIN D": {
+        "symptoms": [
+            "bone pain",
+            "muscle weakness",
+            "frequent illness",
+            "depression",
+            "slow wound healing"
+        ],
+        "function": "Regulates calcium absorption, supports immune system, and maintains healthy bones and mood.",
+        "why": "Vitamin D helps regulate calcium and phosphorus levels, which are essential for strong bones. It also modulates immune responses and influences mood regulation.",
+        "foods": [
+            "salmon",
+            "egg yolks",
+            "fortified milk",
+            "mushrooms",
+            "sardines",
+            "cod liver oil"
+        ]
+    },
+    "B12": {
+        "symptoms": [
+            "tingling in hands/feet",
+            "memory problems",
+            "fatigue",
+            "difficulty walking",
+            "irritability"
+        ],
+        "function": "Supports nerve function, DNA synthesis, red blood cell production, and brain health.",
+        "why": "Vitamin B12 is required for neurological function and forming red blood cells. Its deficiency can lead to irreversible nerve damage if untreated.",
+        "foods": [
+            "beef liver",
+            "clams",
+            "fortified cereals",
+            "eggs",
+            "dairy products",
+            "salmon"
+        ]
+    },
+    "MAGNESIUM": {
+        "symptoms": [
+            "muscle cramps",
+            "irritability",
+            "poor sleep",
+            "nausea",
+            "abnormal heart rhythms"
+        ],
+        "function": "Regulates muscle and nerve function, blood pressure, glucose control, and protein synthesis.",
+        "why": "Magnesium acts as a cofactor in over 300 enzyme systems and is crucial for energy production, nervous system balance, and muscle relaxation.",
+        "foods": [
+            "almonds",
+            "spinach",
+            "avocados",
+            "black beans",
+            "cashews",
+            "whole grains"
+        ]
+    },
+    "ZINC": {
+        "symptoms": [
+            "slow wound healing",
+            "hair loss",
+            "loss of taste/smell",
+            "frequent infections",
+            "diarrhea"
+        ],
+        "function": "Supports immune defense, cell division, wound healing, and DNA synthesis.",
+        "why": "Zinc is needed for enzyme function, protein synthesis, and immunity. Its deficiency impairs growth and infection resistance.",
+        "foods": [
+            "pumpkin seeds",
+            "chickpeas",
+            "beef",
+            "cashews",
+            "oysters",
+            "milk"
+        ]
+    },
+    "VITAMIN A": {
+        "symptoms": [
+            "night blindness",
+            "dry skin",
+            "frequent infections",
+            "slow wound healing",
+            "dry eyes"
+        ],
+        "function": "Promotes vision, immune function, reproduction, and cell growth.",
+        "why": "Vitamin A maintains epithelial cells and mucous membranes. It is critical for eye health, immune defense, and fetal development.",
+        "foods": [
+            "carrots",
+            "sweet potatoes",
+            "mangoes",
+            "kale",
+            "liver",
+            "apricots"
+        ]
+    },
+    "FOLATE": {
+        "symptoms": [
+            "fatigue",
+            "irritability",
+            "poor growth",
+            "mouth sores",
+            "gray hair"
+        ],
+        "function": "Essential for DNA synthesis, red blood cell production, and during pregnancy for fetal development.",
+        "why": "Folate helps form and repair DNA and RNA. It prevents neural tube defects in pregnancy and supports heart health.",
+        "foods": [
+            "leafy greens",
+            "asparagus",
+            "legumes",
+            "oranges",
+            "beets",
+            "avocado"
+        ]
+    },
+    "CALCIUM": {
+        "symptoms": [
+            "muscle spasms",
+            "brittle nails",
+            "osteoporosis",
+            "numbness in fingers",
+            "tooth decay"
+        ],
+        "function": "Strengthens bones and teeth, supports nerve signaling, muscle contraction, and blood clotting.",
+        "why": "Calcium is stored in bones and used to maintain bone density. It also plays a critical role in heart and muscle contractions.",
+        "foods": [
+            "milk",
+            "yogurt",
+            "broccoli",
+            "sardines",
+            "cheese",
+            "fortified tofu"
+        ]
+    },
+    "IODINE": {
+        "symptoms": [
+            "goiter",
+            "fatigue",
+            "weight gain",
+            "cold sensitivity",
+            "dry skin"
+        ],
+        "function": "Needed for thyroid hormone production, metabolism regulation, and cognitive function.",
+        "why": "Iodine is essential for synthesizing thyroid hormones that control metabolism, brain development, and temperature regulation.",
+        "foods": [
+            "iodized salt",
+            "seaweed",
+            "cod",
+            "shrimp",
+            "dairy",
+            "eggs"
+        ]
+    },
+    "OMEGA-3": {
+        "symptoms": [
+            "dry skin",
+            "joint pain",
+            "brain fog",
+            "mood swings",
+            "fatigue"
+        ],
+        "function": "Reduces inflammation, supports heart and brain health, and improves mood and vision.",
+        "why": "Omega-3s are essential fatty acids that regulate inflammation, build cell membranes in the brain, and support cardiovascular health.",
+        "foods": [
+            "salmon",
+            "chia seeds",
+            "walnuts",
+            "flaxseeds",
+            "sardines",
+            "canola oil"
+        ]
+    }
+}
