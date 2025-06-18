@@ -636,6 +636,9 @@ def get_nutrient_info():
 
 @app.route("/nutrient", methods=["GET", "POST"])
 def nutrients():
+    """
+    Gets the nutrient from the frontend and redirects to the information page based on given nutrient.
+    """
     nutrient = request.args.get("nutrient")
     if not nutrient:
         assert 404
@@ -644,6 +647,9 @@ def nutrients():
 
 @app.route("/nutrient/<nutrient_name>", methods=["GET", "POST"])
 def nutrients_info_page(nutrient_name):
+    """
+    Shows the information of the given nutrient.
+    """
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(nutrient_name.upper())
 
@@ -657,6 +663,11 @@ def nutrients_info_page(nutrient_name):
 
 @app.route("/search", methods=["GET", "POST"])
 def search_bar():
+    """
+    Handles the search request from the search button on the frontend.
+    If the search request is POST, and a valid submit, it redirects to the search results.
+    Else, it redirects to the home page.
+    """
     form = SearchForm()
     if request.method == "POST" and form.validate_on_submit():
         query = form.search_bar.data
@@ -666,6 +677,11 @@ def search_bar():
 
 @app.route("/search_bar_result/<query>")
 def search_results(query):
+    """
+    Displays the search bar results.
+
+    :param query: The given nutrient name.
+    """
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(query.upper())
 

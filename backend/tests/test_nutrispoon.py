@@ -967,6 +967,9 @@ def test_save_results(client, set_users_data):
 
 
 def test_getting_json_file():
+    """
+    Tests if the json file is loaded successfully
+    """
     json_data = get_nutrient_info()
     print(json_data)
     assert json_data["IRON"]["symptoms"][0] == "fatigue"
@@ -974,7 +977,7 @@ def test_getting_json_file():
 
 def test_redirecting_nutrient_url(client):
     """
-    aa
+    Tests if redirecting works.
     """
     response = client.get(
         "/nutrient?nutrient=Vitamin+A", follow_redirects=False
@@ -984,7 +987,7 @@ def test_redirecting_nutrient_url(client):
 
 def test_nutrient_info_page(client):
     """
-    aa
+    Tests if nutrient page can load successfully with the testcase.
     """
     response = client.get("/nutrient/zinc", follow_redirects=False)
     assert_200(response)
@@ -999,7 +1002,7 @@ def test_nutrient_info_page(client):
 
 def test_search_redirecting(client):
     """
-    aa
+    tests if the search bar redirects successfully
     """
     response = client.get("/search", follow_redirects=False)  # false bc
     assert response.status_code == 302, f"Expected 302, got {response.status_code}"
@@ -1007,7 +1010,7 @@ def test_search_redirecting(client):
 
 def test_search_bar_info_page(client):
     """
-    aa
+    Tests if the search bar works successfully with the testcase.
     """
     response = client.get("/search_bar_result/zinc", follow_redirects=False)
     assert_200(response)
