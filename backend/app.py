@@ -1,6 +1,15 @@
 ## develop your flask app here ##
 from typing import Dict, List, Union
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify, Response
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    jsonify,
+    Response,
+)
 from user_data.user_profile import UserProfile, UsersData
 from dotenv import load_dotenv
 from forms import SearchForm
@@ -13,12 +22,13 @@ app = Flask(__name__, template_folder="../frontend/templates")
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 
 # Retrieves the spoonacular API key from the .env file
-spoonacular_api_key: str = os.getenv("API_KEY")  
+spoonacular_api_key: str = os.getenv("API_KEY")
 
 client: str = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 # Initializes the UsersData object where all the user profiles will be stored in a json file.
-users_data = UsersData()  
+users_data = UsersData()
+
 
 def userAuthHelper() -> UserProfile:
     """
@@ -34,8 +44,9 @@ def userAuthHelper() -> UserProfile:
         return False
     return logged_in_user
 
+
 @app.route("/")
-def show_consent()-> Union[str, Response]:
+def show_consent() -> Union[str, Response]:
     """
     Checks if the consent form is shown when the user has not given consent yet.
     Redirects to the authentication page if the user has already given consent.
@@ -49,7 +60,7 @@ def show_consent()-> Union[str, Response]:
 
 
 @app.route("/consentform", methods=["POST"])
-def handle_consent()-> Union[Response, None]:
+def handle_consent() -> Union[Response, None]:
     """
     This page shows a consentform. Once accepted it will redirect to the authentication page.
     :returns:
@@ -115,9 +126,23 @@ def register() -> Union[str, Response]:
         existing_conditions = request.form.get("existing_conditions", "").split(",")
         allergies = request.form.get("allergies", "").split(",")
 
-        # Makes a user profile object with the form's information
-        try: 
-            user_profile = UserProfile(username, password, name, age, sex, height, weight, skin_color, country, medication, diet, existing_conditions, allergies)
+        # Makes a user profile object and adds it to the users_data object
+        try:
+            user_profile = UserProfile(
+                username,
+                password,
+                name,
+                age,
+                sex,
+                height,
+                weight,
+                skin_color,
+                country,
+                medication,
+                diet,
+                existing_conditions,
+                allergies,
+            )
 
             # Adds the user profile object to the users_data object
             users_data.add_user(user_profile)
@@ -158,6 +183,7 @@ def login() -> Union[str, Response]:
             # If the authentication fails, the user will stay on the authentication page and get the corresponding error message.
             return render_template("auth.html", error=message)
 
+
 @app.route("/logout")
 def logout() -> Response:
     """
@@ -171,6 +197,7 @@ def logout() -> Response:
 
     # Redirects the user to the consentform page.
     return redirect(url_for("show_consent"))
+
 
 @app.route("/home", methods=["GET", "POST"])
 def home():
@@ -207,6 +234,7 @@ def analyze_symptoms():
     user = users_data.get_user(username)
 
     symptoms = request.args.get("symptoms")
+    session["last_symptoms"] = symptoms
 
     ai_prompt = f"""
         user profile:
@@ -256,6 +284,7 @@ def analyze_symptoms():
         print("Groq API failed:", e)
         raise
 
+
 def extract_deficiency_keywords(text: str) -> List[str]:
     """
     Returns a list of nutrient or vitamin names found at the start of lines in the LLM response.
@@ -263,8 +292,20 @@ def extract_deficiency_keywords(text: str) -> List[str]:
     Looks for known keys like 'vitamin d', 'iron', etc., followed by a colon.
     """
     known_keys = {
-        "vitamin a", "vitamin b", "vitamin c", "vitamin d", "vitamin e", "vitamin k",
-        "iron", "zinc", "magnesium", "calcium", "selenium", "potassium", "folate", "iodine"
+        "vitamin a",
+        "vitamin b",
+        "vitamin c",
+        "vitamin d",
+        "vitamin e",
+        "vitamin k",
+        "iron",
+        "zinc",
+        "magnesium",
+        "calcium",
+        "selenium",
+        "potassium",
+        "folate",
+        "iodine",
     }
 
     deficiencies = []
@@ -276,6 +317,7 @@ def extract_deficiency_keywords(text: str) -> List[str]:
                 deficiencies.append(key)
 
     return deficiencies
+
 
 # helper to function extract foods from the groq response
 def extract_food_recs() -> List[str]:
@@ -294,6 +336,7 @@ def extract_food_recs() -> List[str]:
 
     foods = []
     for line in analysis_text.splitlines():
+        line = line.strip()
         if line.lower().startswith("- foods:"):
             parts = line[8:].split(",")
             foods.extend([x.strip() for x in parts])
@@ -335,7 +378,7 @@ def recommendations():
         "iron": ["spinach", "lentils", "beef"],
         "calcium": ["milk", "yogurt", "kale"],
         "magnesium": ["almonds", "avocado", "banana"],
-        "zinc": ["pumpkin seeds", "chickpeas", "cashews"]
+        "zinc": ["pumpkin seeds", "chickpeas", "cashews"],
     }
 
     try:
@@ -351,9 +394,9 @@ def recommendations():
     ingredients = list(set(ingredients))
 
     category_to_types = {
-        "breakfast": ["breakfast", "bread", "beverage", "snack"],
+        "breakfast": ["breakfast"],
         "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"]
+        "dinner": ["main course", "side dish", "appetizer"],
     }
 
     meal_recipes = {}
@@ -367,15 +410,14 @@ def recommendations():
                 "excludeIngredients": intolerance,
                 "type": t,
                 "number": 3,
-                "apiKey": spoonacular_api_key
+                "apiKey": spoonacular_api_key,
             }
             if ingredients:
                 params["includeIngredients"] = ",".join(ingredients)
 
             try:
                 response = requests.get(
-                    "https://api.spoonacular.com/recipes/complexSearch",
-                    params=params
+                    "https://api.spoonacular.com/recipes/complexSearch", params=params
                 )
                 data = response.json()
                 collected_recipes.extend(data.get("results", []))
@@ -386,7 +428,7 @@ def recommendations():
             try:
                 fallback = requests.get(
                     "https://api.spoonacular.com/recipes/random",
-                    params={"number": 3, "apiKey": spoonacular_api_key}
+                    params={"number": 3, "apiKey": spoonacular_api_key},
                 )
                 fallback_data = fallback.json()
                 collected_recipes = fallback_data.get("recipes", [])
@@ -399,7 +441,10 @@ def recommendations():
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
 
-    return render_template("recipes.html", recipes_by_meal=meal_recipes, food_list=food_list)
+    return render_template(
+        "recipes.html", recipes_by_meal=meal_recipes, food_list=food_list
+    )
+
 
 # display recipe details
 @app.route("/recipe/<recipe_id>")
@@ -658,7 +703,7 @@ def show_favorites():
             params={"apiKey": spoonacular_api_key},
         )
         if response.ok:
-            recipes.append(response.json)
+            recipes.append(response.json())
 
     return render_template("favorites.html", recipes=recipes)
 
@@ -679,13 +724,33 @@ def save_results():
         return "No result", 401
 
     analysis = request.get_json(silent=True)
+
     if not analysis:
         return "No result", 401
 
-    user.analysis_results = analysis
+    symptoms = session.get("last_symptoms", "Unknown")
+
+    user.analysis_results.append(
+        {
+            "symptoms": symptoms,
+            "analyse": analysis,
+        }
+    )
     users_data.save_to_file()
 
     return "OK"
+
+
+@app.route("/analysis_history")
+def show_history():
+    """
+    Shows the analysis history
+    """
+
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+    return render_template("analysis_history.html", results=user.analysis_results)
 
 
 def get_nutrient_info():
@@ -774,12 +839,11 @@ def profile() -> Union[str, Response]:
 
     # Retrieves the form data from the profile page and updates the user profile.
     if request.method == "POST":
-
         # Uses the helperfunction to check if the required fields are not left blank, for it would show a error message.
         error = validate_required_fields_profile(request.form)
         if error:
             return render_template("profile.html", user=user, message=error)
-        
+
         user.password = request.form.get("password")
         user.name = request.form.get("name")
         user.age = int(request.form.get("age"))
@@ -790,7 +854,9 @@ def profile() -> Union[str, Response]:
         user.country = request.form.get("country")
         user.medication = request.form.get("medication", "").split(",")
         user.diet = request.form.get("diet")
-        user.existing_conditions = request.form.get("existing_conditions", "").split(",")
+        user.existing_conditions = request.form.get("existing_conditions", "").split(
+            ","
+        )
         user.allergies = request.form.get("allergies", "").split(",")
 
         # Saves the updated data to the users data file.
@@ -798,22 +864,30 @@ def profile() -> Union[str, Response]:
 
         message: str = "Profile updated!"
         return render_template("profile.html", user=user, message=message)
-    
+
     return render_template("profile.html", user=user)
 
 
 def validate_required_fields_profile(form) -> Union[None, str]:
     """
     Helper function for the profile page to check whether the required fields are left blank to return the correct error.
-    
+
     :param form: a html form.
     :returns:
         str: An error message stating that the field is required to fill in.
         None: If a required fields are filled in.
     """
-    required_fields: List[str] = ["name", "age", "sex", "height", "weight", "skin_color", "country", "password"]
 
-    # Checks for each field if they are left blank.
+    required_fields = [
+        "name",
+        "age",
+        "sex",
+        "height",
+        "weight",
+        "skin_color",
+        "country",
+        "password",
+    ]
     for field in required_fields:
         value = form.get(field)
         # Returns an error message if a required field is left blank.

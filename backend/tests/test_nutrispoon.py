@@ -27,6 +27,7 @@ def client() -> FlaskClient:
         FlaskClient: a Flask test client.
     """
     app.config["TESTING"] = True
+
     client = app.test_client()
     yield client
 
@@ -55,7 +56,7 @@ def set_users_data() -> UsersData:
         os.remove(test_users_file)
 
 
-def set_user_login(client)-> None:
+def set_user_login(client) -> None:
     """
     Helper function to add a testuser to the database and login.
     :param client: the Flask test client
@@ -85,7 +86,7 @@ def set_user_login(client)-> None:
         sess["username"] = "testusername"
 
 
-def assert_200(response)-> None:
+def assert_200(response) -> None:
     """
     Helper function to assert that the response status code is 200.
     :param response: The response object to check.
@@ -100,7 +101,7 @@ def assert_200(response)-> None:
 ###############################################################################
 
 
-def test_show_consent(client)-> None:
+def test_show_consent(client) -> None:
     """
     Tests that the consent form is displayed when the web is started.
     :param client: the Flask test client
@@ -110,17 +111,19 @@ def test_show_consent(client)-> None:
     assert b"consent form" in response.data.lower()
 
 
-def test_handle_consent(client)-> None:
+def test_handle_consent(client) -> None:
     """
     Tests that submitting the consent form causes redirection to the authentication page.
     :param client: the Flask test client
     """
-    response = client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
+    response = client.post(
+        "/consentform", data={"accept": "true"}, follow_redirects=True
+    )
     assert_200(response)
     assert b"login" in response.data.lower()
 
 
-def test_redirect_to_consent_when_no_consent(client)-> None:
+def test_redirect_to_consent_when_no_consent(client) -> None:
     """
     Tests that accessing the authentication page with no consent redirects to the consent form.
     :param client: the Flask test client
@@ -137,7 +140,7 @@ def test_redirect_to_consent_when_no_consent(client)-> None:
 ###############################################################################
 
 
-def test_login_works_correctly(client, set_users_data)-> None:
+def test_login_works_correctly(client, set_users_data) -> None:
     """
     Tests that logging in with an existing user works correctly, and redirects to the home page.
     :param client: the Flask test client
@@ -173,7 +176,7 @@ def test_login_works_correctly(client, set_users_data)-> None:
     assert b"homepage" in response.data.lower()
 
 
-def test_login_with_false_username_fails(client, set_users_data)-> None:
+def test_login_with_false_username_fails(client, set_users_data) -> None:
     """
     Tests that logging in with an non-existing user will not redirect to home page and gives the correct error message.
     :param client: the Flask test client
@@ -192,7 +195,8 @@ def test_login_with_false_username_fails(client, set_users_data)-> None:
     assert b"username not found in database" in response.data.lower()
     assert_200(response)
 
-def test_login_with_false_password_fails(client, set_users_data)-> None:
+
+def test_login_with_false_password_fails(client, set_users_data) -> None:
     """
     Tests that logging in with an existing username and false password will not redirect to home page and gives the correct error message.
     :param client: the Flask test client
@@ -200,18 +204,18 @@ def test_login_with_false_password_fails(client, set_users_data)-> None:
     """
     # Creates a new userprofile object .
     user = UserProfile(
-            "testusername",
-            "testpassword",
-            "Test User",
-            20,
-            "Female",
-            175.0,
-            70.0,
-            "medium",
-            "The Netherlands",
-            "None",
-            "None"
-        )
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
     # Stores the user object in the user data.
     set_users_data.add_user(user)
 
@@ -219,9 +223,14 @@ def test_login_with_false_password_fails(client, set_users_data)-> None:
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Checks if the correct error message is displayed if the client logs in with a correct username and false password.
-    response = client.post("/auth/login", data={"name": "testusername", "password": "falsepassword"}, follow_redirects=True)
+    response = client.post(
+        "/auth/login",
+        data={"name": "testusername", "password": "falsepassword"},
+        follow_redirects=True,
+    )
     assert b"wrong password" in response.data.lower()
     assert_200(response)
+
 
 ###############################################################################
 #                                                                             #
@@ -230,7 +239,7 @@ def test_login_with_false_password_fails(client, set_users_data)-> None:
 ###############################################################################
 
 
-def test_register_works_correctly(client, set_users_data)-> None:
+def test_register_works_correctly(client, set_users_data) -> None:
     """
     Tests that registering a new user works correctly and redirects to the home page.
     :param client: the Flask test client
@@ -240,21 +249,26 @@ def test_register_works_correctly(client, set_users_data)-> None:
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the register form with the information of a test user
-    client.post("/auth/register", data={
-        "username": "testuser",
-        "password": "testpassword",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-   
+    client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "password": "testpassword",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the testuser's data is stored in the test users data file.
     assert "testuser" in set_users_data.users
 
@@ -264,7 +278,7 @@ def test_register_works_correctly(client, set_users_data)-> None:
     assert b"homepage" in response.data.lower()
 
 
-def test_register_with_missing_password_fails(client, set_users_data)-> None:
+def test_register_with_missing_password_fails(client, set_users_data) -> None:
     """
     Tests that registering a new user with missing information of a mandatory part such as password gives the corresponding error message.
     :param client: the Flask test client
@@ -274,20 +288,25 @@ def test_register_with_missing_password_fails(client, set_users_data)-> None:
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the users information to the register form without a password
-    response = client.post("/auth/register", data={
-        "username": "testuser",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-    
+    response = client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the user's data has not been stored as a userprofile object.
     assert "testuser" not in set_users_data.users
 
@@ -295,7 +314,8 @@ def test_register_with_missing_password_fails(client, set_users_data)-> None:
     assert b"password is required" in response.data.lower()
     assert_200(response)
 
-def test_register_with_existing_username_fails(client, set_users_data)-> None:
+
+def test_register_with_existing_username_fails(client, set_users_data) -> None:
     """
     Tests that when the user tried to register with an already existing username, it gives the corresponding error message.
     :param client: the Flask test client
@@ -314,7 +334,7 @@ def test_register_with_existing_username_fails(client, set_users_data)-> None:
         "light",
         "Germany",
         "None",
-        "None"
+        "None",
     )
     # Adds the user to the users data test file.
     set_users_data.add_user(user)
@@ -322,25 +342,33 @@ def test_register_with_existing_username_fails(client, set_users_data)-> None:
     # Checks if the consentform has been accepted.
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
-   # Posts the users information to the register form with an existing username.
-    response = client.post("/auth/register", data={
-        "username": "Hansklok",
-        "password": "testpassword",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-    
-    #Checks if the correct errormessage is displayed.
-    assert b"user with username &#39;hansklok&#39; already exists" in response.data.lower()
+    # Posts the users information to the register form with an existing username.
+    response = client.post(
+        "/auth/register",
+        data={
+            "username": "Hansklok",
+            "password": "testpassword",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
+    # Checks if the correct errormessage is displayed.
+    assert (
+        b"user with username &#39;hansklok&#39; already exists" in response.data.lower()
+    )
     assert_200(response)
+
 
 ###############################################################################
 #                                                                             #
@@ -349,7 +377,7 @@ def test_register_with_existing_username_fails(client, set_users_data)-> None:
 ###############################################################################
 
 
-def test_logout(client)-> None:
+def test_logout(client) -> None:
     """
     Tests that when logging out the session is cleared and the user will be redirected to the consent form.
     :param client: the Flask test client.
@@ -377,7 +405,7 @@ def test_logout(client)-> None:
 ###############################################################################
 
 
-def test_profile_page(client)-> None:
+def test_profile_page(client) -> None:
     """
     Tests that the profile page can be accessed when the user is logged in.
     :param client: the Flask test client
@@ -388,7 +416,7 @@ def test_profile_page(client)-> None:
     assert b"Profile" in response.data
 
 
-def test_profile_page_change_age(client, set_users_data)-> None:
+def test_profile_page_change_age(client, set_users_data) -> None:
     """
     Tests that when the user changes their age on the profile page, it will be changed in the user data object.
     :param client: the Flask test client
@@ -442,7 +470,7 @@ def test_profile_page_change_age(client, set_users_data)-> None:
     assert_200(response)
 
 
-def test_profile_leave_blank_password_fails(client, set_users_data)-> None:
+def test_profile_leave_blank_password_fails(client, set_users_data) -> None:
     """
     Tests a user profile change where a required userprofile parameter such as password is left blank to check if an error will occur and the password is not saved in the database.
     :param client: the Flask test client
@@ -533,7 +561,7 @@ Vitamin D:
     ):
         from app import extract_food_recs
 
-        foods = extract_food_recs()
+        _, foods = extract_food_recs()
         assert "salmon" in foods
         assert "egg yolk" in foods
         assert "mushrooms" in foods
@@ -549,7 +577,7 @@ def test_extract_food_recs_list():
     )
 
     with patch("app.analyze_symptoms", return_value=test_response):
-        result = extract_food_recs()
+        _, result = extract_food_recs()
         assert set(result) == {
             "almonds",
             "dairy",
@@ -586,9 +614,10 @@ def test_recipe_details(client):
     with patch("app.requests.get") as test_get:
         test_get.return_value.json.return_value = {
             "title": "test recipe",
-            "ingredients": "a, b, c",
-            "nutrition": "A, B, C",
+            "image": "https://example.com/image.jpg",
             "instructions": "step1",
+            "extendedIngredients": [],
+            "nutrition": {},
         }
         response = client.get("/recipe/12345")
         assert_200(response)
@@ -982,7 +1011,7 @@ def test_save_results(client, set_users_data):
         session["logged_in"] = True
         session["username"] = "testusername"
 
-    set_users_data.get_user("testusername").analysis_results = {}
+    set_users_data.get_user("testusername").analysis_results = []
 
     response_empty = client.post(
         "/save_results", data="", content_type="application/json"
@@ -990,13 +1019,27 @@ def test_save_results(client, set_users_data):
     assert response_empty.status_code == 401
     assert b"No result" in response_empty.data
 
-    test_data = {"Vitamin A": 45, "Iron": 20}
+    test_data = {
+        "symptoms": "fatigue, nausea",
+        "analyse": "Vitamin D is lacking. Foods: salmon, egg yolk.",
+    }
 
     response = client.post(
         "/save_results", data=json.dumps(test_data), content_type="application/json"
     )
     assert_200(response)
     assert b"OK" in response.data
+
+
+def test_history_analysis(client):
+    """
+    Tests if the history page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/analysis_history")
+    assert_200(response)
 
 
 ###############################################################################
