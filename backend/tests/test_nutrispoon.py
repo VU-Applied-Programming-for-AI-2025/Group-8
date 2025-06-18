@@ -495,15 +495,16 @@ Vitamin D:
 def test_generate_recipe_structure():
     from app import generate_recipe
 
-    with patch("app.requests.get") as mock_get:
-        mock_get.return_value.status_code = 200
-        mock_get.return_value.json.return_value = {
-            "recipes": [{"title": "Test Recipe", "id": 1234}]
-        }
-        with patch("app.userAuthHelper") as mock_auth:
-            mock_auth.return_value = MagicMock(diet="", allergies=[])
-            result = generate_recipe("breakfast")
-            assert result.status_code == 200
+    with app.app_context():
+        with patch("app.requests.get") as mock_get:
+            mock_get.return_value.status_code = 200
+            mock_get.return_value.json.return_value = {
+                "recipes": [{"title": "Test Recipe", "id": 1234}]
+            }
+            with patch("app.userAuthHelper") as mock_auth:
+                mock_auth.return_value = MagicMock(diet="", allergies=[])
+                result = generate_recipe("breakfast")
+                assert result.status_code == 200
 
 
 def test_add_saving(client, set_users_data):
@@ -550,19 +551,17 @@ def test_generate_mealplan_structure():
     from app import generate_mealplan, UserProfile
 
     user = UserProfile(
-        "testuser",
-        "pw",
+        "testusername",
+        "testpassword",
         "Test User",
         20,
-        "M",
-        180,
-        70,
-        "light",
-        "DE",
-        [],
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
     with patch("app.generate_recipe") as mock_gen:
         mock_gen.return_value = {"title": "Test Recipe"}
@@ -576,17 +575,15 @@ def test_spoonacular_builtin_mealplanner_success(client, set_users_data):
     user = UserProfile(
         "testusername",
         "testpassword",
-        "User",
-        25,
-        "F",
-        165,
-        60,
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
         "medium",
-        "NL",
-        [],
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
@@ -595,7 +592,17 @@ def test_spoonacular_builtin_mealplanner_success(client, set_users_data):
 
     with patch("app.requests.get") as mock_get:
         mock_get.return_value.status_code = 200
-        mock_get.return_value.json.return_value = {"meals": []}
+        mock_get.return_value.json.return_value = (
+            mock_get.return_value.json.return_value
+        ) = {
+            "meals": [],
+            "nutrients": {
+                "calories": 2000,
+                "protein": 100,
+                "fat": 70,
+                "carbohydrates": 250,
+            },
+        }
         response = client.post(
             "/recommendations/mealplanner/spoonacular",
             data={"timeFrame": "day"},
@@ -608,17 +615,15 @@ def test_spoonacular_builtin_mealplanner_fail(client, set_users_data):
     user = UserProfile(
         "testusername",
         "testpassword",
-        "User",
-        25,
-        "F",
-        165,
-        60,
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
         "medium",
-        "NL",
-        [],
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
@@ -725,17 +730,15 @@ def test_mealplanner_create_nutrient_calculation(client, set_users_data):
     user = UserProfile(
         "testusername",
         "testpassword",
-        "User",
-        25,
-        "F",
-        165,
-        60,
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
         "medium",
-        "NL",
-        [],
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
@@ -768,19 +771,25 @@ def test_mealplanner_view_day(client, set_users_data):
     user = UserProfile(
         "testusername",
         "testpassword",
-        "User",
-        25,
-        "F",
-        165,
-        60,
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
         "medium",
-        "NL",
-        [],
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
-    user.mealplan = {"meals": ["meal1", "meal2"]}
+    user.mealplan = {
+        "meals": ["meal1", "meal2"],
+        "nutrients": {
+            "calories": 2000,
+            "protein": 100,
+            "fat": 70,
+            "carbohydrates": 250,
+        },
+    }
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
         sess["logged_in"] = True
@@ -795,17 +804,15 @@ def test_mealplanner_view_week(client, set_users_data):
     user = UserProfile(
         "testusername",
         "testpassword",
-        "User",
-        25,
-        "F",
-        165,
-        60,
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
         "medium",
-        "NL",
-        [],
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
     user.mealplan = {"week": {"monday": [], "tuesday": []}}
     set_users_data.add_user(user)
@@ -822,17 +829,15 @@ def test_mealplanner_view_empty(client, set_users_data):
     user = UserProfile(
         "testusername",
         "testpassword",
-        "User",
-        25,
-        "F",
-        165,
-        60,
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
         "medium",
-        "NL",
-        [],
+        "The Netherlands",
         "None",
-        [],
-        [],
+        "None",
     )
     user.mealplan = None
     set_users_data.add_user(user)
@@ -947,7 +952,7 @@ def test_save_results(client, set_users_data):
 ###############################################################################
 
 
-def test_getting_json_file(client, set_users_data):
+def test_getting_json_file():
     json_data = get_nutrient_info()
     print(json_data)
     assert json_data["IRON"]["symptoms"][0] == "fatigue"
