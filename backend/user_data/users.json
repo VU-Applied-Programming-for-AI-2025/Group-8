@@ -1,0 +1,124 @@
+{
+  "aaa": {
+    "username": "aaa",
+    "password": "aaa",
+    "name": "aaa",
+    "age": 29,
+    "sex": "male",
+    "height": 189.0,
+    "weight": 99.0,
+    "skin_color": "light",
+    "country": "netherlands",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [
+      756814,
+      715415,
+      715446
+    ],
+    "analysis_results": [
+      {
+        "symptoms": "swelling",
+        "analyse": {
+          "VitaminC": {
+            "why": "A lack of VitaminC can cause swelling due to its role in maintaining healthy blood vessels and immune function. As a 29-year-old male, a lack of VitaminC may be more pronounced due to inadequate diet or increased oxidative stress.",
+            "foods": [
+              "Oranges",
+              "strawberries",
+              "kiwis",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Incorporate VitaminC-rich foods into your daily meals, such as having a citrus fruit salad for breakfast."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to swelling due to its role in blood vessel relaxation and electrolyte balance. As a male with a relatively high weight, magnesium levels may be lower due to increased inflammation and oxidative stress.",
+            "foods": [
+              "Dark leafy greens",
+              "almonds",
+              "cashews",
+              "brown rice",
+              "quinoa"
+            ],
+            "tip": "Engage in regular exercise, such as walking or jogging, to improve magnesium absorption and overall cardiovascular health."
+          },
+          "Potassium": {
+            "why": "A lack of Potassium can cause swelling due to its role in maintaining healthy blood vessel function and electrolyte balance. As a 29-year-old male with a relatively high weight, potassium levels may be lower due to inadequate diet or increased sodium intake.",
+            "foods": [
+              "Bananas",
+              "avocados",
+              "sweet potatoes",
+              "spinach",
+              "salmon"
+            ],
+            "tip": "Limit processed food intake and choose potassium-rich foods to maintain a healthy electrolyte balance."
+          },
+          "Urgency Note": "No urgent medical concerns are flagged based on the provided information. However, if swelling persists or worsens, it is essential to consult a healthcare professional to rule out underlying medical conditions."
+        }
+      }
+    ],
+    "mealplan": {
+      "meals": [
+        {
+          "id": 644854,
+          "image": "Gluten-Free-Quinoa-and-Corn-Flour-Crepes-644854.jpg",
+          "imageType": "jpg",
+          "title": "Gluten Free Quinoa and Corn Flour Crepes",
+          "readyInMinutes": 60,
+          "servings": 4,
+          "sourceUrl": "http://www.foodista.com/recipe/MGMB6CBY/gluten-free-quinoa-and-corn-flour-crepes"
+        },
+        {
+          "id": 1697577,
+          "image": "spanish-sardines-pasta-1697577.jpg",
+          "imageType": "jpg",
+          "title": "Spanish Sardines Pasta",
+          "readyInMinutes": 25,
+          "servings": 2,
+          "sourceUrl": "https://maplewoodroad.com/spanish-sardines-pasta/"
+        },
+        {
+          "id": 652542,
+          "image": "mughlai-malai-kofta-curry-652542.jpg",
+          "imageType": "jpg",
+          "title": "Mughlai Malai Kofta Curry",
+          "readyInMinutes": 45,
+          "servings": 4,
+          "sourceUrl": "http://www.foodista.com/recipe/HKVP8LCX/mughlai-malai-kofta-curry"
+        }
+      ],
+      "nutrients": {
+        "calories": 1784.63,
+        "protein": 59.03,
+        "fat": 65.7,
+        "carbohydrates": 247.63
+      }
+    }
+  },
+  "testusername": {
+    "username": "testusername",
+    "password": "testpassword",
+    "name": "Test User",
+    "age": 20,
+    "sex": "Female",
+    "height": 175.0,
+    "weight": 70.0,
+    "skin_color": "medium",
+    "country": "The Netherlands",
+    "medication": "None",
+    "diet": "None",
+    "existing_conditions": [],
+    "allergies": [],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
+  }
+}
