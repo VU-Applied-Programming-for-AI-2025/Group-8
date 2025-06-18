@@ -1,6 +1,7 @@
 ### first backend tests file ###
 
 import json, os, pytest
+import time
 from context import app, UserProfile, UsersData
 from unittest.mock import patch, MagicMock
 from flask.testing import FlaskClient
@@ -957,15 +958,19 @@ def test_homepage(client):
 
 def test_homepage_results_redirect(client):
     """
-    Tests that entering symptoms on the homepage correctly redirects to the results page.
+    Tests that entering symptoms on the homepage correctly redirects to the results page and redirects withiin 10 seconds
     """
     with client.session_transaction() as session:
         session["logged_in"] = True
         session["username"] = "testusername"
+
+    start_time = time.time()
     response = client.post("/home", data={"symptoms": "acne"}, follow_redirects=False)
+    duration = time.time() - start_time
+
     assert response.status_code == 302
     assert "/results?symptoms=acne" in response.headers["Location"]
-
+    assert duration <= 10, f"redirect took too much time: {duration:.2f} seconds"
 
 ###############################################################################
 #                                                                             #
