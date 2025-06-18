@@ -273,12 +273,12 @@ def analyze_symptoms():
 
         user symptoms: {symptoms}
 
-        required analysis:
-        1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height and weight. 
+        required analysis: 
+        1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight. ONLY use these vitamin/minerals: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium, Sugar, Zinc
         2. for each deficiency:
-        - biological explanation, include information based on the user's age, sex, height/weight, existing conditions, allergies, skin tone (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
+        - biological explanation, if the user's profile plays a role on the vitamin/nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
         - foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
-        - 1 lifestyle tip, that aligns with the user profile
+        - 1 lifestyle tip, that aligns with the user's profile
         3. flag any urgent medical concerns, including the user's medication, existing conditions and allergies
 
         return the analysis only in this format:
@@ -314,20 +314,36 @@ def extract_deficiency_keywords(text: str):
     Looks for known keys like 'vitamin d', 'iron', etc., followed by a colon.
     """
     known_keys = {
-        "vitamin a",
-        "vitamin b",
-        "vitamin c",
-        "vitamin d",
-        "vitamin e",
-        "vitamin k",
-        "iron",
-        "zinc",
-        "magnesium",
-        "calcium",
-        "selenium",
-        "potassium",
-        "folate",
-        "iodine",
+        "Copper",
+        "Calcium",
+        "Choline",
+        "Cholesterol",
+        "Fluoride",
+        "SaturatedFat",
+        "VitaminA",
+        "VitaminC",
+        "VitaminD",
+        "VitaminE",
+        "VitaminK",
+        "VitaminB1",
+        "VitaminB2",
+        "VitaminB3",
+        "VitaminB5",
+        "VitaminB6",
+        "VitaminB12",
+        "Fiber",
+        "Folate",
+        "FolicAcid",
+        "Iodine",
+        "Iron",
+        "Magnesium",
+        "Manganese",
+        "Phosphorus",
+        "Potassium",
+        "Selenium",
+        "Sodium",
+        "Sugar",
+        "Zinc",
     }
 
     deficiencies = []
@@ -364,6 +380,7 @@ def extract_food_recs() -> List[str]:
             foods.extend([x.strip() for x in parts])
 
     foods = list(dict.fromkeys(foods))  # remove duplicates
+
     return vitamins, foods
 
 
@@ -398,7 +415,7 @@ def recommendations():
     category_to_types = {
         "breakfast": ["breakfast"],
         "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"],
+        "dinner": ["main course", "side dish"],
     }
 
     meal_recipes = {}
