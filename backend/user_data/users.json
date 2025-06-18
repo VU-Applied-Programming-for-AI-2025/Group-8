@@ -388,6 +388,50 @@
             "tip": "Consider keeping a food diary to track your daily vitamin B12 intake and ensure you're meeting your nutritional needs."
           }
         }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "Magnesium": {
+            "why": "As a 16-year-old female, a lack of magnesium can cause headaches due to its crucial role in neuronal function and neurotransmitter regulation. Magnesium also helps regulate blood vessel tone, and its insufficiency may lead to vasospasm, contributing to headache development. Given the user's light skin tone, they may be more susceptible to magnesium insufficiency due to reduced skin synthesis of vitamin D, which can impact magnesium absorption.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "cashews",
+              "pumpkin seeds",
+              "black beans",
+              "brown rice",
+              "quinoa"
+            ],
+            "tip": "Engage in regular stretching exercises to help reduce stress and muscle tension, which can contribute to magnesium insufficiency."
+          },
+          "Iron": {
+            "why": "Iron is essential for oxygen transport and energy production. A lack of iron, particularly in adolescent females, can lead to headaches due to decreased oxygen delivery to the brain.",
+            "foods": [
+              "red meat",
+              "spinach",
+              "beans",
+              "lentils",
+              "fortified cereals",
+              "pumpkin seeds",
+              "dark chocolate"
+            ],
+            "tip": "Include vitamin C-rich foods like citrus fruits or bell peppers in meals to enhance iron absorption."
+          },
+          "Vitamin B2 (Riboflavin)": {
+            "why": "A lack of vitamin B2 can contribute to headaches as it plays a role in energy production, neuronal function, and mitochondrial efficiency. As a teenager, the user's high energy demands may increase the need for this vitamin.",
+            "foods": [
+              "dairy products",
+              "leafy greens",
+              "almonds",
+              "sun-dried tomatoes",
+              "mushrooms",
+              "whole grain cereals"
+            ],
+            "tip": "Limit sugary drinks and foods, as excessive sugar consumption can lead to fluctuations in blood sugar levels, potentially exacerbating headaches."
+          },
+          "Urgency Note": "None flagged, as the user's symptoms and profile do not indicate immediate medical concern. However, if headaches persist or worsen, consult a healthcare professional for proper evaluation and guidance."
+        }
       }
     ],
     "mealplan": {

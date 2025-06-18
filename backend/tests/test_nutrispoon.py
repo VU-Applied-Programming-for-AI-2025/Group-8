@@ -715,6 +715,17 @@ def test_remove_saving(client, set_users_data):
     assert b"Not exists" in response2.data
 
 
+def test_show_favs(client):
+    """
+    Tests if the saved mealplan page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/show_favorites")
+    assert_200(response)
+
+
 ###############################################################################
 #                                                                             #
 #                                BMR CALCULATION                              #
@@ -1056,6 +1067,17 @@ def test_mealplanner_view_empty(client, set_users_data):
     response = client.get("/recommendations/mealplanner/view")
     assert_200(response)
     assert b"no meal plan found" in response.data.lower()
+
+
+def test_show_mealplan(client):
+    """
+    Tests if the saved mealplan page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/recommendations/mealplanner/view")
+    assert_200(response)
 
 
 ###############################################################################
