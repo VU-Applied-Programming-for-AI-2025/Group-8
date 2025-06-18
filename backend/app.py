@@ -1,36 +1,58 @@
 ## develop your flask app here ##
-from typing import Dict, List
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify
+from typing import Dict, List, Union
+from flask import (
+    Flask,
+    render_template,
+    request,
+    redirect,
+    url_for,
+    session,
+    jsonify,
+    Response,
+)
 from user_data.user_profile import UserProfile, UsersData
 from dotenv import load_dotenv
 from forms import SearchForm
 from groq import Groq
-import os
-import json
-import requests
-import random
+import os, json, requests, random
 
 load_dotenv()
 
 app = Flask(__name__, template_folder="../frontend/templates")
-
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 
-spoonacular_api_key = os.getenv(
-    "API_KEY"
-)  # create an account in spoonacular.com, get api key, put in .env, and run "pip install python-dotenv"
+# Retrieves the spoonacular API key from the .env file
+spoonacular_api_key: str = os.getenv("API_KEY")
 
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+client: str = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
-users_data = UsersData()  # Initializes the UsersData object where all the user profiles will be stored in a json file.
+# Initializes the UsersData object where all the user profiles will be stored in a json file.
+users_data = UsersData()
 
 
-# Consent form page
+def userAuthHelper() -> UserProfile:
+    """
+    Helper function to check whether the user is logged in or not and returns the user profile.
+    :returns (UserProfile): The userprofile object of the corresponding user.
+    """
+    if not session.get("logged_in"):
+        return False
+    logged_in_user = users_data.get_user(session["username"])
+    if not logged_in_user:
+        session["logged_in"] = False
+        session["username"] = ""
+        return False
+    return logged_in_user
+
+
 @app.route("/")
-def show_consent():
+def show_consent() -> Union[str, Response]:
     """
     Checks if the consent form is shown when the user has not given consent yet.
     Redirects to the authentication page if the user has already given consent.
+    :returns:
+        str: rendered HTML string for the consentform
+        Response: Redirect response to the /auth route.
     """
     if not session.get("consent_given"):
         return render_template("consentform.html")
@@ -38,9 +60,12 @@ def show_consent():
 
 
 @app.route("/consentform", methods=["POST"])
-def handle_consent():
+def handle_consent() -> Union[Response, None]:
     """
     This page shows a consentform. Once accepted it will redirect to the authentication page.
+    :returns:
+        None: If consent is not given.
+        Response: Redirect response to the /auth route
     """
     accepted = request.form.get("accept", "false")
 
@@ -51,13 +76,15 @@ def handle_consent():
         session["consent_given"] = False
 
 
-# Authentication page
 @app.route("/auth", methods=["GET", "POST"])
-def auth_page():
+def auth_page() -> Union[str, Response]:
     """
     Shows the authentication page where users can log in or choose to register if consent has been given, otherwise redirects to the consent form.
     If the user is logged in already, they will be redirected to the home page.
     If the user has not ben logged in yet, they will be redirected to the /auth/register page.
+    :returns:
+        str: Rendered authentication HTML page.
+        Response: Redirect to consent or home page.
     """
     if session.get("consent_given") and not session.get("logged_in"):
         return render_template("auth.html")
@@ -70,12 +97,15 @@ def auth_page():
 
 
 @app.route("/auth/register", methods=["GET", "POST"])
-def register():
+def register() -> Union[str, Response]:
     """
     Handles the registration for a new user profile.
     Processes the registration form and adds a new user profile.
     If the registration is successful, redirects to the home page.
     If the registration fails because of an existing username, it shows an error message on the registration page.
+    :returns:
+        str: Rendered registration HTML page.
+        Response: Redirect to home page on success.
     """
     if session.get("logged_in"):
         return redirect(url_for("home"))
@@ -114,35 +144,59 @@ def register():
                 allergies,
             )
 
+            # Adds the user profile object to the users_data object
             users_data.add_user(user_profile)
             session["logged_in"] = True
             session["username"] = username
             return redirect(url_for("home"))
         except ValueError as e:
-            return render_template("auth.html", error=str(e))
+            return render_template("registration.html", error=str(e))
 
     return render_template("registration.html")
 
 
 @app.route("/auth/login", methods=["POST"])
-def login():
+def login() -> Union[str, Response]:
     """
     Handles the login form submission.
     If the username and password is authenticated, then the user will be redirected to the homepage.
     If the authentication fails, it will show the corresponding error message on the authentication page.
+
+    :returns:
+        str: Rendered authentication HTML page with error.
+        Response: Redirect to home page on success.
     """
     # Retrieves the username and password from the login form
     if request.method == "POST":
         username = request.form.get("name")
         password = request.form.get("password")
+
         # Checks if the username and password corresponds to a user profile in the users_data object
         authenticated, message = users_data.user_authentication(username, password)
+
+        # If the authentication succeeded, the user will be logged in and redirected to the homepage.
         if authenticated:
             session["logged_in"] = True
             session["username"] = username
             return redirect(url_for("home"))
         else:
+            # If the authentication fails, the user will stay on the authentication page and get the corresponding error message.
             return render_template("auth.html", error=message)
+
+
+@app.route("/logout")
+def logout() -> Response:
+    """
+    Will logout the user by clearing the session and redirects to the consentform page.
+
+    :returns:
+        Response: Redirect to the consent form page.
+    """
+    # Clears the session
+    session.clear()
+
+    # Redirects the user to the consentform page.
+    return redirect(url_for("show_consent"))
 
 
 @app.route("/home", methods=["GET", "POST"])
@@ -768,34 +822,24 @@ def search_results(query):
     return "No nutrient", 404
 
 
-def userAuthHelper():
-    """
-    Helper function to check whether the user is logged in or not and returns the user profile.
-    """
-    if not session.get("logged_in"):
-        return False
-    logged_in_user = users_data.get_user(session["username"])
-    if not logged_in_user:
-        session["logged_in"] = False
-        session["username"] = ""
-        return False
-    return logged_in_user
-
-
 @app.route("/profile", methods=["GET", "POST"])
-def profile():
+def profile() -> Union[str, Response]:
     """
     Displays the user profile page with the information from the user profile.
     Users can update their profile information and save it.
+
+    :returns:
+        str: Rendered HTML for the profile page either with or without an error message.
+        Response: Redirects to the authentication page if the user is not logged in.
     """
     # Checks if user is logged in, if not redirects to the authentication page.
-    user = userAuthHelper()
+    user: UserProfile = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
 
     # Retrieves the form data from the profile page and updates the user profile.
-
     if request.method == "POST":
+        # Uses the helperfunction to check if the required fields are not left blank, for it would show a error message.
         error = validate_required_fields_profile(request.form)
         if error:
             return render_template("profile.html", user=user, message=error)
@@ -814,16 +858,26 @@ def profile():
             ","
         )
         user.allergies = request.form.get("allergies", "").split(",")
+
+        # Saves the updated data to the users data file.
         users_data.save_to_file()
-        message = "Profile updated!"
+
+        message: str = "Profile updated!"
         return render_template("profile.html", user=user, message=message)
+
     return render_template("profile.html", user=user)
 
 
-def validate_required_fields_profile(form):
+def validate_required_fields_profile(form) -> Union[None, str]:
     """
     Helper function for the profile page to check whether the required fields are left blank to return the correct error.
+
+    :param form: a html form.
+    :returns:
+        str: An error message stating that the field is required to fill in.
+        None: If a required fields are filled in.
     """
+
     required_fields = [
         "name",
         "age",
@@ -836,25 +890,10 @@ def validate_required_fields_profile(form):
     ]
     for field in required_fields:
         value = form.get(field)
+        # Returns an error message if a required field is left blank.
         if value is None or str(value).strip() == "":
             return f"{field.capitalize()} is required."
-
-    try:
-        int(form.get("age"))
-        float(form.get("height"))
-        float(form.get("weight"))
-    except (TypeError, ValueError):
-        return "Age, height, and weight must be numbers."
     return None
-
-
-@app.route("/logout")
-def logout():
-    """
-    Will logout the user by clearing the session and redirects to the authentication page.
-    """
-    session.clear()
-    return redirect(url_for("auth_page"))
 
 
 if __name__ == "__main__":
