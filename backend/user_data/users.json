@@ -398,8 +398,316 @@
           },
           "Urgency Note": "Given the user's existing conditions (vitamin D deficiency, iron deficiency) and allergy (hay-fever), it's essential to consult a doctor before making significant changes to the diet or taking supplements. The user's hair loss may be a symptom of an underlying condition that requires medical attention."
         }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Urgency Note": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "hair loss",
+        "analyse": {
+          "Urgency Note": "Considering the user's existing conditions (vitamin D deficiency, iron deficiency) and symptoms (hair loss), it's essential to consult a healthcare professional to rule out any underlying conditions that may require immediate attention. Additionally, the user's hay-fever allergy may require consideration when introducing new foods."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Urgency Note": "Given your existing conditions (vitamin D deficiency, iron deficiency) and allergies (hay-fever), it is essential to consult a doctor before making significant changes to your diet or supplement routine. Additionally, your acne may be a symptom of an underlying condition; if it persists or worsens, seek medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Urgency Note": "Test's existing vitamin D and iron deficiencies should be addressed, and her hay-fever allergy should be considered when introducing new foods. Consult a doctor before making significant changes to diet or supplements."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Urgency Note": "Existing conditions like vitamin D and iron deficiencies require attention. Consult a healthcare professional to address these conditions and develop a plan to manage acne. Also, consider getting a check-up to rule out any underlying medical conditions that may be contributing to acne. Hay-fever allergy may also impact treatment options."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Urgency Note": "The user's existing conditions, vitamin D deficiency and iron deficiency, should be monitored and addressed. Additionally, the user's hay-fever allergy may require consideration when introducing new foods or supplements. Consult a healthcare professional before making any significant changes."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Urgency Note": "Consider consulting a doctor about your existing vitamin D and iron deficiencies, as well as your acne. Also, discuss potential medication or supplement interactions with your healthcare provider, especially given your hay-fever allergy."
+        }
       }
     ],
-    "mealplan": []
+    "mealplan": {
+      "week": {
+        "monday": {
+          "meals": [
+            {
+              "id": 1957598,
+              "image": "low-carb-keto-pancakes-1957598.jpg",
+              "imageType": "jpg",
+              "title": "Low Carb Keto Pancakes",
+              "readyInMinutes": 15,
+              "servings": 2,
+              "sourceUrl": "https://spoonacular.com/site-1721579912124"
+            },
+            {
+              "id": 1095794,
+              "image": "chicken-and-potatoes-tortilla-1095794.jpg",
+              "imageType": "jpg",
+              "title": "Spanish Tortilla",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7WBMG8RX/chicken-adn-potatoes-tortilla"
+            },
+            {
+              "id": 651911,
+              "image": "Minced-Beef-Curry-651911.jpg",
+              "imageType": "jpg",
+              "title": "Minced Beef Curry",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/7HCZZZLC/minced-beef-curry"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.89,
+            "protein": 67.08,
+            "fat": 76.48,
+            "carbohydrates": 61.07
+          }
+        },
+        "tuesday": {
+          "meals": [
+            {
+              "id": 716407,
+              "image": "simple-whole-wheat-crepes-kingarthurflour-vitamix-716407.jpg",
+              "imageType": "jpg",
+              "title": "Simple Whole Wheat Crepes",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://fullbellysisters.blogspot.com/2014/11/simple-whole-wheat-crepes.html"
+            },
+            {
+              "id": 1098387,
+              "image": "quinoa-salad-with-barberries-nuts-1098387.jpg",
+              "imageType": "jpg",
+              "title": "Quinoa Salad with Barberries & Nuts",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/PBQJCDDG/quinoa-salad-with-barberries-nuts"
+            },
+            {
+              "id": 645812,
+              "image": "Grilled-Portabella-and-Poblano-Tacos-645812.jpg",
+              "imageType": "jpg",
+              "title": "Grilled Portabella and Poblano Tacos",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/52YSN467/grilled-portabella-and-poblano-tacos"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.85,
+            "protein": 38.2,
+            "fat": 62.32,
+            "carbohydrates": 123.42
+          }
+        },
+        "wednesday": {
+          "meals": [
+            {
+              "id": 659465,
+              "image": "Savory-corn-and-chives-muffins-659465.jpg",
+              "imageType": "jpg",
+              "title": "Savory corn and chives muffins",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/ZFCFJDY7/savory-corn-and-chives-muffins"
+            },
+            {
+              "id": 1095992,
+              "image": "turkey-ranch-blt-1095992.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Ranch BLT",
+              "readyInMinutes": 10,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/CQSHG6NN/turkey-ranch-blt"
+            },
+            {
+              "id": 653775,
+              "image": null,
+              "imageType": "jpg",
+              "title": "Open-Face Egg Sandwich with Bacon, Asparagus, and Pesto",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/RMWVZKKR/open-face-egg-sandwich-with-bacon-asparagus-and-pesto"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.85,
+            "protein": 47.86,
+            "fat": 60.77,
+            "carbohydrates": 114.15
+          }
+        },
+        "thursday": {
+          "meals": [
+            {
+              "id": 656481,
+              "image": "Poached-Egg-With-Spinach-and-Tomato-656481.jpg",
+              "imageType": "jpg",
+              "title": "Poached Egg With Spinach and Tomato",
+              "readyInMinutes": 20,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/YYK36BYD/poached-egg-with-spinach-and-tomato"
+            },
+            {
+              "id": 642281,
+              "image": "Eggplant-Caprese-Stacks-642281.jpg",
+              "imageType": "jpg",
+              "title": "Eggplant Caprese Stack Appetizers",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/V4KYVH2L/eggplant-caprese-stacks"
+            },
+            {
+              "id": 632946,
+              "image": "Asparagus-Parmesan-Frittata-632946.jpg",
+              "imageType": "jpg",
+              "title": "Asparagus Parmesan Frittata",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/743BV5DP/asparagus-parmesan-frittata"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.96,
+            "protein": 52.48,
+            "fat": 81.07,
+            "carbohydrates": 67.88
+          }
+        },
+        "friday": {
+          "meals": [
+            {
+              "id": 638257,
+              "image": "Chicken-Porridge-638257.jpg",
+              "imageType": "jpg",
+              "title": "Chicken Porridge",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/S6FN8VYN/chicken-porridge"
+            },
+            {
+              "id": 986003,
+              "image": "instant-pot-chicken-tacos-986003.jpg",
+              "imageType": "jpg",
+              "title": "Instant Pot Chicken Tacos",
+              "readyInMinutes": 25,
+              "servings": 6,
+              "sourceUrl": "https://www.pinkwhen.com/instant-pot-chicken-tacos/"
+            },
+            {
+              "id": 659502,
+              "image": "Savoury-Mushroom-stuffed-Pork-Tenderloin-659502.jpg",
+              "imageType": "jpg",
+              "title": "Savoury Mushroom stuffed Pork Tenderloin",
+              "readyInMinutes": 45,
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/PJSXVGQW/savoury-mushroom-stuffed-pork-tenderloin"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.89,
+            "protein": 151.65,
+            "fat": 26.7,
+            "carbohydrates": 78.44
+          }
+        },
+        "saturday": {
+          "meals": [
+            {
+              "id": 650431,
+              "image": "Low-Fat-Oatmeal-Banana-Bread-650431.jpg",
+              "imageType": "jpg",
+              "title": "Low-Fat Oatmeal Banana Bread",
+              "readyInMinutes": 75,
+              "servings": 10,
+              "sourceUrl": "https://www.foodista.com/recipe/WTKTRYZ5/low-fat-oatmeal-banana-bread"
+            },
+            {
+              "id": 1697677,
+              "image": "super-easy-oven-baked-cod-1697677.jpg",
+              "imageType": "jpg",
+              "title": "Super Easy Oven Baked Cod",
+              "readyInMinutes": 20,
+              "servings": 2,
+              "sourceUrl": "https://maplewoodroad.com/super-easy-oven-baked-cod/"
+            },
+            {
+              "id": 637515,
+              "image": "Cheddar-Polenta-with-Sun-dried-Tomatoes---Shrimp-637515.jpg",
+              "imageType": "jpg",
+              "title": "Cheddar Polenta with Sun-dried Tomatoes & Shrimp",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/RKPL4Z44/cheddar-polenta-with-sun-dried-tomatoes-shrimp"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.93,
+            "protein": 72.14,
+            "fat": 37.1,
+            "carbohydrates": 140.53
+          }
+        },
+        "sunday": {
+          "meals": [
+            {
+              "id": 658132,
+              "image": "Reduced-Fat-Blueberry-Cheesecake-Crepes-658132.jpg",
+              "imageType": "jpg",
+              "title": "Reduced Fat Blueberry Cheesecake Crepes",
+              "readyInMinutes": 45,
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/Y6BXKNC4/reduced-fat-blueberry-cheesecake-crepes"
+            },
+            {
+              "id": 637908,
+              "image": "Chicken-and-Miso-Ramen-Noodle-Soup-637908.jpg",
+              "imageType": "jpg",
+              "title": "Chicken and Miso Ramen Noodle Soup",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/LSGT2GRK/chicken-and-miso-ramen-noodle-soup"
+            },
+            {
+              "id": 638231,
+              "image": "Chicken-Parmayonnaise-(3-Ingredients-For-An-Easy-Night-In)-638231.jpg",
+              "imageType": "jpg",
+              "title": "Chicken Parmayonnaise",
+              "readyInMinutes": 45,
+              "servings": 6,
+              "sourceUrl": "https://www.foodista.com/recipe/K6D2PK26/chicken-parmayonnaise-3-ingredients-for-an-easy-night-in"
+            }
+          ],
+          "nutrients": {
+            "calories": 1178.96,
+            "protein": 79.29,
+            "fat": 41.49,
+            "carbohydrates": 117.92
+          }
+        }
+      }
+    }
   }
 }

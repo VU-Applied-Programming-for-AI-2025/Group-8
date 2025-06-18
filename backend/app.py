@@ -255,12 +255,12 @@ def analyze_symptoms():
         1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight. ONLY use these vitamin/minerals: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium, Sugar, Zinc
         2. for each deficiency:
         - biological explanation, if the user's profile plays a role on the vitamin/nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
-        - foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
+        - top 3 foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
         - 1 lifestyle tip, that aligns with the user's profile
         3. flag any urgent medical concerns, including the user's medication, existing conditions and allergies
 
-        return the analysis only in this format:
-        [deficiency name]:
+        return the analysis ONLY in this format:
+        [vitamin/mineral name] (no extra stuff):
         - Why: [explanation]
         - Foods: [comma-separated list]
         - Tip: [actionable advice]
@@ -281,8 +281,7 @@ def analyze_symptoms():
         )
         return response.choices[0].message.content
     except Exception as e:
-        print("Groq API failed:", e)
-        raise
+        print("Groq API failed:", e) 
 
 
 
@@ -293,11 +292,11 @@ def extract_deficiency_keywords(text: str):
     Looks for known keys like 'vitamin d', 'iron', etc., followed by a colon.
     """
     known_keys = {
-    "Copper", "Calcium", "Choline", "Cholesterol", "Fluoride", "SaturatedFat",
-    "VitaminA", "VitaminC", "VitaminD", "VitaminE", "VitaminK", "VitaminB1",
-    "VitaminB2", "VitaminB3", "VitaminB5", "VitaminB6", "VitaminB12", "Fiber",
-    "Folate", "FolicAcid", "Iodine", "Iron", "Magnesium", "Manganese",
-    "Phosphorus", "Potassium", "Selenium", "Sodium", "Sugar", "Zinc"
+    "copper", "calcium", "choline", "cholesterol", "fluoride", "saturatedfat",
+    "vitamina", "vitaminc", "vitamind", "vitamine", "vitamink", "vitaminb1",
+    "vitaminb2", "vitaminb3", "vitaminb5", "vitaminb6", "vitaminb12", "fiber",
+    "folate", "folicacid", "iodine", "iron", "magnesium", "manganese",
+    "phosphorus", "potassium", "selenium", "sodium", "sugar", "zinc"
     }
 
     deficiencies = []
@@ -309,6 +308,66 @@ def extract_deficiency_keywords(text: str):
                 deficiencies.append(key)
 
     return deficiencies
+
+def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
+    """
+    """
+
+    if not deficiencies:
+        return {}
+    
+    prompt = f"""
+    for each of the following nutrients/vitamins, suggest a minimum daily amount (in mg) to consume when mildly lacking it. the maximum amount cannot exceed 100 mg,
+    in this JSON format: 
+    {{
+        "vitamin_a": {{ "minVitaminA": 5 }},
+        "zinc": {{ "minZinc": 10 }}
+    }}
+
+    nutrients/vitamins: {", ".join(str(d) for d in deficiencies)}
+    rule: only do it in the exameple format provided above.
+
+    """
+    try:
+        response = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[
+                {"role": "system", "content": "You are a nutrition analysis API that responds strictly in JSON."},
+                {"role": "user", "content": prompt}
+                ],
+            temperature=0.7,
+            max_completion_tokens=1024,
+            top_p=1,
+            stop=None,
+            response_format={"type": "json_object"}
+        )
+
+        uncleaned_data = json.loads(response.choices[0].message.content)
+
+        cleaned = {
+            nutrient_name: {
+                min_amount_key: int(val)
+                for min_amount_key, val in nutrient_data.items()
+                if isinstance(val, (int, float, str)) and str(val).isdigit()
+            }
+            for nutrient_name, nutrient_data in uncleaned_data.items()
+            if isinstance(nutrient_data, dict)
+        }
+        
+        return cleaned
+
+        
+    except Exception as e:
+        print("Groq API failed:", e)
+        return {}
+    
+
+if __name__ == "__main__":
+    deficiencies = ["VitaminA", "Zinc", "Calcium"]
+    intake_recommendations = vitamin_intake(deficiencies)
+    print("Recommended minimum intakes:")
+    print(intake_recommendations)
+
 
 
 # helper to function extract foods from the groq response
@@ -361,8 +420,16 @@ def recommendations():
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
+    
+    try:
+        analysis_text = analyze_symptoms()
+    except Exception as e:
+        print("Error analyzing symptoms:", e)
+        analysis_text = ""
 
-    min_nutrients: Dict[str, Dict[str, int]] = extract_deficiency_keywords()  
+    deficiencies = extract_deficiency_keywords(analysis_text)
+    min_nutrients: Dict[str, Dict[str, int]] = vitamin_intake(deficiencies)
+
     diet = logged_in_user.diet
     intolerance = ",".join(logged_in_user.allergies)
 
@@ -403,8 +470,10 @@ def recommendations():
         # fallback logic removed to avoid unrelated random recipes
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
+
     print("API params:", params)
     print("API response:", data)
+
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
 
