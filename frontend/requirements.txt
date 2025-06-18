@@ -1,6 +1,0 @@
-Flask
-python-dotenv
-requests
-pytest
-groq
-Flask-WTF
