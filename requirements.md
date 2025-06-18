@@ -28,7 +28,7 @@
 ---
 
 ## 4. Inadequacy Save Feature
-- Users nutrient analysis results is to their profile and can be accessed through the homepage.
+- Users nutrient analysis results is saved to their profile and can be accessed through the homepage.
 
 ---
 
