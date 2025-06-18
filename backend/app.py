@@ -153,14 +153,9 @@ def home():
     # Checks if user is logged in, if not redirects to the authentication page.
     form = SearchForm()
     user = userAuthHelper()
+    user_name = user.name
     if not user:
         return redirect(url_for("auth_page"))
-
-    d = {}
-    d["diet"] = user.diet
-    d["allergies"] = ",".join(user.allergies)
-    d["fullname"] = user.name
-    print(d)
 
     if request.method == "POST":
         symptoms = request.form.get("symptoms").strip()
@@ -168,7 +163,7 @@ def home():
             return redirect(url_for("display_results", symptoms=symptoms))
         return redirect(url_for("home_page"))
 
-    return render_template("homepage.html", response=d, form=form)
+    return render_template("homepage.html", response=user_name, form=form)
 
 
 # function to analyze symptoms
@@ -278,8 +273,8 @@ def recommendations():
 
     category_to_types = {
         "breakfast": ["breakfast"],
-        "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"],
+        "lunch": ["main course", "salad", "soup", "bread"],
+        "dinner": ["main course", "side dish"],
     }
 
     meal_recipes = {}
