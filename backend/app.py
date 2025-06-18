@@ -87,7 +87,7 @@ def register():
         name = request.form.get("name")
         age = int(request.form.get("age"))
         sex = request.form.get("sex")
-        hight = float(request.form.get("hight"))
+        height = float(request.form.get("height"))
         weight = float(request.form.get("weight"))
         skin_color = request.form.get("skin_color")
         country = request.form.get("country")
@@ -97,22 +97,9 @@ def register():
         allergies = request.form.get("allergies", "").split(",")
 
         # Makes a user profile object and adds it to the users_data object
-        try:
-            user_profile = UserProfile(
-                username,
-                password,
-                name,
-                age,
-                sex,
-                hight,
-                weight,
-                skin_color,
-                country,
-                medication,
-                diet,
-                existing_conditions,
-                allergies,
-            )
+        try: 
+            user_profile = UserProfile(username, password, name, age, sex, height, weight, skin_color, country, medication, diet, existing_conditions, allergies)
+
             users_data.add_user(user_profile)
             session["logged_in"] = True
             session["username"] = username
@@ -153,14 +140,9 @@ def home():
     # Checks if user is logged in, if not redirects to the authentication page.
     form = SearchForm()
     user = userAuthHelper()
+    user_name = user.name
     if not user:
         return redirect(url_for("auth_page"))
-
-    d = {}
-    d["diet"] = user.diet
-    d["allergies"] = ",".join(user.allergies)
-    d["fullname"] = user.name
-    print(d)
 
     if request.method == "POST":
         symptoms = request.form.get("symptoms").strip()
@@ -168,7 +150,7 @@ def home():
             return redirect(url_for("display_results", symptoms=symptoms))
         return redirect(url_for("home_page"))
 
-    return render_template("homepage.html", response=d, form=form)
+    return render_template("homepage.html", response=user_name, form=form)
 
 
 # function to analyze symptoms
@@ -176,18 +158,32 @@ def analyze_symptoms():
     """
     This function sends the inputted symptoms to the groq api to analyze(, then returns it as text on the /results page.)
     """
+    username = session["username"]
+    user = users_data.get_user(username)
+
     symptoms = request.args.get("symptoms")
 
     ai_prompt = f"""
+        user profile:
+        - name: {user.name}
+        - age: {user.age}
+        - sex: {user.sex}
+        - height: {user.height}
+        - weight: {user.weight}
+        - skin tone: {user.skin_color}
+        - medication: {", ".join(user.medication) if user.medication else "none"}
+        - existing conditions: {", ".join(user.existing_conditions) if user.existing_conditions else "none"}
+        - allergies: {", ".join(user.allergies) if user.allergies else "none"}
+        - diet: {user.diet}
         user symptoms: {symptoms}
 
         required analysis:
-        1. top 3 likely vitamin/mineral deficiencies for each symptom
+        1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight
         2. for each deficiency:
-        - biological explanation (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
-        - foods to eat to fix the issue (comma-seperated list, no extra information, list each food on its own)
-        - 1 lifestyle tip
-        3. flag any urgent medical concerns
+        - biological explanation, include information based on the user's age, sex, height/weight, existing conditions, allergies, skin tone (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
+        - foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
+        - 1 lifestyle tip, that aligns with the user profile
+        3. flag any urgent medical concerns, including the user's medication, existing conditions and allergies
 
         return the analysis only in this format:
         [deficiency name]:
@@ -277,9 +273,9 @@ def recommendations():
     print("Recommended foods: ", recommended_foods)
 
     category_to_types = {
-        "breakfast": ["breakfast"],
-        "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"],
+        "breakfast": "egg, toast, oatmeal",
+        "lunch": "warm, sandwich, grain bowl, salad",
+        "dinner": "protein, vegetables, rice, pasta, warm",
     }
 
     meal_recipes = {}
@@ -296,6 +292,7 @@ def recommendations():
                 "type": t,
                 "number": 3,
                 "apiKey": spoonacular_api_key,
+                "query": category_to_types.get(category, ""),
             }
             if recommended_foods:
                 params["includeIngredients"] = ",".join(recommended_foods)
@@ -636,6 +633,9 @@ def get_nutrient_info():
 
 @app.route("/nutrient", methods=["GET", "POST"])
 def nutrients():
+    """
+    Gets the nutrient from the frontend and redirects to the information page based on given nutrient.
+    """
     nutrient = request.args.get("nutrient")
     if not nutrient:
         assert 404
@@ -644,6 +644,9 @@ def nutrients():
 
 @app.route("/nutrient/<nutrient_name>", methods=["GET", "POST"])
 def nutrients_info_page(nutrient_name):
+    """
+    Shows the information of the given nutrient.
+    """
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(nutrient_name.upper())
 
@@ -657,6 +660,11 @@ def nutrients_info_page(nutrient_name):
 
 @app.route("/search", methods=["GET", "POST"])
 def search_bar():
+    """
+    Handles the search request from the search button on the frontend.
+    If the search request is POST, and a valid submit, it redirects to the search results.
+    Else, it redirects to the home page.
+    """
     form = SearchForm()
     if request.method == "POST" and form.validate_on_submit():
         query = form.search_bar.data
@@ -666,6 +674,11 @@ def search_bar():
 
 @app.route("/search_bar_result/<query>")
 def search_results(query):
+    """
+    Displays the search bar results.
+
+    :param query: The given nutrient name.
+    """
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(query.upper())
 
@@ -712,7 +725,7 @@ def profile():
         user.name = request.form.get("name")
         user.age = int(request.form.get("age"))
         user.sex = request.form.get("sex")
-        user.hight = float(request.form.get("hight"))
+        user.height = float(request.form.get("height"))
         user.weight = float(request.form.get("weight"))
         user.skin_color = request.form.get("skin_color")
         user.country = request.form.get("country")
@@ -736,14 +749,7 @@ def validate_required_fields_profile(form):
     Helper function for the profile page to check whether the required fields are left blank to return the correct error.
     """
     required_fields = [
-        "name",
-        "age",
-        "sex",
-        "hight",
-        "weight",
-        "skin_color",
-        "country",
-        "password",
+        "name", "age", "sex", "height", "weight", "skin_color", "country", "password"
     ]
     for field in required_fields:
         value = form.get(field)
@@ -752,10 +758,10 @@ def validate_required_fields_profile(form):
 
     try:
         int(form.get("age"))
-        float(form.get("hight"))
+        float(form.get("height"))
         float(form.get("weight"))
     except (TypeError, ValueError):
-        return "Age, hight, and weight must be numbers."
+        return "Age, height, and weight must be numbers."
     return None
 
 
