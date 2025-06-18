@@ -336,6 +336,7 @@ def extract_deficiency_keywords(text: str) -> List[str]:
 
     return deficiencies
 
+
 def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
     """
     Asks the Groq LLM for recommended minimum daily intake (in mg) for given nutrient deficiencies.
@@ -349,7 +350,7 @@ def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
 
     if not deficiencies:
         return {}
-    
+
     # Construct prompt for nutrient intake suggestion
     prompt = f"""
     for each of the following nutrients/vitamins, suggest a minimum daily amount (in mg) to consume when mildly lacking it. the maximum amount cannot exceed 100 mg,
@@ -367,14 +368,17 @@ def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
         response = client.chat.completions.create(
             model="meta-llama/llama-4-scout-17b-16e-instruct",
             messages=[
-                {"role": "system", "content": "You are a nutrition analysis API that responds strictly in JSON."},
-                {"role": "user", "content": prompt}
-                ],
+                {
+                    "role": "system",
+                    "content": "You are a nutrition analysis API that responds strictly in JSON.",
+                },
+                {"role": "user", "content": prompt},
+            ],
             temperature=0.7,
             max_completion_tokens=1024,
             top_p=1,
             stop=None,
-            response_format={"type": "json_object"}
+            response_format={"type": "json_object"},
         )
 
         # Parse and sanitize output from LLM
@@ -389,21 +393,19 @@ def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
             for nutrient_name, nutrient_data in uncleaned_data.items()
             if isinstance(nutrient_data, dict)
         }
-        
+
         return cleaned
 
-        
     except Exception as e:
         print("Groq API failed:", e)
         return {}
-    
+
 
 if __name__ == "__main__":
     deficiencies = ["VitaminA", "Zinc", "Calcium"]
     intake_recommendations = vitamin_intake(deficiencies)
     print("Recommended minimum intakes:")
     print(intake_recommendations)
-
 
 
 def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
@@ -521,7 +523,7 @@ def recommendations() -> Union[str, Response]:
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
-    
+
     try:
         analysis_text = analyze_symptoms()
     except Exception as e:
@@ -538,7 +540,8 @@ def recommendations() -> Union[str, Response]:
     category_to_types = {
         "breakfast": ["breakfast", "bread", "snack"],
         "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"]}
+        "dinner": ["main course", "side dish", "appetizer"],
+    }
 
     meal_recipes = {}
     min_nutrient_params = {}
@@ -661,7 +664,9 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
     return render_template("builtin_meal_planner.html")
 
 
-def get_meal_plan(api_key, diet=None, exclude=None, calories=None, time_frame="day") -> Dict:
+def get_meal_plan(
+    api_key, diet=None, exclude=None, calories=None, time_frame="day"
+) -> Dict:
     """
     Retrieves a meal plan from the Spoonacular API based on user preferences and calorie needs.
 
@@ -760,14 +765,16 @@ def meal_planner() -> Union[str, Response]:
             # Sum nutritional values for calories, protein, fat
             for nutrient in recipe_info["nutrition"]["nutrients"]:
                 if nutrient["name"].lower() in nutrients_to_check:
-                    meal_plan["nutrients"][nutrient["name"].lower()] += nutrient["amount"]
+                    meal_plan["nutrients"][nutrient["name"].lower()] += nutrient[
+                        "amount"
+                    ]
 
         # Save plan to user's profile
         user.mealplan = meal_plan
         users_data.save_to_file()
 
         return redirect(url_for("edit_meal_planner"))
-    
+
     # If GET request, show the form
     return render_template("create_meal_planner.html")
 
@@ -877,7 +884,7 @@ def save_favorite(recipe_id: str) -> Union[str, Response]:
     if not user:
         return redirect(url_for("auth_page"))
     recipe_id = int(recipe_id)
-    
+
     # Check if already saved
     if recipe_id in user.saved_recipes:
         return "Already saved", 401
@@ -913,7 +920,7 @@ def remove_favorite(recipe_id: str) -> Union[str, Response]:
 def show_favorites() -> Union[str, Response]:
     """
     Shows the recipes that were saved as a favorite before.
-    
+
     :return: Rendered HTML page showing favorite recipes
     """
     user = userAuthHelper()
@@ -996,7 +1003,7 @@ def get_nutrient_info() -> Dict[str, Any]:
 def nutrients() -> Response:
     """
     Gets the nutrient from the frontend and redirects to the information page based on given nutrient.
-    
+
     :return: Redirect to detail view for the nutrient.
     """
     nutrient = request.args.get("nutrient")
