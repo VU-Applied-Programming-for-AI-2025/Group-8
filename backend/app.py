@@ -60,7 +60,7 @@ def calculate_bmr() -> float:
     weight = user.weight
     gender = user.sex
     age = user.age
-    if gender == "men":
+    if gender == "male":
         bmr = 88.362 + (weight * 13.397) + (height * 4.799) - (age * 5.677)
     elif gender == "female":
         bmr = 447.593 + (weight * 9.247) + (height * 3.098) - (age * 4.330)

@@ -347,6 +347,47 @@
             "tip": "Try to include fatty fish like salmon in your meals at least twice a week."
           }
         }
+      },
+      {
+        "symptoms": "swelling",
+        "analyse": {
+          "Vitamin B6": {
+            "why": "A lack of vitamin B6 can cause swelling, particularly in young females. Vitamin B6 helps regulate fluid balance in the body, and a lack of it can lead to water retention, causing swelling. As a 16-year-old female, adequate vitamin B6 intake is essential for overall health, and a lack of it can be exacerbated by factors such as hormonal fluctuations.",
+            "foods": [
+              "chicken",
+              "fish",
+              "beans",
+              "lentils",
+              "potatoes",
+              "bananas"
+            ],
+            "tip": "Engage in regular physical activity, like walking or yoga, to help improve circulation and reduce swelling."
+          },
+          "Potassium": {
+            "why": "A lack of potassium can disrupt fluid balance in the body, leading to swelling. As a 16-year-old female, adequate potassium intake is crucial for maintaining healthy blood vessels and preventing conditions like hypotension. A lack of potassium can be more pronounced in individuals with a relatively low body mass index (BMI) or those who engage in intense physical activity.",
+            "foods": [
+              "bananas",
+              "avocados",
+              "spinach",
+              "sweet potatoes",
+              "salmon",
+              "almonds"
+            ],
+            "tip": "Limit sodium intake by reducing processed food consumption to help alleviate swelling."
+          },
+          "Vitamin B12": {
+            "why": "A lack of vitamin B12 can cause swelling in the feet and ankles due to its role in maintaining healthy blood cells and nerve function. As a 16-year-old female, adequate vitamin B12 intake is essential for overall health, particularly for those with a relatively low body weight. A lack of vitamin B12 can lead to fatigue, weakness, and swelling.",
+            "foods": [
+              "fish",
+              "chicken",
+              "beef",
+              "pork",
+              "eggs",
+              "dairy products"
+            ],
+            "tip": "Consider keeping a food diary to track your daily vitamin B12 intake and ensure you're meeting your nutritional needs."
+          }
+        }
       }
     ],
     "mealplan": {
@@ -647,5 +688,23 @@
         "carbohydrates": 150.12
       }
     }
+  },
+  "testusername": {
+    "username": "testusername",
+    "password": "testpassword",
+    "name": "Test User",
+    "age": 20,
+    "sex": "Female",
+    "height": 175.0,
+    "weight": 70.0,
+    "skin_color": "medium",
+    "country": "The Netherlands",
+    "medication": "None",
+    "diet": "None",
+    "existing_conditions": [],
+    "allergies": [],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
   }
 }

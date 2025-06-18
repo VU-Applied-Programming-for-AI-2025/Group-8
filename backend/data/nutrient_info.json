@@ -1,100 +1,143 @@
 {
-    "IRON": {
+    "COPPER": {
         "symptoms": [
             "fatigue",
-            "pale skin",
-            "shortness of breath",
-            "dizziness",
-            "cold hands and feet"
-        ],
-        "function": "Carries oxygen in red blood cells, supports metabolism and immune function.",
-        "why": "Iron is a component of hemoglobin and myoglobin, crucial for oxygen transport and muscle function. It also supports enzyme activity and immunity.",
-        "foods": [
-            "red meat",
-            "lentils",
-            "spinach",
-            "tofu",
-            "chickpeas",
-            "pumpkin seeds"
-        ]
-    },
-    "VITAMIN D": {
-        "symptoms": [
-            "bone pain",
-            "muscle weakness",
             "frequent illness",
-            "depression",
-            "slow wound healing"
+            "brittle bones",
+            "problems with memory and learning",
+            "difficulty walking"
         ],
-        "function": "Regulates calcium absorption, supports immune system, and maintains healthy bones and mood.",
-        "why": "Vitamin D helps regulate calcium and phosphorus levels, which are essential for strong bones. It also modulates immune responses and influences mood regulation.",
+        "function": "Helps form red blood cells, maintain healthy bones, blood vessels, nerves, and immune function.",
+        "why": "Copper is vital for iron metabolism, energy production, and neurotransmitter synthesis.",
         "foods": [
-            "salmon",
-            "egg yolks",
-            "fortified milk",
-            "mushrooms",
-            "sardines",
-            "cod liver oil"
+            "liver",
+            "shellfish",
+            "nuts",
+            "seeds",
+            "whole-grain products"
         ]
     },
-    "B12": {
+    "CHOLINE": {
         "symptoms": [
-            "tingling in hands/feet",
+            "muscle damage",
+            "fatty liver",
             "memory problems",
-            "fatigue",
-            "difficulty walking",
-            "irritability"
+            "mood changes",
+            "nerve dysfunction"
         ],
-        "function": "Supports nerve function, DNA synthesis, red blood cell production, and brain health.",
-        "why": "Vitamin B12 is required for neurological function and forming red blood cells. Its deficiency can lead to irreversible nerve damage if untreated.",
+        "function": "Supports brain development, liver function, nerve function, and muscle movement.",
+        "why": "Choline is essential for making acetylcholine, a neurotransmitter involved in memory and mood.",
         "foods": [
-            "beef liver",
-            "clams",
-            "fortified cereals",
             "eggs",
-            "dairy products",
-            "salmon"
+            "beef liver",
+            "salmon",
+            "chicken breast",
+            "broccoli"
         ]
     },
-    "MAGNESIUM": {
+    "CHOLESTEROL": {
         "symptoms": [
-            "muscle cramps",
-            "irritability",
-            "poor sleep",
-            "nausea",
-            "abnormal heart rhythms"
+            "hormonal imbalance",
+            "fatigue",
+            "digestive issues",
+            "low mood",
+            "memory problems"
         ],
-        "function": "Regulates muscle and nerve function, blood pressure, glucose control, and protein synthesis.",
-        "why": "Magnesium acts as a cofactor in over 300 enzyme systems and is crucial for energy production, nervous system balance, and muscle relaxation.",
+        "function": "Essential for building cell membranes and producing hormones like estrogen and testosterone.",
+        "why": "Cholesterol is needed for vitamin D and bile acid production, which helps digest fats.",
+        "foods": [
+            "eggs",
+            "cheese",
+            "shellfish",
+            "meat",
+            "butter"
+        ]
+    },
+    "FLUORIDE": {
+        "symptoms": [
+            "dental cavities",
+            "weak bones",
+            "increased fracture risk"
+        ],
+        "function": "Helps prevent dental caries and maintains bone structure.",
+        "why": "Fluoride strengthens tooth enamel and helps rebuild weakened tooth structures.",
+        "foods": [
+            "fluoridated water",
+            "tea",
+            "grapes",
+            "raisins",
+            "spinach"
+        ]
+    },
+    "SATURATEDFAT": {
+        "symptoms": [
+            "low energy (from overly restricted fat intake)",
+            "poor hormone production",
+            "reduced nutrient absorption"
+        ],
+        "function": "Provides energy and supports cell membrane structure and hormone production.",
+        "why": "Some saturated fats play a role in immune function and are precursors to key hormones.",
+        "foods": [
+            "butter",
+            "cheese",
+            "red meat",
+            "coconut oil",
+            "palm oil"
+        ]
+    },
+    "VITAMINC": {
+        "symptoms": [
+            "frequent infections",
+            "bleeding gums",
+            "slow wound healing",
+            "dry, scaly skin",
+            "fatigue"
+        ],
+        "function": "Supports immune function, collagen production, and absorption of iron.",
+        "why": "Vitamin C is an antioxidant that protects cells and is needed for skin, bone, and blood vessel health.",
+        "foods": [
+            "oranges",
+            "strawberries",
+            "kiwi",
+            "bell peppers",
+            "broccoli"
+        ]
+    },
+    "VITAMINE": {
+        "symptoms": [
+            "muscle weakness",
+            "vision problems",
+            "immune dysfunction",
+            "numbness"
+        ],
+        "function": "Acts as an antioxidant, protecting cells from oxidative damage.",
+        "why": "Vitamin E maintains skin and eye health and strengthens the body's natural defense against illness.",
         "foods": [
             "almonds",
+            "sunflower seeds",
             "spinach",
             "avocados",
-            "black beans",
-            "cashews",
-            "whole grains"
+            "plant oils"
         ]
     },
-    "ZINC": {
+    "VITAMINK": {
         "symptoms": [
-            "slow wound healing",
-            "hair loss",
-            "loss of taste/smell",
-            "frequent infections",
-            "diarrhea"
+            "easy bruising",
+            "excessive bleeding",
+            "heavy menstrual periods",
+            "blood in urine or stool"
         ],
-        "function": "Supports immune defense, cell division, wound healing, and DNA synthesis.",
-        "why": "Zinc is needed for enzyme function, protein synthesis, and immunity. Its deficiency impairs growth and infection resistance.",
+        "function": "Essential for blood clotting and bone metabolism.",
+        "why": "Vitamin K activates proteins that play a role in blood clotting, bone health, and heart health.",
         "foods": [
-            "pumpkin seeds",
-            "chickpeas",
-            "beef",
-            "cashews",
-            "oysters",
-            "milk"
+            "kale",
+            "spinach",
+            "broccoli",
+            "brussels sprouts",
+            "green beans"
         ]
     },
-    "VITAMIN A": {
+    "VITAMINA": {
         "symptoms": [
             "night blindness",
             "dry skin",
@@ -103,90 +146,341 @@
             "dry eyes"
         ],
         "function": "Promotes vision, immune function, reproduction, and cell growth.",
-        "why": "Vitamin A maintains epithelial cells and mucous membranes. It is critical for eye health, immune defense, and fetal development.",
+        "why": "Vitamin A maintains epithelial tissues and supports vision and immune defense.",
         "foods": [
             "carrots",
             "sweet potatoes",
-            "mangoes",
             "kale",
-            "liver",
-            "apricots"
+            "spinach",
+            "apricots",
+            "liver"
         ]
     },
-    "FOLATE": {
+    "VITAMIND": {
+        "symptoms": [
+            "bone pain",
+            "muscle weakness",
+            "frequent illness",
+            "depression",
+            "slow wound healing"
+        ],
+        "function": "Regulates calcium absorption, immune function, and bone health.",
+        "why": "Vitamin D enhances calcium uptake and supports immune and mood regulation.",
+        "foods": [
+            "salmon",
+            "sardines",
+            "fortified milk",
+            "egg yolks",
+            "mushrooms"
+        ]
+    },
+    "VITAMINB1": {
         "symptoms": [
             "fatigue",
             "irritability",
-            "poor growth",
-            "mouth sores",
-            "gray hair"
+            "depression",
+            "poor memory",
+            "muscle weakness"
         ],
-        "function": "Essential for DNA synthesis, red blood cell production, and during pregnancy for fetal development.",
-        "why": "Folate helps form and repair DNA and RNA. It prevents neural tube defects in pregnancy and supports heart health.",
+        "function": "Helps convert nutrients into energy and supports nerve function.",
+        "why": "Thiamine (B1) is essential for glucose metabolism and nerve, muscle, and heart function.",
         "foods": [
-            "leafy greens",
-            "asparagus",
-            "legumes",
-            "oranges",
-            "beets",
-            "avocado"
+            "whole grains",
+            "pork",
+            "sunflower seeds",
+            "legumes"
+        ]
+    },
+    "VITAMINB2": {
+        "symptoms": [
+            "cracks at mouth corners",
+            "sore throat",
+            "red tongue",
+            "skin disorders",
+            "light sensitivity"
+        ],
+        "function": "Supports energy production and cellular function.",
+        "why": "Riboflavin (B2) is a key enzyme cofactor involved in metabolism and red blood cell formation.",
+        "foods": [
+            "milk",
+            "eggs",
+            "almonds",
+            "leafy vegetables"
+        ]
+    },
+    "VITAMINB3": {
+        "symptoms": [
+            "fatigue",
+            "skin inflammation",
+            "diarrhea",
+            "mental confusion",
+            "mouth sores"
+        ],
+        "function": "Aids digestion, skin health, and nerve function.",
+        "why": "Niacin (B3) is essential for converting food into energy and repairing DNA.",
+        "foods": [
+            "chicken",
+            "tuna",
+            "salmon",
+            "brown rice",
+            "peanuts"
+        ]
+    },
+    "VITAMINB5": {
+        "symptoms": [
+            "headache",
+            "fatigue",
+            "irritability",
+            "numbness",
+            "muscle cramps"
+        ],
+        "function": "Supports metabolism, hormone synthesis, and wound healing.",
+        "why": "Pantothenic acid (B5) helps convert food into energy and makes neurotransmitters and hormones.",
+        "foods": [
+            "avocados",
+            "yogurt",
+            "eggs",
+            "mushrooms",
+            "broccoli"
+        ]
+    },
+    "VITAMINB6": {
+        "symptoms": [
+            "irritability",
+            "depression",
+            "confusion",
+            "weakened immune function",
+            "cracks in lips"
+        ],
+        "function": "Involved in amino acid metabolism, red blood cell production, and neurotransmitter function.",
+        "why": "Vitamin B6 is critical for brain development and helps regulate mood and sleep.",
+        "foods": [
+            "chickpeas",
+            "salmon",
+            "potatoes",
+            "bananas",
+            "chicken"
+        ]
+    },
+    "VITAMINB12": {
+        "symptoms": [
+            "fatigue",
+            "weakness",
+            "constipation",
+            "loss of appetite",
+            "nerve problems"
+        ],
+        "function": "Essential for red blood cell formation and neurological function.",
+        "why": "Vitamin B12 is vital for nerve function and the production of DNA and red blood cells.",
+        "foods": [
+            "beef",
+            "clams",
+            "fortified cereals",
+            "eggs",
+            "milk"
+        ]
+    },
+    "FIBER": {
+        "symptoms": [
+            "constipation",
+            "bloating",
+            "irregular bowel movements",
+            "blood sugar spikes"
+        ],
+        "function": "Supports digestive health and regulates blood sugar.",
+        "why": "Fiber adds bulk to stool and feeds gut bacteria, improving overall gut health.",
+        "foods": [
+            "oats",
+            "beans",
+            "apples",
+            "carrots",
+            "broccoli"
+        ]
+    },
+    "FOLICACID": {
+        "symptoms": [
+            "fatigue",
+            "gray hair",
+            "mouth sores",
+            "tongue swelling",
+            "poor growth"
+        ],
+        "function": "Crucial for cell division and during pregnancy to prevent neural tube defects.",
+        "why": "Folic acid is the synthetic form of folate and supports DNA and red blood cell formation.",
+        "foods": [
+            "fortified grains",
+            "green vegetables",
+            "citrus fruits",
+            "beans",
+            "peas"
         ]
     },
     "CALCIUM": {
         "symptoms": [
-            "muscle spasms",
-            "brittle nails",
-            "osteoporosis",
-            "numbness in fingers",
-            "tooth decay"
+            "Calcium deficiency symptom 1",
+            "Calcium deficiency symptom 2",
+            "Calcium deficiency symptom 3"
         ],
-        "function": "Strengthens bones and teeth, supports nerve signaling, muscle contraction, and blood clotting.",
-        "why": "Calcium is stored in bones and used to maintain bone density. It also plays a critical role in heart and muscle contractions.",
+        "function": "Calcium plays a role in essential physiological processes.",
+        "why": "Calcium is needed for the body to function properly and maintain health.",
         "foods": [
-            "milk",
-            "yogurt",
-            "broccoli",
-            "sardines",
-            "cheese",
-            "fortified tofu"
+            "Calcium food 1",
+            "Calcium food 2",
+            "Calcium food 3"
+        ]
+    },
+    "FOLATE": {
+        "symptoms": [
+            "Folate deficiency symptom 1",
+            "Folate deficiency symptom 2",
+            "Folate deficiency symptom 3"
+        ],
+        "function": "Folate plays a role in essential physiological processes.",
+        "why": "Folate is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Folate food 1",
+            "Folate food 2",
+            "Folate food 3"
         ]
     },
     "IODINE": {
         "symptoms": [
-            "goiter",
-            "fatigue",
-            "weight gain",
-            "cold sensitivity",
-            "dry skin"
+            "Iodine deficiency symptom 1",
+            "Iodine deficiency symptom 2",
+            "Iodine deficiency symptom 3"
         ],
-        "function": "Needed for thyroid hormone production, metabolism regulation, and cognitive function.",
-        "why": "Iodine is essential for synthesizing thyroid hormones that control metabolism, brain development, and temperature regulation.",
+        "function": "Iodine plays a role in essential physiological processes.",
+        "why": "Iodine is needed for the body to function properly and maintain health.",
         "foods": [
-            "iodized salt",
-            "seaweed",
-            "cod",
-            "shrimp",
-            "dairy",
-            "eggs"
+            "Iodine food 1",
+            "Iodine food 2",
+            "Iodine food 3"
         ]
     },
-    "OMEGA-3": {
+    "IRON": {
         "symptoms": [
-            "dry skin",
-            "joint pain",
-            "brain fog",
-            "mood swings",
-            "fatigue"
+            "Iron deficiency symptom 1",
+            "Iron deficiency symptom 2",
+            "Iron deficiency symptom 3"
         ],
-        "function": "Reduces inflammation, supports heart and brain health, and improves mood and vision.",
-        "why": "Omega-3s are essential fatty acids that regulate inflammation, build cell membranes in the brain, and support cardiovascular health.",
+        "function": "Iron plays a role in essential physiological processes.",
+        "why": "Iron is needed for the body to function properly and maintain health.",
         "foods": [
-            "salmon",
-            "chia seeds",
-            "walnuts",
-            "flaxseeds",
-            "sardines",
-            "canola oil"
+            "Iron food 1",
+            "Iron food 2",
+            "Iron food 3"
+        ]
+    },
+    "MAGNESIUM": {
+        "symptoms": [
+            "Magnesium deficiency symptom 1",
+            "Magnesium deficiency symptom 2",
+            "Magnesium deficiency symptom 3"
+        ],
+        "function": "Magnesium plays a role in essential physiological processes.",
+        "why": "Magnesium is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Magnesium food 1",
+            "Magnesium food 2",
+            "Magnesium food 3"
+        ]
+    },
+    "MANGANESE": {
+        "symptoms": [
+            "Manganese deficiency symptom 1",
+            "Manganese deficiency symptom 2",
+            "Manganese deficiency symptom 3"
+        ],
+        "function": "Manganese plays a role in essential physiological processes.",
+        "why": "Manganese is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Manganese food 1",
+            "Manganese food 2",
+            "Manganese food 3"
+        ]
+    },
+    "PHOSPHORUS": {
+        "symptoms": [
+            "Phosphorus deficiency symptom 1",
+            "Phosphorus deficiency symptom 2",
+            "Phosphorus deficiency symptom 3"
+        ],
+        "function": "Phosphorus plays a role in essential physiological processes.",
+        "why": "Phosphorus is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Phosphorus food 1",
+            "Phosphorus food 2",
+            "Phosphorus food 3"
+        ]
+    },
+    "POTASSIUM": {
+        "symptoms": [
+            "Potassium deficiency symptom 1",
+            "Potassium deficiency symptom 2",
+            "Potassium deficiency symptom 3"
+        ],
+        "function": "Potassium plays a role in essential physiological processes.",
+        "why": "Potassium is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Potassium food 1",
+            "Potassium food 2",
+            "Potassium food 3"
+        ]
+    },
+    "SELENIUM": {
+        "symptoms": [
+            "Selenium deficiency symptom 1",
+            "Selenium deficiency symptom 2",
+            "Selenium deficiency symptom 3"
+        ],
+        "function": "Selenium plays a role in essential physiological processes.",
+        "why": "Selenium is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Selenium food 1",
+            "Selenium food 2",
+            "Selenium food 3"
+        ]
+    },
+    "SODIUM": {
+        "symptoms": [
+            "Sodium deficiency symptom 1",
+            "Sodium deficiency symptom 2",
+            "Sodium deficiency symptom 3"
+        ],
+        "function": "Sodium plays a role in essential physiological processes.",
+        "why": "Sodium is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Sodium food 1",
+            "Sodium food 2",
+            "Sodium food 3"
+        ]
+    },
+    "SUGAR": {
+        "symptoms": [
+            "Sugar deficiency symptom 1",
+            "Sugar deficiency symptom 2",
+            "Sugar deficiency symptom 3"
+        ],
+        "function": "Sugar plays a role in essential physiological processes.",
+        "why": "Sugar is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Sugar food 1",
+            "Sugar food 2",
+            "Sugar food 3"
+        ]
+    },
+    "ZINC": {
+        "symptoms": [
+            "Zinc deficiency symptom 1",
+            "Zinc deficiency symptom 2",
+            "Zinc deficiency symptom 3"
+        ],
+        "function": "Zinc plays a role in essential physiological processes.",
+        "why": "Zinc is needed for the body to function properly and maintain health.",
+        "foods": [
+            "Zinc food 1",
+            "Zinc food 2",
+            "Zinc food 3"
         ]
     }
 }
