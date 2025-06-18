@@ -14,6 +14,7 @@ from app import (
     display_results,
     recipe_details,
     get_nutrient_info,
+    calculate_bmr,
     vitamin_intake
 )
 from dotenv import load_dotenv
@@ -696,11 +697,140 @@ def test_remove_saving(client, set_users_data):
     assert b"Not exists" in response2.data
 
 
+def test_show_favs(client):
+    """
+    Tests if the saved mealplan page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/show_favorites")
+    assert_200(response)
+
+
 ###############################################################################
 #                                                                             #
-#                                GROQ TESTS                                   #
+#                                BMR CALCULATION                              #
 #                                                                             #
 ###############################################################################
+def test_bmr_calculation_for_male(client, set_users_data):
+    """
+    Tests to see if thr BMR calcualtion works correctly.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "male",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    with client.application.test_request_context():
+        with patch("app.userAuthHelper", return_value=user):
+            bmr = calculate_bmr()
+
+    expected_bmr = (
+        88.362 + (user.weight * 13.397) + (user.height * 4.799) - (user.age * 5.677)
+    )
+    assert bmr == expected_bmr
+
+
+def test_bmr_calculation_for_female(client, set_users_data):
+    """
+    Tests to see if thr BMR calcualtion works correctly.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    with client.application.test_request_context():
+        with patch("app.userAuthHelper", return_value=user):
+            bmr = calculate_bmr()
+
+    expected_bmr = (
+        447.593 + (user.weight * 9.247) + (user.height * 3.098) - (user.age * 4.330)
+    )
+    assert bmr == expected_bmr
+
+
+def test_calorie_calculation_for_male(client, set_users_data):
+    """
+    Tests to see if thr calorie calcualtion works correctly.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "male",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    diet = "loose"
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+
+    with client.application.test_request_context():
+        with patch("app.userAuthHelper", return_value=user):
+            bmr = calculate_bmr()
+
+    expected_bmr = (
+        88.362 + (user.weight * 13.397) + (user.height * 4.799) - (user.age * 5.677)
+    )
+    expected_calories = expected_bmr - 300.00
+
+    assert expected_calories == bmr - 300.00
+
+###############################################################################
+#                                                                             #
+#                                    GROQ                                     #
+#                                                                             #
+###############################################################################
+    
 def test_vitamin_intake():
     test_response = {
         "vitamin_a": {"minVitaminA": 50},         
@@ -936,6 +1066,17 @@ def test_mealplanner_view_empty(client, set_users_data):
     response = client.get("/recommendations/mealplanner/view")
     assert_200(response)
     assert b"no meal plan found" in response.data.lower()
+
+
+def test_show_mealplan(client):
+    """
+    Tests if the saved mealplan page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/recommendations/mealplanner/view")
+    assert_200(response)
 
 
 ###############################################################################

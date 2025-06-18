@@ -284,8 +284,7 @@ def analyze_symptoms() -> str:
         )
         return response.choices[0].message.content
     except Exception as e:
-        print("Groq API failed:", e) 
-
+        print("Groq API failed:", e)
 
 
 def extract_deficiency_keywords(text: str) -> List[str]:
@@ -295,11 +294,36 @@ def extract_deficiency_keywords(text: str) -> List[str]:
     Looks for known keys like 'vitamin d', 'iron', etc., followed by a colon.
     """
     known_keys = {
-    "copper", "calcium", "choline", "cholesterol", "fluoride", "saturatedfat",
-    "vitamina", "vitaminc", "vitamind", "vitamine", "vitamink", "vitaminb1",
-    "vitaminb2", "vitaminb3", "vitaminb5", "vitaminb6", "vitaminb12", "fiber",
-    "folate", "folicacid", "iodine", "iron", "magnesium", "manganese",
-    "phosphorus", "potassium", "selenium", "sodium", "sugar", "zinc"
+        "copper",
+        "calcium",
+        "choline",
+        "cholesterol",
+        "fluoride",
+        "saturatedfat",
+        "vitamina",
+        "vitaminc",
+        "vitamind",
+        "vitamine",
+        "vitamink",
+        "vitaminb1",
+        "vitaminb2",
+        "vitaminb3",
+        "vitaminb5",
+        "vitaminb6",
+        "vitaminb12",
+        "fiber",
+        "folate",
+        "folicacid",
+        "iodine",
+        "iron",
+        "magnesium",
+        "manganese",
+        "phosphorus",
+        "potassium",
+        "selenium",
+        "sodium",
+        "sugar",
+        "zinc",
     }
 
     deficiencies = []
@@ -380,6 +404,67 @@ if __name__ == "__main__":
     print("Recommended minimum intakes:")
     print(intake_recommendations)
 
+
+
+def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
+    """ """
+
+    if not deficiencies:
+        return {}
+
+    prompt = f"""
+    for each of the following nutrients/vitamins, suggest a minimum daily amount (in mg) to consume when mildly lacking it. the maximum amount cannot exceed 100 mg,
+    in this JSON format: 
+    {{
+        "vitamin_a": {{ "minVitaminA": 5 }},
+        "zinc": {{ "minZinc": 10 }}
+    }}
+
+    nutrients/vitamins: {", ".join(str(d) for d in deficiencies)}
+    rule: only do it in the exameple format provided above.
+
+    """
+    try:
+        response = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[
+                {
+                    "role": "system",
+                    "content": "You are a nutrition analysis API that responds strictly in JSON.",
+                },
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.7,
+            max_completion_tokens=1024,
+            top_p=1,
+            stop=None,
+            response_format={"type": "json_object"},
+        )
+
+        uncleaned_data = json.loads(response.choices[0].message.content)
+
+        cleaned = {
+            nutrient_name: {
+                min_amount_key: int(val)
+                for min_amount_key, val in nutrient_data.items()
+                if isinstance(val, (int, float, str)) and str(val).isdigit()
+            }
+            for nutrient_name, nutrient_data in uncleaned_data.items()
+            if isinstance(nutrient_data, dict)
+        }
+
+        return cleaned
+
+    except Exception as e:
+        print("Groq API failed:", e)
+        return {}
+
+
+if __name__ == "__main__":
+    deficiencies = ["VitaminA", "Zinc", "Calcium"]
+    intake_recommendations = vitamin_intake(deficiencies)
+    print("Recommended minimum intakes:")
+    print(intake_recommendations)
 
 
 # helper to function extract foods from the groq response
@@ -485,7 +570,6 @@ def recommendations() -> Union[str, Response]:
             except Exception as e:
                 print(f"Error fetching {category} ({t}):", e)
 
-    
         # fallback logic removed to avoid unrelated random recipes
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
@@ -619,7 +703,7 @@ def calculate_bmr() -> float:
     weight = user.weight
     gender = user.sex
     age = user.age
-    if gender == "men":
+    if gender == "male":
         bmr = 88.362 + (weight * 13.397) + (height * 4.799) - (age * 5.677)
     elif gender == "female":
         bmr = 447.593 + (weight * 9.247) + (height * 3.098) - (age * 4.330)
