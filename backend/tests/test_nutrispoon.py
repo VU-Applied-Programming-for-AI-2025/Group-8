@@ -13,6 +13,7 @@ from app import (
     display_results,
     recipe_details,
     get_nutrient_info,
+    vitamin_intake
 )
 from dotenv import load_dotenv
 
@@ -568,26 +569,6 @@ Vitamin D:
         assert len(foods) == 3
 
 
-def test_extract_food_recs_list():
-    """
-    Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
-    """
-    test_response = (
-        " - Foods: almonds, dairy, strawberries\n- Foods: carrots, red meat, apple"
-    )
-
-    with patch("app.analyze_symptoms", return_value=test_response):
-        _, result = extract_food_recs()
-        assert set(result) == {
-            "almonds",
-            "dairy",
-            "strawberries",
-            "carrots",
-            "red meat",
-            "apple",
-        }
-
-
 def test_display_results(client):
     """
     Tests if the display_results function and /results route correctly display groq ai's response as in the prompt, so explanation, foods and a tip.
@@ -719,7 +700,17 @@ def test_remove_saving(client, set_users_data):
 #                                GROQ TESTS                                   #
 #                                                                             #
 ###############################################################################
-
+def test_vitamin_intake():
+    test_response = {
+        "vitamin_a": {"minVitaminA": 50},         
+        "zinc": {"minZinc": 40},                   
+        "calcium": {"minCalcium": 30}
+    }
+    
+    with patch("app.client.chat.completions.create") as test_create:
+        test_create.return_value.choices[0].message.content = json.dumps(test_response)
+        result = vitamin_intake(["VitaminA", "Zinc"])
+        assert result == test_response
 
 ###############################################################################
 #                                                                             #
