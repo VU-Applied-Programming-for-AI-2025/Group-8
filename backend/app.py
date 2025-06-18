@@ -140,9 +140,9 @@ def home():
     # Checks if user is logged in, if not redirects to the authentication page.
     form = SearchForm()
     user = userAuthHelper()
-    user_name = user.name
     if not user:
         return redirect(url_for("auth_page"))
+    user_name = user.name
 
     if request.method == "POST":
         symptoms = request.form.get("symptoms").strip()
@@ -156,8 +156,12 @@ def home():
 # function to analyze symptoms
 def analyze_symptoms():
     """
-    This function sends the inputted symptoms to the groq api to analyze(, then returns it as text on the /results page.)
+    Sends the user's profile and symptoms to the Groq API and returns a text response.
+
+    The result includes possible deficiencies, explanations, food suggestions, and tips.
+    Other functions can parse this text to extract vitamins or recommended foods.
     """
+
     username = session["username"]
     user = users_data.get_user(username)
 
@@ -175,6 +179,7 @@ def analyze_symptoms():
         - existing conditions: {", ".join(user.existing_conditions) if user.existing_conditions else "none"}
         - allergies: {", ".join(user.allergies) if user.allergies else "none"}
         - diet: {user.diet}
+
         user symptoms: {symptoms}
 
         required analysis:
@@ -191,26 +196,69 @@ def analyze_symptoms():
         - Foods: [comma-separated list]
         - Tip: [actionable advice]
 
-        [Urgency Note]: (if applicable)
+        [Urgency Note]: (optional)
         """
 
     # llm should incorporate the pesonal details of the user like allergies, pregnancy, etc
 
-    response = client.chat.completions.create(
-        model="meta-llama/llama-4-scout-17b-16e-instruct",
-        messages=[
-            {
-                "role": "user",
-                "content": ai_prompt,
-            }
-        ],
-        temperature=0.7,
-        max_completion_tokens=1024,
-        top_p=1,
-        stop=None,
-    )
-    analysis_results = response.choices[0].message.content
-    return analysis_results
+    try:
+        response = client.chat.completions.create(
+            model="meta-llama/llama-4-scout-17b-16e-instruct",
+            messages=[{"role": "user", "content": ai_prompt}],
+            temperature=0.7,
+            max_completion_tokens=1024,
+            top_p=1,
+            stop=None,
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        print("Groq API failed:", e)
+        raise
+
+def extract_deficiency_keywords(text: str) -> List[str]:
+    """
+    Returns a list of nutrient or vitamin names found at the start of lines in the LLM response.
+
+    Looks for known keys like 'vitamin d', 'iron', etc., followed by a colon.
+    """
+    known_keys = {
+        "vitamin a", "vitamin b", "vitamin c", "vitamin d", "vitamin e", "vitamin k",
+        "iron", "zinc", "magnesium", "calcium", "selenium", "potassium", "folate", "iodine"
+    }
+
+    deficiencies = []
+
+    for line in text.splitlines():
+        if ":" in line:
+            key = line.split(":")[0].strip().lower()
+            if key in known_keys:
+                deficiencies.append(key)
+
+    return deficiencies
+
+# helper to function extract foods from the groq response
+def extract_food_recs() -> List[str]:
+    """
+    Tries to get symptom analysis from Groq. Falls back if unavailable.
+    Returns two lists: vitamins, foods
+    """
+    try:
+        analysis_text = analyze_symptoms()
+    except Exception as e:
+        print("Groq API failed:", e)
+        # fallback: use common vitamins and foods
+        return ["vitamin c", "iron"], ["broccoli", "spinach", "orange"]
+
+    vitamins = extract_deficiency_keywords(analysis_text)
+
+    foods = []
+    for line in analysis_text.splitlines():
+        if line.lower().startswith("- foods:"):
+            parts = line[8:].split(",")
+            foods.extend([x.strip() for x in parts])
+
+    foods = list(dict.fromkeys(foods))  # remove duplicates
+    return vitamins, foods
 
 
 # results page to display analysis results
@@ -225,37 +273,12 @@ def display_results():
     return render_template("results.html", symptoms=symptoms, analysis=analysis)
 
 
-# helper to function extract foods from the groq response
-def extract_food_recs() -> List[str]:
-    """
-    This function extracts the food recommendations from the llm response and stores it in a list for backend use.
-
-    Call this function to extract a list with foods to eat from the groq llm response.
-    """
-    groq_response = analyze_symptoms()
-    list_foods = []
-
-    for line in groq_response.split("\n"):
-        line = line.strip()
-        if line.startswith("- Foods:"):
-            all_foods = line[8:].split(",")
-            foods = [food.strip() for food in all_foods]
-            list_foods.extend(foods)
-
-    seen_foods = set()  # to check duplicates
-    food_recs = []  # new list w/o duplicates
-    for food in list_foods:
-        if not (food in seen_foods or seen_foods.add(food)):
-            food_recs.append(food)
-
-    return food_recs
-
-
 @app.route("/recommendations")
 def recommendations():
     """
-    Provides categorized recipe recommendations for breakfast, lunch, and dinner.
-    Falls back to random recipes if no results are found.
+    Provides categorized recipe recommendations for breakfast, lunch, and dinner,
+    based on likely nutrient deficiencies extracted from symptoms.
+    If Groq API fails, it uses fallback foods and vitamins.
     """
     # Checks if user is logged in, if not redirects to the authentication page.
     logged_in_user = userAuthHelper()
@@ -264,18 +287,32 @@ def recommendations():
 
     diet = ",".join(logged_in_user.diet)
     intolerance = ",".join(logged_in_user.allergies)
-    print(f"api key: {spoonacular_api_key}")
+    nutrient_food_map = {
+        "vitamin d": ["salmon", "mushroom", "egg yolk"],
+        "vitamin c": ["broccoli", "orange", "bell pepper"],
+        "vitamin a": ["carrot", "sweet potato", "spinach"],
+        "iron": ["spinach", "lentils", "beef"],
+        "calcium": ["milk", "yogurt", "kale"],
+        "magnesium": ["almonds", "avocado", "banana"],
+        "zinc": ["pumpkin seeds", "chickpeas", "cashews"]
+    }
 
-    print("Diet:", diet)
-    print("Allergies:", intolerance)
+    try:
+        vitamins, food_list = extract_food_recs()
+    except Exception as e:
+        print("Groq API failed inside recommendations():", e)
+        vitamins, food_list = ["vitamin c", "iron"], ["broccoli", "spinach", "orange"]
 
-    recommended_foods = extract_food_recs()
-    print("Recommended foods: ", recommended_foods)
+    # collect ingredients based on vitamin mapping
+    ingredients = []
+    for vit in vitamins:
+        ingredients.extend(nutrient_food_map.get(vit, []))
+    ingredients = list(set(ingredients))
 
     category_to_types = {
-        "breakfast": "egg, toast, oatmeal",
-        "lunch": "warm, sandwich, grain bowl, salad",
-        "dinner": "protein, vegetables, rice, pasta, warm",
+        "breakfast": ["breakfast", "bread", "beverage", "snack"],
+        "lunch": ["main course", "salad", "soup"],
+        "dinner": ["main course", "side dish", "appetizer"]
     }
 
     meal_recipes = {}
@@ -284,55 +321,44 @@ def recommendations():
         collected_recipes = []
 
         for t in types:
-            print(f"Fetching recipes for {category} ({t})...")
-
             params = {
                 "diet": diet,
                 "excludeIngredients": intolerance,
                 "type": t,
                 "number": 3,
-                "apiKey": spoonacular_api_key,
-                "query": category_to_types.get(category, ""),
+                "apiKey": spoonacular_api_key
             }
-            if recommended_foods:
-                params["includeIngredients"] = ",".join(recommended_foods)
-
-            response = requests.get(
-                "https://api.spoonacular.com/recipes/complexSearch", params=params
-            )
-
-            print("URL:", response.url)
-            print("Status:", response.status_code)
-            print("Response:", response.text[:200])  # just preview the text
+            if ingredients:
+                params["includeIngredients"] = ",".join(ingredients)
 
             try:
+                response = requests.get(
+                    "https://api.spoonacular.com/recipes/complexSearch",
+                    params=params
+                )
                 data = response.json()
                 collected_recipes.extend(data.get("results", []))
             except Exception as e:
-                print(f"Error parsing {category} ({t}):", e)
+                print(f"Error fetching {category} ({t}):", e)
 
-        # fallback if no recipes found for this category
         if not collected_recipes:
-            print(f"No recipes found for {category} with filters. Trying fallback.")
-            fallback_response = requests.get(
-                "https://api.spoonacular.com/recipes/random",
-                params={"number": 3, "apiKey": spoonacular_api_key},
-            )
             try:
-                fallback_data = fallback_response.json()
+                fallback = requests.get(
+                    "https://api.spoonacular.com/recipes/random",
+                    params={"number": 3, "apiKey": spoonacular_api_key}
+                )
+                fallback_data = fallback.json()
                 collected_recipes = fallback_data.get("recipes", [])
             except Exception as e:
                 print(f"Fallback error for {category}:", e)
                 collected_recipes = []
 
-        # remove duplicates by ID
+        # if we couldn't fetch any recipes with ingredients, skip fallback
+        # fallback logic removed to avoid unrelated random recipes
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
 
-    print(meal_recipes)
-
-    return render_template("recipes.html", recipes_by_meal=meal_recipes)
-
+    return render_template("recipes.html", recipes_by_meal=meal_recipes, food_list=food_list)
 
 # display recipe details
 @app.route("/recipe/<recipe_id>")
