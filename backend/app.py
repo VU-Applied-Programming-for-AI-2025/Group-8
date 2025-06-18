@@ -200,7 +200,7 @@ def logout() -> Response:
 
 
 @app.route("/home", methods=["GET", "POST"])
-def home():
+def home() -> Union[str, Response]:
     """
     This function displays the homepage.
     Users can generate a mealplan, submit their symtoms for a more custom mealplan and analyze their symptoms.
@@ -496,7 +496,7 @@ def extract_food_recs() -> List[str]:
 
 # results page to display analysis results
 @app.route("/results")
-def display_results():
+def display_results() -> Union[str, Response]:
     """
     This function displays the groq llm analysis on the webpage.
     """
