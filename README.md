@@ -3,7 +3,7 @@
 
 ## Brief description of the project
 
-We are group 8 and this is our app called `NutriSpoon`, an application which allows users to improve their health with food. Users can register with their .. and input their symptoms to get an AI-driven analysis on possible inadequate nutrient intake. Specific foods are recommended to consume and users then have the option to get custom recipes based on the foods recommended to consume. To make it even more convenient for the user, they can choose to generate a custom made mealplan. With NutriSpoon, we strive to improve the health of users all over the world and to spread more awareness about nutrient inadequacy.
+We are group 8 and this is our app called `NutriSpoon`, an application which allows users to improve their health with food. Users can register with their personal information and input their symptoms to get an AI-driven analysis on possible inadequate nutrient intake. Specific nutrients with corresponding foods are recommended to consume and users then have the option to get custom recipes based on the nutrients recommended to consume. The different nutrients tested are: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium and Zinc. Each nutrient has it's own page with the it's function, why it's important, deficiency symptoms and top food sources. To make it even more convenient for the user, they can choose to generate a custom made mealplan. With NutriSpoon, we strive to improve the health of users all over the world and to spread more awareness about nutrient inadequacy.
 
 ## Team members
 
@@ -15,7 +15,7 @@ We are group 8 and this is our app called `NutriSpoon`, an application which all
 ## Installation details
 
 ### Prerequisites:
-
+- Ensure you have python == 3.12 installed.
 - Ensure you have all dependencies installed. These are listed in a file named `requirements.txt`. You can install them using `pip install -r requirements.txt`.
 
 #### 1. Set up environment variables
@@ -34,7 +34,7 @@ Keys can be retrieved from following sites:
 ### Starting the server:
 
 1. Open a terminal window.
-2. In that terminal, navigate to the back-end server directory using `cd` followed by the path.
+2. In that terminal, navigate to the ferufera-keik0o-sevvalyelmer-yassie101-general-template directory using `cd` followed by the path.
 3. Then, run `python3 app.py` to start the `NutriSpoon` Flask server.
 
 ### Accessing the servers:

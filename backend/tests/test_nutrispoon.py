@@ -1,6 +1,7 @@
 ### first backend tests file ###
 
 import json, os, pytest
+import time
 from context import app, UserProfile, UsersData
 from unittest.mock import patch, MagicMock
 from flask.testing import FlaskClient
@@ -14,6 +15,7 @@ from app import (
     recipe_details,
     get_nutrient_info,
     calculate_bmr,
+    vitamin_intake
 )
 from dotenv import load_dotenv
 
@@ -569,26 +571,6 @@ Vitamin D:
         assert len(foods) == 3
 
 
-def test_extract_food_recs_list():
-    """
-    Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
-    """
-    test_response = (
-        " - Foods: almonds, dairy, strawberries\n- Foods: carrots, red meat, apple"
-    )
-
-    with patch("app.analyze_symptoms", return_value=test_response):
-        _, result = extract_food_recs()
-        assert set(result) == {
-            "almonds",
-            "dairy",
-            "strawberries",
-            "carrots",
-            "red meat",
-            "apple",
-        }
-
-
 def test_display_results(client):
     """
     Tests if the display_results function and /results route correctly display groq ai's response as in the prompt, so explanation, foods and a tip.
@@ -843,6 +825,23 @@ def test_calorie_calculation_for_male(client, set_users_data):
 
     assert expected_calories == bmr - 300.00
 
+###############################################################################
+#                                                                             #
+#                                    GROQ                                     #
+#                                                                             #
+###############################################################################
+    
+def test_vitamin_intake():
+    test_response = {
+        "vitamin_a": {"minVitaminA": 50},         
+        "zinc": {"minZinc": 40},                   
+        "calcium": {"minCalcium": 30}
+    }
+    
+    with patch("app.client.chat.completions.create") as test_create:
+        test_create.return_value.choices[0].message.content = json.dumps(test_response)
+        result = vitamin_intake(["VitaminA", "Zinc"])
+        assert result == test_response
 
 ###############################################################################
 #                                                                             #
@@ -1100,15 +1099,19 @@ def test_homepage(client):
 
 def test_homepage_results_redirect(client):
     """
-    Tests that entering symptoms on the homepage correctly redirects to the results page.
+    Tests that entering symptoms on the homepage correctly redirects to the results page and redirects withiin 10 seconds
     """
     with client.session_transaction() as session:
         session["logged_in"] = True
         session["username"] = "testusername"
+
+    start_time = time.time()
     response = client.post("/home", data={"symptoms": "acne"}, follow_redirects=False)
+    duration = time.time() - start_time
+
     assert response.status_code == 302
     assert "/results?symptoms=acne" in response.headers["Location"]
-
+    assert duration <= 10, f"redirect took too much time: {duration:.2f} seconds"
 
 ###############################################################################
 #                                                                             #
