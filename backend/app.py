@@ -252,7 +252,7 @@ def analyze_symptoms():
         user symptoms: {symptoms}
 
         required analysis:
-        1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight
+        1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height and weight. 
         2. for each deficiency:
         - biological explanation, include information based on the user's age, sex, height/weight, existing conditions, allergies, skin tone (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
         - foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
@@ -285,7 +285,7 @@ def analyze_symptoms():
         raise
 
 
-def extract_deficiency_keywords(text: str) -> List[str]:
+def extract_deficiency_keywords(text: str):
     """
     Returns a list of nutrient or vitamin names found at the start of lines in the LLM response.
 
@@ -369,37 +369,20 @@ def recommendations():
     if not logged_in_user:
         return redirect(url_for("auth_page"))
 
-    diet = ",".join(logged_in_user.diet)
+    min_nutrients: Dict[str, Dict[str, int]] = extract_deficiency_keywords()  
+    diet = logged_in_user.diet
     intolerance = ",".join(logged_in_user.allergies)
-    nutrient_food_map = {
-        "vitamin d": ["salmon", "mushroom", "egg yolk"],
-        "vitamin c": ["broccoli", "orange", "bell pepper"],
-        "vitamin a": ["carrot", "sweet potato", "spinach"],
-        "iron": ["spinach", "lentils", "beef"],
-        "calcium": ["milk", "yogurt", "kale"],
-        "magnesium": ["almonds", "avocado", "banana"],
-        "zinc": ["pumpkin seeds", "chickpeas", "cashews"],
-    }
-
-    try:
-        vitamins, food_list = extract_food_recs()
-    except Exception as e:
-        print("Groq API failed inside recommendations():", e)
-        vitamins, food_list = ["vitamin c", "iron"], ["broccoli", "spinach", "orange"]
-
-    # collect ingredients based on vitamin mapping
-    ingredients = []
-    for vit in vitamins:
-        ingredients.extend(nutrient_food_map.get(vit, []))
-    ingredients = list(set(ingredients))
 
     category_to_types = {
         "breakfast": ["breakfast"],
         "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"],
-    }
+        "dinner": ["main course", "side dish", "appetizer"],}
 
     meal_recipes = {}
+
+    min_nutrient_params = {}
+    for nutrient_dict in min_nutrients.values():
+        min_nutrient_params.update(nutrient_dict)
 
     for category, types in category_to_types.items():
         collected_recipes = []
@@ -412,8 +395,7 @@ def recommendations():
                 "number": 3,
                 "apiKey": spoonacular_api_key,
             }
-            if ingredients:
-                params["includeIngredients"] = ",".join(ingredients)
+            params.update(min_nutrient_params)
 
             try:
                 response = requests.get(
@@ -424,26 +406,13 @@ def recommendations():
             except Exception as e:
                 print(f"Error fetching {category} ({t}):", e)
 
-        if not collected_recipes:
-            try:
-                fallback = requests.get(
-                    "https://api.spoonacular.com/recipes/random",
-                    params={"number": 3, "apiKey": spoonacular_api_key},
-                )
-                fallback_data = fallback.json()
-                collected_recipes = fallback_data.get("recipes", [])
-            except Exception as e:
-                print(f"Fallback error for {category}:", e)
-                collected_recipes = []
-
-        # if we couldn't fetch any recipes with ingredients, skip fallback
+    
         # fallback logic removed to avoid unrelated random recipes
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
-
-    return render_template(
-        "recipes.html", recipes_by_meal=meal_recipes, food_list=food_list
-    )
+    print("API params:", params)
+    print("API response:", data)
+    return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
 
 # display recipe details

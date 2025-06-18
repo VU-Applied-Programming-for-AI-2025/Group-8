@@ -1,1 +1,262 @@
-{}
+{
+  "test": {
+    "username": "test",
+    "password": "test",
+    "name": "test",
+    "age": 23,
+    "sex": "female",
+    "height": 234.0,
+    "weight": 23.0,
+    "skin_color": "light",
+    "country": "The Netherlands",
+    "medication": [
+      ""
+    ],
+    "diet": "glutenfree",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "As a 23-year-old female with acne, a lack of Vitamin A may contribute to skin issues. Vitamin A plays a crucial role in skin cell turnover and sebum production regulation. Given the user's gluten-free diet, it's essential to ensure adequate Vitamin A intake through other sources. The user's light skin tone may also increase the risk of Vitamin A inadequacy.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens",
+              "squash",
+              "liver"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals, and consider consulting a dermatologist for personalized acne treatment."
+          },
+          "Omega-3": {
+            "why": "A lack of Omega-3 fatty acids may exacerbate acne in a 23-year-old female. Omega-3s help reduce inflammation and promote healthy skin. As a gluten-free dieter, it's essential to find alternative sources of Omega-3s. The user's age and sex also make it crucial to maintain adequate Omega-3 intake for overall health.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "chia seeds",
+              "flaxseeds",
+              "hemp seeds"
+            ],
+            "tip": "Take a short walk outside during peak sun hours to boost Vitamin D production, which can help regulate Omega-3 levels."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc may contribute to acne in a 23-year-old female, as it plays a key role in skin health and immune function. Zinc helps regulate sebum production and reduce inflammation. The user's gluten-free diet may lead to inadequate Zinc intake if not properly planned.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "pumpkin seeds",
+              "quinoa"
+            ],
+            "tip": "Practice good sleep hygiene to help regulate Zinc levels and support overall skin health."
+          },
+          "Urgency Note": "None flagged, but it is recommended that the user consult a healthcare professional for personalized advice on managing acne and ensuring adequate nutrient intake."
+        }
+      },
+      {
+        "symptoms": "acne'",
+        "analyse": {
+          "Vitamin A": {
+            "why": "At 23 years old, as a female, a lack of Vitamin A can contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores. With a height of 234.0 cm and weight of 23.0 kg, ensuring adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens",
+              "squash",
+              "liver"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals, aiming for a variety to ensure consistent intake."
+          },
+          "Zinc": {
+            "why": "Zinc plays a critical role in regulating inflammation and immune response, which can help combat acne. As a 23-year-old female with a gluten-free diet, there might be a risk of lower zinc intake if not properly managed, especially considering gluten-free products often have lower zinc content.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Snack on zinc-rich foods like pumpkin seeds daily to help maintain steady levels."
+          },
+          "Omega-3 Fatty Acids": {
+            "why": "Omega-3s have anti-inflammatory properties that can help reduce acne severity. As a young adult with a focus on dietary management, ensuring adequate intake through diet is essential, particularly given the gluten-free dietary constraint which might limit some traditional sources.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "flaxseeds",
+              "chia seeds",
+              "canola oil"
+            ],
+            "tip": "Include a source of Omega-3s in your meals at least twice a week to support skin health."
+          },
+          "Urgency Note": "None flagged based on provided information. However, if acne persists or worsens, consider consulting a healthcare professional to rule out other causes and for personalized advice."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "As a 23-year-old female with acne, a lack of Vitamin A may contribute to skin issues. Vitamin A plays a crucial role in skin cell turnover and sebum regulation. Given the user's gluten-free diet, ensuring adequate Vitamin A intake is essential.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens",
+              "squash",
+              "liver"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals, such as having sweet potatoes for breakfast or adding dark leafy greens to your salads."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne in young adults, particularly females. Zinc helps regulate hormones, reduce inflammation, and promote wound healing.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Snack on pumpkin seeds or add them to your meals to boost Zinc intake, considering your gluten-free diet."
+          },
+          "Omega-3 Fatty Acids": {
+            "why": "A lack of Omega-3 Fatty Acids may contribute to acne due to their anti-inflammatory properties. As a young adult, adequate intake supports skin health and hormonal balance.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "chia seeds",
+              "flaxseeds",
+              "hemp seeds"
+            ],
+            "tip": "Add walnuts or chia seeds to your oatmeal or yogurt to increase Omega-3 Fatty Acids intake."
+          },
+          "Urgency Note": "None. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "As a 23-year-old female, a lack of Vitamin A may contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. With a height of 234.0 cm and weight of 23.0 kg, ensuring adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens",
+              "squash",
+              "pumpkin",
+              "apricots"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals to support skin health."
+          },
+          "Vitamin D": {
+            "why": "A lack of Vitamin D may exacerbate acne, as it plays a role in regulating immune responses and inflammation. As a 23-year-old female with a light skin tone, you may be more susceptible to Vitamin D insufficiency due to reduced skin synthesis.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy products",
+              "mushrooms",
+              "egg yolks",
+              "fortified cereals"
+            ],
+            "tip": "Spend time outdoors to boost Vitamin D production, but don't forget to wear sunscreen."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can worsen acne due to its essential role in wound healing, inflammation regulation, and immune function. As a female, you may be at risk of Zinc insufficiency, particularly if your diet is not well-balanced.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "fortified cereals",
+              "pumpkin seeds",
+              "gluten-free whole grains"
+            ],
+            "tip": "Include Zinc-rich foods in your gluten-free diet to support skin health."
+          },
+          "Urgency Note": "No urgent medical concerns are flagged based on the provided information. However, it is recommended that you consult a healthcare professional to discuss your acne and potential underlying causes."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "As a 23-year-old female with acne, a lack of Vitamin A may contribute to skin issues. Vitamin A plays a crucial role in skin cell turnover and reducing inflammation. Given the user's gluten-free diet, ensuring adequate Vitamin A intake is essential.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens",
+              "squash",
+              "liver"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals to support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne in young adults, particularly females. Zinc regulates skin cell growth and reduces inflammation. At 23 years old, and with a weight of 23.0, adequate Zinc intake supports overall skin health and immune function.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Omega-3 Fatty Acids": {
+            "why": "A lack of Omega-3 Fatty Acids may contribute to acne due to their anti-inflammatory properties. As a young female, adequate intake supports skin health and hormonal balance.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "flaxseeds",
+              "chia seeds",
+              "hemp seeds"
+            ],
+            "tip": "Add Omega-3 rich foods to your diet to help manage inflammation."
+          },
+          "Urgency Note": "No urgent medical concerns flagged based on the provided information. However, if acne persists or worsens, consider consulting a dermatologist for personalized advice."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "As a 23-year-old female with acne, a lack of Vitamin A may contribute to skin issues. Vitamin A plays a crucial role in skin health, and its insufficient intake can lead to acne. Given the user's gluten-free diet, ensuring adequate Vitamin A intake is essential.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens",
+              "squash",
+              "liver"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals, aiming for a variety to ensure consistent intake."
+          },
+          "Zinc": {
+            "why": "Zinc is vital for skin health and acne regulation. A lack of Zinc can exacerbate acne. As a female with a relatively low body weight (23.0), ensuring sufficient Zinc intake is crucial.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Omega-3 Fatty Acids": {
+            "why": "Omega-3s are essential for skin health, reducing inflammation, and potentially alleviating acne symptoms. A lack of Omega-3s may contribute to acne severity. Given the user's existing diet and no mentioned restrictions on fish or seafood, focusing on Omega-3 rich foods can be beneficial.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "flaxseeds",
+              "chia seeds",
+              "sardines"
+            ],
+            "tip": "Aim to include Omega-3 rich foods in your diet 2-3 times a week to support skin health."
+          }
+        }
+      }
+    ],
+    "mealplan": []
+  }
+}
