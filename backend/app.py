@@ -705,19 +705,9 @@ def profile():
     # Retrieves the form data from the profile page and updates the user profile.
 
     if request.method == "POST":
-<<<<<<< HEAD
-
-        # Uses a helperfunction to check if the required fields are not left empty.
         error = validate_required_fields_profile(request.form)
         if error:
             return render_template("profile.html", user=user, message=error)
-                
-=======
-        error = validate_required_fields_profile(request.form)
-        if error:
-            return render_template("profile.html", user=user, message=error)
-
->>>>>>> dev
         user.password = request.form.get("password")
         user.name = request.form.get("name")
         user.age = int(request.form.get("age"))
