@@ -1,1 +1,127 @@
-{}
+{
+  "aaa": {
+    "username": "aaa",
+    "password": "aaa",
+    "name": "aaa",
+    "age": 55,
+    "sex": "male",
+    "height": 160.0,
+    "weight": 78.0,
+    "skin_color": "medium",
+    "country": "spain",
+    "medication": [
+      ""
+    ],
+    "diet": "glutenfree",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin D": {
+            "why": "As a 55-year-old male, the user's skin tone (medium) and age may contribute to a reduced ability to synthesize vitamin D from sunlight. Vitamin D plays a crucial role in regulating skin health, and a lack of it has been linked to acne. Given the user's age, sex, and skin tone, a lack of vitamin D could exacerbate acne.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy products",
+              "mushrooms",
+              "egg yolks",
+              "gluten-free oatmeal"
+            ],
+            "tip": "Spend 10-15 minutes outside during peak sun hours (10am-4pm) to boost vitamin D production."
+          },
+          "Zinc": {
+            "why": "Zinc is essential for skin health, and a lack of it can impair wound healing, leading to persistent acne. As a male, the user's sex puts him at a higher risk of zinc imbalances. The user's age and sex also influence his zinc requirements.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "pork",
+              "gluten-free cereals",
+              "beans",
+              "nuts"
+            ],
+            "tip": "Include zinc-rich foods in your diet, and consider taking a zinc supplement after consulting a doctor."
+          },
+          "Omega-3": {
+            "why": "Omega-3 fatty acids help reduce inflammation, and a lack of them can contribute to acne. As a 55-year-old male, the user's age and sex may affect his omega-3 levels. A diet rich in omega-3s can help alleviate acne symptoms.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "chia seeds",
+              "flaxseeds",
+              "gluten-free granola",
+              "hemp seeds"
+            ],
+            "tip": "Incorporate omega-3 rich foods into your diet, and consider taking a fish oil supplement after consulting a doctor."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin D": {
+            "why": "As a 55-year-old male, the user's skin tone and age may affect vitamin D production. A lack of vitamin D can contribute to acne. Vitamin D helps regulate skin cell growth and differentiation.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy products",
+              "mushrooms",
+              "egg yolks",
+              "gluten-free oatmeal"
+            ],
+            "tip": "Spend 10-15 minutes outside during peak sun hours (10am-4pm) to boost vitamin D production."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in skin health and acne regulation. A lack of zinc can impair wound healing and increase inflammation, exacerbating acne. As a male, the user's zinc needs are higher due to increased sebum production.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken",
+              "pork",
+              "gluten-free cereals",
+              "pumpkin seeds",
+              "sunflower seeds"
+            ],
+            "tip": "Include zinc-rich foods in your diet and consider taking a zinc supplement after consulting a doctor."
+          },
+          "Omega-3": {
+            "why": "Omega-3 fatty acids help reduce inflammation and promote healthy skin. A lack of omega-3 can contribute to acne. As a 55-year-old male, the user's skin may benefit from omega-3's anti-inflammatory effects.",
+            "foods": [
+              "salmon",
+              "walnuts",
+              "chia seeds",
+              "flaxseeds",
+              "hemp seeds",
+              "gluten-free granola"
+            ],
+            "tip": "Incorporate omega-3 rich foods into your diet and consider a supplement if you're not getting enough from food sources."
+          }
+        }
+      }
+    ],
+    "mealplan": []
+  },
+  "testusername": {
+    "username": "testusername",
+    "password": "testpassword",
+    "name": "Test User",
+    "age": 20,
+    "sex": "Female",
+    "height": 175.0,
+    "weight": 70.0,
+    "skin_color": "medium",
+    "country": "The Netherlands",
+    "medication": "None",
+    "diet": "None",
+    "existing_conditions": [],
+    "allergies": [],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
+  }
+}

@@ -180,6 +180,7 @@ def analyze_symptoms():
     user = users_data.get_user(username)
 
     symptoms = request.args.get("symptoms")
+    session["last_symptoms"] = symptoms
 
     ai_prompt = f"""
         user profile:
@@ -281,6 +282,7 @@ def extract_food_recs() -> List[str]:
 
     foods = []
     for line in analysis_text.splitlines():
+        line = line.strip()
         if line.lower().startswith("- foods:"):
             parts = line[8:].split(",")
             foods.extend([x.strip() for x in parts])
@@ -668,13 +670,33 @@ def save_results():
         return "No result", 401
 
     analysis = request.get_json(silent=True)
+
     if not analysis:
         return "No result", 401
 
-    user.analysis_results = analysis
+    symptoms = session.get("last_symptoms", "Unknown")
+
+    user.analysis_results.append(
+        {
+            "symptoms": symptoms,
+            "analyse": analysis,
+        }
+    )
     users_data.save_to_file()
 
     return "OK"
+
+
+@app.route("/analysis_history")
+def show_history():
+    """
+    Shows the analysis history
+    """
+
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+    return render_template("analysis_history.html", results=user.analysis_results)
 
 
 def get_nutrient_info():

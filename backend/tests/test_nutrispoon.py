@@ -198,21 +198,26 @@ def test_register_works_correctly(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the register form with the information of a test user
-    client.post("/auth/register", data={
-        "username": "testuser",
-        "password": "testpassword",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-   
+    client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "password": "testpassword",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the testuser's data is stored in the test users data file.
     assert "testuser" in set_users_data.users
 
@@ -230,20 +235,25 @@ def test_register_with_missing_password_fails(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the users information to the register form without a password
-    response = client.post("/auth/register", data={
-        "username": "testuser",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-    
+    response = client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the user's data has not been stored as a userprofile object.
     assert "testuser" not in set_users_data.users
 
@@ -485,7 +495,7 @@ Vitamin D:
     ):
         from app import extract_food_recs
 
-        foods = extract_food_recs()
+        _, foods = extract_food_recs()
         assert "salmon" in foods
         assert "egg yolk" in foods
         assert "mushrooms" in foods
@@ -501,7 +511,7 @@ def test_extract_food_recs_list():
     )
 
     with patch("app.analyze_symptoms", return_value=test_response):
-        result = extract_food_recs()
+        _, result = extract_food_recs()
         assert set(result) == {
             "almonds",
             "dairy",
@@ -935,7 +945,7 @@ def test_save_results(client, set_users_data):
         session["logged_in"] = True
         session["username"] = "testusername"
 
-    set_users_data.get_user("testusername").analysis_results = {}
+    set_users_data.get_user("testusername").analysis_results = []
 
     response_empty = client.post(
         "/save_results", data="", content_type="application/json"
@@ -943,13 +953,27 @@ def test_save_results(client, set_users_data):
     assert response_empty.status_code == 401
     assert b"No result" in response_empty.data
 
-    test_data = {"Vitamin A": 45, "Iron": 20}
+    test_data = {
+        "symptoms": "fatigue, nausea",
+        "analyse": "Vitamin D is lacking. Foods: salmon, egg yolk.",
+    }
 
     response = client.post(
         "/save_results", data=json.dumps(test_data), content_type="application/json"
     )
     assert_200(response)
     assert b"OK" in response.data
+
+
+def test_history_analysis(client):
+    """
+    Tests if the history page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/analysis_history")
+    assert_200(response)
 
 
 ###############################################################################

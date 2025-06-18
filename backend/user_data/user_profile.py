@@ -23,7 +23,7 @@ class UserProfile:
         existing_conditions: List[str] = [],
         allergies: List[str] = [],
         saved_recipes=[],
-        analysis_results: Dict[str, int] = {},
+        analysis_results: List = [],
         mealplan=[],
     ) -> None:
         """
@@ -94,6 +94,26 @@ class UserProfile:
         if not country:
             raise ValueError("Country is required")
 
+    def to_dict(self):
+        return {
+            "username": self.username,
+            "password": self.password,
+            "name": self.name,
+            "age": self.age,
+            "sex": self.sex,
+            "height": self.height,
+            "weight": self.weight,
+            "skin_color": self.skin_color,
+            "country": self.country,
+            "medication": self.medication,
+            "diet": self.diet,
+            "existing_conditions": self.existing_conditions,
+            "allergies": self.allergies,
+            "saved_recipes": self.saved_recipes,
+            "analysis_results": self.analysis_results,
+            "mealplan": self.mealplan,
+        }
+
 
 class UsersData:
     """
@@ -127,7 +147,7 @@ class UsersData:
         Saves user profiles to the JSON file where the data will be stored.
         """
         with open(self.file_path, "w") as file:
-            json.dump({u: vars(p) for u, p in self.users.items()}, file)
+            json.dump({u: p.to_dict() for u, p in self.users.items()}, file, indent=2)
 
     def load_from_file(self):
         """
