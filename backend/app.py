@@ -1,5 +1,5 @@
 ## develop your flask app here ##
-from typing import Dict, List, Union
+from typing import Dict, List, Union, Any
 from flask import (
     Flask,
     render_template,
