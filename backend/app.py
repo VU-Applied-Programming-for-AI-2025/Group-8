@@ -222,20 +222,23 @@ def home():
 
 
 # function to analyze symptoms
-def analyze_symptoms():
+def analyze_symptoms() -> str:
     """
     Sends the user's profile and symptoms to the Groq API and returns a text response.
 
     The result includes possible deficiencies, explanations, food suggestions, and tips.
     Other functions can parse this text to extract vitamins or recommended foods.
+    :return: Textual analysis from Groq LLM based on symptoms and user profile.
     """
-
+    # Get current user from session
     username = session["username"]
     user = users_data.get_user(username)
 
+    # Get symptoms from request and save to session
     symptoms = request.args.get("symptoms")
     session["last_symptoms"] = symptoms
 
+    # Build detailed prompt for LLM with user profile and request instructions
     ai_prompt = f"""
         user profile:
         - name: {user.name}
@@ -285,7 +288,7 @@ def analyze_symptoms():
 
 
 
-def extract_deficiency_keywords(text: str):
+def extract_deficiency_keywords(text: str) -> List[str]:
     """
     Returns a list of nutrient or vitamin names found at the start of lines in the LLM response.
 
@@ -311,11 +314,19 @@ def extract_deficiency_keywords(text: str):
 
 def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
     """
+    Asks the Groq LLM for recommended minimum daily intake (in mg) for given nutrient deficiencies.
+
+    The result is structured in JSON with key-value pairs like:
+    { "vitamin_a": { "minVitaminA": 10 }, ... }
+
+    :param deficiencies: List of nutrient names to query.
+    :return: Dictionary mapping each nutrient to its recommended intake.
     """
 
     if not deficiencies:
         return {}
     
+    # Construct prompt for nutrient intake suggestion
     prompt = f"""
     for each of the following nutrients/vitamins, suggest a minimum daily amount (in mg) to consume when mildly lacking it. the maximum amount cannot exceed 100 mg,
     in this JSON format: 
@@ -342,6 +353,7 @@ def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
             response_format={"type": "json_object"}
         )
 
+        # Parse and sanitize output from LLM
         uncleaned_data = json.loads(response.choices[0].message.content)
 
         cleaned = {

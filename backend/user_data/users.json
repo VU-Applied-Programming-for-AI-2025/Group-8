@@ -444,269 +444,109 @@
         "analyse": {
           "Urgency Note": "Consider consulting a doctor about your existing vitamin D and iron deficiencies, as well as your acne. Also, discuss potential medication or supplement interactions with your healthcare provider, especially given your hay-fever allergy."
         }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminD": {
+            "why": "The user has an existing condition of vitamin D lack, and being 18 years old, it's essential for bone growth and development. Vitamin D also plays a role in alleviating headaches.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy products",
+              "mushrooms"
+            ],
+            "tip": "Spend some time outdoors, especially during peak sun hours, to boost natural vitamin D production."
+          },
+          "Iron": {
+            "why": "The user has an existing condition of iron lack, and as a female, she is at a higher risk due to menstrual losses. Iron is essential for transporting oxygen to cells, and a lack can cause headaches.",
+            "foods": [
+              "red meat",
+              "spinach",
+              "fortified cereals"
+            ],
+            "tip": "Cook in cast-iron cookware to increase iron intake."
+          },
+          "Magnesium": {
+            "why": "Magnesium helps regulate muscle and nerve function, and a lack can contribute to headaches. As a female, the user may be at risk due to inadequate dietary intake.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "quinoa"
+            ],
+            "tip": "Practice relaxation techniques, such as deep breathing or meditation, to reduce magnesium-depleting stress."
+          },
+          "Urgency Note": "The user has existing conditions (vitamin D and iron lack) and an allergy (hay-fever), but no urgent medical concerns are flagged based on the provided information. However, it's essential to consult a healthcare professional to address the existing conditions and monitor the user's overall health."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminD": {
+            "why": "The user already has a diagnosed lack of VitaminD, and as an 18-year-old female, it's essential for bone health. A lack of VitaminD can cause headaches due to its role in regulating neurotransmitters and neuronal function.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy products",
+              "mushrooms"
+            ],
+            "tip": "Spend at least 15-20 minutes outside during peak sun hours (10am-4pm) to boost natural VitaminD production."
+          },
+          "Iron": {
+            "why": "The user has an existing iron lack, which can cause headaches due to inadequate oxygen delivery to the brain. As an 18-year-old female, iron needs are higher due to menstrual blood loss.",
+            "foods": [
+              "red meat",
+              "spinach",
+              "fortified cereals"
+            ],
+            "tip": "Cook in cast-iron cookware to increase iron intake."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can cause headaches due to its role in blood vessel regulation and neuronal function. As an 18-year-old female, magnesium needs are higher due to growth and development.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocado"
+            ],
+            "tip": "Practice relaxation techniques like deep breathing or meditation to reduce stress, which can exacerbate magnesium loss."
+          },
+          "Urgency Note": "The user has existing conditions (VitaminD and iron lack) and allergies (hay-fever), but no urgent medical concerns are flagged based on the provided information. However, it's essential to consult a healthcare professional to address the existing conditions and monitor the user's overall health."
+        }
       }
     ],
     "mealplan": {
-      "week": {
-        "monday": {
-          "meals": [
-            {
-              "id": 1957598,
-              "image": "low-carb-keto-pancakes-1957598.jpg",
-              "imageType": "jpg",
-              "title": "Low Carb Keto Pancakes",
-              "readyInMinutes": 15,
-              "servings": 2,
-              "sourceUrl": "https://spoonacular.com/site-1721579912124"
-            },
-            {
-              "id": 1095794,
-              "image": "chicken-and-potatoes-tortilla-1095794.jpg",
-              "imageType": "jpg",
-              "title": "Spanish Tortilla",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7WBMG8RX/chicken-adn-potatoes-tortilla"
-            },
-            {
-              "id": 651911,
-              "image": "Minced-Beef-Curry-651911.jpg",
-              "imageType": "jpg",
-              "title": "Minced Beef Curry",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/7HCZZZLC/minced-beef-curry"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.89,
-            "protein": 67.08,
-            "fat": 76.48,
-            "carbohydrates": 61.07
-          }
+      "meals": [
+        {
+          "id": 643514,
+          "image": "Fresh-Herb-Omelette-643514.jpg",
+          "imageType": "jpg",
+          "title": "Fresh Herb Omelette",
+          "readyInMinutes": 45,
+          "servings": 1,
+          "sourceUrl": "https://www.foodista.com/recipe/THWJHNSX/herb-fresh-omelette"
         },
-        "tuesday": {
-          "meals": [
-            {
-              "id": 716407,
-              "image": "simple-whole-wheat-crepes-kingarthurflour-vitamix-716407.jpg",
-              "imageType": "jpg",
-              "title": "Simple Whole Wheat Crepes",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://fullbellysisters.blogspot.com/2014/11/simple-whole-wheat-crepes.html"
-            },
-            {
-              "id": 1098387,
-              "image": "quinoa-salad-with-barberries-nuts-1098387.jpg",
-              "imageType": "jpg",
-              "title": "Quinoa Salad with Barberries & Nuts",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/PBQJCDDG/quinoa-salad-with-barberries-nuts"
-            },
-            {
-              "id": 645812,
-              "image": "Grilled-Portabella-and-Poblano-Tacos-645812.jpg",
-              "imageType": "jpg",
-              "title": "Grilled Portabella and Poblano Tacos",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/52YSN467/grilled-portabella-and-poblano-tacos"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.85,
-            "protein": 38.2,
-            "fat": 62.32,
-            "carbohydrates": 123.42
-          }
+        {
+          "id": 1697577,
+          "image": "spanish-sardines-pasta-1697577.jpg",
+          "imageType": "jpg",
+          "title": "Spanish Sardines Pasta",
+          "readyInMinutes": 25,
+          "servings": 2,
+          "sourceUrl": "https://maplewoodroad.com/spanish-sardines-pasta/"
         },
-        "wednesday": {
-          "meals": [
-            {
-              "id": 659465,
-              "image": "Savory-corn-and-chives-muffins-659465.jpg",
-              "imageType": "jpg",
-              "title": "Savory corn and chives muffins",
-              "readyInMinutes": 45,
-              "servings": 12,
-              "sourceUrl": "https://www.foodista.com/recipe/ZFCFJDY7/savory-corn-and-chives-muffins"
-            },
-            {
-              "id": 1095992,
-              "image": "turkey-ranch-blt-1095992.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Ranch BLT",
-              "readyInMinutes": 10,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/CQSHG6NN/turkey-ranch-blt"
-            },
-            {
-              "id": 653775,
-              "image": null,
-              "imageType": "jpg",
-              "title": "Open-Face Egg Sandwich with Bacon, Asparagus, and Pesto",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/RMWVZKKR/open-face-egg-sandwich-with-bacon-asparagus-and-pesto"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.85,
-            "protein": 47.86,
-            "fat": 60.77,
-            "carbohydrates": 114.15
-          }
-        },
-        "thursday": {
-          "meals": [
-            {
-              "id": 656481,
-              "image": "Poached-Egg-With-Spinach-and-Tomato-656481.jpg",
-              "imageType": "jpg",
-              "title": "Poached Egg With Spinach and Tomato",
-              "readyInMinutes": 20,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/YYK36BYD/poached-egg-with-spinach-and-tomato"
-            },
-            {
-              "id": 642281,
-              "image": "Eggplant-Caprese-Stacks-642281.jpg",
-              "imageType": "jpg",
-              "title": "Eggplant Caprese Stack Appetizers",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/V4KYVH2L/eggplant-caprese-stacks"
-            },
-            {
-              "id": 632946,
-              "image": "Asparagus-Parmesan-Frittata-632946.jpg",
-              "imageType": "jpg",
-              "title": "Asparagus Parmesan Frittata",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/743BV5DP/asparagus-parmesan-frittata"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.96,
-            "protein": 52.48,
-            "fat": 81.07,
-            "carbohydrates": 67.88
-          }
-        },
-        "friday": {
-          "meals": [
-            {
-              "id": 638257,
-              "image": "Chicken-Porridge-638257.jpg",
-              "imageType": "jpg",
-              "title": "Chicken Porridge",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/S6FN8VYN/chicken-porridge"
-            },
-            {
-              "id": 986003,
-              "image": "instant-pot-chicken-tacos-986003.jpg",
-              "imageType": "jpg",
-              "title": "Instant Pot Chicken Tacos",
-              "readyInMinutes": 25,
-              "servings": 6,
-              "sourceUrl": "https://www.pinkwhen.com/instant-pot-chicken-tacos/"
-            },
-            {
-              "id": 659502,
-              "image": "Savoury-Mushroom-stuffed-Pork-Tenderloin-659502.jpg",
-              "imageType": "jpg",
-              "title": "Savoury Mushroom stuffed Pork Tenderloin",
-              "readyInMinutes": 45,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/PJSXVGQW/savoury-mushroom-stuffed-pork-tenderloin"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.89,
-            "protein": 151.65,
-            "fat": 26.7,
-            "carbohydrates": 78.44
-          }
-        },
-        "saturday": {
-          "meals": [
-            {
-              "id": 650431,
-              "image": "Low-Fat-Oatmeal-Banana-Bread-650431.jpg",
-              "imageType": "jpg",
-              "title": "Low-Fat Oatmeal Banana Bread",
-              "readyInMinutes": 75,
-              "servings": 10,
-              "sourceUrl": "https://www.foodista.com/recipe/WTKTRYZ5/low-fat-oatmeal-banana-bread"
-            },
-            {
-              "id": 1697677,
-              "image": "super-easy-oven-baked-cod-1697677.jpg",
-              "imageType": "jpg",
-              "title": "Super Easy Oven Baked Cod",
-              "readyInMinutes": 20,
-              "servings": 2,
-              "sourceUrl": "https://maplewoodroad.com/super-easy-oven-baked-cod/"
-            },
-            {
-              "id": 637515,
-              "image": "Cheddar-Polenta-with-Sun-dried-Tomatoes---Shrimp-637515.jpg",
-              "imageType": "jpg",
-              "title": "Cheddar Polenta with Sun-dried Tomatoes & Shrimp",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/RKPL4Z44/cheddar-polenta-with-sun-dried-tomatoes-shrimp"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.93,
-            "protein": 72.14,
-            "fat": 37.1,
-            "carbohydrates": 140.53
-          }
-        },
-        "sunday": {
-          "meals": [
-            {
-              "id": 658132,
-              "image": "Reduced-Fat-Blueberry-Cheesecake-Crepes-658132.jpg",
-              "imageType": "jpg",
-              "title": "Reduced Fat Blueberry Cheesecake Crepes",
-              "readyInMinutes": 45,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/Y6BXKNC4/reduced-fat-blueberry-cheesecake-crepes"
-            },
-            {
-              "id": 637908,
-              "image": "Chicken-and-Miso-Ramen-Noodle-Soup-637908.jpg",
-              "imageType": "jpg",
-              "title": "Chicken and Miso Ramen Noodle Soup",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/LSGT2GRK/chicken-and-miso-ramen-noodle-soup"
-            },
-            {
-              "id": 638231,
-              "image": "Chicken-Parmayonnaise-(3-Ingredients-For-An-Easy-Night-In)-638231.jpg",
-              "imageType": "jpg",
-              "title": "Chicken Parmayonnaise",
-              "readyInMinutes": 45,
-              "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/K6D2PK26/chicken-parmayonnaise-3-ingredients-for-an-easy-night-in"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.96,
-            "protein": 79.29,
-            "fat": 41.49,
-            "carbohydrates": 117.92
-          }
+        {
+          "id": 658269,
+          "image": "Rice-noodle-salad-with-sesame-oil-dressing-658269.jpg",
+          "imageType": "jpg",
+          "title": "Rice noodle salad with sesame oil dressing",
+          "readyInMinutes": 45,
+          "servings": 3,
+          "sourceUrl": "https://www.foodista.com/recipe/JC5MKP26/rice-noodle-salad-with-sesame-oil-dressing"
         }
+      ],
+      "nutrients": {
+        "calories": 1778.87,
+        "protein": 77.22,
+        "fat": 92.15,
+        "carbohydrates": 163.09
       }
     }
   }
