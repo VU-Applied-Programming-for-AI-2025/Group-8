@@ -14,7 +14,7 @@ class UserProfile:
         name: str,
         age: int,
         sex: str,
-        hight: float,
+        height: float,
         weight: float,
         skin_color: str,
         country: str,
@@ -35,7 +35,7 @@ class UserProfile:
             name (str): The name of the user.
             age (int): The age of the user.
             sex (str): The sex of the user (male/female)
-            hight (float): The hight of the user in cm.
+            height (float): The height of the user in cm.
             weight (float): The weight of the user in kg.
             skin_color (str): The skin color of the user (light, medium, dark).
             country (str): The country where the user lives.
@@ -52,7 +52,7 @@ class UserProfile:
         self.name = name
         self.age = age
         self.sex = sex
-        self.hight = hight
+        self.height = height
         self.weight = weight
         self.skin_color = skin_color
         self.country = country
@@ -77,10 +77,10 @@ class UserProfile:
             raise ValueError("Age is required")
         if not sex:
             raise ValueError("Sex is required")
-        if not isinstance(hight, float):
-            raise ValueError("Hight needs to be a float")
-        if not hight:
-            raise ValueError("Hight is required")
+        if not isinstance(height, float):
+            raise ValueError("Height needs to be a float")
+        if not height:
+            raise ValueError("Height is required")
         if not isinstance(weight, float):
             raise ValueError("Weight must be a float.")
         if not weight:
