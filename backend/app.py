@@ -45,6 +45,28 @@ def userAuthHelper() -> UserProfile:
     return logged_in_user
 
 
+def calculate_bmr() -> float:
+    """
+    Calculates the basal metabolismic rate of a person based on their gender, age, height and weight.
+    :return bmr: (float) bmr of the person
+    """
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    bmr = 0
+
+    height = user.height
+    weight = user.weight
+    gender = user.sex
+    age = user.age
+    if gender == "men":
+        bmr = 88.362 + (weight * 13.397) + (height * 4.799) - (age * 5.677)
+    elif gender == "female":
+        bmr = 447.593 + (weight * 9.247) + (height * 3.098) - (age * 4.330)
+    return bmr
+
+
 @app.route("/")
 def show_consent() -> Union[str, Response]:
     """
@@ -372,7 +394,7 @@ def recommendations():
     diet = ",".join(logged_in_user.diet)
     intolerance = ",".join(logged_in_user.allergies)
     nutrient_food_map = {
-        "vitamin d": ["salmon", "mushroom", "egg yolk"],
+        "vitamin d": ["salmon", "mushroom", "egg yol k"],
         "vitamin c": ["broccoli", "orange", "bell pepper"],
         "vitamin a": ["carrot", "sweet potato", "spinach"],
         "iron": ["spinach", "lentils", "beef"],
@@ -400,20 +422,24 @@ def recommendations():
     }
 
     meal_recipes = {}
+    # groqs_response = {"vitamina": {"minVitaminA": 60}}
 
     for category, types in category_to_types.items():
         collected_recipes = []
 
         for t in types:
+            # for vitamin, min_value in groqs_response.items():
+            # for min_param, value in min_value.items():
             params = {
                 "diet": diet,
                 "excludeIngredients": intolerance,
                 "type": t,
                 "number": 3,
                 "apiKey": spoonacular_api_key,
+                # min_param: value,
             }
-            if ingredients:
-                params["includeIngredients"] = ",".join(ingredients)
+            # if ingredients:
+            #    params["includeIngredients"] = ",".join(ingredients)
 
             try:
                 response = requests.get(
@@ -470,7 +496,6 @@ def spoonacular_builtin_mealplanner():
     if request.method == "POST":
         time_frame = request.form.get("timeFrame", "day")
         # calories = request.form.get("calories")
-        type_of_diet = request.form.get("diet")
 
         params = {
             "apiKey": spoonacular_api_key,
@@ -479,17 +504,23 @@ def spoonacular_builtin_mealplanner():
             "exclude": ",".join(user.allergies),
         }
 
+        type_of_diet = request.form.get("diet", "").lower()
+
+        # based on the chosen diet, calculate the target calories
         if type_of_diet == "gain":
             bmr = calculate_bmr()
-            calories = bmr + 300
+            calories = bmr + 500
+            # print(calories)
             params["targetCalories"] = calories
         elif type_of_diet == "loose":
             bmr = calculate_bmr()
             calories = bmr - 300
+            # print(calories)
             params["targetCalories"] = calories
         elif type_of_diet == "health":
             bmr = calculate_bmr()
             calories = bmr
+            # print(calories)
             params["targetCalories"] = calories
 
         response = requests.get(
@@ -524,28 +555,6 @@ def get_meal_plan(api_key, diet=None, exclude=None, calories=None, time_frame="d
 
     response = requests.get(url, params=params)
     return response.json()
-
-
-def calculate_bmr() -> float:
-    """
-    Calculates the basal metabolismic rate of a person based on their gender, age, height and weight.
-    :return bmr: (float) bmr of the person
-    """
-    user = userAuthHelper()
-    if not user:
-        return redirect(url_for("auth_page"))
-
-    bmr = 0
-
-    height = user.height
-    weight = user.weight
-    gender = user.sex
-    age = user.age
-    if gender == "men":
-        bmr = 88.362 + (weight * 13.397) + (height * 4.799) - (age * 5.677)
-    elif gender == "female":
-        bmr = 447.593 + (weight * 9.247) + (height * 3.098) - (age * 4.330)
-    return bmr
 
 
 @app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
