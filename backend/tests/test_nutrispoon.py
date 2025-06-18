@@ -3,17 +3,27 @@
 import json, os, pytest
 from context import app, UserProfile, UsersData
 from unittest.mock import patch, MagicMock
-from app import app, users_data, home, analyze_symptoms, extract_food_recs, display_results, recipe_details
+from app import (
+    app,
+    users_data,
+    home,
+    analyze_symptoms,
+    extract_food_recs,
+    display_results,
+    recipe_details,
+    get_nutrient_info,
+)
 from dotenv import load_dotenv
 
 load_dotenv()
+
 
 @pytest.fixture
 def client():
     """
     Set up for a Flask test client.
     """
-    app.config['TESTING'] = True
+    app.config["TESTING"] = True
     client = app.test_client()
     yield client
 
@@ -24,7 +34,7 @@ def set_users_data():
     Set up of a UserData object with a test storage file.
     """
     # Sets a json file to store the test users data
-    test_users_file = 'test_users.json'
+    test_users_file = "test_users.json"
 
     # Removes any pre-existing test file
     if os.path.exists(test_users_file):
@@ -57,7 +67,7 @@ def set_user_login(client):
             "medium",
             "The Netherlands",
             "None",
-            "None"
+            "None",
         )
 
         # Saves the object to the user_data object
@@ -82,6 +92,7 @@ def assert_200(response):
 #                                                                             #
 ###############################################################################
 
+
 def test_show_consent(client):
     """
     Tests that the consent form is displayed when the web is started.
@@ -95,7 +106,9 @@ def test_handle_consent(client):
     """
     Tests that submitting the consent form causes redirection to the authentication page.
     """
-    response = client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
+    response = client.post(
+        "/consentform", data={"accept": "true"}, follow_redirects=True
+    )
     assert_200(response)
     assert b"login" in response.data.lower()
 
@@ -115,24 +128,25 @@ def test_redirect_to_consent_when_no_consent(client):
 #                                                                             #
 ###############################################################################
 
+
 def test_login_works_correctly(client, set_users_data):
     """
     Tests that logging in with an existing user works correctly, and redirects to the home page.
     """
     # Creates a new userprofile object .
     user = UserProfile(
-            "testusername",
-            "testpassword",
-            "Test User",
-            20,
-            "Female",
-            175.0,
-            70.0,
-            "medium",
-            "The Netherlands",
-            "None",
-            "None"
-        )
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
     # Stores the user object in the user data.
     set_users_data.add_user(user)
 
@@ -140,7 +154,11 @@ def test_login_works_correctly(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Checks the response if the client logs in with their username and password.
-    response = client.post("/auth/login", data={"name": "testusername", "password": "testpassword"}, follow_redirects=True)
+    response = client.post(
+        "/auth/login",
+        data={"name": "testusername", "password": "testpassword"},
+        follow_redirects=True,
+    )
     assert_200(response)
     assert b"homepage" in response.data.lower()
 
@@ -154,7 +172,11 @@ def test_login_with_false_username_fails(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Checks if the correct error message is displayed if the client logs in with a false username and password.
-    response = client.post("/auth/login", data={"name": "testusername", "password": "testpassword"}, follow_redirects=True)
+    response = client.post(
+        "/auth/login",
+        data={"name": "testusername", "password": "testpassword"},
+        follow_redirects=True,
+    )
     assert b"username not found in database" in response.data.lower()
     assert_200(response)
 
@@ -187,12 +209,12 @@ def test_login_with_false_password_fails(client, set_users_data):
     assert b"wrong password" in response.data.lower()
     assert_200(response)
 
-
 ###############################################################################
 #                                                                             #
 #                   REGISTER PAGE TESTS                                       #
 #                                                                             #
 ###############################################################################
+
 
 def test_register_works_correctly(client, set_users_data):
     """
@@ -202,21 +224,26 @@ def test_register_works_correctly(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the register form with the information of a test user
-    client.post("/auth/register", data={
-        "username": "testuser",
-        "password": "testpassword",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "hight": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-    
+    client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "password": "testpassword",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "hight": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the testuser's data is stored in the test users data file.
     assert "testuser" in set_users_data.users
 
@@ -234,20 +261,25 @@ def test_register_with_missing_password_fails(client, set_users_data):
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the users information to the register form without a password
-    response = client.post("/auth/register", data={
-        "username": "testuser",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "hight": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-    
+    response = client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "hight": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the user's data has not been stored as a userprofile object.
     assert "testuser" not in set_users_data.users
 
@@ -300,7 +332,6 @@ def test_register_with_existing_username_fails(client, set_users_data):
     # Checks if the correct errormessage is displayed.
     assert b"user with username &#39;hansklok&#39; already exists" in response.data.lower()
     assert_200(response)
-    
 
 
 ###############################################################################
@@ -308,6 +339,7 @@ def test_register_with_existing_username_fails(client, set_users_data):
 #                   LOGOUT PAGE TESTS                                         #
 #                                                                             #
 ###############################################################################
+
 
 def test_logout(client):
     """
@@ -319,14 +351,15 @@ def test_logout(client):
     # The user loggs out
     response = client.get("/logout", follow_redirects=True)
 
-    # Tests if the session is cleared 
+    # Tests if the session is cleared
     assert_200(response)
     with client.session_transaction() as session:
         assert "logged_in" not in session
         assert "username" not in session
-    
+
     # Test if the user is redirected to the consent form.
     assert b"consent" in response.data.lower()
+
 
 ###############################################################################
 #                                                                             #
@@ -361,7 +394,7 @@ def test_profile_page_change_age(client, set_users_data):
         "medium",
         "The Netherlands",
         "None",
-        "None"
+        "None",
     )
     set_users_data.add_user(user)
 
@@ -371,9 +404,11 @@ def test_profile_page_change_age(client, set_users_data):
         session["username"] = "agetestuser"
 
     # Changes the user;s age on the profile page form.
-    response = client.post("/profile", data={
+    response = client.post(
+        "/profile",
+        data={
             "name": "Test User",
-            "age": 19, # Age changed to 19
+            "age": 19,  # Age changed to 19
             "sex": "Female",
             "hight": 175.0,
             "weight": 70.0,
@@ -411,7 +446,7 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
         "medium",
         "The Netherlands",
         "None",
-        "None"
+        "None",
     )
 
     # Saves the user profile object to the user data.
@@ -423,9 +458,11 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
         session["username"] = "testusername"
 
     # Submits a form on the profile page to update the users information.
-    response = client.post("/profile", data={
+    response = client.post(
+        "/profile",
+        data={
             "name": "Test User",
-            "age": 19, 
+            "age": 19,
             "sex": "Female",
             "hight": 175.0,
             "weight": 70.0,
@@ -435,7 +472,7 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
             "diet": "None",
             "existing_conditions": "",
             "allergies": "",
-            "password": "", # Leaves the password empty
+            "password": "",  # Leaves the password empty
         },
         follow_redirects=True,
     )
@@ -447,20 +484,26 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
     assert updated_user.password == "testpassword"
     assert_200(response)
 
+
 ###############################################################################
 #                                                                             #
 #                   RECOMMENDATIONS AND MEAL PLANNER TESTS                    #
 #                                                                             #
 ###############################################################################
 
+
 def test_extract_food_recs_parsing():
-    with patch("app.analyze_symptoms", return_value="""
+    with patch(
+        "app.analyze_symptoms",
+        return_value="""
 Vitamin D:
 - Why: lack of sunlight causes poor absorption of calcium
 - Foods: salmon, egg yolk, mushrooms
 - Tip: spend 15 minutes in the sun daily
-"""):
+""",
+    ):
         from app import extract_food_recs
+
         foods = extract_food_recs()
         assert "salmon" in foods
         assert "egg yolk" in foods
@@ -468,8 +511,16 @@ Vitamin D:
         assert len(foods) == 3
 
 
+###############################################################################
+#                                                                             #
+#                   FAVORITE RECIPE SAVING/REMOVING                           #
+#                                                                             #
+###############################################################################
+
+
 def test_generate_recipe_structure():
     from app import generate_recipe
+
     with patch("app.requests.get") as mock_get:
         mock_get.return_value.status_code = 200
         mock_get.return_value.json.return_value = {
@@ -481,9 +532,64 @@ def test_generate_recipe_structure():
             assert result.status_code == 200
 
 
+def test_add_saving(client, set_users_data):
+    """
+    Tests whether recipe is succesfully saved to the profile.
+    Tests whether the duplicate saving will throw an error.
+    """
+    # print("it works!")
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+
+    set_users_data.get_user("testusername").saved_recipes = []
+
+    response = response = client.post("/save_favorite/4")
+    assert_200(response)
+    assert b"OK" in response.data
+
+    response2 = client.post("/save_favorite/4")
+    assert response2.status_code == 401
+    assert b"Already saved" in response2.data
+
+
 def test_generate_mealplan_structure():
     from app import generate_mealplan, UserProfile
-    user = UserProfile("testuser", "pw", "Test User", 20, "M", 180, 70, "light", "DE", [], "None", [], [])
+
+    user = UserProfile(
+        "testuser",
+        "pw",
+        "Test User",
+        20,
+        "M",
+        180,
+        70,
+        "light",
+        "DE",
+        [],
+        "None",
+        [],
+        [],
+    )
     with patch("app.generate_recipe") as mock_gen:
         mock_gen.return_value = {"title": "Test Recipe"}
         plan = generate_mealplan(2, ["breakfast", "dinner"], user)
@@ -493,7 +599,21 @@ def test_generate_mealplan_structure():
 
 
 def test_spoonacular_builtin_mealplanner_success(client, set_users_data):
-    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "User",
+        25,
+        "F",
+        165,
+        60,
+        "medium",
+        "NL",
+        [],
+        "None",
+        [],
+        [],
+    )
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
         sess["logged_in"] = True
@@ -502,12 +622,30 @@ def test_spoonacular_builtin_mealplanner_success(client, set_users_data):
     with patch("app.requests.get") as mock_get:
         mock_get.return_value.status_code = 200
         mock_get.return_value.json.return_value = {"meals": []}
-        response = client.post("/recommendations/mealplanner/spoonacular", data={"timeFrame": "day"}, follow_redirects=True)
+        response = client.post(
+            "/recommendations/mealplanner/spoonacular",
+            data={"timeFrame": "day"},
+            follow_redirects=True,
+        )
         assert_200(response)
 
 
 def test_spoonacular_builtin_mealplanner_fail(client, set_users_data):
-    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "User",
+        25,
+        "F",
+        165,
+        60,
+        "medium",
+        "NL",
+        [],
+        "None",
+        [],
+        [],
+    )
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
         sess["logged_in"] = True
@@ -515,9 +653,14 @@ def test_spoonacular_builtin_mealplanner_fail(client, set_users_data):
 
     with patch("app.requests.get") as mock_get:
         mock_get.return_value.status_code = 500
-        response = client.post("/recommendations/mealplanner/spoonacular", data={"timeFrame": "day"}, follow_redirects=True)
+        response = client.post(
+            "/recommendations/mealplanner/spoonacular",
+            data={"timeFrame": "day"},
+            follow_redirects=True,
+        )
         assert_200(response)
         assert b"failed to fetch" in response.data.lower()
+
 
 ###############################################################################
 #                                                                             #
@@ -525,30 +668,35 @@ def test_spoonacular_builtin_mealplanner_fail(client, set_users_data):
 #                                                                             #
 ###############################################################################
 
+
 def test_extract_food_recs_list():
     """
     Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
     """
-    test_response = (" - Foods: almonds, dairy, strawberries\n"
-    "- Foods: carrots, red meat, apple"
+    test_response = (
+        " - Foods: almonds, dairy, strawberries\n- Foods: carrots, red meat, apple"
     )
 
-    with patch("app.analyze_symptoms", return_value = test_response):
+    with patch("app.analyze_symptoms", return_value=test_response):
         result = extract_food_recs()
-        assert set(result) == {"almonds", "dairy", "strawberries", "carrots", "red meat", "apple"}
+        assert set(result) == {
+            "almonds",
+            "dairy",
+            "strawberries",
+            "carrots",
+            "red meat",
+            "apple",
+        }
+
 
 def test_display_results(client):
     """
     Tests if the display_results function and /results route correctly display groq ai's response as in the prompt, so explanation, foods and a tip.
     """
     test_response = (
-        "Vitamin A\n"
-        "- Why: acne\n"
-        "- Foods: carrot, eggs\n"
-        "- Tip: foods rich in vitamin A"
+        "Vitamin A\n- Why: acne\n- Foods: carrot, eggs\n- Tip: foods rich in vitamin A"
     )
-    with patch("app.analyze_symptoms", return_value = test_response):
-
+    with patch("app.analyze_symptoms", return_value=test_response):
         with client.session_transaction() as session:
             session["logged_in"] = True
             session["username"] = "testusername"
@@ -565,11 +713,17 @@ def test_recipe_details(client):
     Tests if the recipe_details function correctly retrieves the recipe details such as ingredients, nutrients and instructions.
     """
     with patch("app.requests.get") as test_get:
-        test_get.return_value.json.return_value = {"title": "test recipe", "ingredients": "a, b, c", "nutrition": "A, B, C", "instructions": "step1"}
+        test_get.return_value.json.return_value = {
+            "title": "test recipe",
+            "ingredients": "a, b, c",
+            "nutrition": "A, B, C",
+            "instructions": "step1",
+        }
         response = client.get("/recipe/12345")
         assert_200(response)
         assert b"test recipe" in response.data
-    
+
+
 def test_homepage(client):
     """
     Tests if the homepage is loading correctly for a logged in user.
@@ -580,6 +734,7 @@ def test_homepage(client):
     response = client.get("/home")
     assert_200(response)
 
+
 def test_homepage_results_redirect(client):
     """
     Tests that entering symptoms on the homepage correctly redirects to the results page.
@@ -587,12 +742,27 @@ def test_homepage_results_redirect(client):
     with client.session_transaction() as session:
         session["logged_in"] = True
         session["username"] = "testusername"
-    response = client.post("/home", data = {"symptoms": "acne"}, follow_redirects = False)
+    response = client.post("/home", data={"symptoms": "acne"}, follow_redirects=False)
     assert response.status_code == 302
     assert "/results?symptoms=acne" in response.headers["Location"]
 
+
 def test_mealplanner_create_nutrient_calculation(client, set_users_data):
-    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "User",
+        25,
+        "F",
+        165,
+        60,
+        "medium",
+        "NL",
+        [],
+        "None",
+        [],
+        [],
+    )
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
         sess["logged_in"] = True
@@ -604,7 +774,7 @@ def test_mealplanner_create_nutrient_calculation(client, set_users_data):
                 {"name": "Calories", "amount": 500},
                 {"name": "Protein", "amount": 30},
                 {"name": "Fat", "amount": 20},
-                {"name": "Carbohydrates", "amount": 50}
+                {"name": "Carbohydrates", "amount": 50},
             ]
         }
     }
@@ -612,12 +782,30 @@ def test_mealplanner_create_nutrient_calculation(client, set_users_data):
         mock_get.return_value.json.return_value = mock_nutrients
         mock_get.return_value.status_code = 200
 
-        response = client.post("/recommendations/mealplanner/create", data={"meals": ["123"]}, follow_redirects=True)
+        response = client.post(
+            "/recommendations/mealplanner/create",
+            data={"meals": ["123"]},
+            follow_redirects=True,
+        )
         assert_200(response)
 
 
 def test_mealplanner_view_day(client, set_users_data):
-    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "User",
+        25,
+        "F",
+        165,
+        60,
+        "medium",
+        "NL",
+        [],
+        "None",
+        [],
+        [],
+    )
     user.mealplan = {"meals": ["meal1", "meal2"]}
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
@@ -630,7 +818,21 @@ def test_mealplanner_view_day(client, set_users_data):
 
 
 def test_mealplanner_view_week(client, set_users_data):
-    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "User",
+        25,
+        "F",
+        165,
+        60,
+        "medium",
+        "NL",
+        [],
+        "None",
+        [],
+        [],
+    )
     user.mealplan = {"week": {"monday": [], "tuesday": []}}
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
@@ -643,7 +845,21 @@ def test_mealplanner_view_week(client, set_users_data):
 
 
 def test_mealplanner_view_empty(client, set_users_data):
-    user = UserProfile("testusername", "testpassword", "User", 25, "F", 165, 60, "medium", "NL", [], "None", [], [])
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "User",
+        25,
+        "F",
+        165,
+        60,
+        "medium",
+        "NL",
+        [],
+        "None",
+        [],
+        [],
+    )
     user.mealplan = None
     set_users_data.add_user(user)
     with client.session_transaction() as sess:
@@ -655,83 +871,153 @@ def test_mealplanner_view_empty(client, set_users_data):
     assert b"no meal plan found" in response.data.lower()
 
 
-# def test_add_saving():
-#     """
-#     Tests whether recipe is succesfully saved to the profile.
-#     Tests whether the duplicate saving will throw an error.
-#     """
-#     # print("it works!")
-#     client = app.test_client()
-#     set_user(client)
-#     with client.session_transaction() as session:
-#         session["logged_in"] = True
-#         session["username"] = "testusername"
+def test_remove_saving(client, set_users_data):
+    """
+    Tests whether recipe is succesfully removed from the profile.
+    Tests whether trying to remove the not existed recipe will throw an error.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
 
-#     users_data.get_user("testusername").saved_recipes = []
+    # Saves the user profile object to the user data.
 
-#     response = response = client.post("/save_favorite/4")
-#     assert_200(response)
-#     assert b"OK" in response.data
+    set_users_data.add_user(user)
 
-#     response2 = client.post("/save_favorite/4")
-#     assert response2.status_code == 401
-#     assert b"Already saved" in response2.data
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
 
+    set_users_data.get_user("testusername").saved_recipes = []
 
-# def test_remove_saving():
-#     """
-#     Tests whether recipe is succesfully removed from the profile.
-#     Tests whether trying to remove the not existed recipe will throw an error.
-#     """
-#     # print("it works!")
-#     client = app.test_client()
-#     set_user(client)
-#     with client.session_transaction() as session:
-#         session["logged_in"] = True
-#         session["username"] = "testusername"
+    response = response = client.post("/save_favorite/4")
+    assert_200(response)
+    assert b"OK" in response.data
 
-#     users_data.get_user("testusername").saved_recipes = []
+    response2 = client.post("/remove_favorite/4")
+    assert_200(response)
+    assert b"OK" in response2.data
 
-#     response = response = client.post("/save_favorite/4")
-#     assert_200(response)
-#     assert b"OK" in response.data
-
-#     response2 = client.post("/remove_favorite/4")
-#     assert_200(response)
-#     assert b"OK" in response2.data
-
-#     response2 = client.post("/remove_favorite/4")
-#     assert response2.status_code == 401
-#     assert b"Not exists" in response2.data
+    response2 = client.post("/remove_favorite/4")
+    assert response2.status_code == 401
+    assert b"Not exists" in response2.data
 
 
-# def test_save_results():
-#     """
-#     Tests whether results are succesfully saved to the profile.
-#     Tests whether trying to save "None" result will throw an error.
-#     """
-#     client = app.test_client()
-#     set_user(client)
-#     with client.session_transaction() as session:
-#         session["logged_in"] = True
-#         session["username"] = "testusername"
+###############################################################################
+#                                                                             #
+#                        ANALYSIS RESULTS SAVING                              #
+#                                                                             #
+###############################################################################
 
-#     users_data.get_user("testusername").analysis_results = {}
 
-#     response_empty = client.post(
-#         "/save_results", data="", content_type="application/json"
-#     )
-#     assert response_empty.status_code == 401
-#     assert b"No result" in response_empty.data
+def test_save_results(client, set_users_data):
+    """
+    Tests whether results are succesfully saved to the profile.
+    Tests whether trying to save "None" result will throw an error.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
 
-#     test_data = {"Vitamin A": 45, "Iron": 20}
+    # Saves the user profile object to the user data.
 
-#     response = client.post(
-#         "/save_results", data=json.dumps(test_data), content_type="application/json"
-#     )
-#     assert_200(response)
-#     assert b"OK" in response.data
+    set_users_data.add_user(user)
 
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+
+    set_users_data.get_user("testusername").analysis_results = {}
+
+    response_empty = client.post(
+        "/save_results", data="", content_type="application/json"
+    )
+    assert response_empty.status_code == 401
+    assert b"No result" in response_empty.data
+
+    test_data = {"Vitamin A": 45, "Iron": 20}
+
+    response = client.post(
+        "/save_results", data=json.dumps(test_data), content_type="application/json"
+    )
+    assert_200(response)
+    assert b"OK" in response.data
+
+
+###############################################################################
+#                                                                             #
+#                        NUTRIENT PAGE TESTING                                #
+#                                                                             #
+###############################################################################
+
+
+def test_getting_json_file(client, set_users_data):
+    json_data = get_nutrient_info()
+    print(json_data)
+    assert json_data["IRON"]["symptoms"][0] == "fatigue"
+
+
+def test_redirecting_nutrient_url(client):
+    """
+    aa
+    """
+    response = client.get(
+        "/nutrient?nutrient=Vitamin+A", follow_redirects=False
+    )  # false bc
+    assert response.status_code == 302, f"Expected 302, got {response.status_code}"
+
+
+def test_nutrient_info_page(client):
+    """
+    aa
+    """
+    response = client.get("/nutrient/zinc", follow_redirects=False)
+    assert_200(response)
+
+
+###############################################################################
+#                                                                             #
+#                        SEARCH BAR TESTING                                   #
+#                                                                             #
+###############################################################################
+
+
+def test_search_redirecting(client):
+    """
+    aa
+    """
+    response = client.get("/search", follow_redirects=False)  # false bc
+    assert response.status_code == 302, f"Expected 302, got {response.status_code}"
+
+
+def test_search_bar_info_page(client):
+    """
+    aa
+    """
+    response = client.get("/search_bar_result/zinc", follow_redirects=False)
+    assert_200(response)
 
 
 """Run tests for the consent form"""
@@ -759,6 +1045,6 @@ def test_mealplanner_view_empty(client, set_users_data):
 # test_logout()
 
 """Run tests for saving recipes to the user profile"""
-# test_add_saving()
+# test_add_saving(client, set_users_data)
 # test_remove_saving()
 # test_save_results()
