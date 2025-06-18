@@ -15,7 +15,7 @@ We are group 8 and this is our app called `NutriSpoon`, an application which all
 ## Installation details
 
 ### Prerequisites:
-
+- Ensure you have python == 3.12 installed.
 - Ensure you have all dependencies installed. These are listed in a file named `requirements.txt`. You can install them using `pip install -r requirements.txt`.
 
 #### 1. Set up environment variables
