@@ -3,6 +3,7 @@
 import json, os, pytest
 from context import app, UserProfile, UsersData
 from unittest.mock import patch, MagicMock
+import tempfile
 from app import (
     app,
     users_data,
@@ -24,6 +25,7 @@ def client():
     Set up for a Flask test client.
     """
     app.config["TESTING"] = True
+
     client = app.test_client()
     yield client
 
@@ -546,9 +548,10 @@ def test_recipe_details(client):
     with patch("app.requests.get") as test_get:
         test_get.return_value.json.return_value = {
             "title": "test recipe",
-            "ingredients": "a, b, c",
-            "nutrition": "A, B, C",
+            "image": "https://example.com/image.jpg",
             "instructions": "step1",
+            "extendedIngredients": [],
+            "nutrition": {},
         }
         response = client.get("/recipe/12345")
         assert_200(response)

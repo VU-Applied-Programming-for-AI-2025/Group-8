@@ -72,7 +72,9 @@ class UserProfile:
         if not name:
             raise ValueError("Name is required")
         if not isinstance(age, int):
-            raise ValueError(f"Age needs to be an integer, but it was {type(age)} and the value was {age}")
+            raise ValueError(
+                f"Age needs to be an integer, but it was {type(age)} and the value was {age}"
+            )
         if not age:
             raise ValueError("Age is required")
         if not sex:
@@ -80,16 +82,20 @@ class UserProfile:
         if not hight:
             raise ValueError("Hight is required")
         if not isinstance(hight, float):
-            raise ValueError(f"Hight needs to be a float, but it was {type(hight)} and the value was {hight}")
+            raise ValueError(
+                f"Hight needs to be a float, but it was {type(hight)} and the value was {hight}"
+            )
         if not isinstance(weight, float):
-            raise ValueError(f"Weight must be a float, but it was {type(weight)} and the value was {weight}")
+            raise ValueError(
+                f"Weight must be a float, but it was {type(weight)} and the value was {weight}"
+            )
         if not weight:
             raise ValueError("Weight is required")
         if not skin_color:
             raise ValueError("Skin color is required")
         if not country:
             raise ValueError("Country is required")
-    
+
 
 class UsersData:
     """
@@ -97,7 +103,7 @@ class UsersData:
     Stores user profiles in a JSON file.
     """
 
-    def __init__(self, file_path= "backend/user_data/users.json") -> None:
+    def __init__(self, file_path="backend/user_data/users.json") -> None:
         """
         Initializes a Userdata object. Loads user profiles from the users.json file if it exists.
         :param file_path (str): The path to the JSON file where user profiles are stored.

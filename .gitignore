@@ -4,3 +4,22 @@ __pycache__/
 *.py[cod]
 *.pyo
 *$py.class
+# Python virtual env
+.venv/
+env/
+
+# Bytecode
+__pycache__/
+*.py[cod]
+
+# Local env
+.env
+
+# DB files (optional)
+*.db
+
+# Node stuff
+node_modules/
+
+# Mac system files
+.DS_Store

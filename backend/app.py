@@ -153,9 +153,9 @@ def home():
     # Checks if user is logged in, if not redirects to the authentication page.
     form = SearchForm()
     user = userAuthHelper()
-    user_name = user.name
     if not user:
         return redirect(url_for("auth_page"))
+    user_name = user.name
 
     if request.method == "POST":
         symptoms = request.form.get("symptoms").strip()
@@ -272,9 +272,9 @@ def recommendations():
     print("Recommended foods: ", recommended_foods)
 
     category_to_types = {
-        "breakfast": "egg, toast, oatmeal",
-        "lunch": "warm, sandwich, grain bowl, salad",
-        "dinner": "protein, vegetables, rice, pasta, warm",
+        "breakfast": ["breakfast"],
+        "lunch": ["main course", "salad", "soup"],
+        "dinner": ["main course", "side dish", "appetizer"],
     }
 
     meal_recipes = {}
@@ -291,7 +291,6 @@ def recommendations():
                 "type": t,
                 "number": 3,
                 "apiKey": spoonacular_api_key,
-                "query": category_to_types.get(category, ""),
             }
             if recommended_foods:
                 params["includeIngredients"] = ",".join(recommended_foods)
@@ -590,7 +589,7 @@ def show_favorites():
             params={"apiKey": spoonacular_api_key},
         )
         if response.ok:
-            recipes.append(response.json)
+            recipes.append(response.json())
 
     return render_template("favorites.html", recipes=recipes)
 
