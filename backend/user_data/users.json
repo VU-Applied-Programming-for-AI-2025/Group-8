@@ -1,0 +1,117 @@
+{
+  "a": {
+    "username": "a",
+    "password": "a",
+    "name": "a",
+    "age": 20,
+    "sex": "female",
+    "height": 179.0,
+    "weight": 56.0,
+    "skin_color": "light",
+    "country": "a",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [
+      716432,
+      642129
+    ],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin cell turnover and sebum regulation. As a 20-year-old female, adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, Vitamin C helps to combat oxidative stress and inflammation.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in sebum regulation, inflammation, and wound healing. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        }
+      }
+    ],
+    "mealplan": {
+      "meals": [
+        {
+          "id": 1161746,
+          "image": "peanut-butter-muffins-1161746.jpg",
+          "imageType": "jpg",
+          "title": "Peanut Butter Muffins",
+          "readyInMinutes": 28,
+          "servings": 12,
+          "sourceUrl": "https://www.pinkwhen.com/peanut-butter-muffins/"
+        },
+        {
+          "id": 653251,
+          "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
+          "imageType": "jpg",
+          "title": "Noodles and Veggies With Peanut Sauce",
+          "readyInMinutes": 30,
+          "servings": 4,
+          "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
+        },
+        {
+          "id": 679540,
+          "image": "baked-whole-wheat-breakfast-quesadilla-679540.png",
+          "imageType": "png",
+          "title": "Baked Whole Wheat Breakfast Quesadilla",
+          "readyInMinutes": 45,
+          "servings": 2,
+          "sourceUrl": "https://fullbellysisters.blogspot.com/2015/08/baked-whole-wheat-breakfast-quesadilla.html"
+        }
+      ],
+      "nutrients": {
+        "calories": 1733.28,
+        "protein": 68.26,
+        "fat": 81.13,
+        "carbohydrates": 184.12
+      }
+    }
+  },
+  "testusername": {
+    "username": "testusername",
+    "password": "testpassword",
+    "name": "Test User",
+    "age": 20,
+    "sex": "Female",
+    "height": 175.0,
+    "weight": 70.0,
+    "skin_color": "medium",
+    "country": "The Netherlands",
+    "medication": "None",
+    "diet": "None",
+    "existing_conditions": [],
+    "allergies": [],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
+  }
+}
