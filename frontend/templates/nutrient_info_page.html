@@ -33,12 +33,3 @@
 </body>
 
 </html>
-
-<script>
-    document.getElementById('nutrient').addEventListener('change', function () {
-        const selected = this.value;
-        if (selected) {
-            window.location.href = `/nutrient/${encodeURIComponent(selected)}`;
-        }
-    });
-</script>
