@@ -461,9 +461,24 @@ def test_profile_leave_blank_password_fails(client, set_users_data):
 
 ###############################################################################
 #                                                                             #
-#                   RECOMMENDATIONS AND MEAL PLANNER TESTS                    #
+#                            RECOMMENDATIONS TESTS                            #
 #                                                                             #
 ###############################################################################
+
+
+def test_generate_recipe_structure():
+    from app import generate_recipe
+
+    with app.app_context():
+        with patch("app.requests.get") as mock_get:
+            mock_get.return_value.status_code = 200
+            mock_get.return_value.json.return_value = {
+                "recipes": [{"title": "Test Recipe", "id": 1234}]
+            }
+            with patch("app.userAuthHelper") as mock_auth:
+                mock_auth.return_value = MagicMock(diet="", allergies=[])
+                result = generate_recipe("breakfast")
+                assert result.status_code == 200
 
 
 def test_extract_food_recs_parsing():
@@ -485,26 +500,66 @@ Vitamin D:
         assert len(foods) == 3
 
 
+def test_extract_food_recs_list():
+    """
+    Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
+    """
+    test_response = (
+        " - Foods: almonds, dairy, strawberries\n- Foods: carrots, red meat, apple"
+    )
+
+    with patch("app.analyze_symptoms", return_value=test_response):
+        result = extract_food_recs()
+        assert set(result) == {
+            "almonds",
+            "dairy",
+            "strawberries",
+            "carrots",
+            "red meat",
+            "apple",
+        }
+
+
+def test_display_results(client):
+    """
+    Tests if the display_results function and /results route correctly display groq ai's response as in the prompt, so explanation, foods and a tip.
+    """
+    test_response = (
+        "Vitamin A\n- Why: acne\n- Foods: carrot, eggs\n- Tip: foods rich in vitamin A"
+    )
+    with patch("app.analyze_symptoms", return_value=test_response):
+        with client.session_transaction() as session:
+            session["logged_in"] = True
+            session["username"] = "testusername"
+
+        result = client.get("/results?symptoms=acne")
+        assert b"acne" in result.data
+        assert b"carrot" in result.data
+        assert b"eggs" in result.data
+        assert b"foods rich in vitamin A" in result.data
+
+
+def test_recipe_details(client):
+    """
+    Tests if the recipe_details function correctly retrieves the recipe details such as ingredients, nutrients and instructions.
+    """
+    with patch("app.requests.get") as test_get:
+        test_get.return_value.json.return_value = {
+            "title": "test recipe",
+            "ingredients": "a, b, c",
+            "nutrition": "A, B, C",
+            "instructions": "step1",
+        }
+        response = client.get("/recipe/12345")
+        assert_200(response)
+        assert b"test recipe" in response.data
+
+
 ###############################################################################
 #                                                                             #
 #                   FAVORITE RECIPE SAVING/REMOVING                           #
 #                                                                             #
 ###############################################################################
-
-
-def test_generate_recipe_structure():
-    from app import generate_recipe
-
-    with app.app_context():
-        with patch("app.requests.get") as mock_get:
-            mock_get.return_value.status_code = 200
-            mock_get.return_value.json.return_value = {
-                "recipes": [{"title": "Test Recipe", "id": 1234}]
-            }
-            with patch("app.userAuthHelper") as mock_auth:
-                mock_auth.return_value = MagicMock(diet="", allergies=[])
-                result = generate_recipe("breakfast")
-                assert result.status_code == 200
 
 
 def test_add_saving(client, set_users_data):
@@ -545,6 +600,63 @@ def test_add_saving(client, set_users_data):
     response2 = client.post("/save_favorite/4")
     assert response2.status_code == 401
     assert b"Already saved" in response2.data
+
+
+def test_remove_saving(client, set_users_data):
+    """
+    Tests whether recipe is succesfully removed from the profile.
+    Tests whether trying to remove the not existed recipe will throw an error.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+
+    set_users_data.get_user("testusername").saved_recipes = []
+
+    response = response = client.post("/save_favorite/4")
+    assert_200(response)
+    assert b"OK" in response.data
+
+    response2 = client.post("/remove_favorite/4")
+    assert_200(response)
+    assert b"OK" in response2.data
+
+    response2 = client.post("/remove_favorite/4")
+    assert response2.status_code == 401
+    assert b"Not exists" in response2.data
+
+
+###############################################################################
+#                                                                             #
+#                                GROQ TESTS                                   #
+#                                                                             #
+###############################################################################
+
+
+###############################################################################
+#                                                                             #
+#                           MEALPLANNER TESTS                                 #
+#                                                                             #
+###############################################################################
 
 
 def test_generate_mealplan_structure():
@@ -639,91 +751,6 @@ def test_spoonacular_builtin_mealplanner_fail(client, set_users_data):
         )
         assert_200(response)
         assert b"failed to fetch" in response.data.lower()
-
-
-###############################################################################
-#                                                                             #
-#                   HOME PAGE TEST                                            #
-#                                                                             #
-###############################################################################
-
-
-def test_extract_food_recs_list():
-    """
-    Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
-    """
-    test_response = (
-        " - Foods: almonds, dairy, strawberries\n- Foods: carrots, red meat, apple"
-    )
-
-    with patch("app.analyze_symptoms", return_value=test_response):
-        result = extract_food_recs()
-        assert set(result) == {
-            "almonds",
-            "dairy",
-            "strawberries",
-            "carrots",
-            "red meat",
-            "apple",
-        }
-
-
-def test_display_results(client):
-    """
-    Tests if the display_results function and /results route correctly display groq ai's response as in the prompt, so explanation, foods and a tip.
-    """
-    test_response = (
-        "Vitamin A\n- Why: acne\n- Foods: carrot, eggs\n- Tip: foods rich in vitamin A"
-    )
-    with patch("app.analyze_symptoms", return_value=test_response):
-        with client.session_transaction() as session:
-            session["logged_in"] = True
-            session["username"] = "testusername"
-
-        result = client.get("/results?symptoms=acne")
-        assert b"acne" in result.data
-        assert b"carrot" in result.data
-        assert b"eggs" in result.data
-        assert b"foods rich in vitamin A" in result.data
-
-
-def test_recipe_details(client):
-    """
-    Tests if the recipe_details function correctly retrieves the recipe details such as ingredients, nutrients and instructions.
-    """
-    with patch("app.requests.get") as test_get:
-        test_get.return_value.json.return_value = {
-            "title": "test recipe",
-            "ingredients": "a, b, c",
-            "nutrition": "A, B, C",
-            "instructions": "step1",
-        }
-        response = client.get("/recipe/12345")
-        assert_200(response)
-        assert b"test recipe" in response.data
-
-
-def test_homepage(client):
-    """
-    Tests if the homepage is loading correctly for a logged in user.
-    """
-    with client.session_transaction() as session:
-        session["logged_in"] = True
-        session["username"] = "testusername"
-    response = client.get("/home")
-    assert_200(response)
-
-
-def test_homepage_results_redirect(client):
-    """
-    Tests that entering symptoms on the homepage correctly redirects to the results page.
-    """
-    with client.session_transaction() as session:
-        session["logged_in"] = True
-        session["username"] = "testusername"
-    response = client.post("/home", data={"symptoms": "acne"}, follow_redirects=False)
-    assert response.status_code == 302
-    assert "/results?symptoms=acne" in response.headers["Location"]
 
 
 def test_mealplanner_create_nutrient_calculation(client, set_users_data):
@@ -850,47 +877,34 @@ def test_mealplanner_view_empty(client, set_users_data):
     assert b"no meal plan found" in response.data.lower()
 
 
-def test_remove_saving(client, set_users_data):
+###############################################################################
+#                                                                             #
+#                   HOME PAGE TEST                                            #
+#                                                                             #
+###############################################################################
+
+
+def test_homepage(client):
     """
-    Tests whether recipe is succesfully removed from the profile.
-    Tests whether trying to remove the not existed recipe will throw an error.
+    Tests if the homepage is loading correctly for a logged in user.
     """
-    user = UserProfile(
-        "testusername",
-        "testpassword",
-        "Test User",
-        20,
-        "Female",
-        175.0,
-        70.0,
-        "medium",
-        "The Netherlands",
-        "None",
-        "None",
-    )
-
-    # Saves the user profile object to the user data.
-
-    set_users_data.add_user(user)
-
-    # Log in the user
     with client.session_transaction() as session:
         session["logged_in"] = True
         session["username"] = "testusername"
-
-    set_users_data.get_user("testusername").saved_recipes = []
-
-    response = response = client.post("/save_favorite/4")
+    response = client.get("/home")
     assert_200(response)
-    assert b"OK" in response.data
 
-    response2 = client.post("/remove_favorite/4")
-    assert_200(response)
-    assert b"OK" in response2.data
 
-    response2 = client.post("/remove_favorite/4")
-    assert response2.status_code == 401
-    assert b"Not exists" in response2.data
+def test_homepage_results_redirect(client):
+    """
+    Tests that entering symptoms on the homepage correctly redirects to the results page.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.post("/home", data={"symptoms": "acne"}, follow_redirects=False)
+    assert response.status_code == 302
+    assert "/results?symptoms=acne" in response.headers["Location"]
 
 
 ###############################################################################
