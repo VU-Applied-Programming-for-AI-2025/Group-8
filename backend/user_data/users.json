@@ -1,1 +1,3 @@
+
 {"testusername": {"username": "testusername", "password": "testpassword", "name": "Test User", "age": 20, "sex": "Female", "height": 175.0, "weight": 70.0, "skin_color": "medium", "country": "The Netherlands", "medication": "None", "diet": "None", "existing_conditions": [], "allergies": [], "saved_recipes": [], "analysis_results": {}, "mealplan": []}}
+
