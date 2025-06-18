@@ -251,7 +251,7 @@ def analyze_symptoms():
 
         user symptoms: {symptoms}
 
-        required analysis:
+        required analysis: 
         1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight. ONLY use these vitamin/minerals: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium, Sugar, Zinc
         2. for each deficiency:
         - biological explanation, if the user's profile plays a role on the vitamin/nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
@@ -284,7 +284,9 @@ def analyze_symptoms():
         print("Groq API failed:", e)
         raise
 
-def extract_deficiency_keywords(text: str) -> List[str]:
+
+
+def extract_deficiency_keywords(text: str):
     """
     Returns a list of nutrient or vitamin names found at the start of lines in the LLM response.
 
@@ -360,36 +362,20 @@ def recommendations():
     if not logged_in_user:
         return redirect(url_for("auth_page"))
 
-    diet = ",".join(logged_in_user.diet)
+    min_nutrients: Dict[str, Dict[str, int]] = extract_deficiency_keywords()  
+    diet = logged_in_user.diet
     intolerance = ",".join(logged_in_user.allergies)
-    nutrient_food_map = {
-        "vitamin d": ["salmon", "mushroom", "egg yolk"],
-        "vitamin c": ["broccoli", "orange", "bell pepper"],
-        "vitamin a": ["carrot", "sweet potato", "spinach"],
-        "iron": ["spinach", "lentils", "beef"],
-        "calcium": ["milk", "yogurt", "kale"],
-        "magnesium": ["almonds", "avocado", "banana"],
-        "zinc": ["pumpkin seeds", "chickpeas", "cashews"],
-    }
-
-    try:
-        vitamins, food_list = extract_food_recs()
-    except Exception as e:
-        print("Groq API failed inside recommendations():", e)
-        vitamins, food_list = ["vitamin c", "iron"], ["broccoli", "spinach", "orange"]
-
-    # collect ingredients based on vitamin mapping
-    for vit in vitamins:
-        food_list.extend(nutrient_food_map.get(vit, []))
-    ingredients = list(set(food_list))
 
     category_to_types = {
         "breakfast": ["breakfast"],
         "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"],
-    }
+        "dinner": ["main course", "side dish"]}
 
     meal_recipes = {}
+
+    min_nutrient_params = {}
+    for nutrient_dict in min_nutrients.values():
+        min_nutrient_params.update(nutrient_dict)
 
     for category, types in category_to_types.items():
         collected_recipes = []
@@ -402,8 +388,7 @@ def recommendations():
                 "number": 3,
                 "apiKey": spoonacular_api_key,
             }
-            if ingredients:
-                params["includeIngredients"] = ",".join(ingredients)
+            params.update(min_nutrient_params)
 
             try:
                 response = requests.get(
@@ -414,26 +399,13 @@ def recommendations():
             except Exception as e:
                 print(f"Error fetching {category} ({t}):", e)
 
-        if not collected_recipes:
-            try:
-                fallback = requests.get(
-                    "https://api.spoonacular.com/recipes/random",
-                    params={"number": 3, "apiKey": spoonacular_api_key},
-                )
-                fallback_data = fallback.json()
-                collected_recipes = fallback_data.get("recipes", [])
-            except Exception as e:
-                print(f"Fallback error for {category}:", e)
-                collected_recipes = []
-
-        # if we couldn't fetch any recipes with ingredients, skip fallback
+    
         # fallback logic removed to avoid unrelated random recipes
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
-
-    return render_template(
-        "recipes.html", recipes_by_meal=meal_recipes, food_list=food_list
-    )
+    print("API params:", params)
+    print("API response:", data)
+    return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
 
 # display recipe details
@@ -459,7 +431,8 @@ def spoonacular_builtin_mealplanner():
 
     if request.method == "POST":
         time_frame = request.form.get("timeFrame", "day")
-        calories = request.form.get("calories")
+        # calories = request.form.get("calories")
+        type_of_diet = request.form.get("diet")
 
         params = {
             "apiKey": spoonacular_api_key,
@@ -467,7 +440,18 @@ def spoonacular_builtin_mealplanner():
             "diet": user.diet,
             "exclude": ",".join(user.allergies),
         }
-        if calories:
+
+        if type_of_diet == "gain":
+            bmr = calculate_bmr()
+            calories = bmr + 300
+            params["targetCalories"] = calories
+        elif type_of_diet == "loose":
+            bmr = calculate_bmr()
+            calories = bmr - 300
+            params["targetCalories"] = calories
+        elif type_of_diet == "health":
+            bmr = calculate_bmr()
+            calories = bmr
             params["targetCalories"] = calories
 
         response = requests.get(
@@ -502,6 +486,28 @@ def get_meal_plan(api_key, diet=None, exclude=None, calories=None, time_frame="d
 
     response = requests.get(url, params=params)
     return response.json()
+
+
+def calculate_bmr() -> float:
+    """
+    Calculates the basal metabolismic rate of a person based on their gender, age, height and weight.
+    :return bmr: (float) bmr of the person
+    """
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    bmr = 0
+
+    height = user.height
+    weight = user.weight
+    gender = user.sex
+    age = user.age
+    if gender == "men":
+        bmr = 88.362 + (weight * 13.397) + (height * 4.799) - (age * 5.677)
+    elif gender == "female":
+        bmr = 447.593 + (weight * 9.247) + (height * 3.098) - (age * 4.330)
+    return bmr
 
 
 @app.route("/recommendations/mealplanner/create", methods=["GET", "POST"])
