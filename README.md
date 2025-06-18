@@ -102,7 +102,7 @@ requirements.md
 
 ## Requirements
 
-For the requirements of this project, see [requirements](requirements.md) for a deatiled featue list.
+For the requirements of this project, see [requirements](requirements.md) for a detailed featue list.
 
 
 
