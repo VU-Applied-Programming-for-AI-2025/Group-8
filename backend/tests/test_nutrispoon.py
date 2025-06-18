@@ -117,7 +117,7 @@ def test_redirect_to_consent_when_no_consent(client):
 
 def test_login_works_correctly(client, set_users_data):
     """
-    Tests that logging in with an existing user works correctly, redirects to home page.
+    Tests that logging in with an existing user works correctly, and redirects to the home page.
     """
     # Creates a new userprofile object .
     user = UserProfile(
@@ -145,7 +145,7 @@ def test_login_works_correctly(client, set_users_data):
     assert b"homepage" in response.data.lower()
 
 
-def test_login_with_false_user_fails(client, set_users_data):
+def test_login_with_false_username_fails(client, set_users_data):
     """
     Tests that logging in with an non-existing user will not redirect to home page and gives the correct error message.
     """
@@ -157,6 +157,36 @@ def test_login_with_false_user_fails(client, set_users_data):
     response = client.post("/auth/login", data={"name": "testusername", "password": "testpassword"}, follow_redirects=True)
     assert b"username not found in database" in response.data.lower()
     assert_200(response)
+
+def test_login_with_false_password_fails(client, set_users_data):
+    """
+    Tests that logging in with an existing username and false password will not redirect to home page and gives the correct error message.
+    """
+    # Creates a new userprofile object .
+    user = UserProfile(
+            "testusername",
+            "testpassword",
+            "Test User",
+            20,
+            "Female",
+            175.0,
+            70.0,
+            "medium",
+            "The Netherlands",
+            "None",
+            "None"
+        )
+    # Stores the user object in the user data.
+    set_users_data.add_user(user)
+
+    # Checks if the consentform has been accepted.
+    client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
+
+    # Checks if the correct error message is displayed if the client logs in with a correct username and false password.
+    response = client.post("/auth/login", data={"name": "testusername", "password": "falsepassword"}, follow_redirects=True)
+    assert b"wrong password" in response.data.lower()
+    assert_200(response)
+
 
 ###############################################################################
 #                                                                             #
@@ -226,54 +256,50 @@ def test_register_with_missing_password_fails(client, set_users_data):
     assert_200(response)
 
 
+def test_register_with_existing_username_fails(client, set_users_data):
+    """
+    Tests that when the user tried to register with an already existing username, it gives the corresponding error message.
+    """
 
+    # Creates a user profile to directly add to the users data.
+    user = UserProfile(
+        "Hansklok",
+        "testpassword2",
+        "Test User 2",
+        25,
+        "Male",
+        187.0,
+        80.0,
+        "light",
+        "Germany",
+        "None",
+        "None"
+    )
+    # Adds the user to the users data test file.
+    set_users_data.add_user(user)
 
-# def test_register_with_existing_username_fails(client, set_users_data):
-#     """
-#     Tests that when the user tried to register with an already existing username, it raises an ValueError.
-#     """
+    # Checks if the consentform has been accepted.
+    client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
-#     # Creates a user profile to directly add to the users data.
-#     user = UserProfile(
-#         "Hansklok",
-#         "testpassword2",
-#         "Test User 2",
-#         25,
-#         "Male",
-#         1.80,
-#         80,
-#         "light",
-#         "Germany",
-#         "None",
-#         "None"
-#     )
-#     # Adds the user to the users data test file.
-#     set_users_data.add_user(user)
-
-#     # Checks if the consentform has been accepted.
-#     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
-
-#     # Posts the users information to the register form with an existing username.
-#     response = client.post("/auth/register", data={
-#         "username": "Hansklok",
-#         "name": "Test User",
-#         "age": 25,
-#         "sex": "Female",
-#         "hight": 170,
-#         "weight": 60,
-#         "skin_color": "medium",
-#         "country": "The Netherlands",
-#         "medication": "",
-#         "diet": "None",
-#         "existing_conditions": "",
-#         "allergies": ""}, follow_redirects=True)
+    # Posts the users information to the register form with an existing username.
+    response = client.post("/auth/register", data={
+        "username": "Hansklok",
+        "password": "testpassword",
+        "name": "Test User",
+        "age": 25,
+        "sex": "Female",
+        "hight": 170.0,
+        "weight": 60.0,
+        "skin_color": "medium",
+        "country": "The Netherlands",
+        "medication": "",
+        "diet": "None",
+        "existing_conditions": "",
+        "allergies": ""}, follow_redirects=True)
     
-#     # Checks if the user's data has not been stored as a userprofile object.
-#     assert "testuser" not in set_users_data.users
-
-#     # Checks if the correct errormessage is displayed.
-#     assert b"already exists" in response.data.lower()
-#     assert_200(response)
+    # Checks if the correct errormessage is displayed.
+    assert b"user with username &#39;hansklok&#39; already exists" in response.data.lower()
+    assert_200(response)
     
 
 
