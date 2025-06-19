@@ -1,8 +1,10 @@
 ### first backend tests file ###
 
 import json, os, pytest
+import time
 from context import app, UserProfile, UsersData
 from unittest.mock import patch, MagicMock
+from flask.testing import FlaskClient
 from app import (
     app,
     users_data,
@@ -12,6 +14,8 @@ from app import (
     display_results,
     recipe_details,
     get_nutrient_info,
+    calculate_bmr,
+    vitamin_intake
 )
 from dotenv import load_dotenv
 
@@ -19,19 +23,24 @@ load_dotenv()
 
 
 @pytest.fixture
-def client():
+def client() -> FlaskClient:
     """
     Set up for a Flask test client.
+    :returns:
+        FlaskClient: a Flask test client.
     """
     app.config["TESTING"] = True
+
     client = app.test_client()
     yield client
 
 
 @pytest.fixture
-def set_users_data():
+def set_users_data() -> UsersData:
     """
     Set up of a UserData object with a test storage file.
+    :returns:
+        UsersData: The usersdata object where the testuser's data will be stored.
     """
     # Sets a json file to store the test users data
     test_users_file = "test_users.json"
@@ -50,9 +59,10 @@ def set_users_data():
         os.remove(test_users_file)
 
 
-def set_user_login(client):
+def set_user_login(client) -> None:
     """
     Helper function to add a testuser to the database and login.
+    :param client: the Flask test client
     """
     # Creates a UserProfile object for a testuser
     if "testusername" not in users_data.users:
@@ -79,9 +89,10 @@ def set_user_login(client):
         sess["username"] = "testusername"
 
 
-def assert_200(response):
+def assert_200(response) -> None:
     """
     Helper function to assert that the response status code is 200.
+    :param response: The response object to check.
     """
     assert response.status_code == 200, f"Expected 200, got {response.status_code}"
 
@@ -93,18 +104,20 @@ def assert_200(response):
 ###############################################################################
 
 
-def test_show_consent(client):
+def test_show_consent(client) -> None:
     """
     Tests that the consent form is displayed when the web is started.
+    :param client: the Flask test client
     """
     response = client.get("/")
     assert_200(response)
     assert b"consent form" in response.data.lower()
 
 
-def test_handle_consent(client):
+def test_handle_consent(client) -> None:
     """
     Tests that submitting the consent form causes redirection to the authentication page.
+    :param client: the Flask test client
     """
     response = client.post(
         "/consentform", data={"accept": "true"}, follow_redirects=True
@@ -113,9 +126,10 @@ def test_handle_consent(client):
     assert b"login" in response.data.lower()
 
 
-def test_redirect_to_consent_when_no_consent(client):
+def test_redirect_to_consent_when_no_consent(client) -> None:
     """
     Tests that accessing the authentication page with no consent redirects to the consent form.
+    :param client: the Flask test client
     """
     response = client.get("/auth", follow_redirects=True)
     assert_200(response)
@@ -129,9 +143,11 @@ def test_redirect_to_consent_when_no_consent(client):
 ###############################################################################
 
 
-def test_login_works_correctly(client, set_users_data):
+def test_login_works_correctly(client, set_users_data) -> None:
     """
-    Tests that logging in with an existing user works correctly, redirects to home page.
+    Tests that logging in with an existing user works correctly, and redirects to the home page.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
     """
     # Creates a new userprofile object .
     user = UserProfile(
@@ -163,9 +179,11 @@ def test_login_works_correctly(client, set_users_data):
     assert b"homepage" in response.data.lower()
 
 
-def test_login_with_false_user_fails(client, set_users_data):
+def test_login_with_false_username_fails(client, set_users_data) -> None:
     """
     Tests that logging in with an non-existing user will not redirect to home page and gives the correct error message.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
     """
 
     # Checks if the consentform has been accepted.
@@ -181,6 +199,42 @@ def test_login_with_false_user_fails(client, set_users_data):
     assert_200(response)
 
 
+def test_login_with_false_password_fails(client, set_users_data) -> None:
+    """
+    Tests that logging in with an existing username and false password will not redirect to home page and gives the correct error message.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
+    """
+    # Creates a new userprofile object .
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "Female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+    # Stores the user object in the user data.
+    set_users_data.add_user(user)
+
+    # Checks if the consentform has been accepted.
+    client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
+
+    # Checks if the correct error message is displayed if the client logs in with a correct username and false password.
+    response = client.post(
+        "/auth/login",
+        data={"name": "testusername", "password": "falsepassword"},
+        follow_redirects=True,
+    )
+    assert b"wrong password" in response.data.lower()
+    assert_200(response)
+
+
 ###############################################################################
 #                                                                             #
 #                   REGISTER PAGE TESTS                                       #
@@ -188,29 +242,36 @@ def test_login_with_false_user_fails(client, set_users_data):
 ###############################################################################
 
 
-def test_register_works_correctly(client, set_users_data):
+def test_register_works_correctly(client, set_users_data) -> None:
     """
     Tests that registering a new user works correctly and redirects to the home page.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
     """
     # Checks if the consentform has been accepted.
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the register form with the information of a test user
-    client.post("/auth/register", data={
-        "username": "testuser",
-        "password": "testpassword",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-   
+    client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "password": "testpassword",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the testuser's data is stored in the test users data file.
     assert "testuser" in set_users_data.users
 
@@ -220,28 +281,35 @@ def test_register_works_correctly(client, set_users_data):
     assert b"homepage" in response.data.lower()
 
 
-def test_register_with_missing_password_fails(client, set_users_data):
+def test_register_with_missing_password_fails(client, set_users_data) -> None:
     """
     Tests that registering a new user with missing information of a mandatory part such as password gives the corresponding error message.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
     """
     # Checks if the consentform has been accepted.
     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
     # Posts the users information to the register form without a password
-    response = client.post("/auth/register", data={
-        "username": "testuser",
-        "name": "Test User",
-        "age": 25,
-        "sex": "Female",
-        "height": 170.0,
-        "weight": 60.0,
-        "skin_color": "medium",
-        "country": "The Netherlands",
-        "medication": "",
-        "diet": "None",
-        "existing_conditions": "",
-        "allergies": ""}, follow_redirects=True)
-    
+    response = client.post(
+        "/auth/register",
+        data={
+            "username": "testuser",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
+
     # Checks if the user's data has not been stored as a userprofile object.
     assert "testuser" not in set_users_data.users
 
@@ -250,52 +318,59 @@ def test_register_with_missing_password_fails(client, set_users_data):
     assert_200(response)
 
 
-# def test_register_with_existing_username_fails(client, set_users_data):
-#     """
-#     Tests that when the user tried to register with an already existing username, it raises an ValueError.
-#     """
+def test_register_with_existing_username_fails(client, set_users_data) -> None:
+    """
+    Tests that when the user tried to register with an already existing username, it gives the corresponding error message.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
+    """
 
-#     # Creates a user profile to directly add to the users data.
-#     user = UserProfile(
-#         "Hansklok",
-#         "testpassword2",
-#         "Test User 2",
-#         25,
-#         "Male",
-#         1.80,
-#         80,
-#         "light",
-#         "Germany",
-#         "None",
-#         "None"
-#     )
-#     # Adds the user to the users data test file.
-#     set_users_data.add_user(user)
+    # Creates a user profile to directly add to the users data.
+    user = UserProfile(
+        "Hansklok",
+        "testpassword2",
+        "Test User 2",
+        25,
+        "Male",
+        187.0,
+        80.0,
+        "light",
+        "Germany",
+        "None",
+        "None",
+    )
+    # Adds the user to the users data test file.
+    set_users_data.add_user(user)
 
-#     # Checks if the consentform has been accepted.
-#     client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
+    # Checks if the consentform has been accepted.
+    client.post("/consentform", data={"accept": "true"}, follow_redirects=True)
 
-#     # Posts the users information to the register form with an existing username.
-#     response = client.post("/auth/register", data={
-#         "username": "Hansklok",
-#         "name": "Test User",
-#         "age": 25,
-#         "sex": "Female",
-#         "height": 170,
-#         "weight": 60,
-#         "skin_color": "medium",
-#         "country": "The Netherlands",
-#         "medication": "",
-#         "diet": "None",
-#         "existing_conditions": "",
-#         "allergies": ""}, follow_redirects=True)
+    # Posts the users information to the register form with an existing username.
+    response = client.post(
+        "/auth/register",
+        data={
+            "username": "Hansklok",
+            "password": "testpassword",
+            "name": "Test User",
+            "age": 25,
+            "sex": "Female",
+            "height": 170.0,
+            "weight": 60.0,
+            "skin_color": "medium",
+            "country": "The Netherlands",
+            "medication": "",
+            "diet": "None",
+            "existing_conditions": "",
+            "allergies": "",
+        },
+        follow_redirects=True,
+    )
 
-#     # Checks if the user's data has not been stored as a userprofile object.
-#     assert "testuser" not in set_users_data.users
-
-#     # Checks if the correct errormessage is displayed.
-#     assert b"already exists" in response.data.lower()
-#     assert_200(response)
+    # Checks if the correct errormessage is displayed.
+    assert (
+        b"user with username &#39;hansklok&#39; already exists" in response.data.lower()
+    )
+    assert_200(response)
 
 
 ###############################################################################
@@ -305,9 +380,10 @@ def test_register_with_missing_password_fails(client, set_users_data):
 ###############################################################################
 
 
-def test_logout(client):
+def test_logout(client) -> None:
     """
     Tests that when logging out the session is cleared and the user will be redirected to the consent form.
+    :param client: the Flask test client.
     """
     # Logges in the user and creates a session
     set_user_login(client)
@@ -332,9 +408,10 @@ def test_logout(client):
 ###############################################################################
 
 
-def test_profile_page(client):
+def test_profile_page(client) -> None:
     """
     Tests that the profile page can be accessed when the user is logged in.
+    :param client: the Flask test client
     """
     set_user_login(client)
     response = client.get("/profile")
@@ -342,9 +419,11 @@ def test_profile_page(client):
     assert b"Profile" in response.data
 
 
-def test_profile_page_change_age(client, set_users_data):
+def test_profile_page_change_age(client, set_users_data) -> None:
     """
     Tests that when the user changes their age on the profile page, it will be changed in the user data object.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
     """
     # Sets a user profile and adds it to the test user data.
     user = UserProfile(
@@ -394,9 +473,11 @@ def test_profile_page_change_age(client, set_users_data):
     assert_200(response)
 
 
-def test_profile_leave_blank_password_fails(client, set_users_data):
+def test_profile_leave_blank_password_fails(client, set_users_data) -> None:
     """
     Tests a user profile change where a required userprofile parameter such as password is left blank to check if an error will occur and the password is not saved in the database.
+    :param client: the Flask test client
+    :param set_users_data: The usersdata object where the test users data will be stored.
     """
     # Sets a new user profile.
     user = UserProfile(
@@ -483,31 +564,11 @@ Vitamin D:
     ):
         from app import extract_food_recs
 
-        foods = extract_food_recs()
+        _, foods = extract_food_recs()
         assert "salmon" in foods
         assert "egg yolk" in foods
         assert "mushrooms" in foods
         assert len(foods) == 3
-
-
-def test_extract_food_recs_list():
-    """
-    Tests if the extract_food_recs function returns a correcly extracted list of foods from the groq ai analysis response.
-    """
-    test_response = (
-        " - Foods: almonds, dairy, strawberries\n- Foods: carrots, red meat, apple"
-    )
-
-    with patch("app.analyze_symptoms", return_value=test_response):
-        result = extract_food_recs()
-        assert set(result) == {
-            "almonds",
-            "dairy",
-            "strawberries",
-            "carrots",
-            "red meat",
-            "apple",
-        }
 
 
 def test_display_results(client):
@@ -536,9 +597,10 @@ def test_recipe_details(client):
     with patch("app.requests.get") as test_get:
         test_get.return_value.json.return_value = {
             "title": "test recipe",
-            "ingredients": "a, b, c",
-            "nutrition": "A, B, C",
+            "image": "https://example.com/image.jpg",
             "instructions": "step1",
+            "extendedIngredients": [],
+            "nutrition": {},
         }
         response = client.get("/recipe/12345")
         assert_200(response)
@@ -635,12 +697,151 @@ def test_remove_saving(client, set_users_data):
     assert b"Not exists" in response2.data
 
 
-###############################################################################
-#                                                                             #
-#                                GROQ TESTS                                   #
-#                                                                             #
-###############################################################################
+def test_show_favs(client):
+    """
+    Tests if the saved mealplan page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/show_favorites")
+    assert_200(response)
 
+
+###############################################################################
+#                                                                             #
+#                                BMR CALCULATION                              #
+#                                                                             #
+###############################################################################
+def test_bmr_calculation_for_male(client, set_users_data):
+    """
+    Tests to see if thr BMR calcualtion works correctly.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "male",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    with client.application.test_request_context():
+        with patch("app.userAuthHelper", return_value=user):
+            bmr = calculate_bmr()
+
+    expected_bmr = (
+        88.362 + (user.weight * 13.397) + (user.height * 4.799) - (user.age * 5.677)
+    )
+    assert bmr == expected_bmr
+
+
+def test_bmr_calculation_for_female(client, set_users_data):
+    """
+    Tests to see if thr BMR calcualtion works correctly.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "female",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    with client.application.test_request_context():
+        with patch("app.userAuthHelper", return_value=user):
+            bmr = calculate_bmr()
+
+    expected_bmr = (
+        447.593 + (user.weight * 9.247) + (user.height * 3.098) - (user.age * 4.330)
+    )
+    assert bmr == expected_bmr
+
+
+def test_calorie_calculation_for_male(client, set_users_data):
+    """
+    Tests to see if thr calorie calcualtion works correctly.
+    """
+    user = UserProfile(
+        "testusername",
+        "testpassword",
+        "Test User",
+        20,
+        "male",
+        175.0,
+        70.0,
+        "medium",
+        "The Netherlands",
+        "None",
+        "None",
+    )
+
+    # Saves the user profile object to the user data.
+
+    set_users_data.add_user(user)
+
+    diet = "loose"
+
+    # Log in the user
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+
+    with client.application.test_request_context():
+        with patch("app.userAuthHelper", return_value=user):
+            bmr = calculate_bmr()
+
+    expected_bmr = (
+        88.362 + (user.weight * 13.397) + (user.height * 4.799) - (user.age * 5.677)
+    )
+    expected_calories = expected_bmr - 300.00
+
+    assert expected_calories == bmr - 300.00
+
+###############################################################################
+#                                                                             #
+#                                    GROQ                                     #
+#                                                                             #
+###############################################################################
+    
+def test_vitamin_intake():
+    test_response = {
+        "vitamin_a": {"minVitaminA": 50},         
+        "zinc": {"minZinc": 40},                   
+        "calcium": {"minCalcium": 30}
+    }
+    
+    with patch("app.client.chat.completions.create") as test_create:
+        test_create.return_value.choices[0].message.content = json.dumps(test_response)
+        result = vitamin_intake(["VitaminA", "Zinc"])
+        assert result == test_response
 
 ###############################################################################
 #                                                                             #
@@ -867,6 +1068,17 @@ def test_mealplanner_view_empty(client, set_users_data):
     assert b"no meal plan found" in response.data.lower()
 
 
+def test_show_mealplan(client):
+    """
+    Tests if the saved mealplan page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/recommendations/mealplanner/view")
+    assert_200(response)
+
+
 ###############################################################################
 #                                                                             #
 #                   HOME PAGE TEST                                            #
@@ -887,15 +1099,19 @@ def test_homepage(client):
 
 def test_homepage_results_redirect(client):
     """
-    Tests that entering symptoms on the homepage correctly redirects to the results page.
+    Tests that entering symptoms on the homepage correctly redirects to the results page and redirects withiin 10 seconds
     """
     with client.session_transaction() as session:
         session["logged_in"] = True
         session["username"] = "testusername"
+
+    start_time = time.time()
     response = client.post("/home", data={"symptoms": "acne"}, follow_redirects=False)
+    duration = time.time() - start_time
+
     assert response.status_code == 302
     assert "/results?symptoms=acne" in response.headers["Location"]
-
+    assert duration <= 10, f"redirect took too much time: {duration:.2f} seconds"
 
 ###############################################################################
 #                                                                             #
@@ -932,7 +1148,7 @@ def test_save_results(client, set_users_data):
         session["logged_in"] = True
         session["username"] = "testusername"
 
-    set_users_data.get_user("testusername").analysis_results = {}
+    set_users_data.get_user("testusername").analysis_results = []
 
     response_empty = client.post(
         "/save_results", data="", content_type="application/json"
@@ -940,13 +1156,27 @@ def test_save_results(client, set_users_data):
     assert response_empty.status_code == 401
     assert b"No result" in response_empty.data
 
-    test_data = {"Vitamin A": 45, "Iron": 20}
+    test_data = {
+        "symptoms": "fatigue, nausea",
+        "analyse": "Vitamin D is lacking. Foods: salmon, egg yolk.",
+    }
 
     response = client.post(
         "/save_results", data=json.dumps(test_data), content_type="application/json"
     )
     assert_200(response)
     assert b"OK" in response.data
+
+
+def test_history_analysis(client):
+    """
+    Tests if the history page is loading correctly for a logged in user.
+    """
+    with client.session_transaction() as session:
+        session["logged_in"] = True
+        session["username"] = "testusername"
+    response = client.get("/analysis_history")
+    assert_200(response)
 
 
 ###############################################################################

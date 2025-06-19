@@ -55,18 +55,43 @@
         <div class="dropdown">
             <button class="dropbtn">Nutrients</button>
             <div class="dropdown-content">
-                <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=Vitamin+D">Vitamin D</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=B12">B12</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=Vitamin+A">Vitamin A</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Copper">Copper</a>
                 <a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Choline">Choline</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Cholesterol">Cholesterol</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Fluoride">Fluoride</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=SaturatedFat">Saturated Fat</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminA">Vitamin A</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminC">Vitamin C</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminD">Vitamin D</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminE">Vitamin E</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminK">Vitamin K</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB1">Vitamin B1</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB2">Vitamin B2</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB3">Vitamin B3</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB5">Vitamin B5</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB6">Vitamin B6</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB12">Vitamin B12</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Fiber">Fiber</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=FolicAcid">Folic Acid</a>
                 <a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a>
-                <a href="{{ url_for('nutrients') }}?nutrient=Omega-3">Omega-3</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Manganese">Manganese</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Phosphorus">Phosphorus</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Potassium">Potassium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Selenium">Selenium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Sodium">Sodium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Sugar">Sugar</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
             </div>
+
         </div> |
+        <a href="/show_favorites">Favorites</a> |
+        <a href="{{ url_for('edit_meal_planner') }}" class="btn btn-primary">My Meal Plan</a> |
+        <a href="{{ url_for('show_history') }}">View Analysis History</a> |
+
         <a href="/logout">Logout</a>
     </nav>
 

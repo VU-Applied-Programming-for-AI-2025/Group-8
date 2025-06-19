@@ -23,7 +23,7 @@ class UserProfile:
         existing_conditions: List[str] = [],
         allergies: List[str] = [],
         saved_recipes=[],
-        analysis_results: Dict[str, int] = {},
+        analysis_results: List = [],
         mealplan=[],
     ) -> None:
         """
@@ -72,7 +72,9 @@ class UserProfile:
         if not name:
             raise ValueError("Name is required")
         if not isinstance(age, int):
-            raise ValueError(f"Age needs to be an integer, but it was {type(age)} and the value was {age}")
+            raise ValueError(
+                f"Age needs to be an integer, but it was {type(age)} and the value was {age}"
+            )
         if not age:
             raise ValueError("Age is required")
         if not sex:
@@ -82,14 +84,36 @@ class UserProfile:
         if not height:
             raise ValueError("Height is required")
         if not isinstance(weight, float):
-            raise ValueError(f"Weight must be a float, but it was {type(weight)} and the value was {weight}")
+            raise ValueError(
+                f"Weight must be a float, but it was {type(weight)} and the value was {weight}"
+            )
         if not weight:
             raise ValueError("Weight is required")
         if not skin_color:
             raise ValueError("Skin color is required")
         if not country:
             raise ValueError("Country is required")
-    
+
+    def to_dict(self):
+        return {
+            "username": self.username,
+            "password": self.password,
+            "name": self.name,
+            "age": self.age,
+            "sex": self.sex,
+            "height": self.height,
+            "weight": self.weight,
+            "skin_color": self.skin_color,
+            "country": self.country,
+            "medication": self.medication,
+            "diet": self.diet,
+            "existing_conditions": self.existing_conditions,
+            "allergies": self.allergies,
+            "saved_recipes": self.saved_recipes,
+            "analysis_results": self.analysis_results,
+            "mealplan": self.mealplan,
+        }
+
 
 class UsersData:
     """
@@ -97,7 +121,7 @@ class UsersData:
     Stores user profiles in a JSON file.
     """
 
-    def __init__(self, file_path= "backend/user_data/users.json") -> None:
+    def __init__(self, file_path="backend/user_data/users.json") -> None:
         """
         Initializes a Userdata object. Loads user profiles from the users.json file if it exists.
         :param file_path (str): The path to the JSON file where user profiles are stored.
@@ -123,7 +147,7 @@ class UsersData:
         Saves user profiles to the JSON file where the data will be stored.
         """
         with open(self.file_path, "w") as file:
-            json.dump({u: vars(p) for u, p in self.users.items()}, file)
+            json.dump({u: p.to_dict() for u, p in self.users.items()}, file, indent=2)
 
     def load_from_file(self):
         """

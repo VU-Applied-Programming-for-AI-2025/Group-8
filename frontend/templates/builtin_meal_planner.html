@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Spoonacular Meal Planner</title>
 </head>
+
 <body>
   <h1>Generate Meal Plan with Spoonacular</h1>
 
   {% if error %}
-    <p style="color:red">{{ error }}</p>
+  <p style="color:red">{{ error }}</p>
   {% endif %}
 
   <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}">
@@ -18,10 +20,16 @@
       <option value="week">1 Week</option>
     </select><br><br>
 
-    <label for="calories">Target Calories (optional):</label>
-    <input type="number" name="calories" id="calories" placeholder="e.g. 2000"><br><br>
+    <label for="diet">Which diet are you</label>
+    <label for="diet">Plan for:</label>
+    <select name="diet" id="diet">
+      <option value="gain">Gain weight</option>
+      <option value="loose">Loose weight</option>
+      <option value="health">Stay healthy</option>
+    </select><br><br>
 
     <button type="submit">Generate Plan</button>
   </form>
 </body>
+
 </html>
