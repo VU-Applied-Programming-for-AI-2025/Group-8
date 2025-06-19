@@ -89,6 +89,138 @@
           },
           "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
         }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause headaches, and as a 20-year-old female, the user's age and sex may contribute to a higher risk of VitaminB6 deficiency due to menstruation and increased demand for the vitamin.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "potatoes"
+            ],
+            "tip": "Engage in regular exercise to improve overall circulation and reduce headache frequency."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a female, the user may be at a higher risk due to menstrual losses; additionally, a diet lacking in Magnesium-rich foods may contribute to the issue.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation or deep breathing, to help manage headache triggers."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in females of childbearing age due to menstrual blood losses; the user's age and sex put her at a higher risk for Iron insufficiency.",
+            "foods": [
+              "red meat",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Include Iron-rich foods in meals and snacks, and consider consulting a healthcare professional about potential Iron supplements."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, adequate Vitamin A intake is essential for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can impair collagen production and contribute to acne. As a young adult, sufficient Vitamin C intake is crucial for maintaining healthy skin and immune function.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne due to its role in regulating sebum production and inflammation. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support immune function and skin health."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 20-year-old female, a balanced diet is crucial. VitaminB6 plays a significant role in neurotransmitter synthesis, and its insufficient intake can lead to headaches.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "banana"
+            ],
+            "tip": "Engage in regular physical activity to enhance VitaminB6 absorption."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can cause headaches, and as a female, there's a higher risk of Magnesium insufficiency due to menstruation.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help your body retain Magnesium."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in females due to menstrual blood loss. At 20 years old, Iron intake is crucial for healthy red blood cells.",
+            "foods": [
+              "red meat",
+              "pumpkin seeds",
+              "quinoa"
+            ],
+            "tip": "Increase Iron absorption by consuming VitaminC-rich foods alongside Iron-rich foods."
+          },
+          "Urgency Note": "None flagged, but if headaches persist, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "back pain",
+        "analyse": {
+          "Vitamin D": {
+            "why": "As a 20-year-old female with light skin tone, a lack of Vitamin D may contribute to back pain. People with light skin tone have less melanin, which can reduce the skin's ability to produce Vitamin D from sunlight.",
+            "foods": [
+              "Fatty fish",
+              "fortified dairy products",
+              "mushrooms"
+            ],
+            "tip": "Spend time outdoors during peak sun hours (10am-4pm) for 10-15 minutes to boost natural Vitamin D production."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can contribute to muscle and nerve function issues, including back pain. As a young adult, adequate Magnesium intake is essential for bone health and muscle function.",
+            "foods": [
+              "Dark leafy greens",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Engage in regular stretching exercises to help maintain muscle flexibility and reduce muscle strain."
+          },
+          "Calcium": {
+            "why": "A lack of Calcium can affect bone health, potentially leading to back pain. As a young female, adequate Calcium intake is crucial for building and maintaining strong bones.",
+            "foods": [
+              "Fortified plant-based milk",
+              "calcium-set tofu",
+              "leafy greens"
+            ],
+            "tip": "Incorporate weight-bearing exercises, such as walking or jogging, to help strengthen bones."
+          },
+          "Urgency Note": "None flagged. However, if back pain persists or worsens, consult a healthcare professional to rule out any underlying medical conditions."
+        }
       }
     ],
     "mealplan": {
@@ -146,5 +278,335 @@
     "saved_recipes": [],
     "analysis_results": [],
     "mealplan": []
+  },
+  "feru": {
+    "username": "feru",
+    "password": "feru",
+    "name": "feru",
+    "age": 26,
+    "sex": "female",
+    "height": 163.0,
+    "weight": 53.0,
+    "skin_color": "light",
+    "country": "Netherlands",
+    "medication": [
+      ""
+    ],
+    "diet": "whole30",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly put her at risk, but her Whole30 diet may be low in Vitamin A if she's not consuming enough animal products or sweet potatoes.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "liver"
+            ],
+            "tip": "Include liver in your diet once a week to boost Vitamin A intake."
+          },
+          "VitaminB6": {
+            "why": "Vitamin B6 helps regulate hormones, which can contribute to acne. A lack of Vitamin B6 can lead to hormonal imbalances. As a female, Feru may be more prone to hormonal fluctuations.",
+            "foods": [
+              "bananas",
+              "avocados",
+              "chicken breast"
+            ],
+            "tip": "Eat a banana or avocado as a snack to help regulate hormones."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in wound healing and inflammation reduction. A lack of Zinc can impede skin health, leading to acne. Whole30 diet can be low in Zinc if Feru doesn't consume enough animal products or seafood.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken thighs"
+            ],
+            "tip": "Add oysters to your diet once a month to boost Zinc intake."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and sebum production. As a 26-year-old female, Feru's age and sex may contribute to hormonal fluctuations that affect Vitamin A levels.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your Whole30 diet to support skin health."
+          },
+          "VitaminB6": {
+            "why": "Vitamin B6 helps regulate hormones and can alleviate acne symptoms. As a female, Feru may be more prone to hormonal imbalances, making Vitamin B6 crucial.",
+            "foods": [
+              "salmon",
+              "bananas",
+              "avocados"
+            ],
+            "tip": "Include Vitamin B6-rich foods in your diet to help regulate hormonal fluctuations."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in wound healing, inflammation reduction, and acne treatment. As a Whole30 dieter, Feru may be at risk for Zinc insufficiency due to restricted food groups.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Add Zinc-rich foods to your diet to support acne treatment and overall health."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and sebum production. As a 26-year-old female, Feru's skin health may be affected by hormonal fluctuations, and a lack of Vitamin A may exacerbate acne.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminC": {
+            "why": "Vitamin C is essential for collagen production and can help reduce acne inflammation. As a female, Feru may be more prone to oxidative stress, which Vitamin C can help mitigate.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C to support collagen production and boost immunity."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating hormones, inflammation, and skin health. A lack of Zinc can contribute to acne. As a female, Feru may be at risk of Zinc insufficiency due to inadequate dietary intake or hormonal fluctuations.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, and consider consulting a healthcare professional about potential Zinc supplements."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminA insufficiency, especially if her diet is not well-planned.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminB6": {
+            "why": "VitaminB6 helps regulate hormones, which can contribute to acne. A lack of VitaminB6 may exacerbate acne symptoms. As a female, Feru may be more prone to hormonal fluctuations.",
+            "foods": [
+              "salmon",
+              "bananas",
+              "avocados"
+            ],
+            "tip": "Eat VitaminB6-rich foods to help regulate hormones and reduce acne symptoms."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in wound healing, inflammation, and acne regulation. A lack of Zinc can lead to acne, and as a female, Feru may have a higher risk of Zinc insufficiency due to menstruation.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support skin health and acne reduction."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly increase her risk for Vitamin A insufficiency, but her Whole30 diet may be low in Vitamin A if she's not consuming sufficient animal products or sweet potatoes.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "liver"
+            ],
+            "tip": "Include Vitamin A-rich foods in your meals, especially if you're noticing skin issues."
+          },
+          "Vitamin D": {
+            "why": "Low Vitamin D levels have been linked to increased acne risk, possibly due to its role in regulating immune responses. As a 26-year-old female, Feru may be at risk for Vitamin D insufficiency due to limited sun exposure or inadequate dietary sources.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy",
+              "mushrooms"
+            ],
+            "tip": "Spend time outdoors during peak sun hours or consider a Vitamin D supplement after consulting a healthcare professional."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in skin health and acne prevention by regulating inflammation and wound healing. Feru's Whole30 diet may be low in Zinc if she's not consuming enough animal products or zinc-rich plant-based foods.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your meals, and consider taking a Zinc supplement if you're experiencing persistent skin issues."
+          },
+          "Urgency Note": "None flagged. However, if Feru's acne persists or worsens, it's essential to consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, feru's hormonal fluctuations may increase her skin's sensitivity to VitaminA levels.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminC": {
+            "why": "VitaminC's antioxidant properties help reduce inflammation and promote collagen production, which can alleviate acne. As a female, feru may be more prone to VitaminC deficiency due to lower dietary intake.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Consume VitaminC-rich foods with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating sebum production, wound healing, and inflammation, all of which can impact acne. As a Whole30 dieter, feru may be at risk for Zinc insufficiency if she's not consuming enough zinc-rich foods.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include zinc-rich foods in your diet, and consider consulting a healthcare professional about potential Zinc supplementation."
+          },
+          "Urgency Note": "None flagged. However, if feru's acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's skin health may be influenced by hormonal fluctuations, making Vitamin A crucial.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminC": {
+            "why": "Vitamin C's antioxidant properties help reduce inflammation and promote collagen production, which can alleviate acne. Feru's age and sex do not particularly influence Vitamin C needs, but her Whole30 diet may be low in Vitamin C if not properly planned.",
+            "foods": [
+              "citrus fruits",
+              "berries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating hormones, reducing inflammation, and preventing acne. As a female, Feru may be at risk for Zinc insufficiency due to inadequate dietary intake or increased requirements during menstrual cycles.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstrual periods, to support hormonal balance."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, feru's age and sex do not particularly increase her risk for VitaminA lack, but her whole30 diet may limit her intake of VitaminA-rich foods if not properly planned.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your Whole30 meals to support skin health."
+          },
+          "VitaminD": {
+            "why": "Low VitaminD levels have been linked to increased acne risk, possibly due to its effects on skin cell growth and differentiation. As a 26-year-old female, feru may be at risk for VitaminD lack due to limited sun exposure, especially during winter months. Her whole30 diet may not provide sufficient VitaminD if not including fortified foods or fatty fish.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy alternatives",
+              "mushrooms"
+            ],
+            "tip": "Consider spending time outdoors during peak sun hours or taking a VitaminD supplement after consulting with a healthcare professional."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in skin health, and its lack can lead to acne. As a female, feru may be at higher risk for Zinc lack due to inadequate dietary intake or increased requirements during menstrual cycles.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your Whole30 diet, and consider cooking in cast-iron cookware to increase Zinc intake."
+          },
+          "Urgency Note": "None flagged. However, if feru's acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly increase her risk for Vitamin A insufficiency, but her Whole30 diet may be low in Vitamin A-rich foods if not planned properly.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your Whole30 meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "Vitamin C's antioxidant properties help reduce inflammation and promote collagen production, which can help alleviate acne. Feru's age and sex do not particularly impact her Vitamin C needs, but a lack of Vitamin C can occur if her diet is not rich in fruits and vegetables.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating hormones, including those that contribute to acne. A lack of Zinc can disrupt the body's natural ability to regulate sebum production, leading to clogged pores. As a female, Feru may be at risk for Zinc insufficiency due to inadequate dietary intake.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially if you're experiencing acne."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      }
+    ],
+    "mealplan": {
+      "meals": [],
+      "nutrients": {
+        "calories": 0,
+        "protein": 0,
+        "fat": 0,
+        "carbohydrates": 0
+      }
+    }
   }
 }

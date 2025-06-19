@@ -1,30 +1,36 @@
 {% extends "base.html" %}
+
+{% block title %}Your Analysis History{% endblock %}
+
 {% block content %}
-<h2> Your Analysis History</h2>
 
-{% if results %}
-<ul>
-    {% for entry in results | reverse %}
-    <li style="margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
-        <p><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
+<div class="history-container">
+    <h2>Your Analysis History</h2>
 
-        <p><strong>Deficiency Analysis:</strong></p>
-        <ul>
-            {% for nutrient, details in entry.analyse.items() %}
-            <li>
-                <h4>{{ nutrient }}</h4>
-                <p><strong>Why:</strong> {{ details.why }}</p>
-                <p><strong>Foods:</strong> {{ details.foods | join(', ') }}</p>
-                <p><strong>Tip:</strong> {{ details.tip }}</p>
-            </li>
-            {% endfor %}
-        </ul>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No analysis results saved yet.</p>
-{% endif %}
+    {% if results %}
+    <ul style="list-style-type: none; padding: 0;">
+        {% for entry in results | reverse %}
+        <li class="entry">
+            <p><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
 
-<a href="{{ url_for('home') }}">← Back to Home</a>
+            <p><strong>Deficiency Analysis:</strong></p>
+            <ul>
+                {% for nutrient, details in entry.analyse.items() %}
+                <li>
+                    <h4>{{ nutrient }}</h4>
+                    <p><strong>Why:</strong> {{ details.why }}</p>
+                    <p><strong>Foods:</strong> {{ details.foods | join(', ') }}</p>
+                    <p><strong>Tip:</strong> {{ details.tip }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p style="text-align: center; color: #777;">No analysis results saved yet.</p>
+    {% endif %}
+
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Home</a>
+</div>
 {% endblock %}

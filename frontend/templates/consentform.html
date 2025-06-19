@@ -1,16 +1,21 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Consent Form</title>
 </head>
 <body>
-    <h2>Consent Form</h2>
-    <p>
-        This application uses generative AI to provide personalized nutritional recommendations.
-        This is not medical advice.
-    </p>
-    <form action="/consentform" method="POST">
-        <button type="submit" name="accept" value="true">I Accept</button>
-    </form>
+    <div class="consent-container">
+        <h2>Consent Form</h2>
+        <p>
+            This application uses generative AI to provide personalized nutritional recommendations.<br>
+            Please note: this is <strong>not medical advice</strong>.
+        </p>
+        <form action="/consentform" method="POST">
+            <button type="submit" name="accept" value="true">I Accept</button>
+        </form>
+    </div>
 </body>
 </html>

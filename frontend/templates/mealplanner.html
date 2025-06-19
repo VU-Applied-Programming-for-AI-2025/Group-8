@@ -1,20 +1,69 @@
-<!-- templates/mealplanner.html -->
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Your Meal Plan</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Your Meal Plan{% endblock %}
+
+{% block content %}
+<style>
+  .mealplan-container {
+    max-width: 800px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .mealplan-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+  }
+
+  h2, h3 {
+    color: #444;
+    margin-top: 1.5em;
+  }
+
+  ul {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+    line-height: 1.5em;
+  }
+
+  a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .message {
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+    margin-top: 2em;
+  }
+</style>
+
+<div class="mealplan-container">
   <h1>Your Meal Plan</h1>
 
   {% if message %}
-    <p>{{ message }}</p>
+    <p class="message">{{ message }}</p>
+
   {% elif day_plan %}
     <h2>Day Plan</h2>
     <ul>
       {% for meal in day_plan.meals %}
         <li>
-          <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) -
+          <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) –
           <a href="{{ meal.sourceUrl }}" target="_blank">View Recipe</a>
         </li>
       {% endfor %}
@@ -34,7 +83,7 @@
       <ul>
         {% for meal in data.meals %}
           <li>
-            <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) -
+            <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) –
             <a href="{{ meal.sourceUrl }}" target="_blank">View Recipe</a>
           </li>
         {% endfor %}
@@ -46,7 +95,8 @@
       <h3>Day {{ day }}</h3>
       <ul>
         {% for meal_name, recipe in meals.items() %}
-          <li><strong>{{ meal_name.capitalize() }}:</strong>
+          <li>
+            <strong>{{ meal_name.capitalize() }}:</strong>
             <a href="{{ recipe.sourceUrl }}" target="_blank">{{ recipe.title }}</a>
             ({{ recipe.readyInMinutes }} min)
           </li>
@@ -54,5 +104,5 @@
       </ul>
     {% endfor %}
   {% endif %}
-</body>
-</html>
+</div>
+{% endblock %}

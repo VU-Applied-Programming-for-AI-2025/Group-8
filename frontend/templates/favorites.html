@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Your Favorite Recipes</title>
-</head>
+{% block title %}Your Favorite Recipes{% endblock %}
 
-<body>
+{% block content %}
+<div class="favorites-container">
     <h1>🍽️ Your Favorite Recipes</h1>
 
     {% if recipes %}
-    <ul>
+    <ul style="list-style: none; padding: 0;">
         {% for recipe in recipes %}
-        <li style="margin-bottom: 20px;">
+        <li class="recipe">
             <h2>{{ recipe.title }}</h2>
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" width="250">
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
             <p><a href="{{ recipe.sourceUrl }}" target="_blank">View full recipe</a></p>
 
             <form method="post" action="/remove_favorite/{{ recipe.id }}">
@@ -24,10 +21,9 @@
         {% endfor %}
     </ul>
     {% else %}
-    <p>No favorites saved yet!</p>
+    <p class="no-favorites">No favorites saved yet!</p>
     {% endif %}
 
-    <a href="/home">← Back to Home</a>
-</body>
-
-</html>
+    <a class="back-link" href="{{ url_for('home') }}">← Back to Home</a>
+</div>
+{% endblock %}

@@ -1,0 +1,927 @@
+/*base styles*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin-top: 2em;
+}
+
+nav {
+    background-color: #ffffff;
+    padding: 12px 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+nav a,
+.dropbtn {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+nav a:hover,
+.dropbtn:hover {
+    background-color: #eaf2ff;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: 500;
+    padding: 8px 10px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    border-radius: 6px;
+    padding: 0.5em 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*recommendations*/
+.recipes-container {
+    max-width: 1100px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.recipes-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 2em;
+}
+
+.meal-section {
+    margin-bottom: 3em;
+}
+
+.meal-section h2 {
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.recipe-card {
+    flex: 0 0 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    background-color: #fafafa;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.recipe-card p {
+    margin: 0.5em 0;
+    color: #444;
+    font-weight: 500;
+}
+
+.view-button,
+.favorite-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.view-button {
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.view-button:hover {
+    background-color: #0056b3;
+}
+
+.favorite-btn {
+    background-color: #f5f5f5;
+    border: 1px solid #bbb;
+    margin-top: 0.5em;
+    color: #333;
+}
+
+.favorite-btn:hover {
+    background-color: #ddd;
+}
+
+.submit-btn {
+    margin-top: 2em;
+    background-color: #28a745;
+    color: white;
+    padding: 0.75em 1.5em;
+    border-radius: 6px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #218838;
+}
+
+.spoonacular-link {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.spoonacular-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.spoonacular-link a:hover {
+    text-decoration: underline;
+}
+
+/*analysis history*/
+.history-container {
+    max-width: 800px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.history-container h2 {
+    text-align: center;
+    margin-bottom: 1.5em;
+    color: #007BFF;
+}
+
+.entry {
+    margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.entry h4 {
+    margin-bottom: 0.3em;
+    color: #333;
+}
+
+.entry p {
+    margin: 0.3em 0;
+    color: #555;
+}
+
+.entry ul {
+    padding-left: 1.5em;
+    margin-top: 0.5em;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2em;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/*auth*/
+
+.auth-container {
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 0.3em;
+    color: #444;
+    font-weight: bold;
+}
+
+input {
+    padding: 0.6em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1em;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.register-section {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/*built-in mealplanner*/
+.planner-container {
+    max-width: 600px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .planner-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+  }
+
+  label {
+    display: block;
+    margin-top: 1em;
+    font-weight: 600;
+    color: #444;
+  }
+
+  select {
+    margin-top: 0.3em;
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+  }
+
+  button {
+    margin-top: 2em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em 1.2em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+
+  /*profile*/
+  .profile-container {
+    max-width: 700px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+label {
+    font-weight: 600;
+    color: #444;
+}
+
+input, select {
+    padding: 0.6em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+}
+
+button {
+    margin-top: 1.5em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.success-message {
+    color: green;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2em;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/*results*/
+.results-container {
+    max-width: 800px;
+    margin: 3em auto;
+    background: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.results-container h1 {
+    color: #007BFF;
+    font-size: 1.6em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+#analysis {
+    white-space: pre-wrap;
+    background-color: #f9f9f9;
+    padding: 1.5em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 2em;
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #333;
+}
+
+.button-link {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 0.75em 1.5em;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+}
+
+.link-wrapper {
+    text-align: center;
+}
+
+/*recipe_details*/
+.recipe-container {
+    max-width: 800px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.recipe-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+}
+
+.recipe-container img {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #444;
+    margin-top: 1.5em;
+}
+
+ul {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+li {
+    margin-bottom: 0.4em;
+    color: #333;
+}
+
+.instructions {
+    margin-top: 1em;
+    line-height: 1.6em;
+    color: #555;
+}
+
+ol {
+    padding-left: 1.5em;
+    color: #333;
+}
+
+p {
+    color: #777;
+}
+
+/*registration*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 1em;
+    font-weight: 600;
+    color: #444;
+}
+
+input, select {
+    padding: 0.6em;
+    margin-top: 0.3em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+button {
+    margin-top: 2em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/*homepage*/
+.home-container {
+    max-width: 700px;
+    margin: 3em auto;
+    background: #ffffff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-container h2 {
+    text-align: center;
+    margin-bottom: 1em;
+    color: #333;
+}
+
+.home-container h1 {
+    margin-top: 2em;
+    font-size: 1.4em;
+    color: #007BFF;
+}
+
+form {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 0.3em;
+}
+
+input[type="text"] {
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.search-form {
+    margin-bottom: 2em;
+}
+
+.search-form input[type="text"] {
+    max-width: 400px;
+}
+
+/*favorites*/
+.favorites-container {
+    max-width: 900px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.favorites-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+    font-size: 2em;
+}
+
+.recipe {
+    margin-bottom: 3em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 2em;
+}
+
+.recipe img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 0.5em;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.recipe h2 {
+    margin-bottom: 0.3em;
+    color: #444;
+}
+
+.recipe a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.recipe a:hover {
+    text-decoration: underline;
+}
+
+form button {
+    margin-top: 1em;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #b52a37;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2em;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.no-favorites {
+    text-align: center;
+    color: #777;
+    font-size: 1.1em;
+}
+
+/*edit_mealplanner*/
+.planner-container {
+    max-width: 1000px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: auto;
+}
+
+.planner-container h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 1em;
+    border: 1px solid #ccc;
+    vertical-align: top;
+}
+
+th {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+td form {
+    margin-top: 0.5em;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    font-size: 0.95em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/*create_meal_planner*/
+.meal-planner-container {
+    max-width: 600px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.meal-planner-container h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 0.2em;
+}
+
+input[type="number"] {
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    margin-left: 1em;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    color: #333;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: fit-content;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/*consentform*/
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.consent-container {
+    background: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    text-align: center;
+}
+
+.consent-container h2 {
+    margin-bottom: 0.5em;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.consent-container p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5em;
+    margin-bottom: 2em;
+}
+
+.consent-container button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.consent-container button:hover {
+    background-color: #0056b3;
+}

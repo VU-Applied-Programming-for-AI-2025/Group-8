@@ -1,12 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{{ name }} Info</title>
-</head>
+{% block title %}{{ name }} Info{% endblock %}
 
-<body>
+{% block content %}
+<style>
+    .nutrient-container {
+        max-width: 800px;
+        margin: 3em auto;
+        background-color: #fff;
+        padding: 2.5em 3em;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .nutrient-container h1 {
+        text-align: center;
+        color: #007BFF;
+        margin-bottom: 1.5em;
+    }
+
+    h2 {
+        margin-top: 1.5em;
+        color: #444;
+    }
+
+    p {
+        color: #555;
+        line-height: 1.6em;
+        margin: 0.5em 0 1.2em 0;
+    }
+
+    ul {
+        padding-left: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    li {
+        margin-bottom: 0.4em;
+        color: #333;
+    }
+
+    .back-link {
+        display: inline-block;
+        margin-top: 2em;
+        color: #007BFF;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .back-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="nutrient-container">
     <h1>{{ name }}</h1>
 
     <h2>Function</h2>
@@ -29,7 +77,6 @@
         {% endfor %}
     </ul>
 
-    <a href="{{ url_for('home') }}">← Back to nutrient list</a>
-</body>
-
-</html>
+    <a href="{{ url_for('home') }}" class="back-link">← Back to nutrient list</a>
+</div>
+{% endblock %}

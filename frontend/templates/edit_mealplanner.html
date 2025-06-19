@@ -1,23 +1,37 @@
-<table border="1">
-    <tr>
-        <th>Day</th>
-        {% for meal in mealplan[1].keys() %}
-            <th>{{ meal.title() }}</th>
-        {% endfor %}
-    </tr>
-    {% for day, meals in mealplan.items() %}
-    <tr>
-        <td>{{ day }}</td>
-        {% for meal, recipe in meals.items() %}
-            <td>
-                {{ recipe.title }}
-                <form method="POST" action="{}">
-                    <input type="hidden" name="day" value="{{ day }}">
-                    <input type="hidden" name="meal" value="{{ meal }}">
-                    <button type="submit">Replace</button>
-                </form>
-            </td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
+{% extends "base.html" %}
+
+{% block title %}Edit Meal Planner{% endblock %}
+
+{% block content %}
+<div class="planner-container">
+    <h2>Edit Your Meal Planner</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                {% for meal in mealplan[1].keys() %}
+                    <th>{{ meal.title() }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for day, meals in mealplan.items() %}
+            <tr>
+                <td><strong>{{ day }}</strong></td>
+                {% for meal, recipe in meals.items() %}
+                <td>
+                    <div>{{ recipe.title }}</div>
+                    <form method="POST" action="{{ url_for('replace_meal') }}">
+                        <input type="hidden" name="day" value="{{ day }}">
+                        <input type="hidden" name="meal" value="{{ meal }}">
+                        <button type="submit">Replace</button>
+                    </form>
+                </td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -18,7 +18,7 @@ import os, json, requests, random
 
 load_dotenv()
 
-app = Flask(__name__, template_folder="../frontend/templates")
+app = Flask(__name__, template_folder="../frontend/templates", static_folder="../frontend/static")
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 
 # Retrieves the spoonacular API key from the .env file

@@ -1,25 +1,28 @@
-<!-- templates/home.html -->
 {% extends "base.html" %}
 
 {% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
 
+<main>
 {% block content %}
-<form method="POST" action="{{ url_for('search_bar') }}">
-    {{ form.hidden_tag() }}
-    {{ form.search_bar.label }}
-    {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
-    <button type="submit">Search</button>
-</form>
 
+<div class="home-container">
+    <h2>Welcome to NutriSpoon{% if response.fullname %}, {{ response.fullname }}{% endif %}</h2>
 
-<div>
-    <h2>Welcome to NutriSpoon{{response.fullname}}</h2>
+    <!-- 🔍 Search Bar -->
+    <form class="search-form" method="POST" action="{{ url_for('search_bar') }}">
+        {{ form.hidden_tag() }}
+        <label for="search_bar">{{ form.search_bar.label }}</label>
+        {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
+        <button type="submit">Search</button>
+    </form>
+
+    <!-- 🧬 Symptoms Analyzer -->
+    <h1>Symptoms Analyzer</h1>
+    <form method="POST" action="/home">
+        <label for="symptoms">Enter your symptoms:</label>
+        <input type="text" id="symptoms" name="symptoms" required>
+        <button type="submit">Analyze</button>
+    </form>
 </div>
-
-<h1>Symptoms analyzer</h1>
-<form method="POST" action="/home">
-    <label for="symptoms">Enter your symptoms:</label>
-    <input type="text" id="symptoms" name="symptoms" required>
-    <button type="submit">Analyze</button>
-</form>
 {% endblock %}
+</main>
