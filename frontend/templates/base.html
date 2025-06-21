@@ -17,8 +17,15 @@
         </div>
 
         <div class="nav-center">
-            <a href="/profile">Profile</a>
-
+            <div class="dropdown">
+                <button class="dropbtn">Profile <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a href="/profile">Edit Profile</a>
+                    <a href="/show_favorites">Favorites</a>
+                    <a href="{{ url_for('edit_meal_planner') }}">My Meal Plan</a>
+                    <a href="{{ url_for('show_history') }}">View Analysis History</a>
+                </div>
+            </div>
             <div class="dropdown">
                 {# Changed to <button> for better semantics and to use Font Awesome icon #}
                 <button class="dropbtn">Nutrients <i class="fas fa-caret-down"></i></button>
@@ -34,10 +41,6 @@
                     {% endfor %}
                 </div>
             </div>
-
-            <a href="/show_favorites">Favorites</a>
-            <a href="{{ url_for('edit_meal_planner') }}">My Meal Plan</a>
-            <a href="{{ url_for('show_history') }}">View Analysis History</a>
         </div>
         
         <div class="nav-right">
