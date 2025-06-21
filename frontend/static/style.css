@@ -1,13 +1,26 @@
 /*base styles*/
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
+    background-color: #1b86f1;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
 }
 
 main {
-    margin-top: 2em;
+    margin-top: 1em;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 nav {
@@ -15,9 +28,22 @@ nav {
     padding: 12px 24px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
-    flex-wrap: wrap;
+    /* Use flexbox for internal layout */
+    justify-content: space-between;
+    /* Pushes items to ends (logo left, links center, search/login right) */
     align-items: center;
-    gap: 12px;
+    /* Vertically centers items */
+    width: 100%;
+    /* Ensures it spans full width */
+    box-sizing: border-box;
+    position: fixed;
+    /* Makes it stick to the top always */
+    top: 0;
+    /* Positions it at the very top */
+    left: 0;
+    /* Positions it at the very left */
+    z-index: 1000;
+    /* Ensures it stays on top of other content */
 }
 
 nav a,
@@ -28,11 +54,15 @@ nav a,
     padding: 8px 10px;
     border-radius: 6px;
     transition: background-color 0.2s ease;
+    margin-top: 0;
+    width: auto;
 }
 
 nav a:hover,
 .dropbtn:hover {
     background-color: #eaf2ff;
+    color: #007BFF;
+    transform: none;
 }
 
 .dropdown {
@@ -120,7 +150,7 @@ nav a:hover,
     border-radius: 8px;
     padding: 1em;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
     background-color: #fafafa;
 }
 
@@ -255,34 +285,45 @@ nav a:hover,
     background-color: #fff;
     padding: 2.5em 3em;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
     width: 100%;
+    margin: 2em auto;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    box-sizing: border-box;
 }
 
 h2 {
     text-align: center;
-    margin-bottom: 1em;
-    color: #333;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+    font-size: 2em;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    margin-bottom: 2em;
 }
 
 label {
     margin-bottom: 0.3em;
-    color: #444;
+    color: #007BFF;
     font-weight: bold;
+    font-size: 0.95em;
 }
 
 input {
-    padding: 0.6em;
-    margin-bottom: 1em;
+    padding: 0.8em;
+    margin-bottom: 1.5em;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1em;
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 button {
@@ -293,23 +334,34 @@ button {
     font-size: 1em;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-bottom: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0;
 }
 
 button:hover {
     background-color: #0056b3;
+    transform: translateY(-1px);
 }
 
 .register-section {
-    text-align: center;
-    margin-top: 1em;
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    font-weight: 500;
+
 }
 
 .error-message {
     color: red;
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.95em;
+
 }
 
 /*built-in mealplanner*/
@@ -321,31 +373,31 @@ button:hover {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+}
 
-  .planner-container h1 {
+.planner-container h1 {
     text-align: center;
     color: #007BFF;
     margin-bottom: 1.5em;
-  }
+}
 
-  label {
+label {
     display: block;
     margin-top: 1em;
     font-weight: 600;
     color: #444;
-  }
+}
 
-  select {
+select {
     margin-top: 0.3em;
     padding: 0.6em;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1em;
     width: 100%;
-  }
+}
 
-  button {
+button {
     margin-top: 2em;
     background-color: #007BFF;
     color: white;
@@ -355,21 +407,21 @@ button:hover {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
+}
 
-  button:hover {
+button:hover {
     background-color: #0056b3;
-  }
+}
 
-  .error-message {
+.error-message {
     color: red;
     text-align: center;
     margin-bottom: 1em;
-  }
+}
 
 
-  /*profile*/
-  .profile-container {
+/*profile*/
+.profile-container {
     max-width: 700px;
     margin: 3em auto;
     background-color: #fff;
@@ -396,7 +448,8 @@ label {
     color: #444;
 }
 
-input, select {
+input,
+select {
     padding: 0.6em;
     font-size: 1em;
     border: 1px solid #ccc;
@@ -509,7 +562,7 @@ button:hover {
     margin: 0 auto 1.5em auto;
     max-width: 100%;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 h2 {
@@ -543,16 +596,6 @@ p {
 }
 
 /*registration*/
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-}
 
 .form-container {
     background-color: #fff;
@@ -580,7 +623,8 @@ label {
     color: #444;
 }
 
-input, select {
+input,
+select {
     padding: 0.6em;
     margin-top: 0.3em;
     border: 1px solid #ccc;
@@ -612,23 +656,23 @@ button:hover {
 
 /*homepage*/
 .home-container {
-    max-width: 700px;
-    margin: 3em auto;
+    width: 100%;
+    max-width: 800px;
+    margin: 1em auto;
     background: #ffffff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .home-container h2 {
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     color: #333;
 }
 
 .home-container h1 {
-    margin-top: 2em;
+    margin-top: 0.5em;
     font-size: 1.4em;
     color: #007BFF;
 }
@@ -676,6 +720,20 @@ button:hover {
 .search-form input[type="text"] {
     max-width: 400px;
 }
+
+.testimonials {
+    background: #f9f9f9;
+    padding: 2em;
+    text-align: center;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 1em auto;
+    max-width: 600px;
+}
+
 
 /*favorites*/
 .favorites-container {
@@ -782,7 +840,8 @@ table {
     text-align: left;
 }
 
-th, td {
+th,
+td {
     padding: 1em;
     border: 1px solid #ccc;
     vertical-align: top;
@@ -878,24 +937,17 @@ button:hover {
 }
 
 /*consentform*/
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
 
 .consent-container {
     background: #fff;
     padding: 2.5em 3em;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    text-align: center;
+    max-width: 550px;
+    margin: 2em auto;
+    text-align: left;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .consent-container h2 {
@@ -924,4 +976,104 @@ body {
 
 .consent-container button:hover {
     background-color: #0056b3;
+}
+
+/*nutrient_info_page.html*/
+.nutrient-container {
+    max-width: 800px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nutrient-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+}
+
+h2 {
+    margin-top: 1.5em;
+    color: #444;
+}
+
+p {
+    color: #555;
+    line-height: 1.6em;
+    margin: 0.5em 0 1.2em 0;
+}
+
+ul {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+li {
+    margin-bottom: 0.4em;
+    color: #333;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 2em;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+
+/*mealplanner*/
+.mealplan-container {
+    max-width: 800px;
+    margin: 3em auto;
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.mealplan-container h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em;
+}
+
+h2,
+h3 {
+    color: #444;
+    margin-top: 1.5em;
+}
+
+ul {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+li {
+    margin-bottom: 0.5em;
+    line-height: 1.5em;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.message {
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+    margin-top: 2em;
 }

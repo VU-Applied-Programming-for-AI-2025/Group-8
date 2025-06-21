@@ -597,15 +597,75 @@
           },
           "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
         }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly increase her risk for Vitamin A lack, but her Whole30 diet may be low in Vitamin A if she's not consuming enough animal products or sweet potatoes.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "liver"
+            ],
+            "tip": "Include a source of healthy fat with Vitamin A-rich foods to enhance absorption."
+          },
+          "VitaminC": {
+            "why": "Vitamin C helps regulate collagen production and has antioxidant properties that can help combat acne. Feru's Whole30 diet is likely rich in fruits and vegetables, but a lack of Vitamin C can still occur if she's not consuming enough.",
+            "foods": [
+              "oranges",
+              "bell peppers",
+              "kiwis"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating sebum production and reducing inflammation, making it essential for acne-prone skin. As a female, Feru may be at risk for Zinc lack due to inadequate dietary intake or increased excretion.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Take a Zinc supplement or consume Zinc-rich foods with acidic foods like citrus or tomatoes to enhance absorption."
+          }
+        }
       }
     ],
     "mealplan": {
-      "meals": [],
+      "meals": [
+        {
+          "id": 1747693,
+          "image": "your-basic-low-carb-breakfast-1747693.jpg",
+          "imageType": "jpg",
+          "title": "Your Basic Low Carb Breakfast",
+          "readyInMinutes": 7,
+          "servings": 1,
+          "sourceUrl": "https://supersimplelowcarb.com/blogs/low-carb-recipes/your-basic-low-carb-breakfast"
+        },
+        {
+          "id": 1697531,
+          "image": "southern-tuna-salad-1697531.jpg",
+          "imageType": "jpg",
+          "title": "Southern Tuna Salad",
+          "readyInMinutes": 5,
+          "servings": 2,
+          "sourceUrl": "https://maplewoodroad.com/southern-tuna-salad/"
+        },
+        {
+          "id": 659135,
+          "image": "Salmon-with-roasted-vegetables-659135.jpg",
+          "imageType": "jpg",
+          "title": "Salmon with roasted vegetables",
+          "readyInMinutes": 45,
+          "servings": 2,
+          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables"
+        }
+      ],
       "nutrients": {
-        "calories": 0,
-        "protein": 0,
-        "fat": 0,
-        "carbohydrates": 0
+        "calories": 1330.16,
+        "protein": 90.01,
+        "fat": 80.12,
+        "carbohydrates": 64.18
       }
     }
   }

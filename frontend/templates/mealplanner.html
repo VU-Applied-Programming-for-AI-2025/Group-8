@@ -3,54 +3,6 @@
 {% block title %}Your Meal Plan{% endblock %}
 
 {% block content %}
-<style>
-  .mealplan-container {
-    max-width: 800px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
-
-  .mealplan-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-  }
-
-  h2, h3 {
-    color: #444;
-    margin-top: 1.5em;
-  }
-
-  ul {
-    padding-left: 1.5em;
-    margin-bottom: 1em;
-  }
-
-  li {
-    margin-bottom: 0.5em;
-    line-height: 1.5em;
-  }
-
-  a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-
-  .message {
-    text-align: center;
-    font-weight: 500;
-    color: #555;
-    margin-top: 2em;
-  }
-</style>
 
 <div class="mealplan-container">
   <h1>Your Meal Plan</h1>
@@ -104,5 +56,7 @@
       </ul>
     {% endfor %}
   {% endif %}
+
+  <a class="back-link" href="{{ url_for('home') }}">← Back to Home</a>
 </div>
 {% endblock %}
