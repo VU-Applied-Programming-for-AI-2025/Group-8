@@ -5,6 +5,9 @@ body {
     margin: 0;
     padding: 0;
     padding-top: 120px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 main {
@@ -1126,4 +1129,33 @@ td form {
     .vertical-scrollable-timeline li:after {
         left: -28px !important; /* Position circle on the left for all items */
     }
+}
+
+/*--- Footer Styles ---*/
+footer {
+    background-color: #333; /* Dark background for the footer */
+    color: #fff; /* White text color */
+    padding: 2em 1em; /* Padding top/bottom and left/right */
+    text-align: center; /* Center the text */
+    font-size: 0.9em; /* Slightly smaller font size */
+    margin-top: auto; /* Pushes the footer to the bottom */
+}
+
+.footer-content {
+    max-width: 1200px; /* Max width to align with content */
+    margin: 0 auto; /* Center the footer content */
+}
+
+footer p {
+    margin: 0.5em 0; /* Space between paragraphs */
+    color: #bbb; /* Lighter color for general text */
+}
+
+footer a {
+    color: #007BFF; /* Link color */
+    text-decoration: none; /* No underline by default */
+}
+
+footer a:hover {
+    text-decoration: underline; /* Underline on hover for links */
 }
