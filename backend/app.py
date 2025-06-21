@@ -216,7 +216,7 @@ def home() -> Union[str, Response]:
         symptoms = request.form.get("symptoms").strip()
         if symptoms:
             return redirect(url_for("display_results", symptoms=symptoms))
-        return redirect(url_for("home_page"))
+        return redirect(url_for("home"))
 
     return render_template("homepage.html", response=user_name, form=form)
 
@@ -790,22 +790,24 @@ def edit_meal_planner() -> str:
     if not user:
         return redirect(url_for("auth_page"))
 
+    form = SearchForm()
+
     mealplan = user.mealplan
     if not mealplan:
         return render_template(
-            "mealplanner.html", message="No meal plan found. Please create one."
+            "mealplanner.html", message="No meal plan found. Please create one.", form=form
         )
 
     # Determine if it's a daily or weekly plan
     if "meals" in mealplan:
         # Day plan
-        return render_template("mealplanner.html", day_plan=mealplan)
+        return render_template("mealplanner.html", day_plan=mealplan, form=form)
     elif "week" in mealplan:
         # Week plan
-        return render_template("mealplanner.html", week_plan=mealplan["week"])
+        return render_template("mealplanner.html", week_plan=mealplan["week"], form=form)
     else:
         return render_template(
-            "mealplanner.html", message="Unexpected meal plan format."
+            "mealplanner.html", message="Unexpected meal plan format.",form=form
         )
 
 
@@ -924,6 +926,8 @@ def show_favorites() -> Union[str, Response]:
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
+    
+    form = SearchForm()
 
     recipes = []
     # Fetch recipe details for each saved ID
@@ -935,7 +939,7 @@ def show_favorites() -> Union[str, Response]:
         if response.ok:
             recipes.append(response.json())
 
-    return render_template("favorites.html", recipes=recipes)
+    return render_template("favorites.html", recipes=recipes, form=form)
 
 
 @app.route("/save_results", methods=["POST"])
@@ -982,7 +986,10 @@ def show_history() -> Union[str, Response]:
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-    return render_template("analysis_history.html", results=user.analysis_results)
+    
+    form = SearchForm()
+
+    return render_template("analysis_history.html", results=user.analysis_results,form=form)
 
 
 def get_nutrient_info() -> Dict[str, Any]:
@@ -1020,10 +1027,12 @@ def nutrients_info_page(nutrient_name: str) -> Union[str, Response]:
     """
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(nutrient_name.upper())
+    
+    form = SearchForm()
 
     if nutrient:
         return render_template(
-            "nutrient_info_page.html", name=nutrient_name.upper(), info=nutrient
+            "nutrient_info_page.html", name=nutrient_name.upper(), info=nutrient, form=form
         )
 
     return "Nutrient not found", 404
@@ -1054,9 +1063,11 @@ def search_results(query: str) -> Union[str, Response]:
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(query.upper())
 
+    form = SearchForm()
+
     if nutrient:
         return render_template(
-            "nutrient_info_page.html", name=query.upper(), info=nutrient
+            "nutrient_info_page.html", name=query.upper(), info=nutrient, form=form
         )
 
     return "No nutrient", 404
@@ -1076,6 +1087,8 @@ def profile() -> Union[str, Response]:
     user: UserProfile = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
+
+    form = SearchForm()
 
     # Retrieves the form data from the profile page and updates the user profile.
     if request.method == "POST":
@@ -1103,9 +1116,9 @@ def profile() -> Union[str, Response]:
         users_data.save_to_file()
 
         message: str = "Profile updated!"
-        return render_template("profile.html", user=user, message=message)
+        return render_template("profile.html", user=user, message=message, form=form)
 
-    return render_template("profile.html", user=user)
+    return render_template("profile.html", user=user,form=form)
 
 
 def validate_required_fields_profile(form) -> Union[None, str]:

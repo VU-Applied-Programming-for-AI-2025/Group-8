@@ -6,36 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}NutriSpoon{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     {% block head %}{% endblock %}
 </head>
 
 <body>
     <nav>
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="/profile">Profile</a>
-
-        <div class="dropdown">
-            <a href="#" class="dropbtn">Nutrients ▾</a>
-            <div class="dropdown-content">
-                {% for nutrient in [
-                    "Copper", "Calcium", "Choline", "Cholesterol", "Fluoride", "SaturatedFat",
-                    "VitaminA", "VitaminC", "VitaminD", "VitaminE", "VitaminK", "VitaminB1",
-                    "VitaminB2", "VitaminB3", "VitaminB5", "VitaminB6", "VitaminB12",
-                    "Fiber", "Folate", "FolicAcid", "Iodine", "Iron", "Magnesium", "Manganese",
-                    "Phosphorus", "Potassium", "Selenium", "Sodium", "Sugar", "Zinc"
-                ] %}
-                <a href="{{ url_for('nutrients') }}?nutrient={{ nutrient }}">{{ nutrient }}</a>
-                {% endfor %}
-            </div>
+        <div class="nav-left">
+            <a href="{{ url_for('home') }}" class="logo">NutriSpoon</a>
         </div>
 
-        <a href="/show_favorites">Favorites</a>
-        <a href="{{ url_for('edit_meal_planner') }}">My Meal Plan</a>
-        <a href="{{ url_for('show_history') }}">View Analysis History</a>
-        <a href="/logout">Logout</a>
+        <div class="nav-center">
+            <a href="/profile">Profile</a>
+
+            <div class="dropdown">
+                {# Changed to <button> for better semantics and to use Font Awesome icon #}
+                <button class="dropbtn">Nutrients <i class="fas fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    {% for nutrient in [
+                        "Copper", "Calcium", "Choline", "Cholesterol", "Fluoride", "SaturatedFat",
+                        "VitaminA", "VitaminC", "VitaminD", "VitaminE", "VitaminK", "VitaminB1",
+                        "VitaminB2", "VitaminB3", "VitaminB5", "VitaminB6", "VitaminB12",
+                        "Fiber", "Folate", "FolicAcid", "Iodine", "Iron", "Magnesium", "Manganese",
+                        "Phosphorus", "Potassium", "Selenium", "Sodium", "Sugar", "Zinc"
+                    ] %}
+                    <a href="{{ url_for('nutrients') }}?nutrient={{ nutrient }}">{{ nutrient }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <a href="/show_favorites">Favorites</a>
+            <a href="{{ url_for('edit_meal_planner') }}">My Meal Plan</a>
+            <a href="{{ url_for('show_history') }}">View Analysis History</a>
+        </div>
+        
+        <div class="nav-right">
+            <form class="search-nav-form" method="POST" action="{{ url_for('search_bar') }}">
+                {{ form.hidden_tag() }}
+                {# Using 'search_input' class for specific styling #}
+                {{ form.search_bar(size=30, placeholder="Search a nutrient...", class_="search-input") }}
+                {# Using 'search_button' class for specific styling #}
+                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
     </nav>
     <main>
-    {% block content %}{% endblock %}
+        {% block content %}{% endblock %}
     </main>
 </body>
 

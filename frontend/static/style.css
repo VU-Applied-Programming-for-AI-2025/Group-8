@@ -1,7 +1,7 @@
 /*base styles*/
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #1b86f1;
+    background-color: #f4f6f8;
     margin: 0;
     padding: 0;
     display: flex;
@@ -9,7 +9,7 @@ body {
     min-height: 100vh;
     justify-content: center;
     align-items: center;
-    padding-top: 60px;
+    padding-top: 120px;
 }
 
 main {
@@ -25,7 +25,7 @@ main {
 
 nav {
     background-color: #ffffff;
-    padding: 12px 24px;
+    padding: 9px 24px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     /* Use flexbox for internal layout */
@@ -44,6 +44,47 @@ nav {
     /* Positions it at the very left */
     z-index: 1000;
     /* Ensures it stays on top of other content */
+    margin-bottom: 0;
+}
+
+.nav-left,
+.nav-center,
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adjust gap as needed for spacing between links/elements */
+}
+
+.search-nav-form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 1px 10px;
+    background-color: #f8f8f8;
+    max-width: 200px;
+    margin-bottom: 0;
+}
+
+.search-nav-form .search-input {
+    border: none;
+    outline: none;
+    padding: 1px 8px;
+    font-size: 0.9em;
+    background: transparent;
+    width: 100%;
+    min-height: 5px;
+    text-align: center;
+}
+
+.search-nav-form .search-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #007BFF;
+    font-size: 1em;
+    padding: 1px;
+    margin-left: 5px;
 }
 
 nav a,
@@ -81,6 +122,8 @@ nav a:hover,
     padding: 8px 10px;
     border-radius: 6px;
     display: inline-block;
+    gap: 5px;
+    align-items: center;
 }
 
 
@@ -95,6 +138,8 @@ nav a:hover,
     z-index: 1;
     border-radius: 6px;
     padding: 0.5em 0;
+    left: 0;
+    top: 100%;
 }
 
 .dropdown-content a {
@@ -479,6 +524,29 @@ button:hover {
     margin-bottom: 1em;
 }
 
+/* Styles for the Logout button (already in your style.css) */
+.logout-btn {
+    background-color: #dc3545; /* A standard red color */
+    color: white; /* White text for contrast */
+    padding: 8px 15px; /* Gives it button-like padding */
+    border-radius: 6px; /* Slightly rounded corners */
+    text-decoration: none; /* Removes the default underline for links */
+    font-weight: 500; /* Matches the font-weight of other nav links */
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    white-space: nowrap; /* Prevents the text from wrapping if space is tight */
+    /* Add margin-top if you want space between it and the form/button above */
+    margin-top: 20px; /* Example: add some space above the button */
+    display: block; /* Make it a block element to take full width and new line */
+    width: fit-content; /* Adjust width to content */
+    margin-left: auto; /* Center the button if display: block and width is fit-content */
+    margin-right: auto; /* Center the button if display: block and width is fit-content */
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+    transform: translateY(-1px); /* A subtle lift effect on hover */
+}
+
 .back-link {
     display: inline-block;
     margin-top: 2em;
@@ -784,7 +852,7 @@ button:hover {
 
 form button {
     margin-top: 1em;
-    background-color: #dc3545;
+    background-color: #51dc35;
     color: white;
     border: none;
     padding: 0.6em 1.2em;
