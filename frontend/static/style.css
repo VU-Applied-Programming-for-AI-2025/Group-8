@@ -437,6 +437,44 @@ nav {
     margin-right: 48px; /* Approximately icon width + padding */
 }
 
+.search-nav-form.active input.search-input {
+    padding: 6px 10px;
+    height: 36px;
+    border: none; /* Ensure no border */
+    outline: none; /* Remove outline on focus */
+    box-shadow: none; /* Remove any default box-shadow */
+    background-color: transparent;
+    flex-grow: 1;
+    width: fit-content;
+}
+
+.search-nav-form.active .search-button {
+    background-color: transparent; /* Make button background transparent */
+    color: #007BFF; /* Set icon color */
+    border: none;
+    padding: 0 8px; /* Adjust padding for the button */
+    cursor: pointer;
+    font-size: 1.1em;
+    height: 36px; /* Match height with the input field */
+    width: auto; /* Allow button to size to its content */
+    margin-top: 0;
+    margin-bottom: 0;
+    transition: color 0.2s ease;
+}
+
+.search-nav-form.active .search-button:hover {
+    color: #0056b3; /* Darken icon on hover */
+    background-color: transparent;
+    transform: none; /* Remove transform on hover for the button */
+}
+
+/* Ensure the input element takes full width within the search form when active */
+.search-nav-form input {
+    width: 100%; /* Ensure it takes available width inside the form */
+    margin-bottom: 0; /* Remove default input margin-bottom */
+}
+/* --- End of New/Modified Search Input Styles --- */
+
 /* Dropdown */
 .dropdown {
     position: relative;
