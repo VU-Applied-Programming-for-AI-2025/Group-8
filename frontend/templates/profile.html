@@ -1,56 +1,93 @@
-<html>
-<head>
-    <title>Your Profile</title>
-</head>
-<body>
-    <h2>Profile for {{ user.name }}</h2>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Your Profile</h2>
     {% if message %}
-        <p style="color:green;">{{ message }}</p>
+    <div class="flash-message">{{ message }}</div>
     {% endif %}
-    <form method="POST">
-        <label>Full Name:</label>
-        <input type="text" name="name" value="{{ user.name }}"><br>
-        <label>Age:</label>
-        <input type="number" name="age" value="{{ user.age }}"><br>
-        <label>Sex:</label>
-        <input type="text" name="sex" value="{{ user.sex }}"><br>
-        <label>Height:</label>
-        <input type="number" name="height" value="{{ user.height }}"><br>
-        <label>Weight:</label>
-        <input type="number" name="weight" value="{{ user.weight }}"><br>
-        <label>Skin Color:</label>
-        <select name="skin_color" required>
-            <option value="light" {% if user.skin_color == "light" %}selected{% endif %}>Light</option>
-            <option value="medium" {% if user.skin_color == "medium" %}selected{% endif %}>Medium</option>
-            <option value="dark" {% if user.skin_color == "dark" %}selected{% endif %}>Dark</option>
-        </select><br>
-        <label>Country:</label>
-        <input type="text" name="country" value="{{ user.country }}"><br>
-        <label>Diet:</label>
-        <select name="diet" required>
-            <option value="none" {% if "none" in user.diet %}selected{% endif %}>None</option>
-            <option value="glutenfree" {% if "glutenfree" in user.diet %}selected{% endif %}>Gluten Free</option>
-            <option value="ketogenic" {% if "ketogenic" in user.diet %}selected{% endif %}>Ketogenic</option>
-            <option value="vegetarian" {% if "vegetarian" in user.diet %}selected{% endif %}>Vegetarian</option>
-            <option value="lacto-vegetarian" {% if "lacto-vegetarian" in user.diet %}selected{% endif %}>Lacto-Vegetarian</option>
-            <option value="ovo-vegetarian" {% if "ovo-vegetarian" in user.diet %}selected{% endif %}>Ovo-Vegetarian</option>
-            <option value="vegan" {% if "vegan" in user.diet %}selected{% endif %}>Vegan</option>
-            <option value="pescetarian" {% if "pescetarian" in user.diet %}selected{% endif %}>Pescetarian</option>
-            <option value="paleo" {% if "paleo" in user.diet %}selected{% endif %}>Paleo</option>
-            <option value="primal" {% if "primal" in user.diet %}selected{% endif %}>Primal</option>
-            <option value="lowfodmap" {% if "lowfodmap" in user.diet %}selected{% endif %}>Low FODMAP</option>
-            <option value="whole30" {% if "whole30" in user.diet %}selected{% endif %}>Whole30</option>
-        </select><br>
-        <label>Medications (comma separated):</label>
-        <input type="text" name="medication" value="{{ ', '.join(user.medication) }}"><br>
-        <label>Existing conditions (comma separated):</label>
-        <input type="text" name="existing_conditions" value="{{ ', '.join(user.existing_conditions) }}"><br>
-        <label>Allergies (comma separated):</label>
-        <input type="text" name="allergies" value="{{ ', '.join(user.allergies) }}"><br>
-        <label>Password:</label>
-        <input type="password" name="password" value="{{ user.password }}"><br>
-        <button type="submit">Update Profile</button>
+    
+    <form method="POST" action="{{ url_for('profile') }}">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" class="form-control" value="{{ user.username }}" readonly>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" value="{{ user.password }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ user.name }}" required>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" class="form-control" value="{{ user.age }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex" class="form-control" required>
+                    <option value="male" {% if user.sex == 'male' %}selected{% endif %}>Male</option>
+                    <option value="female" {% if user.sex == 'female' %}selected{% endif %}>Female</option>
+                    <option value="other" {% if user.sex == 'other' %}selected{% endif %}>Other</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="height">Height (cm)</label>
+                <input type="number" step="0.1" id="height" name="height" class="form-control" value="{{ user.height }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="weight">Weight (kg)</label>
+                <input type="number" step="0.1" id="weight" name="weight" class="form-control" value="{{ user.weight }}" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="skin_color">Skin Tone</label>
+            <input type="text" id="skin_color" name="skin_color" class="form-control" value="{{ user.skin_color }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" class="form-control" value="{{ user.country }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="medication">Medications (comma separated)</label>
+            <input type="text" id="medication" name="medication" class="form-control" value="{{ user.medication|join(',') }}">
+        </div>
+        
+        <div class="form-group">
+            <label for="diet">Dietary Preference</label>
+            <select id="diet" name="diet" class="form-control" required>
+                <option value="none" {% if user.diet == 'none' %}selected{% endif %}>None</option>
+                <option value="vegetarian" {% if user.diet == 'vegetarian' %}selected{% endif %}>Vegetarian</option>
+                <option value="vegan" {% if user.diet == 'vegan' %}selected{% endif %}>Vegan</option>
+                <option value="glutenFree" {% if user.diet == 'glutenFree' %}selected{% endif %}>Gluten Free</option>
+                <option value="ketogenic" {% if user.diet == 'ketogenic' %}selected{% endif %}>Ketogenic</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="existing_conditions">Existing Conditions (comma separated)</label>
+            <input type="text" id="existing_conditions" name="existing_conditions" class="form-control" value="{{ user.existing_conditions|join(',') }}">
+        </div>
+        
+        <div class="form-group">
+            <label for="allergies">Allergies (comma separated)</label>
+            <input type="text" id="allergies" name="allergies" class="form-control" value="{{ user.allergies|join(',') }}">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Update Profile</button>
     </form>
-    <a href="{{ url_for('home') }}">Back to Home</a>
-</body>
-</html>
+</div>
+{% endblock %}
