@@ -23,165 +23,317 @@ main {
     box-sizing: border-box;
 }
 
+/* Global Headings and Paragraphs */
+h1 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em; /* Default margin for h1 */
+}
+
+h2 {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1.5em; /* Default margin for h2 */
+    font-size: 2em; /* Set a default font size for h2 */
+}
+
+h4 {
+    color: #333;
+}
+
+p {
+    color: #777;
+    margin: 0.3em 0; /* Default margin for paragraphs */
+}
+
+/* Global List Styles */
+ul {
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+}
+
+ol {
+    padding-left: 1.5em;
+    color: #333;
+}
+
+li {
+    margin-bottom: 0.4em;
+    color: #333;
+}
+
+/* Global Link Styles */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Global Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+    gap: 1em; /* Default gap for form elements */
+}
+
+label {
+    margin-bottom: 0.3em;
+    color: #007BFF;
+    font-weight: bold;
+    font-size: 0.95em;
+    display: block; /* Ensure labels take full width */
+}
+
+input {
+    padding: 0.8em;
+    margin-bottom: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    box-sizing: border-box;
+    width: 100%;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"] {
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+}
+
+select {
+    margin-top: 0.3em;
+    padding: 0.6em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    width: 100%;
+}
+
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+}
+
+/* Common Message Styles */
+.error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 1.5em;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.95em;
+}
+
+.success-message {
+    color: green;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.message {
+    text-align: center;
+    font-weight: 500;
+    color: #555;
+    margin-top: 2em;
+}
+
+/* Common Container Styles */
+.auth-container,
+.recipes-container,
+.history-container,
+.planner-container,
+.profile-container,
+.results-container,
+.recipe-container,
+.form-container,
+.home-container,
+.favorites-container,
+.meal-planner-container,
+.consent-container,
+.nutrient-container,
+.mealplan-container {
+    background-color: #fff;
+    padding: 2.5em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 3em auto; /* Default margin for containers */
+    box-sizing: border-box;
+}
+
+.auth-container,
+.form-container {
+    max-width: 1000px; /* Specific max-width for auth/registration forms */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 2em auto;
+}
+
+.form-container {
+    max-width: 600px;
+}
+
+.recipes-container {
+    max-width: 1100px;
+}
+
+.history-container,
+.results-container,
+.recipe-container,
+.mealplan-container {
+    max-width: 800px;
+}
+
+.planner-container,
+.meal-planner-container {
+    max-width: 600px; /* Default for planner containers */
+}
+
+.planner-container { /* Specific override for edit_mealplanner table */
+    max-width: 1000px;
+    overflow-x: auto;
+}
+
+.profile-container,
+.nutrient-container {
+    max-width: 700px;
+}
+
+.consent-container {
+    max-width: 550px;
+    margin: 2em auto;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.home-container {
+    max-width: 800px;
+    margin: 1em auto;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.favorites-container {
+    max-width: 900px;
+}
+
+/* Back Link (reused across several pages) */
+.back-link {
+    display: inline-block;
+    margin-top: 2em;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/*--- Navigation ---*/
 nav {
     background-color: #ffffff;
     padding: 9px 24px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
-    /* Use flexbox for internal layout */
     justify-content: space-between;
-    /* Pushes items to ends (logo left, links center, search/login right) */
     align-items: center;
-    /* Vertically centers items */
     width: 100%;
-    /* Ensures it spans full width */
     box-sizing: border-box;
     position: fixed;
-    /* Makes it stick to the top always */
     top: 0;
-    /* Positions it at the very top */
     left: 0;
-    /* Positions it at the very left */
     z-index: 1000;
-    /* Ensures it stays on top of other content */
-    margin-bottom: 0;
 }
 
-.nav-left {
+.nav-left,
+.nav-center,
+.nav-right {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Style the links inside the navigation bar */
+.nav-center {
+    font-size: 1.5em;
+}
+
+/* Nav links and dropdown buttons */
 .nav-left a,
-.nav-left .dropdown .dropbtn { /* Unified styling for direct links and dropdown buttons */
-    display: flex; /* Use flex to align content within the button/link */
-    align-items: center; /* Vertically center content (text and icon) inside the button/link */
+.nav-left .dropdown .dropbtn {
+    display: flex;
+    align-items: center;
     color: #007BFF;
     text-align: center;
-    padding: 8px 16px; /* Consistent padding */
+    padding: 8px 16px;
     text-decoration: none;
     font-size: 17px;
     border-radius: 6px;
     transition: background-color 0.2s ease;
-    background: none; /* Ensure no default button background */
-    border: none; /* Remove default button border */
+    background: none;
+    border: none;
     cursor: pointer;
     font-weight: 500;
-    gap: 5px; /* Space between text and icon in dropdown buttons */
+    gap: 5px;
 }
 
-
-/* Change the color of links on hover */
 .nav-left a:hover,
 .nav-left .dropdown .dropbtn:hover {
     background-color: #eaf2ff;
     color: #007BFF;
-    transform: none; /* Ensure no unintended transforms from other rules */
 }
 
-/* Add an active class to highlight the current page */
 .nav-left a.active {
     background-color: white;
     color: #007BFF;
 }
 
-/* Hide the link that should open and close the nav-left on small screens */
 .nav-left .icon {
     display: none;
 }
 
-/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the nav-left (.icon) */
-@media screen and (max-width: 600px) {
-    .nav-left .dropdown, /* Hides dropdowns */
-    .nav-left a:not(.icon) { /* Hides all direct links in nav-left EXCEPT the hamburger icon */
-        display: none;
-    }
-
-    .nav-left a.icon {
-        float: right;
-        display: block;
-    }
-}
-
-/* The "responsive" class is added to the nav-left with JavaScript when the user clicks on the icon. This class makes the nav-left look good on small screens (display the links vertically instead of horizontally) */
-@media screen and (max-width: 600px) {
-    .nav-left.responsive {
-        position: relative;
-        flex-direction: column; /* Stacks flex items vertically */
-        align-items: flex-start; /* Aligns items to the start (left) of the container */
-    }
-
-    .nav-left.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
-    }
-
-    .nav-left.responsive .dropdown,
-    .nav-left.responsive a:not(.icon) {
-        float: none;
-        display: block;
-        text-align: left;
-        width: 100%; /* Make them take full width of the menu */
-        box-sizing: border-box; /* Include padding in the width calculation */
-    }
-    /* You might also want to add some padding to the responsive menu items for better spacing */
-    .nav-left.responsive .dropdown .dropbtn,
-    .nav-left.responsive .dropdown-content a {
-        padding: 12px 16px; /* Adjust padding for better touch targets */
-    }
-    .nav-left.responsive .dropdown-content {
-        position: static; /* Dropdown content should appear directly below in the flow */
-        width: 100%;
-        box-shadow: none; /* Remove box shadow when expanded in mobile */
-        border-top: 1px solid #eee; /* Optional: Add a separator */
-    }
-}
-
-.nav-center {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    /* Adjust gap as needed for spacing between links/elements */
-    font-size: 1.5em
-}
-
-
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    /* Adjust gap as needed for spacing between links/elements */
-}
-
-/* Styling for the search container */
+/* Search Container */
 .search-container {
     position: relative;
     display: flex;
     align-items: center;
 }
 
-/* Initial search icon wrapper */
 .search-icon-wrapper {
     cursor: pointer;
     padding: 8px;
-    /* Padding around the icon to make it clickable */
     border: 1px solid #e0e0e0;
     border-radius: 50%;
-    /* Make it circular */
     display: flex;
     align-items: center;
     justify-content: center;
     width: 38px;
-    /* Fixed width for the circle */
     height: 38px;
-    /* Fixed height for the circle */
     box-sizing: border-box;
     transition: all 0.3s ease;
     color: #666;
-    /* Color of the icon */
     background-color: #f9f9f9;
     z-index: 2;
 }
@@ -195,53 +347,34 @@ nav {
     font-size: 1.1em;
 }
 
-/* Styling for the search form (initially hidden/collapsed) */
 .search-nav-form {
     position: absolute;
     right: 0;
-    /* Positioned to the right edge of its parent (.search-container) */
     top: -12%;
     transform: translateY(-50%);
-    /* Vertically center */
     display: flex;
     align-items: center;
     border: 1px solid #e0e0e0;
     border-radius: 25px;
-    padding: 5px 15px;
-    /* Initial padding will be zero because of max-width:0 */
     background-color: #f9f9f9;
     max-width: 0;
-    /* Initially collapsed */
     opacity: 0;
-    /* Initially invisible */
     overflow: hidden;
     white-space: nowrap;
     transition: max-width 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
     z-index: -1;
-    /* Place behind the search icon wrapper when collapsed */
 }
 
 .search-nav-form.active {
     max-width: 300px;
-    /* Expands to this width when active */
     opacity: 1;
-    /* Becomes visible */
     padding: 2px 1px;
-    /* Restore padding when active */
     z-index: 1;
-    /* Bring to front when active */
     max-height: 40px;
-    /* Expands to this height when active */
-}
-
-/* Ensure the active form positions correctly */
-.search-nav-form.active {
     right: 0;
-    /* Adjust as needed */
 }
 
-/* Styling for the search input field */
 .search-nav-form .search-input {
     border: none;
     outline: none;
@@ -249,55 +382,39 @@ nav {
     font-size: 0.95em;
     background: transparent;
     width: 100%;
-    /* Take full width of its container */
     color: #333;
     text-align: left;
     min-width: 150px;
-    /* Ensure input field has a minimum visible width when active */
 }
 
 .search-nav-form.active .search-input {
     width: auto;
-    /* Allow input to size according to its content */
     flex-grow: 1;
-    /* Allow input to grow within the flex container */
     min-width: 180px;
-    /* Ensure input is wide enough when active */
     margin-right: 8px;
-    /* Space between input and button */
 }
 
-
-/* Styling for the search button (inside the form) */
 .search-nav-form .search-button {
     background: none;
     border: none;
     cursor: pointer;
     color: #007BFF;
-    /* Healthline often uses a subtle blue for action icons */
     font-size: 1.1em;
     padding: 5px;
     margin-left: 0;
-    /* Remove previous margin */
     transition: color 0.2s ease;
     flex-shrink: 0;
-    /* Prevent button from shrinking */
 }
 
 .search-nav-form .search-button:hover {
     color: #0056b3;
-    /* Darker blue on hover */
 }
 
-/* Removed redundant nav a block as it's now covered by the more specific .nav-left a rule */
-
+/* Dropdown */
 .dropdown {
     position: relative;
     display: inline-block;
 }
-
-/* Removed redundant .dropbtn block as it's now covered by the more specific .nav-left .dropdown .dropbtn rule */
-
 
 .dropdown-content {
     display: none;
@@ -311,7 +428,7 @@ nav {
     border-radius: 6px;
     padding: 0.5em 0;
     left: 0;
-    top: 100%; /* Keep it directly below the button */
+    top: 100%;
 }
 
 .dropdown-content a {
@@ -329,23 +446,53 @@ nav {
     display: block;
 }
 
-/*recommendations*/
-.recipes-container {
-    max-width: 1100px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/*--- Media Queries ---*/
+@media screen and (max-width: 600px) {
+    .nav-left .dropdown,
+    .nav-left a:not(.icon) {
+        display: none;
+    }
+
+    .nav-left a.icon {
+        float: right;
+        display: block;
+    }
+
+    .nav-left.responsive {
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-left.responsive a.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .nav-left.responsive .dropdown,
+    .nav-left.responsive a:not(.icon) {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .nav-left.responsive .dropdown .dropbtn,
+    .nav-left.responsive .dropdown-content a {
+        padding: 12px 16px;
+    }
+
+    .nav-left.responsive .dropdown-content {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-top: 1px solid #eee;
+    }
 }
 
-.recipes-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 2em;
-}
-
+/*--- Recommendations Section ---*/
 .meal-section {
     margin-bottom: 3em;
 }
@@ -446,23 +593,7 @@ nav {
     text-decoration: underline;
 }
 
-/*analysis history*/
-.history-container {
-    max-width: 800px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.history-container h2 {
-    text-align: center;
-    margin-bottom: 1.5em;
-    color: #007BFF;
-}
-
+/*--- Analysis History Section ---*/
 .entry {
     margin-bottom: 2.5em;
     padding-bottom: 1.5em;
@@ -471,253 +602,38 @@ nav {
 
 .entry h4 {
     margin-bottom: 0.3em;
-    color: #333;
 }
 
-.entry p {
-    margin: 0.3em 0;
-    color: #555;
-}
-
-.entry ul {
-    padding-left: 1.5em;
-    margin-top: 0.5em;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 2em;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
-/*auth*/
-
-.auth-container {
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    width: 100%;
-    margin: 2em auto;
-    text-align: left;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
-    box-sizing: border-box;
-}
-
-h2 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-    font-size: 2em;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2em;
-}
-
-label {
-    margin-bottom: 0.3em;
-    color: #007BFF;
-    font-weight: bold;
-    font-size: 0.95em;
-}
-
-input {
-    padding: 0.8em;
-    margin-bottom: 1.5em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    box-sizing: border-box;
-    width: 100%;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 100%;
-    margin-top: 0.5em;
-    margin-bottom: 0;
-}
-
-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-1px);
-}
-
+/*--- Authentication Section ---*/
 .register-section {
     padding: 0.75em 1.5em;
     font-size: 1em;
     font-weight: 500;
-
 }
 
-.error-message {
-    color: red;
-    text-align: center;
-    margin-bottom: 1.5em;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 0.95em;
-
-}
-
-/*built-in mealplanner*/
-.planner-container {
-    max-width: 600px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.planner-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-}
-
-label {
-    display: block;
-    margin-top: 1em;
-    font-weight: 600;
-    color: #444;
-}
-
-select {
-    margin-top: 0.3em;
-    padding: 0.6em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    width: 100%;
-}
-
-/* Removed specific button style for planner-container as the global one suffices */
-
-
-.error-message {
-    color: red;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-
-/*profile*/
-.profile-container {
-    max-width: 700px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h2 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1em;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-/* Removed specific label style for profile as the global one suffices */
-
-/* Removed specific input, select style for profile as the global one suffices */
-
-/* Removed specific button style for profile as the global one suffices */
-
-.success-message {
-    color: green;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-/* Styles for the Logout button (already in your style.css) */
+/*--- Profile Section ---*/
 .logout-btn {
     background-color: #dc3545;
-    /* A standard red color */
     color: white;
-    /* White text for contrast */
     padding: 8px 15px;
-    /* Gives it button-like padding */
     border-radius: 6px;
-    /* Slightly rounded corners */
     text-decoration: none;
-    /* Removes the default underline for links */
     font-weight: 500;
-    /* Matches the font-weight of other nav links */
     transition: background-color 0.2s ease, transform 0.2s ease;
-    /* Smooth transition for hover effects */
     white-space: nowrap;
-    /* Prevents the text from wrapping if space is tight */
-    /* Add margin-top if you want space between it and the form/button above */
     margin-top: 20px;
-    /* Example: add some space above the button */
     display: block;
-    /* Make it a block element to take full width and new line */
     width: fit-content;
-    /* Adjust width to content */
     margin-left: auto;
-    /* Center the button if display: block and width is fit-content */
     margin-right: auto;
-    /* Center the button if display: block and width is fit-content */
 }
 
 .logout-btn:hover {
     background-color: #c82333;
-    /* Darker red on hover */
     transform: translateY(-1px);
-    /* A subtle lift effect on hover */
 }
 
-/* Removed redundant back-link for profile as it's defined below */
-
-
-/*results*/
-.results-container {
-    max-width: 800px;
-    margin: 3em auto;
-    background: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.results-container h1 {
-    color: #007BFF;
-    font-size: 1.6em;
-    margin-bottom: 1em;
-    text-align: center;
-}
-
+/*--- Results Section ---*/
 #analysis {
     white-space: pre-wrap;
     background-color: #f9f9f9;
@@ -749,23 +665,7 @@ form {
     text-align: center;
 }
 
-/*recipe_details*/
-.recipe-container {
-    max-width: 800px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.recipe-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-}
-
+/*--- Recipe Details Section ---*/
 .recipe-container img {
     display: block;
     margin: 0 auto 1.5em auto;
@@ -774,77 +674,21 @@ form {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* Removed redundant h2 for recipe_details as it's defined globally */
-
-ul {
-    padding-left: 1.5em;
-    margin-bottom: 1.5em;
-}
-
-li {
-    margin-bottom: 0.4em;
-    color: #333;
-}
-
 .instructions {
     margin-top: 1em;
     line-height: 1.6em;
     color: #555;
 }
 
-ol {
-    padding-left: 1.5em;
-    color: #333;
-}
-
-p {
-    color: #777;
-}
-
-/*registration*/
-
-.form-container {
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    width: 100%;
-}
-
-/* Removed redundant h2 for registration as it's defined globally */
-/* Removed redundant form for registration as it's defined globally */
-/* Removed redundant label for registration as it's defined globally */
-/* Removed redundant input, select for registration as it's defined globally */
-/* Removed redundant button for registration as it's defined globally */
-/* Removed redundant error-message for registration as it's defined globally */
-
-/*homepage*/
-.home-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 1em auto;
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-}
-
-.home-container h2 {
-    text-align: center;
-    margin-bottom: 0.5em;
-    color: #333;
-}
-
+/*--- Homepage Section ---*/
 .home-container h1 {
     margin-top: 0.5em;
     font-size: 1.4em;
-    color: #007BFF;
 }
 
-/* Removed redundant form for homepage as it's defined globally */
-/* Removed redundant label for homepage as it's defined globally */
-/* Removed redundant button for homepage as it's defined globally */
+.home-container h2 {
+    color: #333;
+}
 
 .search-form {
     margin-bottom: 2em;
@@ -867,25 +711,7 @@ p {
     max-width: 600px;
 }
 
-
-/*favorites*/
-.favorites-container {
-    max-width: 900px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.favorites-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-    font-size: 2em;
-}
-
+/*--- Favorites Section ---*/
 .recipe {
     margin-bottom: 3em;
     border-bottom: 1px solid #ddd;
@@ -915,8 +741,8 @@ p {
     text-decoration: underline;
 }
 
-/* Specific button for favorites form for clarity, overriding global button */
-form button {
+/* Specific button for favorites form (override global button) */
+.favorites-container form button {
     margin-top: 1em;
     background-color: #dc3545; /* Changed to red for remove favorite */
     color: white;
@@ -926,12 +752,14 @@ form button {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: auto; /* Allow button to size to content within form */
+    margin-left: 0;
+    margin-right: 0;
 }
 
-form button:hover {
+.favorites-container form button:hover {
     background-color: #c82333; /* Darker red on hover */
 }
-
 
 .no-favorites {
     text-align: center;
@@ -939,24 +767,7 @@ form button:hover {
     font-size: 1.1em;
 }
 
-/*edit_mealplanner*/
-.planner-container {
-    max-width: 1000px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow-x: auto;
-}
-
-.planner-container h2 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-}
-
+/*--- Edit Meal Planner Section ---*/
 table {
     width: 100%;
     border-collapse: collapse;
@@ -979,36 +790,7 @@ td form {
     margin-top: 0.5em;
 }
 
-/* Removed redundant button for edit_mealplanner as global one suffices */
-
-/*create_meal_planner*/
-.meal-planner-container {
-    max-width: 600px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.meal-planner-container h2 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1em;
-}
-
-/* Removed redundant form for create_meal_planner as it's defined globally */
-/* Removed redundant label for create_meal_planner as it's defined globally */
-
-input[type="number"] {
-    padding: 0.6em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-    width: 100%;
-}
-
+/*--- Create Meal Planner Section ---*/
 .checkbox-group {
     display: flex;
     flex-direction: column;
@@ -1019,96 +801,4 @@ input[type="number"] {
 .checkbox-group label {
     font-weight: normal;
     color: #333;
-}
-
-/* Removed redundant button for create_meal_planner as global one suffices */
-
-/*consentform*/
-
-.consent-container {
-    background: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    max-width: 550px;
-    margin: 2em auto;
-    text-align: left;
-    color: #333;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.consent-container h2 {
-    margin-bottom: 0.5em;
-    font-size: 1.8em;
-    color: #333;
-}
-
-.consent-container p {
-    font-size: 1em;
-    color: #555;
-    line-height: 1.5em;
-    margin-bottom: 2em;
-}
-
-/* Removed redundant button for consentform as global one suffices */
-
-/*nutrient_info_page.html*/
-.nutrient-container {
-    max-width: 800px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.nutrient-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-}
-
-/* Removed redundant h2 for nutrient_info_page as it's defined globally */
-/* Removed redundant p for nutrient_info_page as it's defined globally */
-/* Removed redundant ul for nutrient_info_page as it's defined globally */
-/* Removed redundant li for nutrient_info_page as it's defined globally */
-/* Removed redundant back-link for nutrient_info_page as it's defined below */
-
-
-/*mealplanner*/
-.mealplan-container {
-    max-width: 800px;
-    margin: 3em auto;
-    background-color: #fff;
-    padding: 2.5em 3em;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.mealplan-container h1 {
-    text-align: center;
-    color: #007BFF;
-    margin-bottom: 1.5em;
-}
-
-/* Removed redundant h2, h3 for mealplanner as they are defined globally */
-/* Removed redundant ul for mealplanner as it's defined globally */
-/* Removed redundant li for mealplanner as it's defined globally */
-
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.message {
-    text-align: center;
-    font-weight: 500;
-    color: #555;
-    margin-top: 2em;
 }
