@@ -1,10 +1,162 @@
-<form method="POST" action="/recommendations/mealplanner/create">
-    <label>Number of days:</label>
-    <input type="number" name="days" min="1" max="31" value="7" required><br>
-    <label>Meals to plan:</label>
-    <input type="checkbox" name="meals" value="breakfast" checked> Breakfast
-    <input type="checkbox" name="meals" value="lunch" checked> Lunch
-    <input type="checkbox" name="meals" value="dinner" checked> Dinner
-    <br>
-    <button type="submit">Create Meal Planner</button>
-</form>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h2>Create Your Meal Plan</h2>
+    
+    {% if not selected_recipes %}
+    <div class="empty-state">
+        <i class="fas fa-utensils fa-3x"></i>
+        <h3>No Recipes Selected</h3>
+        <p>Please go back and select some recipes to include in your meal plan.</p>
+        <a href="{{ url_for('recommendations') }}" class="btn btn-primary">
+            <i class="fas fa-arrow-left"></i> Back to Recommendations
+        </a>
+    </div>
+    {% else %}
+    <form method="POST" action="{{ url_for('meal_planner') }}">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="timeFrame">Plan Duration</label>
+                <select id="timeFrame" name="timeFrame" class="form-control" required>
+                    <option value="day">One Day</option>
+                    <option value="week">One Week</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="calories">Target Calories (optional)</label>
+                <input type="number" id="calories" name="calories" class="form-control" placeholder="e.g. 2000">
+            </div>
+        </div>
+        
+        <h3>Selected Recipes</h3>
+        <div class="selected-recipes-grid">
+            {% for recipe in selected_recipes %}
+            <div class="selected-recipe">
+                <input type="hidden" name="meals" value="{{ recipe.id }}">
+                
+                {% if recipe.image %}
+                <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                {% else %}
+                <div class="recipe-image-placeholder">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                {% endif %}
+                
+                <div class="recipe-info">
+                    <h4>{{ recipe.title }}</h4>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-clock"></i> {{ recipe.readyInMinutes }} mins</span>
+                        <span><i class="fas fa-utensils"></i> {{ recipe.servings }} servings</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="form-actions">
+            <a href="{{ url_for('recommendations') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-calendar-check"></i> Create Meal Plan
+            </button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .selected-recipes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin: 25px 0;
+    }
+    
+    .selected-recipe {
+        background-color: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+    
+    .selected-recipe:hover {
+        transform: translateY(-3px);
+    }
+    
+    .selected-recipe img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    
+    .recipe-image-placeholder {
+        height: 180px;
+        background-color: var(--pastel-blue);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+    }
+    
+    .recipe-info {
+        padding: 15px;
+    }
+    
+    .recipe-meta {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+        color: #666;
+        font-size: 0.9rem;
+    }
+    
+    .form-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    
+    .btn-secondary {
+        background-color: var(--pastel-yellow);
+    }
+    
+    .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+    }
+    
+    .empty-state i {
+        color: var(--pastel-purple);
+        margin-bottom: 20px;
+    }
+    
+    .empty-state h3 {
+        margin: 15px 0;
+        color: #555;
+    }
+    
+    @media (max-width: 768px) {
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+        
+        .selected-recipes-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}

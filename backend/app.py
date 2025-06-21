@@ -582,7 +582,7 @@ def recommendations() -> Union[str, Response]:
     print("API params:", params)
     print("API response:", data)
 
-    return render_template("recipes.html", recipes_by_meal=meal_recipes)
+    return render_template("recipes.html", recipes_by_meal=meal_recipes, user=logged_in_user)
 
 
 # display recipe details
@@ -728,15 +728,15 @@ def meal_planner() -> Union[str, Response]:
         Response: Redirects to the meal plan view page on POST success.
         str: Renders the meal planner form page on GET.
     """
+    # Verify user authentication
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+    
     if request.method == "POST":
         # Retrieve selected timeframe and target calories (not yet used in this version)
         time_frame = request.form.get("timeFrame", "day")  # "day" or "week"
         calories = request.form.get("calories")
-
-        # Verify user authentication
-        user = userAuthHelper()
-        if not user:
-            return redirect(url_for("auth_page"))
 
         # Initialize empty meal plan
         meal_plan = {}
@@ -778,7 +778,7 @@ def meal_planner() -> Union[str, Response]:
         return redirect(url_for("edit_meal_planner"))
 
     # If GET request, show the form
-    return render_template("create_meal_planner.html")
+    return render_template("create_meal_planner.html", user=user)
 
 
 @app.route("/recommendations/mealplanner/view", methods=["GET"])
