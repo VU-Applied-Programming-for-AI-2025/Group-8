@@ -276,7 +276,9 @@ def analyze_symptoms() -> str:
     try:
         response = client.chat.completions.create(
             model="meta-llama/llama-4-scout-17b-16e-instruct",
-            messages=[{"role": "user", "content": ai_prompt}],
+            messages=[
+                {"role": "system", "content": "You are a nutrition analysis API that provides detailed vitamin and food recommendations based on user symptoms, generate the response as if you're talking to the user."}, 
+                {"role": "user", "content": ai_prompt}],
             temperature=0.7,
             max_completion_tokens=1024,
             top_p=1,
@@ -580,7 +582,7 @@ def recommendations() -> Union[str, Response]:
     print("API params:", params)
     print("API response:", data)
 
-    return render_template("recipes.html", recipes_by_meal=meal_recipes)
+    return render_template("recipes.html", recipes_by_meal=meal_recipes, user = logged_in_user,)
 
 
 # display recipe details

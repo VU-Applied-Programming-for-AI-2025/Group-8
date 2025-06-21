@@ -1,33 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Your Favorite Recipes</title>
-</head>
+{% block title %}Your Favorites - NutriSpoon{% endblock %}
 
-<body>
-    <h1>🍽️ Your Favorite Recipes</h1>
-
+{% block content %}
+<div class="card">
+    <h1 class="card-title">Your Saved Recipes</h1>
     {% if recipes %}
-    <ul>
-        {% for recipe in recipes %}
-        <li style="margin-bottom: 20px;">
-            <h2>{{ recipe.title }}</h2>
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" width="250">
-            <p><a href="{{ recipe.sourceUrl }}" target="_blank">View full recipe</a></p>
-
-            <form method="post" action="/remove_favorite/{{ recipe.id }}">
-                <button type="submit">Remove from Favorites</button>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No favorites saved yet!</p>
+    <p>You have {{ recipes|length }} saved recipe(s)</p>
     {% endif %}
+</div>
 
-    <a href="/home">← Back to Home</a>
-</body>
+{% if recipes %}
+<div class="recipe-grid">
+    {% for recipe in recipes %}
+    <div class="recipe-card">
+        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-img">
+        <div class="recipe-body">
+            <h3 class="recipe-title">{{ recipe.title }}</h3>
+            <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                <a href="{{ url_for('recipe_details', recipe_id=recipe.id) }}" class="btn">View Details</a>
+                <form method="POST" action="/remove_favorite/{{ recipe.id }}" style="display: inline;">
+                    <button type="submit" class="btn btn-accent">Remove</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-</html>
+<div class="card" style="text-align: center; margin-top: 2rem;">
+    <form method="POST" action="/recommendations/mealplanner/create_from_favorites">
+        <input type="hidden" name="planName" value="My Favorite Recipes">
+        <input type="hidden" name="timeFrame" value="week">
+        <button type="submit" class="btn btn-accent">Create Meal Plan From These Recipes</button>
+    </form>
+</div>
+{% else %}
+<div class="card">
+    <p>You haven't saved any recipes yet.</p>
+    <a href="/recommendations" class="btn">Browse Recipes</a>
+</div>
+{% endif %}
+{% endblock %}

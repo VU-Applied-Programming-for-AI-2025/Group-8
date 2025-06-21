@@ -113,5 +113,41 @@
     "saved_recipes": [],
     "analysis_results": [],
     "mealplan": []
+  },
+  "dora": {
+    "username": "dora",
+    "password": "test",
+    "name": "dora",
+    "age": 18,
+    "sex": "female",
+    "height": 172.0,
+    "weight": 63.0,
+    "skin_color": "light",
+    "country": "test",
+    "medication": [
+      ""
+    ],
+    "diet": "whole30",
+    "existing_conditions": [
+      "vitamin D deficiency"
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [
+      637357,
+      794350,
+      648758
+    ],
+    "analysis_results": [],
+    "mealplan": {
+      "meals": [],
+      "nutrients": {
+        "calories": 0,
+        "protein": 0,
+        "fat": 0,
+        "carbohydrates": 0
+      }
+    }
   }
 }

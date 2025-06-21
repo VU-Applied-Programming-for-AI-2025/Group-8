@@ -1,25 +1,42 @@
-<!-- templates/home.html -->
 {% extends "base.html" %}
 
-{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+{% block title %}Home - NutriSpoon{% endblock %}
 
 {% block content %}
-<form method="POST" action="{{ url_for('search_bar') }}">
-    {{ form.hidden_tag() }}
-    {{ form.search_bar.label }}
-    {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
-    <button type="submit">Search</button>
-</form>
-
-
-<div>
-    <h2>Welcome to NutriSpoon{{response.fullname}}</h2>
+<div class="card">
+    <h1 class="card-title">Welcome, {{ response }}!</h1>
+    <p>Get personalized nutrition advice and meal plans based on your symptoms and dietary needs.</p>
 </div>
 
-<h1>Symptoms analyzer</h1>
-<form method="POST" action="/home">
-    <label for="symptoms">Enter your symptoms:</label>
-    <input type="text" id="symptoms" name="symptoms" required>
-    <button type="submit">Analyze</button>
-</form>
+<div class="card">
+    <h2 class="card-title">Symptom Analysis</h2>
+    <form method="POST" action="/home">
+        <div class="form-group">
+            <label for="symptoms" class="form-label">Describe your symptoms:</label>
+            <textarea id="symptoms" name="symptoms" class="form-control" rows="3" required placeholder="e.g. fatigue, headaches, muscle cramps"></textarea>
+        </div>
+        <button type="submit" class="btn">Analyze Symptoms</button>
+    </form>
+</div>
+
+<div class="card">
+    <h2 class="card-title">Quick Actions</h2>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="/recommendations" class="btn btn-secondary">Get Meal Recommendations</a>
+        <a href="{{ url_for('edit_meal_planner') }}" class="btn btn-secondary">View Meal Plan</a>
+        <a href="{{ url_for('show_history') }}" class="btn btn-secondary">View History</a>
+    </div>
+</div>
+
+<div class="card">
+    <h2 class="card-title">Search Nutrients</h2>
+    <form method="POST" action="{{ url_for('search_bar') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.search_bar.label(class="form-label") }}
+            {{ form.search_bar(class="form-control", placeholder="Search for a nutrient...") }}
+        </div>
+        <button type="submit" class="btn">Search</button>
+    </form>
+</div>
 {% endblock %}

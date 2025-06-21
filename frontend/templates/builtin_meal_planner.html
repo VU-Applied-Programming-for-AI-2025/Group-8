@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -32,4 +32,82 @@
   </form>
 </body>
 
-</html>
+</html> -->
+{% extends "base.html" %}
+
+{% block title %}Generate Meal Plan - NutriSpoon{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 class="card-title">Generate Meal Plan with Spoonacular</h1>
+    
+    {% if error %}
+    <div class="alert alert-error">{{ error }}</div>
+    {% endif %}
+    
+    <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}">
+        <div class="form-group">
+            <label for="timeFrame" class="form-label">Plan Duration:</label>
+            <select name="timeFrame" id="timeFrame" class="form-control" required>
+                <option value="day">1 Day</option>
+                <option value="week" selected>1 Week</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="diet" class="form-label">Diet Goal:</label>
+            <select name="diet" id="diet" class="form-control" required>
+                <option value="gain">Gain Weight</option>
+                <option value="loose">Lose Weight</option>
+                <option value="health">Maintain Health</option>
+            </select>
+        </div>
+        
+        <div class="form-group" style="margin-top: 2rem;">
+            <button type="submit" class="btn btn-accent" style="width: 100%;">
+                Generate Meal Plan
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="card" style="text-align: center;">
+    <p>Prefer to create your own plan?</p>
+    <a href="/recommendations/mealplanner/create" class="btn">Create Custom Meal Plan</a>
+</div>
+
+<style>
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+    
+    .alert-error {
+        background-color: #ffe3e3;
+        color: #c92a2a;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+        .card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+</style>
+{% endblock %}

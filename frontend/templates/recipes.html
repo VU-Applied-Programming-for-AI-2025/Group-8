@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -102,4 +102,129 @@
             });
         });
     });
+</script> -->
+
+{% extends "base.html" %}
+
+{% block title %}Recipe Recommendations - NutriSpoon{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 class="card-title">Personalized Recipe Recommendations</h1>
+    <p>Based on your dietary needs and preferences.</p>
+</div>
+
+{% if recipes_by_meal %}
+    {% for category, recipes in recipes_by_meal.items() %}
+    <div class="card">
+        <h2 class="card-title">{{ category.capitalize() }}</h2>
+        
+        {% if recipes %}
+        <div class="recipe-grid">
+            {% for entry in recipes %}
+            <div class="recipe-card">
+                <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" class="recipe-img">
+                <div class="recipe-body">
+                    <h3 class="recipe-title">{{ entry['title'] }}</h3>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+                        <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}" class="btn" style="flex: 1;">View</a>
+                        <button class="btn btn-accent favorite-btn" data-id="{{ entry['id'] }}" style="flex: 1;">
+                            {% if user and user.saved_recipes and entry['id'] in user.saved_recipes %}Unsave{% else %}Save{% endif %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>No recipes found for {{ category }}.</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+{% endif %}
+
+<div class="card" style="text-align: center; margin-bottom: 1rem;">
+    <a href="/recommendations/mealplanner/spoonacular" class="btn btn-secondary">Generate Automatic Meal Plan</a>
+</div>
+
+{% if user and user.saved_recipes %}
+<div class="card" style="text-align: center; margin-top: 2rem;">
+    <h3>Create Meal Plan From Saved Recipes</h3>
+    <form method="POST" action="{{ url_for('meal_planner') }}">
+        <div class="form-group" style="margin: 1rem auto; max-width: 400px;">
+            <label for="planName" class="form-label">Meal Plan Name:</label>
+            <input type="text" id="planName" name="planName" class="form-control" 
+                   value="My Favorite Recipes" required>
+        </div>
+        
+        <div class="form-group" style="margin: 1rem auto; max-width: 400px;">
+            <label for="timeFrame" class="form-label">Duration:</label>
+            <select id="timeFrame" name="timeFrame" class="form-control" required>
+                <option value="day">1 Day</option>
+                <option value="week" selected>1 Week</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-accent" style="margin-top: 1rem;">
+            <i class="fas fa-utensils" style="margin-right: 8px;"></i>
+            Create Plan ({{ user.saved_recipes|length }} recipes)
+        </button>
+    </form>
+</div>
+{% else %}
+<div class="card" style="text-align: center;">
+    <p>You don't have any saved recipes yet.</p>
+    <p>Click the "Save" button on recipes to add them to your favorites.</p>
+</div>
+{% endif %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".favorite-btn").forEach(button => {
+            button.addEventListener("click", async function(event) {
+                event.preventDefault();
+                const recipeId = this.dataset.id;
+                const isSaved = this.textContent.trim().toLowerCase() === "unsave";
+                const endpoint = isSaved ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+                
+                try {
+                    const response = await fetch(endpoint, { method: "POST" });
+                    if (response.ok) {
+                        // Update button text
+                        this.textContent = isSaved ? "Save" : "Unsave";
+                        
+                        // Update button style
+                        this.classList.toggle("btn-accent");
+                        this.classList.toggle("btn-secondary");
+                        
+                        // Reload the page to update the saved recipes count
+                        window.location.reload();
+                    } else {
+                        const msg = await response.text();
+                        alert(msg || "Failed to update favorites.");
+                    }
+                } catch (err) {
+                    console.error("Network error:", err);
+                    alert("Network error. Please try again.");
+                }
+            });
+        });
+    });
 </script>
+
+<style>
+    .recipe-card {
+        transition: all 0.3s ease;
+    }
+    
+    .recipe-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .form-control {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}

@@ -1,16 +1,28 @@
+{% extends "base.html" %}
 
-<html>
-<head>
-    <title>Consent Form</title>
-</head>
-<body>
-    <h2>Consent Form</h2>
-    <p>
-        This application uses generative AI to provide personalized nutritional recommendations.
-        This is not medical advice.
-    </p>
+{% block title %}Consent Form - NutriSpoon{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h1 class="card-title">Welcome to NutriSpoon</h1>
+    
+    <div class="consent-content" style="max-height: 60vh; overflow-y: auto; padding: 1rem; border: 1px solid #eee; border-radius: var(--border-radius); margin-bottom: 1.5rem;">
+        <h2>Consent Agreement</h2>
+        <p>This application uses generative AI to provide personalized nutritional recommendations based on your symptoms and dietary preferences.</p>
+        
+        <h3 style="margin-top: 1.5rem;">Important Notes:</h3>
+        <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+            <li>This is not medical advice</li>
+            <li>Recommendations are based on general nutritional knowledge</li>
+            <li>Always consult with a healthcare professional for medical concerns</li>
+            <li>Your data will be stored securely</li>
+        </ul>
+        
+        <p>By using this application, you agree to these terms.</p>
+    </div>
+    
     <form action="/consentform" method="POST">
-        <button type="submit" name="accept" value="true">I Accept</button>
+        <button type="submit" name="accept" value="true" class="btn" style="width: 100%;">I Accept</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
