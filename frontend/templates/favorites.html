@@ -1,33 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<h1>🍽️ Your Favorite Recipes</h1>
 
-<head>
-    <meta charset="UTF-8">
-    <title>Your Favorite Recipes</title>
-</head>
+{% if recipes %}
+<ul>
+    {% for recipe in recipes %}
+    <li style="margin-bottom: 20px;">
+        <h2>{{ recipe.title }}</h2>
+        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" width="250">
+        <p><a href="{{ recipe.sourceUrl }}" target="_blank">View full recipe</a></p>
 
-<body>
-    <h1>🍽️ Your Favorite Recipes</h1>
+        <form method="post" action="/remove_favorite/{{ recipe.id }}">
+            <button type="submit">Remove from Favorites</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No favorites saved yet!</p>
+{% endif %}
 
-    {% if recipes %}
-    <ul>
-        {% for recipe in recipes %}
-        <li style="margin-bottom: 20px;">
-            <h2>{{ recipe.title }}</h2>
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" width="250">
-            <p><a href="{{ recipe.sourceUrl }}" target="_blank">View full recipe</a></p>
-
-            <form method="post" action="/remove_favorite/{{ recipe.id }}">
-                <button type="submit">Remove from Favorites</button>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No favorites saved yet!</p>
-    {% endif %}
-
-    <a href="/home">← Back to Home</a>
-</body>
-
-</html>
+<a href="/home">← Back to Home</a>

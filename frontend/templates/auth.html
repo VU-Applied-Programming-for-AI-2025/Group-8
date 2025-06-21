@@ -1,11 +1,13 @@
 <html>
+
 <head>
     <title>Authentication</title>
 </head>
+
 <body>
     <h2>Login</h2>
     {% if error %}
-        <p style="color:red;">{{ error }}</p>
+    <p style="color:red;">{{ error }}</p>
     {% endif %}
     <form action="/auth/login" method="POST">
         <label for="name">Name:</label>
@@ -21,4 +23,5 @@
         <button type="submit">Register</button>
     </form>
 </body>
+
 </html>
