@@ -7,12 +7,13 @@
     <title>{% block title %}NutriSpoon{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     {% block head %}{% endblock %}
 </head>
 
 <body>
     <nav>
-        <div class="nav-left">
+        <div class="nav-left" id="myNavLeft">
             <div class="dropdown">
                 <button class="dropbtn">Profile <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -37,6 +38,9 @@
                     {% endfor %}
                 </div>
             </div>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
         </div>
         <div class="nav-center">
             <a href="{{ url_for('home') }}" class="logo">NutriSpoon</a>
@@ -57,8 +61,6 @@
     <main>
         {% block content %}{% endblock %}
     </main>
-
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>
