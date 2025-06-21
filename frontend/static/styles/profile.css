@@ -1,0 +1,156 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: #f9798e;
+    --first-color-alt: #B9647A;
+    --title-color: hsl(233, 32%, 15%);
+    --text-color: hsl(233, 4%, 35%);
+    --body-color: hsl(2, 100%, 97%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Open Sans', sans-serif;
+    --second-font: 'Lemon', cursive;
+    --biggest-font-size: 2.25rem;
+    --normal-font-size: .938rem;
+}
+
+/*=============== BASE STYLES ===============*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: hsl(2, 100%, 97%);
+    color: hsl(233, 4%, 35%);
+    line-height: 1.6;
+    padding: 2rem;
+}
+
+/*=============== PROFILE CONTAINER ===============*/
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.profile-header h2 {
+    font-family: 'Lemon', cursive;
+    color: #f9798e;
+    font-size: 2.25rem;
+    margin-bottom: 0.5rem;
+}
+
+/*=============== FORM STYLES ===============*/
+.profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: hsl(233, 32%, 15%);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #f9798e;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(249, 121, 142, 0.2);
+}
+
+/* Full width form elements */
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+/* Message styling */
+.message {
+    color: green;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding: 0.75rem;
+    background-color: rgba(0, 128, 0, 0.1);
+    border-radius: 8px;
+    grid-column: span 2;
+}
+
+/* Button styling */
+.submit-btn {
+    background: linear-gradient(to right, #f9798e, #B9647A);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    grid-column: span 2;
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(185, 100, 122, 0.3);
+}
+
+/* Back link styling */
+.back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #B9647A;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    color: #f9798e;
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
