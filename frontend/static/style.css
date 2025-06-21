@@ -54,19 +54,31 @@ nav {
 }
 
 /* Style the links inside the navigation bar */
-.nav-left a {
-    display: block;
+.nav-left a,
+.nav-left .dropdown .dropbtn { /* Unified styling for direct links and dropdown buttons */
+    display: flex; /* Use flex to align content within the button/link */
+    align-items: center; /* Vertically center content (text and icon) inside the button/link */
     color: #007BFF;
     text-align: center;
-    padding: 14px 16px;
+    padding: 8px 16px; /* Consistent padding */
     text-decoration: none;
     font-size: 17px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    background: none; /* Ensure no default button background */
+    border: none; /* Remove default button border */
+    cursor: pointer;
+    font-weight: 500;
+    gap: 5px; /* Space between text and icon in dropdown buttons */
 }
 
+
 /* Change the color of links on hover */
-.nav-left a:hover {
+.nav-left a:hover,
+.nav-left .dropdown .dropbtn:hover {
     background-color: #eaf2ff;
     color: #007BFF;
+    transform: none; /* Ensure no unintended transforms from other rules */
 }
 
 /* Add an active class to highlight the current page */
@@ -82,7 +94,8 @@ nav {
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the nav-left (.icon) */
 @media screen and (max-width: 600px) {
-    .nav-left .dropdown {
+    .nav-left .dropdown, /* Hides dropdowns */
+    .nav-left a:not(.icon) { /* Hides all direct links in nav-left EXCEPT the hamburger icon */
         display: none;
     }
 
@@ -96,6 +109,8 @@ nav {
 @media screen and (max-width: 600px) {
     .nav-left.responsive {
         position: relative;
+        flex-direction: column; /* Stacks flex items vertically */
+        align-items: flex-start; /* Aligns items to the start (left) of the container */
     }
 
     .nav-left.responsive a.icon {
@@ -104,10 +119,24 @@ nav {
         top: 0;
     }
 
-    .nav-left.responsive .dropdown {
+    .nav-left.responsive .dropdown,
+    .nav-left.responsive a:not(.icon) {
         float: none;
         display: block;
         text-align: left;
+        width: 100%; /* Make them take full width of the menu */
+        box-sizing: border-box; /* Include padding in the width calculation */
+    }
+    /* You might also want to add some padding to the responsive menu items for better spacing */
+    .nav-left.responsive .dropdown .dropbtn,
+    .nav-left.responsive .dropdown-content a {
+        padding: 12px 16px; /* Adjust padding for better touch targets */
+    }
+    .nav-left.responsive .dropdown-content {
+        position: static; /* Dropdown content should appear directly below in the flow */
+        width: 100%;
+        box-shadow: none; /* Remove box shadow when expanded in mobile */
+        border-top: 1px solid #eee; /* Optional: Add a separator */
     }
 }
 
@@ -260,48 +289,14 @@ nav {
     /* Darker blue on hover */
 }
 
-nav a {
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 10px;
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
-    margin-top: 0;
-    width: auto;
-}
-
-.dropbtn:hover {
-    background-color: #eaf2ff;
-    color: #007BFF;
-    transform: none;
-}
-
-nav a:hover {
-    background-color: #eaf2ff;
-    color: #007BFF;
-    transform: none;
-}
+/* Removed redundant nav a block as it's now covered by the more specific .nav-left a rule */
 
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
-.dropbtn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: 500;
-    padding: 8px 10px;
-    border-radius: 6px;
-    display: inline-block;
-    gap: 5px;
-    align-items: center;
-}
+/* Removed redundant .dropbtn block as it's now covered by the more specific .nav-left .dropdown .dropbtn rule */
 
 
 .dropdown-content {
@@ -316,7 +311,7 @@ nav a:hover {
     border-radius: 6px;
     padding: 0.5em 0;
     left: 0;
-    top: 100%;
+    top: 100%; /* Keep it directly below the button */
 }
 
 .dropdown-content a {
@@ -619,17 +614,8 @@ select {
     width: 100%;
 }
 
-button {
-    margin-top: 2em;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em 1.2em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+/* Removed specific button style for planner-container as the global one suffices */
+
 
 .error-message {
     color: red;
@@ -661,31 +647,11 @@ form {
     gap: 1em;
 }
 
-label {
-    font-weight: 600;
-    color: #444;
-}
+/* Removed specific label style for profile as the global one suffices */
 
-input,
-select {
-    padding: 0.6em;
-    font-size: 1em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 100%;
-}
+/* Removed specific input, select style for profile as the global one suffices */
 
-button {
-    margin-top: 1.5em;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+/* Removed specific button style for profile as the global one suffices */
 
 .success-message {
     color: green;
@@ -731,17 +697,8 @@ button {
     /* A subtle lift effect on hover */
 }
 
-.back-link {
-    display: inline-block;
-    margin-top: 2em;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-}
+/* Removed redundant back-link for profile as it's defined below */
 
-.back-link:hover {
-    text-decoration: underline;
-}
 
 /*results*/
 .results-container {
@@ -817,10 +774,7 @@ button {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-h2 {
-    color: #444;
-    margin-top: 1.5em;
-}
+/* Removed redundant h2 for recipe_details as it's defined globally */
 
 ul {
     padding-left: 1.5em;
@@ -858,49 +812,12 @@ p {
     width: 100%;
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 1em;
-    color: #333;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-top: 1em;
-    font-weight: 600;
-    color: #444;
-}
-
-input,
-select {
-    padding: 0.6em;
-    margin-top: 0.3em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-}
-
-button {
-    margin-top: 2em;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.error-message {
-    color: red;
-    text-align: center;
-    margin-bottom: 1em;
-}
+/* Removed redundant h2 for registration as it's defined globally */
+/* Removed redundant form for registration as it's defined globally */
+/* Removed redundant label for registration as it's defined globally */
+/* Removed redundant input, select for registration as it's defined globally */
+/* Removed redundant button for registration as it's defined globally */
+/* Removed redundant error-message for registration as it's defined globally */
 
 /*homepage*/
 .home-container {
@@ -925,37 +842,9 @@ button {
     color: #007BFF;
 }
 
-form {
-    margin-top: 1.5em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-label {
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 0.3em;
-}
-
-input[type="text"] {
-    padding: 0.6em;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1em;
-}
-
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-}
+/* Removed redundant form for homepage as it's defined globally */
+/* Removed redundant label for homepage as it's defined globally */
+/* Removed redundant button for homepage as it's defined globally */
 
 .search-form {
     margin-bottom: 2em;
@@ -1026,9 +915,10 @@ button {
     text-decoration: underline;
 }
 
+/* Specific button for favorites form for clarity, overriding global button */
 form button {
     margin-top: 1em;
-    background-color: #51dc35;
+    background-color: #dc3545; /* Changed to red for remove favorite */
     color: white;
     border: none;
     padding: 0.6em 1.2em;
@@ -1039,20 +929,9 @@ form button {
 }
 
 form button:hover {
-    background-color: #b52a37;
+    background-color: #c82333; /* Darker red on hover */
 }
 
-.back-link {
-    display: inline-block;
-    margin-top: 2em;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
 
 .no-favorites {
     text-align: center;
@@ -1100,16 +979,7 @@ td form {
     margin-top: 0.5em;
 }
 
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.5em 1em;
-    font-size: 0.95em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
+/* Removed redundant button for edit_mealplanner as global one suffices */
 
 /*create_meal_planner*/
 .meal-planner-container {
@@ -1128,17 +998,8 @@ button {
     margin-bottom: 1em;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2em;
-}
-
-label {
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 0.2em;
-}
+/* Removed redundant form for create_meal_planner as it's defined globally */
+/* Removed redundant label for create_meal_planner as it's defined globally */
 
 input[type="number"] {
     padding: 0.6em;
@@ -1160,17 +1021,7 @@ input[type="number"] {
     color: #333;
 }
 
-button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: fit-content;
-}
+/* Removed redundant button for create_meal_planner as global one suffices */
 
 /*consentform*/
 
@@ -1199,20 +1050,7 @@ button {
     margin-bottom: 2em;
 }
 
-.consent-container button {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 0.75em 1.5em;
-    font-size: 1em;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.consent-container button:hover {
-    background-color: #0056b3;
-}
+/* Removed redundant button for consentform as global one suffices */
 
 /*nutrient_info_page.html*/
 .nutrient-container {
@@ -1231,38 +1069,11 @@ button {
     margin-bottom: 1.5em;
 }
 
-h2 {
-    margin-top: 1.5em;
-    color: #444;
-}
-
-p {
-    color: #555;
-    line-height: 1.6em;
-    margin: 0.5em 0 1.2em 0;
-}
-
-ul {
-    padding-left: 1.5em;
-    margin-bottom: 1.5em;
-}
-
-li {
-    margin-bottom: 0.4em;
-    color: #333;
-}
-
-.back-link {
-    display: inline-block;
-    margin-top: 2em;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
+/* Removed redundant h2 for nutrient_info_page as it's defined globally */
+/* Removed redundant p for nutrient_info_page as it's defined globally */
+/* Removed redundant ul for nutrient_info_page as it's defined globally */
+/* Removed redundant li for nutrient_info_page as it's defined globally */
+/* Removed redundant back-link for nutrient_info_page as it's defined below */
 
 
 /*mealplanner*/
@@ -1282,21 +1093,9 @@ li {
     margin-bottom: 1.5em;
 }
 
-h2,
-h3 {
-    color: #444;
-    margin-top: 1.5em;
-}
-
-ul {
-    padding-left: 1.5em;
-    margin-bottom: 1em;
-}
-
-li {
-    margin-bottom: 0.5em;
-    line-height: 1.5em;
-}
+/* Removed redundant h2, h3 for mealplanner as they are defined globally */
+/* Removed redundant ul for mealplanner as it's defined globally */
+/* Removed redundant li for mealplanner as it's defined globally */
 
 a {
     color: #007BFF;
