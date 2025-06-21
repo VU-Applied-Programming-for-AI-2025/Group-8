@@ -1,35 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <title>Spoonacular Meal Planner</title>
-</head>
+{% block content %}
+<div class="card">
+    <h2>Generate Meal Plan</h2>
+    <p>Let us create a personalized meal plan based on your profile:</p>
+    
+    <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}">
+        <div class="form-group">
+            <label for="timeFrame">Time Frame</label>
+            <select id="timeFrame" name="timeFrame" class="form-control" required>
+                <option value="day">One Day</option>
+                <option value="week">One Week</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Diet Goal</label>
+            <div class="radio-group">
+                <label>
+                    <input type="radio" name="diet" value="health" checked>
+                    <span>Maintain Health</span>
+                </label>
+                <label>
+                    <input type="radio" name="diet" value="gain">
+                    <span>Gain Weight</span>
+                </label>
+                <label>
+                    <input type="radio" name="diet" value="loose">
+                    <span>Lose Weight</span>
+                </label>
+            </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Generate Plan</button>
+    </form>
+    
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+</div>
+{% endblock %}
 
-<body>
-  <h1>Generate Meal Plan with Spoonacular</h1>
-
-  {% if error %}
-  <p style="color:red">{{ error }}</p>
-  {% endif %}
-
-  <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}">
-    <label for="timeFrame">Plan for:</label>
-    <select name="timeFrame" id="timeFrame">
-      <option value="day">1 Day</option>
-      <option value="week">1 Week</option>
-    </select><br><br>
-
-    <label for="diet">Which diet are you</label>
-    <label for="diet">Plan for:</label>
-    <select name="diet" id="diet">
-      <option value="gain">Gain weight</option>
-      <option value="loose">Loose weight</option>
-      <option value="health">Stay healthy</option>
-    </select><br><br>
-
-    <button type="submit">Generate Plan</button>
-  </form>
-</body>
-
-</html>
+{% block extra_css %}
+<style>
+    .radio-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+    }
+    
+    .radio-group label {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+    }
+    
+    .error-message {
+        color: #e84393;
+        margin-top: 15px;
+        font-weight: 500;
+    }
+</style>
+{% endblock %}
