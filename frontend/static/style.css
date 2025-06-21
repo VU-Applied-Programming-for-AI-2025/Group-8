@@ -55,36 +55,109 @@ nav {
     gap: 20px; /* Adjust gap as needed for spacing between links/elements */
 }
 
-.search-nav-form {
+/* Styling for the search container */
+.search-container {
+    position: relative;
     display: flex;
     align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    padding: 1px 10px;
-    background-color: #f8f8f8;
-    max-width: 200px;
-    margin-bottom: 0;
 }
 
+/* Initial search icon wrapper */
+.search-icon-wrapper {
+    cursor: pointer;
+    padding: 8px; /* Padding around the icon to make it clickable */
+    border: 1px solid #e0e0e0;
+    border-radius: 50%; /* Make it circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px; /* Fixed width for the circle */
+    height: 38px; /* Fixed height for the circle */
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    color: #666; /* Color of the icon */
+    background-color: #f9f9f9;
+    z-index: 2;
+}
+
+.search-icon-wrapper:hover {
+    border-color: #007BFF;
+    color: #007BFF;
+}
+
+.search-toggle-icon {
+    font-size: 1.1em;
+}
+
+/* Styling for the search form (initially hidden/collapsed) */
+.search-nav-form {
+    position: absolute;
+    right: 0; /* Positioned to the right edge of its parent (.search-container) */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center */
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    padding: 5px 15px; /* Initial padding will be zero because of max-width:0 */
+    background-color: #f9f9f9;
+    max-width: 0; /* Initially collapsed */
+    opacity: 0; /* Initially invisible */
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    z-index: -1; /* Place behind the search icon wrapper when collapsed */
+}
+
+.search-nav-form.active {
+    max-width: 300px; /* Expands to this width when active */
+    opacity: 1; /* Becomes visible */
+    padding: 5px 15px; /* Restore padding when active */
+    z-index: 1; /* Bring to front when active */
+}
+
+/* Ensure the active form positions correctly */
+.search-nav-form.active {
+    right: 0; /* Adjust as needed */
+}
+
+/* Styling for the search input field */
 .search-nav-form .search-input {
     border: none;
     outline: none;
-    padding: 1px 8px;
-    font-size: 0.9em;
+    padding: 5px 0;
+    font-size: 0.95em;
     background: transparent;
-    width: 100%;
-    min-height: 5px;
-    text-align: center;
+    width: 100%; /* Take full width of its container */
+    color: #333;
+    text-align: left;
+    min-width: 150px; /* Ensure input field has a minimum visible width when active */
 }
 
+.search-nav-form.active .search-input {
+    width: auto; /* Allow input to size according to its content */
+    flex-grow: 1; /* Allow input to grow within the flex container */
+    min-width: 180px; /* Ensure input is wide enough when active */
+    margin-right: 8px; /* Space between input and button */
+}
+
+
+/* Styling for the search button (inside the form) */
 .search-nav-form .search-button {
     background: none;
     border: none;
     cursor: pointer;
-    color: #007BFF;
-    font-size: 1em;
-    padding: 1px;
-    margin-left: 5px;
+    color: #007BFF; /* Healthline often uses a subtle blue for action icons */
+    font-size: 1.1em;
+    padding: 5px;
+    margin-left: 0; /* Remove previous margin */
+    transition: color 0.2s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.search-nav-form .search-button:hover {
+    color: #0056b3; /* Darker blue on hover */
 }
 
 nav a,

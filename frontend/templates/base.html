@@ -41,18 +41,23 @@
         </div>
         
         <div class="nav-right">
-            <form class="search-nav-form" method="POST" action="{{ url_for('search_bar') }}">
-                {{ form.hidden_tag() }}
-                {# Using 'search_input' class for specific styling #}
-                {{ form.search_bar(size=30, placeholder="Search a nutrient...", class_="search-input") }}
-                {# Using 'search_button' class for specific styling #}
-                <button type="submit" class="search-button"><i class="fas fa-search"></i></button>
-            </form>
+            <div class="search-container">
+                <div class="search-icon-wrapper" id="searchIconWrapper">
+                    <i class="fas fa-search search-toggle-icon"></i>
+                </div>
+                <form class="search-nav-form" id="searchForm" method="POST" action="{{ url_for('search_bar') }}">
+                    {{ form.hidden_tag() }}
+                    {{ form.search_bar(size=30, placeholder="Search a nutrient...", class_="search-input") }}
+                    <button type="submit" class="search-button"><i class="fas fa-arrow-right"></i></button>
+                </form>
+            </div>
         </div>
     </nav>
     <main>
         {% block content %}{% endblock %}
     </main>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>
