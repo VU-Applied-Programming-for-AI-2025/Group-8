@@ -765,7 +765,7 @@ nav {
 }
 
 .home-container h2 {
-    color: #333;
+    color: white;
 }
 
 .search-form {
@@ -879,4 +879,251 @@ td form {
 .checkbox-group label {
     font-weight: normal;
     color: #333;
+}
+
+/* --- Section 3 - Timeline specific styles (New/Modified) --- */
+.timeline-section {
+    position: relative;
+    padding: 60px 0;
+    background-color: #007BFF; /* Example background for the section */
+    overflow: hidden; /* To contain the overlay */
+}
+
+.section-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+    z-index: 1;
+}
+
+.container-custom {
+    position: relative;
+    z-index: 2; /* Ensure content is above the overlay */
+    max-width: 960px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.col-center {
+    margin-bottom: 30px;
+}
+
+.col-content-center {
+    margin: 0 auto;
+}
+
+.text-white-custom {
+    color: #fff;
+}
+
+.mb-4-custom {
+    margin-bottom: 1.5rem; /* Equivalent to Bootstrap's mb-4 */
+}
+
+.mb-3-custom {
+    margin-bottom: 1rem; /* Equivalent to Bootstrap's mb-3 */
+}
+
+.mt-5-custom {
+    margin-top: 3rem; /* Equivalent to Bootstrap's mt-5 */
+}
+
+.btn-custom {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.custom-btn {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+
+.custom-btn:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #2098d1; /* Darker blue for hover effect */
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+.custom-btn:hover,
+.custom-btn:focus,
+.custom-btn:active {
+    color: #fff;
+}
+
+.custom-btn:hover:before,
+.custom-btn:focus:before,
+.custom-btn:active:before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.custom-border-btn {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.custom-border-btn:hover {
+    border-color: #2098d1; /* Match hover background */
+}
+
+.ms-3-custom {
+    margin-left: 1rem; /* Equivalent to Bootstrap's ms-3 */
+}
+
+/* Timeline specific styling */
+.timeline-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.vertical-scrollable-timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.vertical-scrollable-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px; /* Thickness of the timeline line */
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3); /* Base color of the timeline */
+    z-index: 0;
+}
+
+.vertical-scrollable-timeline li {
+    position: relative;
+    margin-bottom: 60px; /* Space between timeline items */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for list items */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 45%; /* Adjust width for items to sit on either side of the line */
+    opacity: 0; /* Hidden by default for animation */
+    transform: translateY(20px); /* Slight offset for animation */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    z-index: 1; /* Ensure list items are above the timeline line */
+}
+
+.vertical-scrollable-timeline li:nth-child(odd) {
+    left: 0;
+}
+
+.vertical-scrollable-timeline li:nth-child(even) {
+    left: 55%; /* Position even items on the right side */
+}
+
+.vertical-scrollable-timeline li.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vertical-scrollable-timeline li:after {
+    content: '';
+    position: absolute;
+    top: 25px; /* Position the circle vertically on the line */
+    width: 16px; /* Size of the circle */
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff; /* White circle */
+    border: 3px solid #0056b3; /* Darker blue border for the circle */
+    z-index: 2;
+}
+
+.vertical-scrollable-timeline li:nth-child(odd):after {
+    right: -28px; /* Position circle on the right for odd items */
+}
+
+.vertical-scrollable-timeline li:nth-child(even):after {
+    left: -28px; /* Position circle on the left for even items */
+}
+
+.icon-holder {
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icon-holder i {
+    font-size: 24px;
+    color: #007BFF;
+}
+
+/* Progress bar filling the timeline */
+.list-progress {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px; /* Same thickness as the timeline line */
+    height: 0; /* Starts with 0 height */
+    background-color: #fff; /* Color of the filled progress bar */
+    z-index: 1; /* Above the base timeline line but below content */
+    /* Add this inner div to control the height of the progress bar */
+    overflow: hidden; /* To ensure the inner bar stays within its container */
+}
+
+/* The actual filling bar */
+.list-progress .inner {
+    width: 100%;
+    height: 0; /* This height will be controlled by JavaScript */
+    background-color: #fff;
+    transition: height 0.1s linear; /* Smooth transition for filling */
+}
+
+
+/* Responsive adjustments for the timeline */
+@media (max-width: 767px) {
+    .vertical-scrollable-timeline:before {
+        left: 20px; /* Align timeline line to the left on small screens */
+        transform: translateX(0);
+    }
+
+    .vertical-scrollable-timeline li {
+        width: calc(100% - 60px); /* Adjust width to account for left offset */
+        left: 60px !important; /* Force all items to the right of the line */
+        margin-bottom: 40px;
+        padding: 15px;
+    }
+
+    .vertical-scrollable-timeline li:after {
+        left: -28px !important; /* Position circle on the left for all items */
+    }
 }
