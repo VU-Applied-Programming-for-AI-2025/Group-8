@@ -1,328 +1,101 @@
+<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}NutriSpoon{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>{% block title %}My App{% endblock %}</title>
     <style>
-        :root {
-            --primary: #4CAF50;
-            --secondary: #2196F3;
-            --accent: #FF9800;
-            --bg-light: #F5F5F5;
-            --text-dark: #333333;
-            --text-light: #FFFFFF;
-            --border-radius: 8px;
-            --box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header {
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 1rem 0;
-            box-shadow: var(--box-shadow);
-        }
-        
         nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background-color: #f0f0f0;
+            padding: 10px;
         }
-        
-        .logo {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.3s;
-        }
-        
-        .nav-links a:hover {
-            opacity: 0.8;
-        }
-        
+
         .dropdown {
             position: relative;
+            display: inline-block;
         }
-        
+
+        .dropbtn {
+            background-color: transparent;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: var(--text-light);
-            min-width: 200px;
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
             z-index: 1;
-            padding: 0.5rem 0;
         }
-        
+
+        .dropdown-content a {
+            display: block;
+            padding: 8px 12px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #e0e0e0;
+        }
+
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        
-        .dropdown-content a {
-            color: var(--text-dark);
-            padding: 0.5rem 1rem;
-            display: block;
-        }
-        
-        .dropdown-content a:hover {
-            background-color: var(--bg-light);
-        }
-        
-        main {
-            padding: 2rem 0;
-            min-height: calc(100vh - 150px);
-        }
-        
-        footer {
-            background-color: var(--primary);
-            color: var(--text-light);
-            text-align: center;
-            padding: 1rem 0;
-            margin-top: 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--text-light);
-            padding: 0.6rem 1.2rem;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .btn:hover {
-            background-color: #3e8e41;
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #0b7dda;
-        }
-        
-        .btn-accent {
-            background-color: var(--accent);
-        }
-        
-        .btn-accent:hover {
-            background-color: #e68a00;
-        }
-        
-        .card {
-            background-color: var(--text-light);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .card-title {
-            font-family: 'Roboto', sans-serif;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.6rem;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            font-family: 'Open Sans', sans-serif;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .alert {
-            padding: 1rem;
-            border-radius: var(--border-radius);
-            margin-bottom: 1rem;
-        }
-        
-        .alert-success {
-            background-color: #dff0d8;
-            color: #3c763d;
-        }
-        
-        .alert-error {
-            background-color: #f2dede;
-            color: #a94442;
-        }
-        
-        .recipe-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .recipe-card {
-            background-color: var(--text-light);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: transform 0.3s;
-        }
-        
-        .recipe-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .recipe-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-        }
-        
-        .recipe-body {
-            padding: 1rem;
-        }
-        
-        .recipe-title {
-            font-family: 'Roboto', sans-serif;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .analysis-text {
-            font-family: 'Fira Code', monospace;
-            white-space: pre-wrap;
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: var(--border-radius);
-            overflow-x: auto;
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .recipe-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            }
-        }
     </style>
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">NutriSpoon</div>
-                <div class="nav-links">
-                    <a href="/profile">Profile</a>
-                    <div class="dropdown">
-                        <a href="#" class="dropbtn">Nutrients</a>
-                        <div class="dropdown-content">
-                            <a href="{{ url_for('nutrients') }}?nutrient=Copper">Copper</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Choline">Choline</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Cholesterol">Cholesterol</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Fluoride">Fluoride</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=SaturatedFat">Saturated Fat</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminA">Vitamin A</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminC">Vitamin C</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminD">Vitamin D</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminE">Vitamin E</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminK">Vitamin K</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB1">Vitamin B1</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB2">Vitamin B2</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB3">Vitamin B3</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB5">Vitamin B5</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB6">Vitamin B6</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB12">Vitamin B12</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Fiber">Fiber</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=FolicAcid">Folic Acid</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Manganese">Manganese</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Phosphorus">Phosphorus</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Potassium">Potassium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Selenium">Selenium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Sodium">Sodium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Sugar">Sugar</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
-                        </div>
-                    </div>
-                    <a href="/show_favorites">Favorites</a>
-                    <a href="{{ url_for('edit_meal_planner') }}">Meal Plan</a>
-                    <a href="{{ url_for('show_history') }}">History</a>
-                    <a href="/logout">Logout</a>
-                </div>
-            </nav>
-        </div>
-    </header>
-    
-    <main class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="alert alert-{{ category }}">{{ message }}</div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
-        
-        {% block content %}{% endblock %}
-    </main>
-    
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 NutriSpoon. This is not medical advice.</p>
-        </div>
-    </footer>
+    <nav>
+        <a href="/profile">Profile</a> |
+        <div class="dropdown">
+            <button class="dropbtn">Nutrients</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('nutrients') }}?nutrient=Copper">Copper</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Choline">Choline</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Cholesterol">Cholesterol</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Fluoride">Fluoride</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=SaturatedFat">Saturated Fat</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminA">Vitamin A</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminC">Vitamin C</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminD">Vitamin D</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminE">Vitamin E</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminK">Vitamin K</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB1">Vitamin B1</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB2">Vitamin B2</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB3">Vitamin B3</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB5">Vitamin B5</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB6">Vitamin B6</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB12">Vitamin B12</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Fiber">Fiber</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=FolicAcid">Folic Acid</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Manganese">Manganese</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Phosphorus">Phosphorus</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Potassium">Potassium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Selenium">Selenium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Sodium">Sodium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Sugar">Sugar</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
+            </div>
+
+        </div> |
+        <a href="/show_favorites">Favorites</a> |
+        <a href="{{ url_for('edit_meal_planner') }}" class="btn btn-primary">My Meal Plan</a> |
+        <a href="{{ url_for('show_history') }}">View Analysis History</a> |
+
+        <a href="/logout">Logout</a>
+    </nav>
+
+    {% block content %}{% endblock %}
 </body>
+
 </html>

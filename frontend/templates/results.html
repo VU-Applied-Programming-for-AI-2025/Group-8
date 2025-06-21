@@ -1,16 +1,75 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Analysis Results - NutriSpoon{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis results</title>
+</head>
 
-{% block content %}
-<div class="card">
-    <h1 class="card-title">Analysis for: {{ symptoms }}</h1>
-    
-    <div class="analysis-text">{{ analysis }}</div>
-    
-    <div style="margin-top: 1.5rem;">
-        <a href="/recommendations" class="btn btn-accent">Get Recommended Recipes</a>
-        <a href="/home" class="btn">Analyze New Symptoms</a>
+<body>
+    <h1>Analysis for {{symptoms}}</h1>
+    <div>
+        <pre id="analysis">{{ analysis }}</pre>
     </div>
-</div>
-{% endblock %}
+
+    <div>
+        <a href="/recommendations">Get recipes</a>
+    </div>
+
+    <script>
+        const rawText = document.getElementById("analysis").innerText;
+
+        // Parser for Groq response
+        const results = {};
+        const lines = rawText.split("\n");
+
+        let currentNutrient = null;
+
+        for (let line of lines) {
+            line = line.trim();
+
+            // Nutrient name line e.g., **Magnesium**:
+            const nutrientMatch = line.match(/^\*\*(.+?)\*\*:/);
+            if (nutrientMatch) {
+                currentNutrient = nutrientMatch[1];
+                results[currentNutrient] = {
+                    why: "",
+                    foods: [],
+                    tip: ""
+                };
+                continue;
+            }
+
+            // Extract sections under each nutrient
+            if (currentNutrient && line.startsWith("- Why:")) {
+                results[currentNutrient].why = line.replace("- Why:", "").trim();
+            } else if (currentNutrient && line.startsWith("- Foods:")) {
+                const foodList = line.replace("- Foods:", "").split(",");
+                results[currentNutrient].foods = foodList.map(f => f.trim());
+            } else if (currentNutrient && line.startsWith("- Tip:")) {
+                results[currentNutrient].tip = line.replace("- Tip:", "").trim();
+            }
+        }
+
+        // Optional: include urgency note if needed
+        const urgencyMatch = rawText.match(/\*\*Urgency Note\*\*: (.+)$/m);
+        if (urgencyMatch) {
+            results["Urgency Note"] = urgencyMatch[1].trim();
+        }
+
+        // Send to Flask
+        fetch("/save_results", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(results)
+        })
+            .then(res => res.text())
+            .then(data => {
+                console.log("Saved to backend:", data);
+            });
+    </script>
+</body>
+
+</html>

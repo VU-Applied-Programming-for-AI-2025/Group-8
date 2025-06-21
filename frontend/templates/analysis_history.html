@@ -1,45 +1,30 @@
 {% extends "base.html" %}
-
-{% block title %}Analysis History - NutriSpoon{% endblock %}
-
 {% block content %}
-<div class="card">
-    <h1 class="card-title">Your Analysis History</h1>
-    {% if results %}
-    <p>You have {{ results|length }} saved analysis</p>
-    {% endif %}
-</div>
+<h2> Your Analysis History</h2>
 
 {% if results %}
-<div class="card">
-    {% for entry in results|reverse %}
-    <div style="padding: 1.5rem; border-bottom: 1px solid #eee;">
-        <h3>{{ entry.symptoms }}</h3>
-        <p style="color: #666; margin-bottom: 1rem;">Analyzed on {{ entry.date if entry.date else 'previous session' }}</p>
-        
-        <div style="margin-left: 1rem;">
+<ul>
+    {% for entry in results | reverse %}
+    <li style="margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
+        <p><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
+
+        <p><strong>Deficiency Analysis:</strong></p>
+        <ul>
             {% for nutrient, details in entry.analyse.items() %}
-            <div style="margin-bottom: 1.5rem;">
-                <h4 style="color: var(--primary);">{{ nutrient }}</h4>
+            <li>
+                <h4>{{ nutrient }}</h4>
                 <p><strong>Why:</strong> {{ details.why }}</p>
-                <p><strong>Foods:</strong> {{ details.foods|join(', ') }}</p>
+                <p><strong>Foods:</strong> {{ details.foods | join(', ') }}</p>
                 <p><strong>Tip:</strong> {{ details.tip }}</p>
-            </div>
+            </li>
             {% endfor %}
-        </div>
-        
-        {% if entry.urgency_note %}
-        <div style="background: #fff8e1; padding: 1rem; border-radius: var(--border-radius); margin-top: 1rem;">
-            <strong>Note:</strong> {{ entry.urgency_note }}
-        </div>
-        {% endif %}
-    </div>
+        </ul>
+    </li>
     {% endfor %}
-</div>
+</ul>
 {% else %}
-<div class="card">
-    <p>No analysis results saved yet.</p>
-    <a href="/home" class="btn">Analyze Symptoms</a>
-</div>
+<p>No analysis results saved yet.</p>
 {% endif %}
+
+<a href="{{ url_for('home') }}">← Back to Home</a>
 {% endblock %}
