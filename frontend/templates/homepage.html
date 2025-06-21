@@ -1,25 +1,103 @@
-<!-- templates/home.html -->
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{% block content %}
-<form method="POST" action="{{ url_for('search_bar') }}">
-    {{ form.hidden_tag() }}
-    {{ form.search_bar.label }}
-    {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
-    <button type="submit">Search</button>
-</form>
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png' )}} type=" image/x-icon">
+
+    <!--=============== REMIXICONS ===============-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
 
 
-<div>
-    <h2>Welcome to NutriSpoon{{response.fullname}}</h2>
-</div>
 
-<h1>Symptoms analyzer</h1>
-<form method="POST" action="/home">
-    <label for="symptoms">Enter your symptoms:</label>
-    <input type="text" id="symptoms" name="symptoms" required>
-    <button type="submit">Analyze</button>
-</form>
-{% endblock %}
+    <title>Welcome to NutriSpoon{{response.fullname}}</title>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">
+                Nutri<span>Spoon</span>
+            </a>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="/profile" class="nav__link">Profile</a></li>
+                    <li class="nav__item"><a href="/nutrients" class="nav__link">Nutrients</a></li>
+                    <li class="nav__item"><a href="/show_favorites" class="nav__link">Favorites</a></li>
+                    <li class="nav__item"><a href="{{ url_for('edit_meal_planner') }}" class="nav__link">My Meal
+                            Plan</a></li>
+                    <li class="nav__item"><a href="{{ url_for('show_history') }}" class=" nav__link">View Analysis
+                            History</a></li>
+                    <li class="nav__item"><a href="/logout" class="nav__link">Logout</a></li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="ri-close-line"></i>
+                </div>
+                <img src="{{ url_for('static', filename='img/nav-img.png') }}" alt="Nav image" class="nav__img">
+            </div>
+
+            <!-- Toggle button -->
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="ri-menu-line"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!--==================== HOME ====================-->
+        <section class="home">
+            <div class="home__shape-small"></div>
+            <div class="home__shape-big"></div>
+            <img src="{{ url_for('static', filename='img/shape-bg.png') }}" alt="" class="home__shape-bg">
+
+
+            <div class="home__container container">
+                <div class="home__data">
+                    <h1 class="home__title">Symptoms <span>Analyzer</span></h1>
+                    <p class="home__description">Understand your symptoms.</p>
+                    <form method="POST" action="/home" class="home__form">
+                        <input type="text" id="symptoms" name="symptoms" required class="home__input"
+                            placeholder="Enter your symptoms here...">
+                        <button type="submit" class="home__button">Analyze</button>
+                    </form>
+                </div>
+
+                <div class="home__images">
+                    <img src="{{ url_for('static', filename='img/liquid-fruit.png') }}" alt="Liquid image"
+                        class="home__liquid">
+                    <div class="home__juice-animate">
+                        <img src="{{ url_for('static', filename='img/pill.png') }}" alt="Juice image"
+                            class="home__juice">
+                    </div>
+                    <img src="{{ url_for('static', filename='img/apple1.png') }}" alt="Apple image"
+                        class="home__apple1">
+                    <img src="{{ url_for('static', filename='img/apple2.png') }}" alt="Apple image"
+                        class="home__apple2">
+                    <div>
+                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!--=============== GSAP ===============-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
+
+    <!--===== MAIN JS =====-->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
