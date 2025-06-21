@@ -93,7 +93,7 @@ nav {
 .search-nav-form {
     position: absolute;
     right: 0; /* Positioned to the right edge of its parent (.search-container) */
-    top: 50%;
+    top: -12%;
     transform: translateY(-50%); /* Vertically center */
     display: flex;
     align-items: center;
@@ -113,8 +113,9 @@ nav {
 .search-nav-form.active {
     max-width: 300px; /* Expands to this width when active */
     opacity: 1; /* Becomes visible */
-    padding: 5px 15px; /* Restore padding when active */
+    padding: 2px 1px; /* Restore padding when active */
     z-index: 1; /* Bring to front when active */
+    max-height: 40px; /* Expands to this height when active */
 }
 
 /* Ensure the active form positions correctly */
