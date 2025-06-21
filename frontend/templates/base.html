@@ -13,10 +13,6 @@
 <body>
     <nav>
         <div class="nav-left">
-            <a href="{{ url_for('home') }}" class="logo">NutriSpoon</a>
-        </div>
-
-        <div class="nav-center">
             <div class="dropdown">
                 <button class="dropbtn">Profile <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -42,7 +38,9 @@
                 </div>
             </div>
         </div>
-        
+        <div class="nav-center">
+            <a href="{{ url_for('home') }}" class="logo">NutriSpoon</a>
+        </div>
         <div class="nav-right">
             <div class="search-container">
                 <div class="search-icon-wrapper" id="searchIconWrapper">

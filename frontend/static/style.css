@@ -171,6 +171,7 @@ nav a,
     transition: background-color 0.2s ease;
     margin-top: 0;
     width: auto;
+    font-size: 1.5em
 }
 
 nav a:hover,
