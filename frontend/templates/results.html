@@ -1,75 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Analysis results</title>
-</head>
-
-<body>
-    <h1>Analysis for {{symptoms}}</h1>
-    <div>
-        <pre id="analysis">{{ analysis }}</pre>
+{% block content %}
+<div class="card">
+    <h2>Analysis Results for: {{ symptoms }}</h2>
+    
+    <div class="analysis-results">
+        {% for line in analysis.split('\n') %}
+            {% if line.strip() %}
+                {% if line.startswith('[') and ']' in line %}
+                    <h3>{{ line }}</h3>
+                {% elif line.startswith('- Why:') %}
+                    <p><strong>Why:</strong> {{ line[6:] }}</p>
+                {% elif line.startswith('- Foods:') %}
+                    <p><strong>Foods:</strong> {{ line[8:] }}</p>
+                {% elif line.startswith('- Tip:') %}
+                    <p><strong>Tip:</strong> {{ line[6:] }}</p>
+                    <hr>
+                {% elif line.startswith('[Urgency Note]:') %}
+                    <div class="urgency-note">
+                        <p><strong>Urgency Note:</strong> {{ line[15:] }}</p>
+                    </div>
+                {% else %}
+                    <p>{{ line }}</p>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
     </div>
-
-    <div>
-        <a href="/recommendations">Get recipes</a>
+    
+    <div class="actions">
+        <button id="save-results" class="btn btn-primary">Save Results</button>
+        <a href="{{ url_for('recommendations') }}" class="btn">Get Food Recommendations</a>
     </div>
+</div>
+{% endblock %}
 
-    <script>
-        const rawText = document.getElementById("analysis").innerText;
-
-        // Parser for Groq response
-        const results = {};
-        const lines = rawText.split("\n");
-
-        let currentNutrient = null;
-
-        for (let line of lines) {
-            line = line.trim();
-
-            // Nutrient name line e.g., **Magnesium**:
-            const nutrientMatch = line.match(/^\*\*(.+?)\*\*:/);
-            if (nutrientMatch) {
-                currentNutrient = nutrientMatch[1];
-                results[currentNutrient] = {
-                    why: "",
-                    foods: [],
-                    tip: ""
-                };
-                continue;
-            }
-
-            // Extract sections under each nutrient
-            if (currentNutrient && line.startsWith("- Why:")) {
-                results[currentNutrient].why = line.replace("- Why:", "").trim();
-            } else if (currentNutrient && line.startsWith("- Foods:")) {
-                const foodList = line.replace("- Foods:", "").split(",");
-                results[currentNutrient].foods = foodList.map(f => f.trim());
-            } else if (currentNutrient && line.startsWith("- Tip:")) {
-                results[currentNutrient].tip = line.replace("- Tip:", "").trim();
-            }
-        }
-
-        // Optional: include urgency note if needed
-        const urgencyMatch = rawText.match(/\*\*Urgency Note\*\*: (.+)$/m);
-        if (urgencyMatch) {
-            results["Urgency Note"] = urgencyMatch[1].trim();
-        }
-
-        // Send to Flask
-        fetch("/save_results", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(results)
-        })
-            .then(res => res.text())
-            .then(data => {
-                console.log("Saved to backend:", data);
+{% block extra_js %}
+<script>
+    document.getElementById('save-results').addEventListener('click', async function() {
+        const analysisText = `{{ analysis|replace('\n', '\\n')|safe }}`;
+        
+        try {
+            const response = await fetch('/save_results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ analysis: analysisText })
             });
-    </script>
-</body>
-
-</html>
+            
+            if (response.ok) {
+                alert('Results saved successfully!');
+            } else {
+                alert('Failed to save results');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Network error occurred');
+        }
+    });
+</script>
+{% endblock %}
