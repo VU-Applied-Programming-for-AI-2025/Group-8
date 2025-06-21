@@ -276,7 +276,9 @@ def analyze_symptoms() -> str:
     try:
         response = client.chat.completions.create(
             model="meta-llama/llama-4-scout-17b-16e-instruct",
-            messages=[{"role": "user", "content": ai_prompt}],
+            messages=[{"role": "system", "content": "you are helpful nutrition assistant that directly talks to the user in a nice language"},
+                      {"role": "user", "content": ai_prompt}
+                      ],
             temperature=0.7,
             max_completion_tokens=1024,
             top_p=1,
