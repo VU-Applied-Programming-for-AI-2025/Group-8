@@ -1,89 +1,79 @@
 # NutriSpoon Application Requirements
 
-## 1. User Registration & Profile Management
+---
 
-- **Require user consent** before using the application.
-- **Register or log in** with a username and password.
-- **Store and update user profile information**, including:
-  - Name
-  - Age
-  - Sex
-  - Height
-  - Weight
-  - Skin color
-  - Country
-  - Medication
-  - Diet
-  - Existing conditions
-  - Allergies
-  - Password
-- **Save favorite recipes** and meal plans to the user profile.
+## 1. Consent Form
+- When a user visits the site for the first time, they are shown a consent form.
+- If the user gives consent, they are redirected to the authentication/registration page.
 
-## 2. Symptom Analysis & Nutrient Recommendations
+---
 
-- **Input symptoms** to receive an AI-driven analysis of possible nutrient inadequacies.
-- **Receive a list of recommended nutrients** and foods to address potential deficiencies.
-- **Display explanations and tips** for each nutrient recommendation.
+## 2. User Profile Management 
+- Users can register a profile with all required fields: age, gender, allergies, etc.
+- Users can log in and log out.
+- Users can view and update their profile information.
 
-## 3. Food & Recipe Recommendations
+---
 
-- **Get specific food recommendations** based on AI analysis.
-- **Generate custom recipes** using the recommended foods.
-- **View detailed recipe information**, including:
-  - Ingredients
-  - Instructions
-  - Nutrition details
-  - Images (if available)
+## 3. Symptom Selection & Nutrient Analysis
+- Users can input their symptoms to get an analysis on possible inadequate nutrient intakes.
+- Submitting symptoms triggers a call to the LLM (Groq API).
+- The LLM response is parsed into structured data containing:
+  - 3 Nutrient likelihoods
+  - Explanations for each nutrient possible inadequacy.
+  - 3 Food suggestions for each nutrient. 
+  - Tips
+- The UI is accessible (e.g., screen readers, tab-navigable).
 
-## 4. Meal Planning
+---
 
-- **Generate a custom meal plan** based on recommended foods and user preferences.
-- **View meal plans** for a day or week.
-- **Edit or regenerate meal plans** as needed.
+## 4. Inadequacy Save Feature
+- Users nutrient analysis results is saved to their profile and can be accessed through the homepage.
 
-## 5. Favorites Management
+---
 
-- **Add recipes to favorites** from search results or recommendations.
-- **View a list of favorite recipes**.
-- **Remove recipes from favorites**.
+## 5. Food and Recipe Recommendations 
+- For each nutrient inadequacy, the user sees multiple personalized recipe suggestions.
+- Each recipe includes:
+  - Nutrient info (calories, protein, fiber)
+  - Option to save the recipe to favorites
 
-## 6. Error Handling & Validation
+---
 
-- **Show clear error messages** for:
+## 6. Favorites Management 
+- Users can save a recipe to favorites.
+- Saved recipes appear in the favorites section.
+- Users can unsave a recipe.
+
+---
+
+## 7. Meal Planning
+
+- Generate a custom meal plan from recommended recipes.
+- Create a custom Spoonacular meal plan based on the BMR which will be calculated with the users data.
+- Find mealplans back on homepage where you can go to your mealplan.
+
+---
+
+## 8. Nutrient Information Page 
+- Users can search for nutrients in a search bar for quick access.
+- Users can quickly go to nutrient information pages in a navigation menu.
+- Each nutrient page displays:
+  - It's function
+  - Why it's important
+  - Deficiency symptoms
+  - Top food sources. 
+
+---
+
+## 9. General & Security
+- The UI is accessible (e.g., screen readers, tab-navigable).
+- The site loads and responds within 10 seconds after symptom submission.
+- **error handling**: Show clear error messages for
   - Missing required fields (e.g., password, username)
   - Duplicate usernames during registration
   - Invalid login credentials
   - Invalid or incomplete profile updates
-- **Return appropriate HTTP status codes** for API endpoints.
-
-## 8. Testing
-
-- **Automated backend tests** for:
-  - Registration
-  - Login
-  - Profile updates
-  - Recipe and meal plan generation
-  - Favorites management
-  - Consent and authentication flow
-
-## 9. Frontend Features
-
-- **Responsive HTML templates** for all main pages:
-  - Consent form
-  - Authentication (login/register)
-  - Profile
-  - Homepage (symptom analyzer)
-  - Recommendations/results
-  - Meal planner
-  - Favorites
-  - Recipe details
-- **User-friendly forms** with validation and helpful error messages.
-
-## 10. Security & Privacy
-
-- **Protect user data** and session information.
-- **Environment variables** for all API keys.
-
 ---
 
 ## Additional Notes

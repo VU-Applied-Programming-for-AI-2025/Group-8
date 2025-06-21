@@ -1,713 +1,117 @@
 {
-  "test": {
-    "username": "test",
-    "password": "test",
-    "name": "test",
-    "age": 18,
+  "a": {
+    "username": "a",
+    "password": "a",
+    "name": "a",
+    "age": 20,
     "sex": "female",
-    "height": 170.0,
-    "weight": 63.0,
+    "height": 179.0,
+    "weight": 56.0,
     "skin_color": "light",
-    "country": "test",
+    "country": "a",
     "medication": [
       ""
     ],
     "diet": "none",
     "existing_conditions": [
-      "vitamin D deficiency",
-      " iron deficiency "
+      ""
     ],
     "allergies": [
-      "hay-fever"
+      ""
     ],
-    "saved_recipes": [],
+    "saved_recipes": [
+      716432,
+      642129
+    ],
     "analysis_results": [
       {
-        "symptoms": "acne and hair loss",
-        "analyse": {
-          "Vitamin A lack": {
-            "why": "As an 18-year-old female, a lack of Vitamin A may contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores.",
-            "foods": [
-              "sweet potatoes",
-              "carrots",
-              "dark leafy greens",
-              "squash",
-              "liver"
-            ],
-            "tip": "Establish a consistent skincare routine, including gentle cleansing and moisturizing, to help manage acne."
-          },
-          "Zinc lack": {
-            "why": "As a female, a lack of Zinc may exacerbate acne due to its anti-inflammatory properties and role in wound healing.",
-            "foods": [
-              "oysters",
-              "beef",
-              "chicken",
-              "fortified cereals",
-              "pumpkin seeds"
-            ],
-            "tip": "Keep a food diary to track any potential food triggers that may be contributing to acne."
-          },
-          "Omega-3 lack": {
-            "why": "A lack of Omega-3 fatty acids may contribute to acne due to their anti-inflammatory properties.",
-            "foods": [
-              "salmon",
-              "walnuts",
-              "chia seeds",
-              "flaxseeds",
-              "sardines"
-            ],
-            "tip": "Consider incorporating stress-reducing activities, such as yoga or meditation, to help manage stress that may be contributing to acne."
-          },
-          "Iron lack": {
-            "why": "As a female, a lack of Iron may contribute to hair loss due to its role in transporting oxygen to hair follicles.",
-            "foods": [
-              "spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds"
-            ],
-            "tip": "Avoid excessive heat styling and use a gentle shampoo to help minimize hair loss."
-          },
-          "Biotin lack": {
-            "why": "A lack of Biotin may contribute to hair loss due to its role in hair growth and maintenance.",
-            "foods": [
-              "eggs",
-              "nuts",
-              "leafy greens",
-              "whole grains",
-              "avocados"
-            ],
-            "tip": "Reduce use of hair ties that can cause hair tension and lead to hair loss."
-          },
-          "Vitamin B12 lack": {
-            "why": "A lack of Vitamin B12 may contribute to hair loss due to its role in the production of red blood cells, which carry oxygen to hair follicles.",
-            "foods": [
-              "fish",
-              "beef",
-              "chicken",
-              "fortified plant-based milk",
-              "eggs"
-            ],
-            "tip": "Get regular trims to prevent split ends and breakage."
-          },
-          "Urgency Note": "While acne and hair loss can be concerning, there are no urgent medical concerns flagged based on the provided information. However, if symptoms persist or worsen, it is recommended to consult a healthcare professional for personalized guidance."
-        }
-      },
-      {
         "symptoms": "acne",
         "analyse": {
-          "Vitamin A lack": {
-            "why": "Acne is often linked to a lack of vitamin A, which regulates skin cell growth and differentiation. As an 18-year-old female, adequate vitamin A intake is crucial for skin health.",
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin cell turnover and sebum regulation. As a 20-year-old female, adequate Vitamin A intake is crucial for maintaining healthy skin.",
             "foods": [
               "sweet potatoes",
               "carrots",
-              "dark leafy greens",
-              "squash",
-              "liver"
+              "dark leafy greens"
             ],
-            "tip": "Include vitamin A-rich foods in your daily meals, aiming for 700-900 \u03bcg per day."
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
           },
-          "Zinc lack": {
-            "why": "Zinc plays a crucial role in skin health, and its lack can lead to acne. As a female, zinc needs are higher during menstruation, and a lack of zinc can exacerbate existing conditions like vitamin D and iron imbalances.",
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, Vitamin C helps to combat oxidative stress and inflammation.",
             "foods": [
-              "oysters",
-              "beef",
-              "chicken",
-              "fortified cereals",
-              "pumpkin seeds"
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
             ],
-            "tip": "Consume zinc-rich foods with acidic foods like citrus or tomatoes to enhance absorption."
-          },
-          "Omega-3 fatty acid lack": {
-            "why": "Omega-3 fatty acids help reduce inflammation, which can contribute to acne. As a young adult, adequate omega-3 intake supports skin health and may help alleviate symptoms.",
-            "foods": [
-              "salmon",
-              "walnuts",
-              "chia seeds",
-              "flaxseeds",
-              "fortified eggs"
-            ],
-            "tip": "Incorporate omega-3 rich foods into your diet 2-3 times a week, and consider consulting a healthcare professional about supplements."
-          },
-          "Urgency Note": "Given your existing conditions (vitamin D and iron imbalances) and symptoms (acne), consider consulting a healthcare professional to discuss potential interactions with your hay-fever allergy and ensure proper management. Additionally, monitor your medication and supplement regimen to avoid adverse interactions."
-        }
-      },
-      {
-        "symptoms": "hair loss",
-        "analyse": {
-          "Iron Lack": {
-            "why": "As a female, especially at 18 years old, and with an existing iron deficiency, the body may struggle to produce enough hemoglobin, leading to hair loss. A lack of iron can impede the delivery of oxygen to hair follicles, affecting hair growth.",
-            "foods": [
-              "spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds",
-              "quinoa"
-            ],
-            "tip": "Engage in regular exercise to improve circulation and help increase iron absorption."
-          },
-          "Vitamin D Lack": {
-            "why": "Existing vitamin D deficiency and being 18 years old, with a female sex, might affect the regulation of calcium levels and hair follicle health. A lack of vitamin D can disrupt hair growth cycles.",
-            "foods": [
-              "fatty fish",
-              "fortified dairy products",
-              "mushrooms",
-              "egg yolks",
-              "fortified orange juice"
-            ],
-            "tip": "Spend time outdoors, especially during peak sun hours, to boost natural vitamin D production."
-          },
-          "Biotin Lack": {
-            "why": "As an 18-year-old female, a lack of biotin may affect hair growth and maintenance. Biotin plays a crucial role in the production of keratin, a protein that promotes hair growth.",
-            "foods": [
-              "eggs",
-              "nuts",
-              "leafy greens",
-              "whole grains",
-              "avocados",
-              "sweet potatoes"
-            ],
-            "tip": "Use gentle hair care products and avoid excessive heat styling to minimize hair damage."
-          },
-          "Zinc Lack": {
-            "why": "As a female with hair loss, a lack of zinc may impede hair growth. Zinc plays a role in protein synthesis and hair follicle health.",
-            "foods": [
-              "oysters",
-              "beef",
-              "chicken",
-              "pork",
-              "fortified cereals",
-              "pumpkin seeds"
-            ],
-            "tip": "Manage stress through relaxation techniques like meditation or yoga to help regulate zinc levels."
-          },
-          "Urgency Note": "Given the user's existing conditions (vitamin D deficiency, iron deficiency) and symptom (hair loss), it is essential to consult a healthcare professional to rule out any underlying conditions that may require immediate attention. Additionally, hay-fever allergy may interact with certain medications or supplements, so it's crucial to discuss treatment options with a healthcare professional."
-        }
-      },
-      {
-        "symptoms": "fatigue",
-        "analyse": {
-          "Iron Lack": {
-            "why": "As an 18-year-old female, iron is essential for healthy red blood cells. The user's existing iron deficiency and symptoms of fatigue suggest a need for more iron. Females are at higher risk due to menstrual blood loss.",
-            "foods": [
-              "spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds",
-              "quinoa"
-            ],
-            "tip": "Engage in regular exercise to improve circulation and help your body utilize iron more efficiently."
-          },
-          "Vitamin B12 Lack": {
-            "why": "Fatigue can be a sign of vitamin B12 insufficiency, and as a female, the user's dietary habits may not include enough B12-rich foods. Vitamin B12 is crucial for energy production.",
-            "foods": [
-              "salmon",
-              "eggs",
-              "fortified plant-based milk",
-              "beef",
-              "chicken",
-              "tuna"
-            ],
-            "tip": "Consider keeping a food diary to track your B12 intake and ensure you're consuming enough."
-          },
-          "Magnesium Lack": {
-            "why": "Magnesium plays a role in energy production, and a lack can contribute to fatigue. As an 18-year-old, the user's growth and development require adequate magnesium.",
-            "foods": [
-              "dark chocolate",
-              "almonds",
-              "avocado",
-              "brown rice",
-              "oatmeal",
-              "banana"
-            ],
-            "tip": "Practice stress-reducing techniques like meditation or deep breathing to help your body conserve magnesium."
-          },
-          "Urgency Note": "Given the user's existing conditions (vitamin D and iron deficiencies) and symptoms (fatigue), it's essential to consult a healthcare professional to rule out any underlying conditions that may require immediate attention. Additionally, the user's hay-fever allergy should be considered when introducing new foods or supplements."
-        }
-      },
-      {
-        "symptoms": "hair loss",
-        "analyse": {
-          "Iron Lack": {
-            "why": "As a female, iron is crucial for hair growth, and the user already has an existing iron deficiency. At 18 years old, iron needs are higher due to menstruation.",
-            "foods": [
-              "Spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds",
-              "quinoa"
-            ],
-            "tip": "Engage in regular exercise to enhance iron absorption."
-          },
-          "Vitamin D Lack": {
-            "why": "Vitamin D plays a role in hair follicle health. The user's existing vitamin D deficiency could contribute to hair loss.",
-            "foods": [
-              "Fatty fish",
-              "egg yolks",
-              "fortified dairy products",
-              "mushrooms",
-              "fortified orange juice"
-            ],
-            "tip": "Spend time outdoors, especially during peak sun hours, to boost natural vitamin D production."
-          },
-          "Biotin Lack": {
-            "why": "Biotin is essential for hair growth, and a lack can lead to hair loss.",
-            "foods": [
-              "Almonds",
-              "sunflower seeds",
-              "sweet potatoes",
-              "avocados",
-              "eggs"
-            ],
-            "tip": "Use gentle hair care products and reduce heat styling to minimize hair damage."
-          },
-          "Urgency Note": "Given the user's existing conditions (vitamin D deficiency, iron deficiency) and symptom (hair loss), it is recommended to consult a healthcare professional to rule out any underlying conditions that may require immediate attention, especially considering the user's allergies (hay-fever) which might complicate treatment options."
-        }
-      },
-      {
-        "symptoms": "hair loss",
-        "analyse": {
-          "Iron Lack": {
-            "why": "As a female, especially at 18 years old, a lack of iron can contribute to hair loss due to its crucial role in the production of hemoglobin, which transports oxygen to cells. Given the user's existing iron deficiency, this could be exacerbating hair loss.",
-            "foods": [
-              "Spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds",
-              "quinoa",
-              "tofu",
-              "chickpeas",
-              "apricots",
-              "prunes"
-            ],
-            "tip": "Engage in regular exercise to enhance iron absorption."
-          },
-          "Vitamin D Lack": {
-            "why": "A lack of vitamin D can affect hair growth, and given the user's existing vitamin D deficiency, this could be a contributing factor to hair loss. Vitamin D receptors are present in hair follicles, and a lack could disrupt hair growth.",
-            "foods": [
-              "Fatty fish",
-              "fortified dairy products",
-              "egg yolks",
-              "mushrooms",
-              "fortified cereals"
-            ],
-            "tip": "Spend time outdoors, especially during peak sun hours, for natural vitamin D synthesis."
-          },
-          "Biotin Lack": {
-            "why": "Biotin is crucial for hair growth, and a lack could contribute to hair loss. While age and sex play a role in overall health, ensuring adequate biotin intake can support hair health.",
-            "foods": [
-              "Eggs",
-              "nuts",
-              "leafy greens",
-              "whole grains",
-              "seeds",
-              "sweet potatoes",
-              "avocado",
-              "salmon"
-            ],
-            "tip": "Use a gentle hair care routine to minimize hair loss."
-          },
-          "Urgency Note": "Given the user's existing conditions (vitamin D and iron deficiencies) and symptom (hair loss), it is recommended to consult a healthcare professional to rule out any underlying conditions that may require immediate attention. Additionally, the user's hay fever allergy may require consideration when introducing new foods."
-        }
-      },
-      {
-        "symptoms": "hair loss",
-        "analyse": {
-          "Iron Lack": {
-            "why": "As a female, you are at a higher risk of iron lack due to monthly menstrual cycles. Your existing iron deficiency also makes you more prone to experiencing hair loss due to iron lack.",
-            "foods": [
-              "spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds",
-              "quinoa"
-            ],
-            "tip": "Increase your iron intake by consuming vitamin C-rich foods like citrus fruits or bell peppers along with iron-rich foods to enhance absorption."
-          },
-          "Vitamin D Lack": {
-            "why": "Your existing vitamin D deficiency could be contributing to hair loss. As an 18-year-old female, you may spend more time indoors, limiting your sun exposure, which is essential for vitamin D production.",
-            "foods": [
-              "fatty fish",
-              "fortified dairy products",
-              "mushrooms",
-              "egg yolks",
-              "fortified orange juice"
-            ],
-            "tip": "Spend at least 15-20 minutes outside during peak sun hours (10 am - 4 pm) to boost your vitamin D levels naturally."
-          },
-          "Biotin Lack": {
-            "why": "Biotin is essential for hair growth, and a lack of it can lead to hair loss. As a young adult, your diet may not include sufficient biotin-rich foods.",
-            "foods": [
-              "eggs",
-              "nuts",
-              "leafy greens",
-              "whole grains",
-              "avocados",
-              "sweet potatoes"
-            ],
-            "tip": "Incorporate biotin-rich foods into your daily meals to promote hair growth."
-          },
-          "Urgency Note": "Consider consulting a doctor about your existing conditions (vitamin D deficiency, iron deficiency) and hay-fever allergy to ensure they are being properly managed, especially given your hair loss symptoms."
-        }
-      },
-      {
-        "symptoms": "hair loss",
-        "analyse": {
-          "Iron": {
-            "why": "The user has an existing iron deficiency, and hair loss is a common symptom of a lack of iron. As an 18-year-old female, the user is at a higher risk of iron deficiency due to menstruation.",
-            "foods": [
-              "Spinach",
-              "beans",
-              "lentils",
-              "fortified cereals",
-              "pumpkin seeds",
-              "sesame seeds",
-              "sunflower seeds"
-            ],
-            "tip": "Increase iron intake through iron-rich foods, especially during menstruation."
-          },
-          "Vitamin D": {
-            "why": "The user has an existing vitamin D deficiency, which can contribute to hair loss. As an 18-year-old female with a light skin tone, the user is at a higher risk of vitamin D deficiency.",
-            "foods": [
-              "Fatty fish",
-              "fortified dairy products",
-              "mushrooms",
-              "egg yolks",
-              "fortified cereals"
-            ],
-            "tip": "Spend time outdoors to boost vitamin D production through sunlight, but avoid peak sun hours to minimize hay fever symptoms."
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
           },
           "Zinc": {
-            "why": "A lack of zinc can cause hair loss, and as a female, the user may be at risk due to inadequate dietary intake.",
+            "why": "A lack of Zinc can lead to acne due to its role in sebum regulation, inflammation, and wound healing. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
             "foods": [
-              "Oysters",
+              "oysters",
               "beef",
-              "chicken",
-              "pork",
-              "fortified cereals",
-              "pumpkin seeds",
-              "sesame seeds"
+              "chicken"
             ],
-            "tip": "Include zinc-rich foods in your diet, and consider taking a zinc supplement after consulting a doctor."
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
           },
-          "Urgency Note": "Given the user's existing conditions (vitamin D deficiency, iron deficiency) and allergy (hay-fever), it's essential to consult a doctor before making significant changes to the diet or taking supplements. The user's hair loss may be a symptom of an underlying condition that requires medical attention."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "Urgency Note": {
-            "why": "",
-            "foods": [],
-            "tip": ""
-          }
-        }
-      },
-      {
-        "symptoms": "hair loss",
-        "analyse": {
-          "Urgency Note": "Considering the user's existing conditions (vitamin D deficiency, iron deficiency) and symptoms (hair loss), it's essential to consult a healthcare professional to rule out any underlying conditions that may require immediate attention. Additionally, the user's hay-fever allergy may require consideration when introducing new foods."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "Urgency Note": "Given your existing conditions (vitamin D deficiency, iron deficiency) and allergies (hay-fever), it is essential to consult a doctor before making significant changes to your diet or supplement routine. Additionally, your acne may be a symptom of an underlying condition; if it persists or worsens, seek medical attention."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "Urgency Note": "Test's existing vitamin D and iron deficiencies should be addressed, and her hay-fever allergy should be considered when introducing new foods. Consult a doctor before making significant changes to diet or supplements."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "Urgency Note": "Existing conditions like vitamin D and iron deficiencies require attention. Consult a healthcare professional to address these conditions and develop a plan to manage acne. Also, consider getting a check-up to rule out any underlying medical conditions that may be contributing to acne. Hay-fever allergy may also impact treatment options."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "Urgency Note": "The user's existing conditions, vitamin D deficiency and iron deficiency, should be monitored and addressed. Additionally, the user's hay-fever allergy may require consideration when introducing new foods or supplements. Consult a healthcare professional before making any significant changes."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "Urgency Note": "Consider consulting a doctor about your existing vitamin D and iron deficiencies, as well as your acne. Also, discuss potential medication or supplement interactions with your healthcare provider, especially given your hay-fever allergy."
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
         }
       }
     ],
     "mealplan": {
-      "week": {
-        "monday": {
-          "meals": [
-            {
-              "id": 1957598,
-              "image": "low-carb-keto-pancakes-1957598.jpg",
-              "imageType": "jpg",
-              "title": "Low Carb Keto Pancakes",
-              "readyInMinutes": 15,
-              "servings": 2,
-              "sourceUrl": "https://spoonacular.com/site-1721579912124"
-            },
-            {
-              "id": 1095794,
-              "image": "chicken-and-potatoes-tortilla-1095794.jpg",
-              "imageType": "jpg",
-              "title": "Spanish Tortilla",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7WBMG8RX/chicken-adn-potatoes-tortilla"
-            },
-            {
-              "id": 651911,
-              "image": "Minced-Beef-Curry-651911.jpg",
-              "imageType": "jpg",
-              "title": "Minced Beef Curry",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/7HCZZZLC/minced-beef-curry"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.89,
-            "protein": 67.08,
-            "fat": 76.48,
-            "carbohydrates": 61.07
-          }
+      "meals": [
+        {
+          "id": 1161746,
+          "image": "peanut-butter-muffins-1161746.jpg",
+          "imageType": "jpg",
+          "title": "Peanut Butter Muffins",
+          "readyInMinutes": 28,
+          "servings": 12,
+          "sourceUrl": "https://www.pinkwhen.com/peanut-butter-muffins/"
         },
-        "tuesday": {
-          "meals": [
-            {
-              "id": 716407,
-              "image": "simple-whole-wheat-crepes-kingarthurflour-vitamix-716407.jpg",
-              "imageType": "jpg",
-              "title": "Simple Whole Wheat Crepes",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://fullbellysisters.blogspot.com/2014/11/simple-whole-wheat-crepes.html"
-            },
-            {
-              "id": 1098387,
-              "image": "quinoa-salad-with-barberries-nuts-1098387.jpg",
-              "imageType": "jpg",
-              "title": "Quinoa Salad with Barberries & Nuts",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/PBQJCDDG/quinoa-salad-with-barberries-nuts"
-            },
-            {
-              "id": 645812,
-              "image": "Grilled-Portabella-and-Poblano-Tacos-645812.jpg",
-              "imageType": "jpg",
-              "title": "Grilled Portabella and Poblano Tacos",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/52YSN467/grilled-portabella-and-poblano-tacos"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.85,
-            "protein": 38.2,
-            "fat": 62.32,
-            "carbohydrates": 123.42
-          }
+        {
+          "id": 653251,
+          "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
+          "imageType": "jpg",
+          "title": "Noodles and Veggies With Peanut Sauce",
+          "readyInMinutes": 30,
+          "servings": 4,
+          "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
         },
-        "wednesday": {
-          "meals": [
-            {
-              "id": 659465,
-              "image": "Savory-corn-and-chives-muffins-659465.jpg",
-              "imageType": "jpg",
-              "title": "Savory corn and chives muffins",
-              "readyInMinutes": 45,
-              "servings": 12,
-              "sourceUrl": "https://www.foodista.com/recipe/ZFCFJDY7/savory-corn-and-chives-muffins"
-            },
-            {
-              "id": 1095992,
-              "image": "turkey-ranch-blt-1095992.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Ranch BLT",
-              "readyInMinutes": 10,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/CQSHG6NN/turkey-ranch-blt"
-            },
-            {
-              "id": 653775,
-              "image": null,
-              "imageType": "jpg",
-              "title": "Open-Face Egg Sandwich with Bacon, Asparagus, and Pesto",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/RMWVZKKR/open-face-egg-sandwich-with-bacon-asparagus-and-pesto"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.85,
-            "protein": 47.86,
-            "fat": 60.77,
-            "carbohydrates": 114.15
-          }
-        },
-        "thursday": {
-          "meals": [
-            {
-              "id": 656481,
-              "image": "Poached-Egg-With-Spinach-and-Tomato-656481.jpg",
-              "imageType": "jpg",
-              "title": "Poached Egg With Spinach and Tomato",
-              "readyInMinutes": 20,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/YYK36BYD/poached-egg-with-spinach-and-tomato"
-            },
-            {
-              "id": 642281,
-              "image": "Eggplant-Caprese-Stacks-642281.jpg",
-              "imageType": "jpg",
-              "title": "Eggplant Caprese Stack Appetizers",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/V4KYVH2L/eggplant-caprese-stacks"
-            },
-            {
-              "id": 632946,
-              "image": "Asparagus-Parmesan-Frittata-632946.jpg",
-              "imageType": "jpg",
-              "title": "Asparagus Parmesan Frittata",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/743BV5DP/asparagus-parmesan-frittata"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.96,
-            "protein": 52.48,
-            "fat": 81.07,
-            "carbohydrates": 67.88
-          }
-        },
-        "friday": {
-          "meals": [
-            {
-              "id": 638257,
-              "image": "Chicken-Porridge-638257.jpg",
-              "imageType": "jpg",
-              "title": "Chicken Porridge",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/S6FN8VYN/chicken-porridge"
-            },
-            {
-              "id": 986003,
-              "image": "instant-pot-chicken-tacos-986003.jpg",
-              "imageType": "jpg",
-              "title": "Instant Pot Chicken Tacos",
-              "readyInMinutes": 25,
-              "servings": 6,
-              "sourceUrl": "https://www.pinkwhen.com/instant-pot-chicken-tacos/"
-            },
-            {
-              "id": 659502,
-              "image": "Savoury-Mushroom-stuffed-Pork-Tenderloin-659502.jpg",
-              "imageType": "jpg",
-              "title": "Savoury Mushroom stuffed Pork Tenderloin",
-              "readyInMinutes": 45,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/PJSXVGQW/savoury-mushroom-stuffed-pork-tenderloin"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.89,
-            "protein": 151.65,
-            "fat": 26.7,
-            "carbohydrates": 78.44
-          }
-        },
-        "saturday": {
-          "meals": [
-            {
-              "id": 650431,
-              "image": "Low-Fat-Oatmeal-Banana-Bread-650431.jpg",
-              "imageType": "jpg",
-              "title": "Low-Fat Oatmeal Banana Bread",
-              "readyInMinutes": 75,
-              "servings": 10,
-              "sourceUrl": "https://www.foodista.com/recipe/WTKTRYZ5/low-fat-oatmeal-banana-bread"
-            },
-            {
-              "id": 1697677,
-              "image": "super-easy-oven-baked-cod-1697677.jpg",
-              "imageType": "jpg",
-              "title": "Super Easy Oven Baked Cod",
-              "readyInMinutes": 20,
-              "servings": 2,
-              "sourceUrl": "https://maplewoodroad.com/super-easy-oven-baked-cod/"
-            },
-            {
-              "id": 637515,
-              "image": "Cheddar-Polenta-with-Sun-dried-Tomatoes---Shrimp-637515.jpg",
-              "imageType": "jpg",
-              "title": "Cheddar Polenta with Sun-dried Tomatoes & Shrimp",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/RKPL4Z44/cheddar-polenta-with-sun-dried-tomatoes-shrimp"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.93,
-            "protein": 72.14,
-            "fat": 37.1,
-            "carbohydrates": 140.53
-          }
-        },
-        "sunday": {
-          "meals": [
-            {
-              "id": 658132,
-              "image": "Reduced-Fat-Blueberry-Cheesecake-Crepes-658132.jpg",
-              "imageType": "jpg",
-              "title": "Reduced Fat Blueberry Cheesecake Crepes",
-              "readyInMinutes": 45,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/Y6BXKNC4/reduced-fat-blueberry-cheesecake-crepes"
-            },
-            {
-              "id": 637908,
-              "image": "Chicken-and-Miso-Ramen-Noodle-Soup-637908.jpg",
-              "imageType": "jpg",
-              "title": "Chicken and Miso Ramen Noodle Soup",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/LSGT2GRK/chicken-and-miso-ramen-noodle-soup"
-            },
-            {
-              "id": 638231,
-              "image": "Chicken-Parmayonnaise-(3-Ingredients-For-An-Easy-Night-In)-638231.jpg",
-              "imageType": "jpg",
-              "title": "Chicken Parmayonnaise",
-              "readyInMinutes": 45,
-              "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/K6D2PK26/chicken-parmayonnaise-3-ingredients-for-an-easy-night-in"
-            }
-          ],
-          "nutrients": {
-            "calories": 1178.96,
-            "protein": 79.29,
-            "fat": 41.49,
-            "carbohydrates": 117.92
-          }
+        {
+          "id": 679540,
+          "image": "baked-whole-wheat-breakfast-quesadilla-679540.png",
+          "imageType": "png",
+          "title": "Baked Whole Wheat Breakfast Quesadilla",
+          "readyInMinutes": 45,
+          "servings": 2,
+          "sourceUrl": "https://fullbellysisters.blogspot.com/2015/08/baked-whole-wheat-breakfast-quesadilla.html"
         }
+      ],
+      "nutrients": {
+        "calories": 1733.28,
+        "protein": 68.26,
+        "fat": 81.13,
+        "carbohydrates": 184.12
       }
     }
+  },
+  "testusername": {
+    "username": "testusername",
+    "password": "testpassword",
+    "name": "Test User",
+    "age": 20,
+    "sex": "Female",
+    "height": 175.0,
+    "weight": 70.0,
+    "skin_color": "medium",
+    "country": "The Netherlands",
+    "medication": "None",
+    "diet": "None",
+    "existing_conditions": [],
+    "allergies": [],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
   }
 }
