@@ -239,26 +239,13 @@ button:hover {
     max-width: 900px;
 }
 
-/* Back Link (reused across several pages) */
-.back-link {
-    display: inline-block;
-    margin-top: 2em;
-    color: #007BFF;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.back-link:hover {
-    text-decoration: underline;
-}
-
 /*--- Navigation ---*/
 nav {
     background-color: #ffffff;
     padding: 9px 24px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Distributes items with space between them */
     align-items: center;
     width: 100%;
     box-sizing: border-box;
@@ -266,18 +253,29 @@ nav {
     top: 0;
     left: 0;
     z-index: 1000;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
 }
 
 .nav-left,
-.nav-center,
 .nav-right {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-shrink: 0; /* Prevent these from shrinking too much */
 }
 
 .nav-center {
     font-size: 1.5em;
+    flex-grow: 1; /* Allow it to grow and take available space */
+    text-align: center; /* Center the text content */
+    margin: 0 20px; /* Adjust as needed */
+}
+
+/* Ensure the logo itself is centered within nav-center */
+.nav-center .logo {
+    display: block; /* Make the anchor tag a block to center its text */
+    text-align: center;
+    width: 100%; /* Take full width of nav-center */
 }
 
 /* Nav links and dropdown buttons */
@@ -310,15 +308,77 @@ nav {
     color: #007BFF;
 }
 
-.nav-left .icon {
+/* On larger screens, the hamburger icon is hidden */
+.nav-left a.icon {
     display: none;
 }
 
+/* On larger screens, menu items are visible and inline */
+.nav-left .dropdown,
+.nav-left a:not(.icon) {
+    display: flex; /* Use flex to align icon and text for dropdown buttons */
+    align-items: center;
+}
+
+/* Styles for the hamburger icon when it's displayed on smaller screens */
+.nav-left.responsive a.icon {
+    display: block; /* Show hamburger icon when menu is responsive */
+    position: absolute;
+    right: 24px;
+    top: 9px;
+    margin-left: 0;
+    /* Basic styling for the hamburger icon */
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    color: #666;
+    background-color: #f9f9f9;
+}
+
+.nav-left a.icon i {
+    font-size: 1.1em;
+}
+
+.nav-left a.icon:hover {
+    border-color: #007BFF;
+    color: #007BFF;
+}
+
+/* When nav-left becomes responsive (hamburger menu open) */
+.nav-left.responsive {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align stacked items to the left */
+    width: 100%; /* Take full width of the nav */
+    position: absolute; /* Position absolutely below the main nav bar */
+    top: 100%; /* Place it right below the nav */
+    left: 0;
+    background-color: #ffffff; /* Same as nav background */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Add shadow for dropdown effect */
+    padding: 10px 24px; /* Add some padding */
+    box-sizing: border-box;
+    order: unset; /* Remove order when it becomes absolute */
+}
+
+.nav-left.responsive .dropdown,
+.nav-left.responsive a:not(.icon) {
+    display: block; /* Show hidden items */
+    width: 100%;
+    text-align: left;
+    padding: 10px 0; /* Adjust padding for stacked links */
+    box-sizing: border-box;
+}
+
+
 /* Search Container */
 .search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
+    position: relative; /* Keep this for absolute positioning of the form inside */
+    display: flex; /* Make it a flex container */
+    align-items: center; /* Vertically align items in the center */
 }
 
 .search-icon-wrapper {
@@ -335,7 +395,8 @@ nav {
     transition: all 0.3s ease;
     color: #666;
     background-color: #f9f9f9;
-    z-index: 2;
+    z-index: 2; /* Keep search icon above the expanding form */
+    flex-shrink: 0; /* Prevent the icon from shrinking */
 }
 
 .search-icon-wrapper:hover {
@@ -348,7 +409,7 @@ nav {
 }
 
 .search-nav-form {
-    position: absolute;
+    position: absolute; /* Keep absolute positioning for the expanding animation */
     right: 0;
     top: 50%; /* Position the top edge of the form at the vertical center of its parent */
     transform: translateY(-50%); /* Move the form up by half its own height to perfectly center it */
@@ -363,51 +424,17 @@ nav {
     white-space: nowrap;
     transition: max-width 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-    z-index: -1;
+    z-index: 1; /* Ensure form appears below the icon initially */
 }
 
 .search-nav-form.active {
     max-width: 300px;
     opacity: 1;
-    padding: 2px 1px;
-    z-index: 1;
+    padding: 2px 10px; /* Add some padding to the sides when active for visual spacing */
+    z-index: 1; /* Keep it at z-index 1 when active */
     max-height: 40px;
     right: 0;
-}
-
-.search-nav-form .search-input {
-    border: none;
-    outline: none;
-    padding: 5px 0;
-    font-size: 0.95em;
-    background: transparent;
-    width: 100%;
-    color: #333;
-    text-align: left;
-    min-width: 150px;
-}
-
-.search-nav-form.active .search-input {
-    width: auto;
-    flex-grow: 1;
-    min-width: 180px;
-    margin-right: 8px;
-}
-
-.search-nav-form .search-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #007BFF;
-    font-size: 1.1em;
-    padding: 5px;
-    margin-left: 0;
-    transition: color 0.2s ease;
-    flex-shrink: 0;
-}
-
-.search-nav-form .search-button:hover {
-    color: #0056b3;
+    margin-right: 48px; /* Approximately icon width + padding */
 }
 
 /* Dropdown */
@@ -448,49 +475,62 @@ nav {
 
 /*--- Media Queries ---*/
 @media screen and (max-width: 600px) {
+    /* Adjust overall nav behavior on smaller screens */
+    nav {
+        flex-direction: row;
+        justify-content: space-between; /* Distribute them evenly */
+        align-items: center;
+        flex-wrap: nowrap; /* Prevent wrapping for these three main elements */
+        padding-bottom: 9px; /* Reset padding */
+    }
+
+    .nav-left {
+        /* Ensure the hamburger icon remains visible and is the only item from nav-left in the top row initially */
+        display: flex;
+        align-items: center;
+        justify-content: flex-start; /* Align icon to the start */
+        order: 1;
+        flex-grow: 0; /* Don't let it grow */
+        gap: 0; /* No gap between hidden items and icon */
+        position: relative; /* Make nav-left relative for absolute positioning of responsive menu */
+    }
+
+    /* On smaller screens, hide the regular menu items */
     .nav-left .dropdown,
     .nav-left a:not(.icon) {
         display: none;
     }
 
+    /* Show the hamburger icon on smaller screens */
     .nav-left a.icon {
-        float: right;
         display: block;
     }
 
-    .nav-left.responsive {
-        position: relative;
-        flex-direction: column;
-        align-items: flex-start;
+    .nav-center {
+        order: 2;
+        width: auto; /* Allow width to be determined by content */
+        margin: 0; /* Reset margin */
+        text-align: center;
+        flex-grow: 1; /* Allow logo to take available space between icon and search */
     }
 
-    .nav-left.responsive a.icon {
-        position: absolute;
-        right: 0;
-        top: 0;
+    .nav-right {
+        order: 3;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* Align search icon to the end */
+        flex-grow: 0; /* Don't let it grow */
     }
 
-    .nav-left.responsive .dropdown,
-    .nav-left.responsive a:not(.icon) {
-        float: none;
-        display: block;
-        text-align: left;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .nav-left.responsive .dropdown .dropbtn,
-    .nav-left.responsive .dropdown-content a {
-        padding: 12px 16px;
-    }
-
-    .nav-left.responsive .dropdown-content {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        border-top: 1px solid #eee;
+    /* Ensure search form appears correctly when active on small screens */
+    .search-nav-form.active {
+        max-width: calc(100vw - 120px); /* Adjust max-width to fit screen minus some space for icon */
+        margin-right: 0; /* Reset margin */
+        left: auto; /* Allow it to position from the right */
+        right: 48px; /* Position next to the search icon */
     }
 }
+
 
 /*--- Recommendations Section ---*/
 .meal-section {
