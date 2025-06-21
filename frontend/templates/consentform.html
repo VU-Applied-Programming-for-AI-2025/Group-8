@@ -1,16 +1,53 @@
+{% extends "base.html" %}
 
-<html>
-<head>
-    <title>Consent Form</title>
-</head>
-<body>
-    <h2>Consent Form</h2>
-    <p>
-        This application uses generative AI to provide personalized nutritional recommendations.
-        This is not medical advice.
-    </p>
-    <form action="/consentform" method="POST">
-        <button type="submit" name="accept" value="true">I Accept</button>
+{% block content %}
+<div class="card consent-card">
+    <h2>Welcome to NutriGuide</h2>
+    <p>Before we begin, please review and accept our terms:</p>
+    
+    <div class="consent-text">
+        <h3>Data Usage Consent</h3>
+        <p>By using NutriGuide, you agree that:</p>
+        <ul>
+            <li>Your nutritional data will be stored to provide personalized recommendations</li>
+            <li>Your information will not be shared with third parties</li>
+            <li>You can delete your data at any time</li>
+            <li>Recommendations are not medical advice</li>
+        </ul>
+    </div>
+    
+    <form method="POST" action="{{ url_for('handle_consent') }}">
+        <div class="form-group consent-checkbox">
+            <input type="checkbox" id="accept" name="accept" value="true" required>
+            <label for="accept">I understand and accept these terms</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Continue</button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .consent-card {
+        max-width: 600px;
+        margin: 50px auto;
+        text-align: center;
+    }
+    
+    .consent-text {
+        text-align: left;
+        background-color: var(--pastel-yellow);
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+    
+    .consent-checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin: 20px 0;
+    }
+</style>
+{% endblock %}
