@@ -350,8 +350,8 @@ nav {
 .search-nav-form {
     position: absolute;
     right: 0;
-    top: -12%;
-    transform: translateY(-50%);
+    top: 50%; /* Position the top edge of the form at the vertical center of its parent */
+    transform: translateY(-50%); /* Move the form up by half its own height to perfectly center it */
     display: flex;
     align-items: center;
     border: 1px solid #e0e0e0;
