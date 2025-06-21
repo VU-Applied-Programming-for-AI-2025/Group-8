@@ -161,8 +161,7 @@ nav {
     color: #0056b3; /* Darker blue on hover */
 }
 
-nav a,
-.dropbtn {
+nav a {
     color: #007BFF;
     text-decoration: none;
     font-weight: 500;
@@ -529,10 +528,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
 .error-message {
     color: red;
     text-align: center;
@@ -587,10 +582,6 @@ button {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #0056b3;
 }
 
 .success-message {
@@ -787,10 +778,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
 .error-message {
     color: red;
     text-align: center;
@@ -850,10 +837,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: fit-content;
-}
-
-button:hover {
-    background-color: #0056b3;
 }
 
 .search-form {
@@ -1010,10 +993,6 @@ button {
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
 /*create_meal_planner*/
 .meal-planner-container {
     max-width: 600px;
@@ -1073,10 +1052,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: fit-content;
-}
-
-button:hover {
-    background-color: #0056b3;
 }
 
 /*consentform*/
