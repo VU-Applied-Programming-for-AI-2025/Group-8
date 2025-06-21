@@ -1,36 +1,157 @@
-<!DOCTYPE html>
-<html lang="en">
-<h1>{{ recipe.title}}</h1>
+{% extends "base.html" %}
 
-<img src="{{ recipe.image }}" width="300">
-
-<h2>Ingredients</h2>
-<ul>
-    {% for ingredient in recipe['extendedIngredients'] %}
-    <li>{{ ingredient.original }}</li>
-    {% endfor %}
-</ul>
-
-<h2>Nutrition</h2>
-<ul>
-    {% for nutrient in recipe['nutrition']['nutrients'] %}
-    <li>{{ nutrient.name }}: {{ nutrient.amount }}{{ nutrient.unit }}</li>
-    {% endfor %}
-</ul>
-
-<h2>Instructions</h2>
-{% if recipe["Instructions"] %}
-<div>
-    {{ recipe["Instructions"] | safe }}
+{% block content %}
+<div class="card">
+    <div class="recipe-header">
+        <h2>{{ recipe.title }}</h2>
+        <div class="recipe-meta">
+            <span><i class="fas fa-clock"></i> {{ recipe.readyInMinutes }} mins</span>
+            <span><i class="fas fa-utensils"></i> {{ recipe.servings }} servings</span>
+            <button class="favorite-btn {% if recipe.id in user.saved_recipes %}active{% endif %}" data-recipe-id="{{ recipe.id }}">
+                <i class="{% if recipe.id in user.saved_recipes %}fas{% else %}far{% endif %} fa-heart"></i>
+                {% if recipe.id in user.saved_recipes %}Saved{% else %}Save{% endif %}
+            </button>
+        </div>
+    </div>
+    
+    <div class="recipe-content">
+        <div class="recipe-image">
+            {% if recipe.image %}
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+            {% else %}
+            <div class="image-placeholder"></div>
+            {% endif %}
+        </div>
+        
+        <div class="recipe-details">
+            <h3>Nutrition Information</h3>
+            <div class="nutrition-facts">
+                {% for nutrient in recipe.nutrition.nutrients %}
+                {% if nutrient.name in ['Calories', 'Protein', 'Fat', 'Carbohydrates'] %}
+                <div class="nutrition-item">
+                    <span class="nutrient-name">{{ nutrient.name }}</span>
+                    <span class="nutrient-amount">{{ nutrient.amount }} {{ nutrient.unit }}</span>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            
+            <h3>Ingredients</h3>
+            <ul class="ingredients-list">
+                {% for ingredient in recipe.extendedIngredients %}
+                <li>{{ ingredient.original }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="recipe-instructions">
+        <h3>Instructions</h3>
+        {% if recipe.instructions %}
+        <div class="instructions-text">
+            {{ recipe.instructions|safe }}
+        </div>
+        {% else %}
+        <p>No instructions available for this recipe.</p>
+        {% endif %}
+    </div>
+    
+    <div class="recipe-actions">
+        <a href="{{ url_for('recommendations') }}" class="btn">Back to Recommendations</a>
+        <a href="{{ url_for('meal_planner') }}?meals={{ recipe.id }}" class="btn btn-primary">Add to Meal Plan</a>
+    </div>
 </div>
-{% elif recipe.analyzedInstructions and recipe.analyzedInstructions[0].steps %}
-<ol>
-    {% for step in recipe.analyzedInstructions[0].steps %}
-    <li>{{ step.step }}</li>
-    {% endfor %}
-</ol>
-{% else %}
-<p>No instructions for this recipe.</p>
-{% endif %}
+{% endblock %}
 
-</html>
+{% block extra_css %}
+<style>
+    .recipe-header {
+        margin-bottom: 20px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    
+    .recipe-meta {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-top: 10px;
+    }
+    
+    .recipe-meta span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #666;
+    }
+    
+    .recipe-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        margin: 20px 0;
+    }
+    
+    .recipe-image img {
+        width: 100%;
+        border-radius: 10px;
+        max-height: 400px;
+        object-fit: cover;
+    }
+    
+    .image-placeholder {
+        width: 100%;
+        height: 300px;
+        background-color: var(--pastel-blue);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+    }
+    
+    .nutrition-facts {
+        background-color: var(--pastel-green);
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .nutrition-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 8px;
+    }
+    
+    .ingredients-list {
+        list-style-type: none;
+    }
+    
+    .ingredients-list li {
+        padding: 8px 0;
+        border-bottom: 1px dashed #ddd;
+    }
+    
+    .recipe-instructions {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #eee;
+    }
+    
+    .instructions-text {
+        white-space: pre-line;
+    }
+    
+    .recipe-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    
+    @media (max-width: 768px) {
+        .recipe-content {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
