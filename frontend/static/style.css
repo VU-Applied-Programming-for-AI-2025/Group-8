@@ -1,7 +1,7 @@
 /*base styles*/
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f8;
+    background-color: #F5F2EA; /* Updated: Matches image background */
     margin: 0;
     padding: 0;
     padding-top: 120px;
@@ -24,13 +24,13 @@ main {
 /* Global Headings and Paragraphs */
 h1 {
     text-align: center;
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     margin-bottom: 1.5em; /* Default margin for h1 */
 }
 
 h2 {
     text-align: center;
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     margin-bottom: 1.5em; /* Default margin for h2 */
     font-size: 2em; /* Set a default font size for h2 */
 }
@@ -62,7 +62,7 @@ li {
 
 /* Global Link Styles */
 a {
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     text-decoration: none;
 }
 
@@ -80,7 +80,7 @@ form {
 
 label {
     margin-bottom: 0.3em;
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     font-weight: bold;
     font-size: 0.95em;
     display: block; /* Ensure labels take full width */
@@ -115,7 +115,7 @@ select {
 }
 
 button {
-    background-color: #007BFF;
+    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
     color: white;
     border: none;
     padding: 0.75em;
@@ -129,7 +129,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #2E6C60; /* Updated: Darker shade for hover */
     transform: translateY(-1px);
 }
 
@@ -282,7 +282,7 @@ nav {
 .nav-left .dropdown .dropbtn {
     display: flex;
     align-items: center;
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     text-align: center;
     padding: 8px 16px;
     text-decoration: none;
@@ -298,13 +298,13 @@ nav {
 
 .nav-left a:hover,
 .nav-left .dropdown .dropbtn:hover {
-    background-color: #eaf2ff;
-    color: #007BFF;
+    background-color: #EAF2F0; /* Updated: Softer hover background */
+    color: #2E6C60; /* Updated: Darker shade for hover */
 }
 
 .nav-left a.active {
     background-color: white;
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
 }
 
 /* On larger screens, the hamburger icon is hidden */
@@ -339,13 +339,9 @@ nav {
     background-color: #f9f9f9;
 }
 
-.nav-left a.icon i {
-    font-size: 1.1em;
-}
-
 .nav-left a.icon:hover {
-    border-color: #007BFF;
-    color: #007BFF;
+    border-color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
 }
 
 /* When nav-left becomes responsive (hamburger menu open) */
@@ -399,8 +395,8 @@ nav {
 }
 
 .search-icon-wrapper:hover {
-    border-color: #007BFF;
-    color: #007BFF;
+    border-color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
 }
 
 .search-toggle-icon {
@@ -449,7 +445,7 @@ nav {
 
 .search-nav-form.active .search-button {
     background-color: transparent; /* Make button background transparent */
-    color: #007BFF; /* Set icon color */
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     border: none;
     padding: 0 8px; /* Adjust padding for the button */
     cursor: pointer;
@@ -462,7 +458,7 @@ nav {
 }
 
 .search-nav-form.active .search-button:hover {
-    color: #0056b3; /* Darken icon on hover */
+    color: #2E6C60; /* Updated: Darker shade for hover */
     background-color: transparent;
     transform: none; /* Remove transform on hover for the button */
 }
@@ -566,6 +562,21 @@ nav {
         left: auto; /* Allow it to position from the right */
         right: 48px; /* Position next to the search icon */
     }
+
+    /* Accordion Responsive adjustments */
+    .col-lg-6, .col-lg-5 {
+        width: 100%;
+        padding: 15px; /* Ensure padding is consistent */
+    }
+
+    .faq-section .row {
+        flex-direction: column; /* Stack image and content on smaller screens */
+    }
+
+    .faq-image {
+        margin-right: 0; /* Remove right margin on smaller screens */
+        margin-bottom: 20px; /* Add bottom margin instead */
+    }
 }
 
 
@@ -620,13 +631,13 @@ nav {
 }
 
 .view-button {
-    background-color: #007BFF;
+    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
     color: white;
     transition: background-color 0.2s ease;
 }
 
 .view-button:hover {
-    background-color: #0056b3;
+    background-color: #2E6C60; /* Updated: Darker shade for hover */
 }
 
 .favorite-btn {
@@ -642,7 +653,7 @@ nav {
 
 .submit-btn {
     margin-top: 2em;
-    background-color: #28a745;
+    background-color: #7BB349; /* Kept green, but using a green from the image */
     color: white;
     padding: 0.75em 1.5em;
     border-radius: 6px;
@@ -652,7 +663,7 @@ nav {
 }
 
 .submit-btn:hover {
-    background-color: #218838;
+    background-color: #6A9E3C; /* Darker green for hover */
 }
 
 .spoonacular-link {
@@ -661,7 +672,7 @@ nav {
 }
 
 .spoonacular-link a {
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     text-decoration: none;
     font-weight: 500;
 }
@@ -725,7 +736,7 @@ nav {
 
 .button-link {
     display: inline-block;
-    background-color: #007BFF;
+    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
     color: white;
     padding: 0.75em 1.5em;
     border-radius: 6px;
@@ -735,7 +746,7 @@ nav {
 }
 
 .button-link:hover {
-    background-color: #0056b3;
+    background-color: #2E6C60; /* Updated: Darker shade for hover */
 }
 
 .link-wrapper {
@@ -813,7 +824,7 @@ nav {
 }
 
 .recipe a {
-    color: #007BFF;
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     text-decoration: none;
     font-weight: 500;
 }
@@ -888,7 +899,7 @@ td form {
 .timeline-section {
     position: relative;
     padding: 60px 0;
-    background-color: #007BFF; /* Example background for the section */
+    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
     overflow: hidden; /* To contain the overlay */
 }
 
@@ -962,7 +973,7 @@ td form {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #2098d1; /* Darker blue for hover effect */
+    background: #2E6C60; /* Updated: Darker teal for hover effect */
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 50%;
@@ -994,7 +1005,7 @@ td form {
 }
 
 .custom-border-btn:hover {
-    border-color: #2098d1; /* Match hover background */
+    border-color: #2E6C60; /* Updated: Match hover background */
 }
 
 .ms-3-custom {
@@ -1061,7 +1072,7 @@ td form {
     height: 16px;
     border-radius: 50%;
     background-color: #fff; /* White circle */
-    border: 3px solid #0056b3; /* Darker blue border for the circle */
+    border: 3px solid #2E6C60; /* Updated: Darker teal border for the circle */
     z-index: 2;
 }
 
@@ -1085,8 +1096,8 @@ td form {
 }
 
 .icon-holder i {
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     font-size: 24px;
-    color: #007BFF;
 }
 
 /* Progress bar filling the timeline */
@@ -1111,26 +1122,6 @@ td form {
     transition: height 0.1s linear; /* Smooth transition for filling */
 }
 
-
-/* Responsive adjustments for the timeline */
-@media (max-width: 767px) {
-    .vertical-scrollable-timeline:before {
-        left: 20px; /* Align timeline line to the left on small screens */
-        transform: translateX(0);
-    }
-
-    .vertical-scrollable-timeline li {
-        width: calc(100% - 60px); /* Adjust width to account for left offset */
-        left: 60px !important; /* Force all items to the right of the line */
-        margin-bottom: 40px;
-        padding: 15px;
-    }
-
-    .vertical-scrollable-timeline li:after {
-        left: -28px !important; /* Position circle on the left for all items */
-    }
-}
-
 /*--- Footer Styles ---*/
 footer {
     background-color: #333; /* Dark background for the footer */
@@ -1152,10 +1143,145 @@ footer p {
 }
 
 footer a {
-    color: #007BFF; /* Link color */
+    color: #3C7F72; /* Updated: Matches FAQ text color in image */
     text-decoration: none; /* No underline by default */
 }
 
 footer a:hover {
     text-decoration: underline; /* Underline on hover for links */
+}
+
+---
+
+## Accordion Styles
+
+Here are the new styles for your custom accordion, seamlessly integrated into your existing CSS.
+
+```css
+/* Basic styling for the accordion */
+.custom-accordion {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 2em; /* Added margin for spacing below the accordion */
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    margin-bottom: 0;
+}
+
+.accordion-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border: none;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #333; /* Default text color for accordion buttons */
+    font-size: 1.1em; /* Slightly larger font for readability */
+}
+
+.accordion-button:hover {
+    background-color: #eee;
+}
+
+/* Plus/Minus icon for accordion state */
+.accordion-button::after {
+    content: '+';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-button:not(.collapsed)::after {
+    content: '-';
+    transform: rotate(180deg); /* Visual cue for open state */
+}
+
+.accordion-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.accordion-collapse.show {
+    max-height: 500px; /* Adjust as needed to accommodate content. A larger value might be necessary for very long content. */
+    transition: max-height 0.3s ease-in;
+}
+
+.accordion-body {
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: #fff;
+    line-height: 1.6; /* Improve readability of body text */
+    color: #555; /* Text color for accordion body */
+}
+
+/* Basic grid and utility classes (these were already in your previous CSS, adding them here for completeness but they are not specific to the accordion) */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px; /* Compensate for column padding */
+}
+
+/* The existing .col-12, .col-lg-6, .col-lg-5, m-auto, mb-4, img-fluid, section-padding, and clearfix should remain as they are for the layout. */
+/* I've moved the responsive part for col-lg-* into your existing media query block. */
+
+.mb-4 {
+    margin-bottom: 1.5rem; /* Adjust as needed */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.section-padding {
+    padding: 60px 0; /* Adjust as needed */
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.m-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*faq*/
+.faq-section .row {
+    display: flex;
+    flex-wrap: wrap; /* Ensure responsiveness */
+    align-items: center; /* Vertically center items */
+}
+
+.faq-image {
+    width: 100%; /* Make image responsive */
+    max-width: 500px; /* Limit image width */
+    height: auto;
+    margin-right: 20px; /* Add some space between image and content */
+}
+
+.faq-content {
+    flex: 1; /* Allow content to fill remaining space */
 }

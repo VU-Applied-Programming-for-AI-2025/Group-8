@@ -71,6 +71,43 @@ document.addEventListener('DOMContentLoaded', function() {
     updateProgressBar(); // Initial call to set the state on page load
 });
 
+// FAQ accordion
+document.addEventListener('DOMContentLoaded', function () {
+    const accordionButtons = document.querySelectorAll('.custom-accordion .accordion-button');
+
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const targetId = this.getAttribute('data-bs-target');
+            const targetCollapse = document.querySelector(targetId);
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            const parentAccordion = this.closest('.custom-accordion');
+
+            // Close all other open accordion items in the same parent
+            parentAccordion.querySelectorAll('.accordion-collapse.show').forEach(openCollapse => {
+                if (openCollapse !== targetCollapse) {
+                    openCollapse.classList.remove('show');
+                    const openButton = openCollapse.previousElementSibling.querySelector('.accordion-button');
+                    if (openButton) {
+                        openButton.setAttribute('aria-expanded', 'false');
+                        openButton.classList.add('collapsed');
+                    }
+                }
+            });
+
+            // Toggle the clicked accordion item
+            if (isExpanded) {
+                this.setAttribute('aria-expanded', 'false');
+                this.classList.add('collapsed');
+                targetCollapse.classList.remove('show');
+            } else {
+                this.setAttribute('aria-expanded', 'true');
+                this.classList.remove('collapsed');
+                targetCollapse.classList.add('show');
+            }
+        });
+    });
+});
+
 
 /* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
 function myFunction() {

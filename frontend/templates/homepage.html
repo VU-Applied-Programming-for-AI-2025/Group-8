@@ -73,5 +73,64 @@
             </div>
         </div>
     </section>
+    <section class="faq-section section-padding" id="section_4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="mb-4">Frequently Asked Questions</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="clearfix"></div>
+    
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <img src="{{ url_for('static', filename='faq_image.png') }}" class="img-fluid faq-image" alt="FAQs">
+                </div>
+    
+                <div class="col-lg-6 col-md-6 col-sm-12 faq-content">
+                    <div class="custom-accordion" id="customAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Can I trust the results of this test?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#customAccordion">
+                                <div class="accordion-body">
+                                    Our tool analyzes your symptoms using AI based on scientifically informed associations between symptoms and nutrient deficiencies. While it can highlight possible imbalances, <strong>it is not a medical diagnosis</strong>. For health concerns or treatments, please consult a healthcare professional.
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Can I get food suggestions that match my diet?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#customAccordion">
+                                <div class="accordion-body">
+                                    <strong>Yes!</strong> You can set your dietary preferences — such as vegetarian, halal, or allergy restrictions — before starting the test. The food and recipe recommendations will be personalized to match your selected needs.
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Can I retake the test later if my symptoms change?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#customAccordion">
+                                <div class="accordion-body">
+                                    <strong>Absolutely!</strong> The test can be repeated anytime. If your symptoms change or you just want to double-check your results, you're welcome to retake it for fresh suggestions.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 {% endblock %}
