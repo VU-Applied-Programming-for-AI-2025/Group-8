@@ -1,25 +1,29 @@
-<!-- templates/home.html -->
 {% extends "base.html" %}
 
-{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
-
 {% block content %}
-<form method="POST" action="{{ url_for('search_bar') }}">
-    {{ form.hidden_tag() }}
-    {{ form.search_bar.label }}
-    {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
-    <button type="submit">Search</button>
-</form>
-
-
-<div>
-    <h2>Welcome to NutriSpoon{{response.fullname}}</h2>
+<div class="card">
+    <h2>Hello, {{ response }}!</h2>
+    <p>How can we help you with your nutrition today?</p>
 </div>
 
-<h1>Symptoms analyzer</h1>
-<form method="POST" action="/home">
-    <label for="symptoms">Enter your symptoms:</label>
-    <input type="text" id="symptoms" name="symptoms" required>
-    <button type="submit">Analyze</button>
-</form>
+<div class="card">
+    <h3>Analyze Symptoms</h3>
+    <form action="{{ url_for('home') }}" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <label for="symptoms">Describe your symptoms</label>
+            <textarea id="symptoms" name="symptoms" class="form-control" placeholder="e.g. fatigue, headaches, dry skin..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze</button>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Quick Actions</h3>
+    <div class="quick-actions">
+        <a href="{{ url_for('recommendations') }}" class="btn">Get Recommendations</a>
+        <a href="{{ url_for('spoonacular_builtin_mealplanner') }}" class="btn">Create Meal Plan</a>
+        <a href="{{ url_for('show_favorites') }}" class="btn">View Favorites</a>
+    </div>
+</div>
 {% endblock %}
