@@ -1,78 +1,103 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>User Registration</title>
-</head>
-<body>
-    <h2>Register New User</h2>
-    <form action="/auth/register" method="post">
-        {% if error %}
-        <p style="color:red;">{{ error }}</p>
-        {% endif %} 
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required><br><br>
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required><br><br>
-
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" min="0" required><br><br>
-
-        <label for="sex">Sex:</label>
-        <select id="sex" name="sex" required>
-            <option value="">Select</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-        </select><br><br>
-
-        <label for="height">Height (cm):</label>
-        <input type="number" id="height" name="height" step="0.1" min="0" required><br><br>
-
-        <label for="weight">Weight (kg):</label>
-        <input type="number" id="weight" name="weight" step="0.1" min="0" required><br><br>
-
-        <label for="skin_color">Skin Color:</label>
-         <select id="skin_color" name="skin_color" required>
-            <option value="">Select</option>
-            <option value="light">Light</option>
-            <option value="medium">Medium</option>
-            <option value="dark">Dark</option>
-        </select><br><br>
-
-        <label for="country">Country:</label>
-        <input type="text" id="country" name="country" required><br><br>
-
-        <label for="diet">Diet:</label>
-         <select id="diet" name="diet" required>
-            <option value="">Select</option>
-            <option value="none">None</option>
-            <option value="glutenfree">Gluten Free</option>
-            <option value="ketogenic">Ketogenic</option>
-            <option value="vegetarian">Vegetarian</option>
-            <option value="lacto-vegetarian">Lacto-Vegetarian</option>
-            <option value="ovo-vegetarian">Ovo-Vegetarian</option>
-            <option value="vegan">Vegan</option>
-            <option value="pescetarian">Pescetarian</option>
-            <option value="paleo">Paleo</option>
-            <option value="primal">Primal</option>
-            <option value="lowfodmap">Low FODMAP</option>
-            <option value="whole30">Whole30</option>
-        </select><br><br>
-
-        <label for="medication">Medications (comma separated):</label>
-        <input type="text" id="medication" name="medication"><br><br>
-
-        <label for="existing_conditions">Existing Conditions (comma separated):</label>
-        <input type="text" id="existing_conditions" name="existing_conditions"><br><br>
-
-        <label for="allergies">Allergies (comma separated):</label>
-        <input type="text" id="allergies" name="allergies"><br><br>
-
-        <button type="submit">Register</button>
+{% block content %}
+<div class="auth-container">
+    <h2>Create Your Account</h2>
+    {% if error %}
+    <div class="error-message">{{ error }}</div>
+    {% endif %}
+    
+    <form class="register-form" method="POST" action="{{ url_for('register') }}">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="username">Username*</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="name">Full Name*</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="age">Age*</label>
+                <input type="number" id="age" name="age" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="sex">Sex*</label>
+                <select id="sex" name="sex" class="form-control" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group">
+                <label for="height">Height (cm)*</label>
+                <input type="number" step="0.1" id="height" name="height" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg)*</label>
+                <input type="number" step="0.1" id="weight" name="weight" class="form-control" required>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="skin_color">Skin Tone*</label>
+            <input type="text" id="skin_color" name="skin_color" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="country">Country*</label>
+            <input type="text" id="country" name="country" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="medication">Medications (comma separated)</label>
+            <input type="text" id="medication" name="medication" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="diet">Dietary Preference*</label>
+            <select id="diet" name="diet" class="form-control" required>
+                <option value="none">None</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="glutenFree">Gluten Free</option>
+                <option value="ketogenic">Ketogenic</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="existing_conditions">Existing Conditions (comma separated)</label>
+            <input type="text" id="existing_conditions" name="existing_conditions" class="form-control">
+        </div>
+        
+        <div class="form-group">
+            <label for="allergies">Allergies (comma separated)*</label>
+            <input type="text" id="allergies" name="allergies" class="form-control" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Register</button>
     </form>
-</body>
-</html>
+    
+    <div class="auth-switch">
+        Already have an account? <a href="{{ url_for('auth_page') }}">Login here</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+{% endblock %}
