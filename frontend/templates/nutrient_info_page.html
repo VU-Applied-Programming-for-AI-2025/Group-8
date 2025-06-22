@@ -1,35 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{{ name }} Info</title>
-</head>
+{% block content %}
+<div class="card nutrient-card">
+    <div class="nutrient-header">
+        <h1>{{ name }}</h1>
+        <a href="{{ url_for('home') }}" class="btn back-btn">
+            <i class="fas fa-arrow-left"></i> Back to home
+        </a>
+    </div>
 
-<body>
-    <h1>{{ name }}</h1>
+    <div class="nutrient-section">
+        <h2><i class="fas fa-cogs nutrient-icon"></i> Function</h2>
+        <div class="nutrient-content">
+            <p>{{ info.function }}</p>
+        </div>
+    </div>
 
-    <h2>Function</h2>
-    <p>{{ info.function }}</p>
+    <div class="nutrient-section">
+        <h2><i class="fas fa-star nutrient-icon"></i> Why It's Important</h2>
+        <div class="nutrient-content">
+            <p>{{ info.why }}</p>
+        </div>
+    </div>
 
-    <h2>Why It's Important</h2>
-    <p>{{ info.why }}</p>
+    <div class="nutrient-section">
+        <h2><i class="fas fa-exclamation-triangle nutrient-icon"></i> Deficiency Symptoms</h2>
+        <div class="nutrient-content">
+            <ul class="nutrient-list">
+                {% for symptom in info.symptoms %}
+                <li>{{ symptom }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
-    <h2>Deficiency Symptoms</h2>
-    <ul>
-        {% for symptom in info.symptoms %}
-        <li>{{ symptom }}</li>
-        {% endfor %}
-    </ul>
+    <div class="nutrient-section">
+        <h2><i class="fas fa-utensils nutrient-icon"></i> Top Food Sources</h2>
+        <div class="nutrient-content">
+            <ul class="nutrient-list">
+                {% for food in info.foods %}
+                <li>{{ food }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
 
-    <h2>Top Food Sources</h2>
-    <ul>
-        {% for food in info.foods %}
-        <li>{{ food }}</li>
-        {% endfor %}
-    </ul>
+{% block extra_css %}
+<style>
+    .nutrient-card {
+        background-color: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-    <a href="{{ url_for('home') }}">← Back to nutrient list</a>
-</body>
+    .nutrient-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        border-bottom: 2px solid var(--pastel-purple);
+        padding-bottom: 15px;
+    }
 
-</html>
+    .nutrient-header h1 {
+        color: var(--pastel-purple);
+        margin: 0;
+    }
+
+    .back-btn {
+        background-color: var(--pastel-blue);
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+
+    .nutrient-section {
+        margin-bottom: 25px;
+        background-color: var(--pastel-yellow);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .nutrient-section h2 {
+        color: var(--pastel-purple);
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nutrient-icon {
+        color: var(--pastel-green);
+    }
+
+    .nutrient-content {
+        margin-top: 15px;
+    }
+
+    .nutrient-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    .nutrient-list li {
+        padding: 8px 0;
+        border-bottom: 1px dashed var(--pastel-blue);
+        position: relative;
+        padding-left: 25px;
+    }
+
+    .nutrient-list li:before {
+        content: "•";
+        color: var(--pastel-green);
+        font-size: 1.5rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @media (max-width: 768px) {
+        .nutrient-header {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .nutrient-section {
+            padding: 15px;
+        }
+    }
+</style>
+{% endblock %}
