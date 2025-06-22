@@ -1,0 +1,182 @@
+/* ----------------------------------------------------------
+   Analysis History Page Styles and Restuls page - analysis_history.html and results.html
+---------------------------------------------------------- */
+
+
+/* Analysis History Grid Layout */
+.analysis-history-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr)); /* Broader fields */
+  gap: 2.5rem;
+  margin: 2.5rem 0;
+}
+
+/* Analysis Card Style */
+.analysis-card {
+  background: var(--color-bg); /* Same as main background */
+  border-radius: 22px;
+  border: 2px solid #e5e5e5; /* Light border */
+  box-shadow: none;           /* No shadow */
+  padding: 2.2rem 2rem 1.8rem 2rem;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: background 0.3s, border-color 0.3s, transform 0.18s;
+  position: relative;
+  z-index: 1;
+}
+
+.analysis-card:hover {
+  background: #f8f8f3;
+  border-color: #bdbdbd;
+  transform: translateY(-4px) scale(1.012); /* Subtle pop effect */
+  z-index: 2;
+}
+
+/* Align text left inside card */
+.analysis-card p,
+.analysis-card ul,
+.analysis-card li,
+.analysis-card h4 {
+  text-align: left;
+}
+
+/* Symptoms and Deficiency Title */
+.analysis-symptoms {
+  margin-bottom: 0.7rem;
+  font-size: 1.13rem;
+}
+.analysis-def-title {
+  margin-bottom: 0.5rem;
+  font-size: 1.08rem;
+}
+
+/* Nutrient List */
+.nutrient-list {
+  list-style-type: disc;
+  padding-left: 1.7rem;
+  margin: 0.7rem 0 0 0;
+}
+
+.nutrient-item {
+  margin-bottom: 1.3rem;
+}
+
+.nutrient-name {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.18rem;
+  font-family: var(--font-primary);
+  color: #222;
+  font-weight: 600;
+  text-decoration: underline; /* Underline nutrient name */
+  text-underline-offset: 3px;
+}
+
+/* Nutrient details: Why, Foods, Tip */
+.nutrient-detail {
+  margin: 0.13rem 0 0.13rem 0;
+  font-size: 1.04rem;
+  color: #333;
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  text-align: left;
+}
+
+.nutrient-label {
+  font-style: italic;
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .analysis-history-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .analysis-card {
+    padding: 1.2rem 0.7rem;
+    min-height: 0;
+  }
+}
+
+.generate-mealplan-btn {
+  display: block;
+  margin: 0.7rem auto 0 auto;
+  padding: 0.28rem 0.7rem;
+  background: #222;
+  color: #fff;
+  border-radius: 0.3rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: background 0.2s;
+  text-align: center;
+  min-width: 0;
+  max-width: 150px;
+  box-shadow: none;
+  border: none;
+  letter-spacing: 0.01em;
+}
+.generate-mealplan-btn:hover {
+  background: #444;
+}
+
+/* Subtitle style (was inline in HTML) */
+.analysis-subtitle {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #444;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-secondary, 'Segoe UI', Arial, sans-serif);
+}
+
+/* ----------------------------------------------------------
+   Results Page Styles - results.html
+---------------------------------------------------------- */
+
+.main-content {
+  padding-top: 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#analysis {
+  white-space: pre-wrap;
+  font-family: var(--font-secondary);
+  font-size: 1.08rem;
+  background: none;
+  border: none;
+  margin: 0;
+  text-align: left;
+  padding: 0;
+}
+
+.generate-mealplan-btn-2 {
+  display: inline-block;
+  margin: 0.7rem auto 0 auto;
+  padding: 1rem 2.5rem;
+  background: #222;
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+  transition: background 0.2s;
+  text-align: center;
+  min-width: 180px;
+  max-width: 320px;
+  box-shadow: none;
+  border: none;
+  letter-spacing: 0.01em;
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+}
+.generate-mealplan-btn-2:hover {
+  background: #444;
+}

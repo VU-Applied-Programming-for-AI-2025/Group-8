@@ -1,0 +1,177 @@
+/* ----------------------------------------------------------
+   Register and Profile styles - registration.html and profile.html
+---------------------------------------------------------- */
+
+.register-outer-center {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 340px;
+  background: none;
+  padding: 0;
+}
+
+
+.register-form label {
+  display: block;
+  width: 320px;
+  text-align: left;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+  font-family: var(--font-secondary);
+  font-size: 0.98rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 0;
+}
+
+.register-form input,
+.register-form select {
+  display: block;
+  width: 320px;
+  min-width: 320px;
+  max-width: 320px;
+  height: 56px;
+  font-size: 1.08rem;
+  font-family: var(--font-secondary);
+  margin-bottom: 1.1rem;
+  padding: 1rem;
+  border: var(--input-border);
+  background: transparent;
+  color: var(--color-text);
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  font-weight: 500;
+}
+
+.register-form button {
+  width: 320px;
+  max-width: 320px;
+  font-size: 1.08rem;
+  font-family: var(--font-secondary);
+  padding: 0.9rem;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  margin-top: 1.2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .register-form label,
+  .register-form input,
+  .register-form select,
+  .register-form button {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 1rem;
+    height: 44px;
+    padding: 0.7rem;
+  }
+  .register-form label {
+    font-size: 0.93rem;
+    height: auto;
+    margin-bottom: 0.18rem;
+  }
+}
+
+
+/* ----------------------------------------------------------
+   8. Auth Layout (Login/Register Shared)
+---------------------------------------------------------- */
+
+.auth-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.auth-left, .auth-right {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-left {
+  align-items: flex-end;
+  padding-right: 4vw;
+  margin-left: 3.5rem;
+}
+.auth-right {
+  align-items: flex-start;
+  padding-left: 8vw;
+}
+.auth-right-inner {
+  width: 220px;
+}
+.auth-divider {
+  width: 2px;
+  height: 320px;
+  background: #000;
+  margin: 0 2vw;
+  border-radius: 2px;
+}
+.auth-left form {
+  font-size: 1.2rem;
+  padding: 0.9rem 2.5rem;
+  margin-left: 0;
+  display: block;
+}
+.auth-left form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-align: left;
+}
+.auth-left form input {
+  display: block;
+  width: 100%;
+  min-width: 320px;
+  max-width: px;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  padding: 1rem;
+}
+.auth-left form button {
+  width: 100%;
+  max-width: 320px;
+  font-size: 1.2rem;
+  padding: 0.9rem;
+}
+.auth-right p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  text-align: left;
+}
+.auth-outer-center {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.auth-logo {
+  display: block;
+  margin: 3vh auto 2.5rem auto;
+  width: 150px;
+  height: auto;
+}

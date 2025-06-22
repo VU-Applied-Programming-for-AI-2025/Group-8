@@ -18,7 +18,7 @@ import os, json, requests, random
 
 load_dotenv()
 
-app = Flask(__name__, template_folder="../frontend/templates")
+app = Flask(__name__, template_folder="../frontend/templates", static_folder='../frontend/static')
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 
 # Retrieves the spoonacular API key from the .env file
@@ -619,7 +619,6 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
     # Handle form submission
     if request.method == "POST":
         time_frame = request.form.get("timeFrame", "day")
-        # calories = request.form.get("calories")
         type_of_diet = request.form.get("diet")
 
         # Base parameters
@@ -649,8 +648,34 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
             "https://api.spoonacular.com/mealplanner/generate", params=params
         )
         if response.status_code == 200:
-            # Save meal plan and redirect
-            user.mealplan = response.json()
+            mealplan = response.json()
+            # Add images and readyInMinutes for each meal
+            if "meals" in mealplan:
+                # Day plan
+                for meal in mealplan["meals"]:
+                    recipe_id = meal["id"]
+                    info_resp = requests.get(
+                        f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+                        params={"apiKey": spoonacular_api_key}
+                    )
+                    if info_resp.status_code == 200:
+                        info = info_resp.json()
+                        meal["image"] = info.get("image")
+                        meal["readyInMinutes"] = info.get("readyInMinutes")
+            elif "week" in mealplan:
+                # Week plan
+                for day, data in mealplan["week"].items():
+                    for meal in data["meals"]:
+                        recipe_id = meal["id"]
+                        info_resp = requests.get(
+                            f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+                            params={"apiKey": spoonacular_api_key}
+                        )
+                        if info_resp.status_code == 200:
+                            info = info_resp.json()
+                            meal["image"] = info.get("image")
+                            meal["readyInMinutes"] = info.get("readyInMinutes")
+            user.mealplan = mealplan
             print("spoonacular response mealplan")
             print(user.mealplan)
             users_data.save_to_file()
