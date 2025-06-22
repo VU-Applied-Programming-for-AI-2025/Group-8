@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends "base.html" %}
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
+{% endblock %}
 
+{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <title>Analysis results</title>
 </head>
 
-<body>
-    <h1>Analysis for {{symptoms}}</h1>
-    <div>
-        <pre id="analysis">{{ analysis }}</pre>
+<div class="main-content">
+    <h1>Analysis for "{{ symptoms }}"</h1>
+    <div class="analysis-history-grid">
+        <div class="analysis-card">
+            <p class="analysis-def-title"><strong>Deficiency Analysis:</strong></p>
+            <pre id="analysis" style="white-space: pre-wrap; font-family: var(--font-secondary); font-size: 1.08rem; background: none; border: none; margin: 0; text-align: left;">{{ analysis }}</pre>
+        </div>
     </div>
-
-    <div>
-        <a href="/recommendations">Get recipes</a>
+    <div style="text-align:center; margin-top:2rem;">
+        <a href="/recommendations" class="generate-mealplan-btn-2">Get recipes</a>
     </div>
+</div>
 
-    <script>
+     <script>
         const rawText = document.getElementById("analysis").innerText;
 
         // Parser for Groq response
@@ -70,6 +80,8 @@
                 console.log("Saved to backend:", data);
             });
     </script>
+    
 </body>
 
 </html>
+{% endblock %}

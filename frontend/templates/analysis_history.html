@@ -1,30 +1,38 @@
 {% extends "base.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
+{% endblock %}
+
 {% block content %}
-<h2> Your Analysis History</h2>
-
+<h2>Your Analysis History</h2>
+<p class="analysis-subtitle">
+    Here you can find your previous analyses based on the symptoms you entered. <br>
+    Review your past results and generate personalized meal plans or recipes tailored to your nutritional needs.
+</p>
 {% if results %}
-<ul>
+<div class="analysis-history-grid">
     {% for entry in results | reverse %}
-    <li style="margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
-        <p><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
-
-        <p><strong>Deficiency Analysis:</strong></p>
-        <ul>
+    <div class="analysis-card">
+        <p class="analysis-symptoms"><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
+        <p class="analysis-def-title"><strong>Deficiency Analysis:</strong></p>
+        <ul class="nutrient-list">
             {% for nutrient, details in entry.analyse.items() %}
-            <li>
-                <h4>{{ nutrient }}</h4>
-                <p><strong>Why:</strong> {{ details.why }}</p>
-                <p><strong>Foods:</strong> {{ details.foods | join(', ') }}</p>
-                <p><strong>Tip:</strong> {{ details.tip }}</p>
-            </li>
+                {% if nutrient != "Urgency Note" and nutrient != "Additional note" %}
+                <li class="nutrient-item">
+                    <h4 class="nutrient-name">{{ nutrient }}</h4>
+                    <p class="nutrient-detail"><span class="nutrient-label"><b><i>Why:</i></b></span> {{ details.why }}</p>
+                    <p class="nutrient-detail"><span class="nutrient-label"><b><i>Foods:</i></b></span> {{ details.foods | join(', ') }}</p>
+                    <p class="nutrient-detail"><span class="nutrient-label"><b><i>Tip:</i></b></span> {{ details.tip }}</p>
+                </li>
+                {% endif %}
             {% endfor %}
         </ul>
-    </li>
+        <a href="/recommendations?analysis_id={{ entry.id }}" class="generate-mealplan-btn">Generate Meal Plan</a>
+    </div>
     {% endfor %}
-</ul>
+</div>
 {% else %}
 <p>No analysis results saved yet.</p>
 {% endif %}
-
-<a href="{{ url_for('home') }}">← Back to Home</a>
 {% endblock %}
