@@ -140,14 +140,14 @@
                 {% for nutrient, icon_class in [
                     ("Calcium", "fa-bone"), ("Choline", "fa-brain"), ("Cholesterol", "fa-heartbeat"),
                     ("Copper", "fa-microchip"), ("Fiber", "fa-wheat-awn"), ("Fluoride", "fa-tooth"),
-                    ("Folate", "fa-leaf"), ("FolicAcid", "fa-pills"), ("Iodine", "fa-salt-shaker"),
-                    ("Iron", "fa-steak"), ("Magnesium", "fa-mound"), ("Manganese", "fa-mortar-pestle"),
-                    ("Phosphorus", "fa-dna"), ("Potassium", "fa-banana"), ("SaturatedFat", "fa-bacon"),
+                    ("Folate", "fa-leaf"), ("FolicAcid", "fa-pills"), ("Iodine", "fa-flask"),
+                    ("Iron", "fa-drumstick-bite"), ("Magnesium", "fa-mound"), ("Manganese", "fa-mortar-pestle"),
+                    ("Phosphorus", "fa-dna"), ("Potassium", "fa-leaf"), ("SaturatedFat", "fa-bacon"),
                     ("Selenium", "fa-seedling"), ("Sodium", "fa-cube"), ("Sugar", "fa-candy-cane"),
                     ("VitaminA", "fa-eye"), ("VitaminB1", "fa-seedling"), ("VitaminB2", "fa-capsules"),
                     ("VitaminB3", "fa-flask"), ("VitaminB5", "fa-droplet"), ("VitaminB6", "fa-apple-whole"),
                     ("VitaminB12", "fa-dna"), ("VitaminC", "fa-lemon"), ("VitaminD", "fa-sun"),
-                    ("VitaminE", "fa-leaf"), ("VitaminK", "fa-hand-holding-medical"), ("Zinc", "fa-oysters")
+                    ("VitaminE", "fa-leaf"), ("VitaminK", "fa-hand-holding-medical"), ("Zinc", "fa-fish")
                 ] %}
                 <a href="{{ url_for('nutrients') }}?nutrient={{ nutrient }}" class="nutrient-card">
                     <i class="fas {{ icon_class }} nutrient-icon"></i>

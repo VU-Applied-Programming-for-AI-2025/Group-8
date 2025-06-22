@@ -158,6 +158,67 @@ button:hover {
     margin-top: 2em;
 }
 
+/* --- NEW Nutrients Periodical Table Section Styles --- */
+.nutrient-periodical-table-section {
+    background-color: var(--background-light); /* Light background matching body for continuity */
+    padding: 80px 0; /* More padding for a distinct section */
+    text-align: center;
+}
+
+.nutrient-grid {
+    display: grid;
+    /* Responsive grid columns: minmax ensures a minimum width and flex for remaining space */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px; /* Space between nutrient cards */
+    max-width: 1100px; /* Max width for the grid to look like a 'table' */
+    margin: 0 auto; /* Center the grid */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.nutrient-card {
+    background-color: #fcfdfe;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color); /* Soft shadow */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline for links */
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease; /* Added color transition */
+    text-align: center;
+    min-height: 110px; /* Ensure a consistent minimum height for cards */
+    position: relative;
+    overflow: hidden;
+}
+
+.nutrient-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px var(--shadow-color-hover); /* More pronounced shadow */
+    background-color: var(--hover-background-light); /* Softer hover background */
+}
+
+.nutrient-icon {
+    font-size: 2.5em; /* Larger icon size */
+    margin-bottom: 8px; /* Space between icon and name */
+    color: #3A836D; /* Main accent color for icons */
+    transition: color 0.2s ease;
+}
+
+.nutrient-card:hover .nutrient-icon {
+    color: var(--secondary-color); /* Darker accent color on hover */
+}
+
+.nutrient-name {
+    display: block; /* Ensure name is on a new line */
+    word-break: break-word; /* Break long names if necessary */
+    line-height: 1.2;
+}
+
 /* Common Container Styles */
 .auth-container,
 .recipes-container,
