@@ -695,7 +695,7 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
             return redirect(url_for("edit_meal_planner"))
         else:
             return render_template(
-                "builtin_meal_planner.html", error="Failed to fetch meal plan."
+                "builtin_meal_planner.html", error="Failed to fetch meal plan.", form=form
             )
 
     # Show form on GET

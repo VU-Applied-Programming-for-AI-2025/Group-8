@@ -1147,6 +1147,216 @@
     "mealplan": {
       "meals": [
         {
+          "id": 756814,
+          "image": "https://img.spoonacular.com/recipes/756814-556x370.jpg",
+          "title": "Powerhouse Almond Matcha Superfood Smoothie",
+          "readyInMinutes": 10,
+          "sourceUrl": "https://www.foodista.com/blog/2015/05/17/powehouse-almond-matcha-superfood-smoothie",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 281.18,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 14.06
+              },
+              {
+                "name": "Fat",
+                "amount": 12.94,
+                "unit": "g",
+                "percentOfDailyNeeds": 19.91
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 0.93,
+                "unit": "g",
+                "percentOfDailyNeeds": 5.79
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 33.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.26
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 26.7,
+                "unit": "g",
+                "percentOfDailyNeeds": 9.71
+              },
+              {
+                "name": "Sugar",
+                "amount": 20.05,
+                "unit": "g",
+                "percentOfDailyNeeds": 22.28
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Sodium",
+                "amount": 252.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.99
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0.34,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0.11,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 10.33,
+                "unit": "g",
+                "percentOfDailyNeeds": 20.65
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 59.6,
+                "unit": "mg",
+                "percentOfDailyNeeds": 72.24
+              },
+              {
+                "name": "Manganese",
+                "amount": 1.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 64.01
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 43.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 41.34
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 1946.24,
+                "unit": "IU",
+                "percentOfDailyNeeds": 38.92
+              },
+              {
+                "name": "Calcium",
+                "amount": 348.07,
+                "unit": "mg",
+                "percentOfDailyNeeds": 34.81
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 4.41,
+                "unit": "mg",
+                "percentOfDailyNeeds": 29.37
+              },
+              {
+                "name": "Fiber",
+                "amount": 7.08,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.31
+              },
+              {
+                "name": "Magnesium",
+                "amount": 89.11,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.28
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.37,
+                "unit": "mg",
+                "percentOfDailyNeeds": 18.35
+              },
+              {
+                "name": "Copper",
+                "amount": 0.35,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.63
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 16.06
+              },
+              {
+                "name": "Iron",
+                "amount": 2.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 15.47
+              },
+              {
+                "name": "Potassium",
+                "amount": 521.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.91
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 145.22,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.52
+              },
+              {
+                "name": "Folate",
+                "amount": 57.63,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 14.41
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 9.82
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.12,
+                "unit": "mg",
+                "percentOfDailyNeeds": 8.14
+              },
+              {
+                "name": "Zinc",
+                "amount": 0.95,
+                "unit": "mg",
+                "percentOfDailyNeeds": 6.34
+              },
+              {
+                "name": "Selenium",
+                "amount": 3.59,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 5.12
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 0.47,
+                "unit": "mg",
+                "percentOfDailyNeeds": 4.71
+              }
+            ]
+          },
+          "summary": "Powerhouse Almond Matcha Superfood Smoothie is a breakfast that serves 2. One serving contains <b>289 calories</b>, <b>11g of protein</b>, and <b>13g of fat</b>. For <b>$2.59 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. If you have chia seeds, matcha tea powder, banana, and a few other ingredients on hand, you can make it. It is a good option if you're following a <b>gluten free, dairy free, and whole 30</b> diet. This recipe from Foodista has 80 fans. From preparation to the plate, this recipe takes around <b>10 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 98%</b>. This score is awesome. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/powerhouse-almond-matcha-superfood-smoothie-1244781\">Powerhouse Almond Matcha Superfood Smoothie</a>, <a href=\"https://spoonacular.com/recipes/chocolate-almond-superfood-smoothie-1600269\">Chocolate Almond Superfood Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/powerhouse-golden-turmeric-smoothie-882363\">Powerhouse Golden Turmeric Smoothie</a>.",
+          "dishTypes": [
+            "morning meal",
+            "brunch",
+            "beverage",
+            "breakfast",
+            "drink"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/powerhouse-almond-matcha-superfood-smoothie-756814"
+        },
+        {
           "id": 664054,
           "image": "https://img.spoonacular.com/recipes/664054-556x370.jpg",
           "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
@@ -1590,60 +1800,60 @@
           "spoonacularSourceUrl": "https://spoonacular.com/cherry-coconut-milk-smoothie-794350"
         },
         {
-          "id": 659135,
-          "image": "https://img.spoonacular.com/recipes/659135-556x370.jpg",
-          "title": "Salmon with roasted vegetables",
+          "id": 636787,
+          "image": "https://img.spoonacular.com/recipes/636787-556x370.jpg",
+          "title": "Caldo Verde - Portuguese Kale Soup",
           "readyInMinutes": 45,
-          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
+          "sourceUrl": "https://www.foodista.com/recipe/7SDK7CGK/caldo-verde-portuguese-kale-soup",
           "nutrition": {
             "nutrients": [
               {
                 "name": "Calories",
-                "amount": 495.53,
+                "amount": 492.94,
                 "unit": "kcal",
-                "percentOfDailyNeeds": 24.78
+                "percentOfDailyNeeds": 24.65
               },
               {
                 "name": "Fat",
-                "amount": 18.41,
+                "amount": 10.28,
                 "unit": "g",
-                "percentOfDailyNeeds": 28.32
+                "percentOfDailyNeeds": 15.81
               },
               {
                 "name": "Saturated Fat",
-                "amount": 2.78,
+                "amount": 4.79,
                 "unit": "g",
-                "percentOfDailyNeeds": 17.38
+                "percentOfDailyNeeds": 29.91
               },
               {
                 "name": "Carbohydrates",
-                "amount": 44.62,
+                "amount": 82.25,
                 "unit": "g",
-                "percentOfDailyNeeds": 14.87
+                "percentOfDailyNeeds": 27.42
               },
               {
                 "name": "Net Carbohydrates",
-                "amount": 35.64,
+                "amount": 70.45,
                 "unit": "g",
-                "percentOfDailyNeeds": 12.96
+                "percentOfDailyNeeds": 25.62
               },
               {
                 "name": "Sugar",
-                "amount": 10.3,
+                "amount": 10.06,
                 "unit": "g",
-                "percentOfDailyNeeds": 11.44
+                "percentOfDailyNeeds": 11.18
               },
               {
                 "name": "Cholesterol",
-                "amount": 93.5,
+                "amount": 40.36,
                 "unit": "mg",
-                "percentOfDailyNeeds": 31.17
+                "percentOfDailyNeeds": 13.45
               },
               {
                 "name": "Sodium",
-                "amount": 121.03,
+                "amount": 645.28,
                 "unit": "mg",
-                "percentOfDailyNeeds": 5.26
+                "percentOfDailyNeeds": 28.06
               },
               {
                 "name": "Alcohol",
@@ -1659,141 +1869,136 @@
               },
               {
                 "name": "Protein",
-                "amount": 38.53,
+                "amount": 19.76,
                 "unit": "g",
-                "percentOfDailyNeeds": 77.06
+                "percentOfDailyNeeds": 39.52
               },
               {
                 "name": "Vitamin A",
-                "amount": 5570.94,
+                "amount": 11734.74,
                 "unit": "IU",
-                "percentOfDailyNeeds": 111.42
-              },
-              {
-                "name": "Vitamin B6",
-                "amount": 1.96,
-                "unit": "mg",
-                "percentOfDailyNeeds": 97.79
-              },
-              {
-                "name": "Selenium",
-                "amount": 64.49,
-                "unit": "\u00b5g",
-                "percentOfDailyNeeds": 92.13
-              },
-              {
-                "name": "Vitamin B12",
-                "amount": 5.41,
-                "unit": "\u00b5g",
-                "percentOfDailyNeeds": 90.1
-              },
-              {
-                "name": "Vitamin B3",
-                "amount": 15.84,
-                "unit": "mg",
-                "percentOfDailyNeeds": 79.22
+                "percentOfDailyNeeds": 234.69
               },
               {
                 "name": "Vitamin C",
-                "amount": 58.27,
+                "amount": 116.86,
                 "unit": "mg",
-                "percentOfDailyNeeds": 70.63
-              },
-              {
-                "name": "Potassium",
-                "amount": 1933.31,
-                "unit": "mg",
-                "percentOfDailyNeeds": 55.24
-              },
-              {
-                "name": "Phosphorus",
-                "amount": 505.5,
-                "unit": "mg",
-                "percentOfDailyNeeds": 50.55
-              },
-              {
-                "name": "Vitamin B2",
-                "amount": 0.77,
-                "unit": "mg",
-                "percentOfDailyNeeds": 45.56
-              },
-              {
-                "name": "Manganese",
-                "amount": 0.87,
-                "unit": "mg",
-                "percentOfDailyNeeds": 43.72
-              },
-              {
-                "name": "Vitamin B1",
-                "amount": 0.61,
-                "unit": "mg",
-                "percentOfDailyNeeds": 40.95
-              },
-              {
-                "name": "Vitamin B5",
-                "amount": 3.87,
-                "unit": "mg",
-                "percentOfDailyNeeds": 38.75
-              },
-              {
-                "name": "Copper",
-                "amount": 0.73,
-                "unit": "mg",
-                "percentOfDailyNeeds": 36.66
-              },
-              {
-                "name": "Fiber",
-                "amount": 8.99,
-                "unit": "g",
-                "percentOfDailyNeeds": 35.94
-              },
-              {
-                "name": "Folate",
-                "amount": 141.09,
-                "unit": "\u00b5g",
-                "percentOfDailyNeeds": 35.27
+                "percentOfDailyNeeds": 141.64
               },
               {
                 "name": "Vitamin K",
-                "amount": 36.24,
+                "amount": 142.51,
                 "unit": "\u00b5g",
-                "percentOfDailyNeeds": 34.51
+                "percentOfDailyNeeds": 135.72
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.44,
+                "unit": "mg",
+                "percentOfDailyNeeds": 71.91
+              },
+              {
+                "name": "Potassium",
+                "amount": 2140.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 61.16
+              },
+              {
+                "name": "Fiber",
+                "amount": 11.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 47.17
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.02
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 8.78,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.92
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 323.9,
+                "unit": "mg",
+                "percentOfDailyNeeds": 32.39
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.46,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.95
+              },
+              {
+                "name": "Copper",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.48
               },
               {
                 "name": "Magnesium",
-                "amount": 115.67,
+                "amount": 116.7,
                 "unit": "mg",
-                "percentOfDailyNeeds": 28.92
+                "percentOfDailyNeeds": 29.17
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.49,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.69
               },
               {
                 "name": "Iron",
-                "amount": 3.82,
+                "amount": 4.98,
                 "unit": "mg",
-                "percentOfDailyNeeds": 21.23
+                "percentOfDailyNeeds": 27.65
               },
               {
-                "name": "Vitamin E",
-                "amount": 2.99,
-                "unit": "mg",
-                "percentOfDailyNeeds": 19.95
-              },
-              {
-                "name": "Zinc",
-                "amount": 2.16,
-                "unit": "mg",
-                "percentOfDailyNeeds": 14.4
+                "name": "Folate",
+                "amount": 104.07,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.02
               },
               {
                 "name": "Calcium",
-                "amount": 110.45,
+                "amount": 175.48,
                 "unit": "mg",
-                "percentOfDailyNeeds": 11.05
+                "percentOfDailyNeeds": 17.55
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.01
+              },
+              {
+                "name": "Zinc",
+                "amount": 1.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.95
+              },
+              {
+                "name": "Selenium",
+                "amount": 7.55,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 10.78
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 1.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 9.29
               }
             ]
           },
-          "summary": "Salmon with roasted vegetables takes approximately <b>45 minutes</b> from beginning to end. For <b>$5.2 per serving</b>, this recipe <b>covers 45%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. One serving contains <b>496 calories</b>, <b>39g of protein</b>, and <b>18g of fat</b>. Head to the store and pick up lemon juice, salt, carrot, and a few other things to make it today. Not a lot of people made this recipe, and 7 would say it hit the spot. It works well as a main course. It is a good option if you're following a <b>gluten free, dairy free, whole 30, and pescatarian</b> diet. It is brought to you by Foodista. Overall, this recipe earns a <b>great spoonacular score of 94%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-1312689\">Roasted Salmon & Vegetables</a>, <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-36765\">Roasted Salmon & Vegetables</a>, and <a href=\"https://spoonacular.com/recipes/salmon-with-roasted-vegetables-1333407\">Salmon with roasted vegetables</a>.",
+          "summary": "Caldo Verde - Portuguese Kale Soup takes approximately <b>45 minutes</b> from beginning to end. One portion of this dish contains around <b>20g of protein</b>, <b>10g of fat</b>, and a total of <b>493 calories</b>. For <b>$2.24 per serving</b>, this recipe <b>covers 35%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. 13 people were glad they tried this recipe. It is a good option if you're following a <b>gluten free, dairy free, and whole 30</b> diet. It is brought to you by Foodista. It works well as a main course. It will be a hit at your <b>Autumn</b> event. Head to the store and pick up onion, carrots, pepper flakes, and a few other things to make it today. With a spoonacular <b>score of 92%</b>, this dish is outstanding. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/portuguese-kale-soup-caldo-verde-499535\">Portuguese Kale Soup (Caldo Verde)</a>, <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-1274837\">Caldo Verde - Portuguese Kale Soup</a>, and <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-598606\">Caldo Verde | Portuguese Kale Soup</a>.",
           "dishTypes": [
             "lunch",
+            "soup",
             "main course",
             "main dish",
             "dinner"
@@ -1801,10 +2006,9 @@
           "diets": [
             "gluten free",
             "dairy free",
-            "whole 30",
-            "pescatarian"
+            "whole 30"
           ],
-          "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
+          "spoonacularSourceUrl": "https://spoonacular.com/caldo-verde-portuguese-kale-soup-636787"
         },
         {
           "id": 659135,
@@ -2024,60 +2228,60 @@
           "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
         },
         {
-          "id": 658509,
-          "image": "https://img.spoonacular.com/recipes/658509-556x370.jpg",
-          "title": "Roasted Broccoli with Lemon and Garlic",
+          "id": 639851,
+          "image": "https://img.spoonacular.com/recipes/639851-556x370.jpg",
+          "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
           "readyInMinutes": 45,
-          "sourceUrl": "https://www.foodista.com/recipe/3Z8R4RGY/roasted-broccoli-with-lemon-and-garlic",
+          "sourceUrl": "https://www.foodista.com/recipe/GNSQNH5W/cod-with-tomatoes-olives-and-chorizo",
           "nutrition": {
             "nutrients": [
               {
                 "name": "Calories",
-                "amount": 58.24,
+                "amount": 733.32,
                 "unit": "kcal",
-                "percentOfDailyNeeds": 2.91
+                "percentOfDailyNeeds": 36.67
               },
               {
                 "name": "Fat",
-                "amount": 2.43,
+                "amount": 40.41,
                 "unit": "g",
-                "percentOfDailyNeeds": 3.75
+                "percentOfDailyNeeds": 62.18
               },
               {
                 "name": "Saturated Fat",
-                "amount": 0.41,
+                "amount": 8.46,
                 "unit": "g",
-                "percentOfDailyNeeds": 2.56
+                "percentOfDailyNeeds": 52.86
               },
               {
                 "name": "Carbohydrates",
-                "amount": 8,
+                "amount": 37.09,
                 "unit": "g",
-                "percentOfDailyNeeds": 2.67
+                "percentOfDailyNeeds": 12.36
               },
               {
                 "name": "Net Carbohydrates",
-                "amount": 4.97,
+                "amount": 30.07,
                 "unit": "g",
-                "percentOfDailyNeeds": 1.81
+                "percentOfDailyNeeds": 10.93
               },
               {
                 "name": "Sugar",
-                "amount": 1.96,
+                "amount": 6.85,
                 "unit": "g",
-                "percentOfDailyNeeds": 2.18
+                "percentOfDailyNeeds": 7.61
               },
               {
                 "name": "Cholesterol",
-                "amount": 0,
+                "amount": 143,
                 "unit": "mg",
-                "percentOfDailyNeeds": 0
+                "percentOfDailyNeeds": 47.67
               },
               {
                 "name": "Sodium",
-                "amount": 328.45,
+                "amount": 1554.36,
                 "unit": "mg",
-                "percentOfDailyNeeds": 14.28
+                "percentOfDailyNeeds": 67.58
               },
               {
                 "name": "Alcohol",
@@ -2093,152 +2297,813 @@
               },
               {
                 "name": "Protein",
-                "amount": 3.28,
+                "amount": 55.77,
                 "unit": "g",
-                "percentOfDailyNeeds": 6.57
-              },
-              {
-                "name": "Vitamin C",
-                "amount": 101.94,
-                "unit": "mg",
-                "percentOfDailyNeeds": 123.56
+                "percentOfDailyNeeds": 111.54
               },
               {
                 "name": "Vitamin K",
-                "amount": 117.65,
+                "amount": 218.26,
                 "unit": "\u00b5g",
-                "percentOfDailyNeeds": 112.05
+                "percentOfDailyNeeds": 207.87
               },
               {
-                "name": "Folate",
-                "amount": 71.85,
-                "unit": "\u00b5g",
-                "percentOfDailyNeeds": 17.96
-              },
-              {
-                "name": "Manganese",
-                "amount": 0.28,
+                "name": "Vitamin C",
+                "amount": 130.82,
                 "unit": "mg",
-                "percentOfDailyNeeds": 14.21
-              },
-              {
-                "name": "Vitamin A",
-                "amount": 710.13,
-                "unit": "IU",
-                "percentOfDailyNeeds": 14.2
-              },
-              {
-                "name": "Fiber",
-                "amount": 3.04,
-                "unit": "g",
-                "percentOfDailyNeeds": 12.15
-              },
-              {
-                "name": "Vitamin B6",
-                "amount": 0.21,
-                "unit": "mg",
-                "percentOfDailyNeeds": 10.47
-              },
-              {
-                "name": "Potassium",
-                "amount": 366.5,
-                "unit": "mg",
-                "percentOfDailyNeeds": 10.47
-              },
-              {
-                "name": "Vitamin B2",
-                "amount": 0.13,
-                "unit": "mg",
-                "percentOfDailyNeeds": 7.91
-              },
-              {
-                "name": "Vitamin E",
-                "amount": 1.18,
-                "unit": "mg",
-                "percentOfDailyNeeds": 7.86
-              },
-              {
-                "name": "Phosphorus",
-                "amount": 76.67,
-                "unit": "mg",
-                "percentOfDailyNeeds": 7.67
-              },
-              {
-                "name": "Vitamin B5",
-                "amount": 0.66,
-                "unit": "mg",
-                "percentOfDailyNeeds": 6.61
-              },
-              {
-                "name": "Magnesium",
-                "amount": 24.55,
-                "unit": "mg",
-                "percentOfDailyNeeds": 6.14
-              },
-              {
-                "name": "Calcium",
-                "amount": 56.17,
-                "unit": "mg",
-                "percentOfDailyNeeds": 5.62
-              },
-              {
-                "name": "Vitamin B1",
-                "amount": 0.08,
-                "unit": "mg",
-                "percentOfDailyNeeds": 5.51
-              },
-              {
-                "name": "Iron",
-                "amount": 0.88,
-                "unit": "mg",
-                "percentOfDailyNeeds": 4.9
+                "percentOfDailyNeeds": 158.57
               },
               {
                 "name": "Selenium",
-                "amount": 2.96,
+                "amount": 90.05,
                 "unit": "\u00b5g",
-                "percentOfDailyNeeds": 4.23
+                "percentOfDailyNeeds": 128.64
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 3743.98,
+                "unit": "IU",
+                "percentOfDailyNeeds": 74.88
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.4,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.16
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 696.63,
+                "unit": "mg",
+                "percentOfDailyNeeds": 69.66
+              },
+              {
+                "name": "Potassium",
+                "amount": 2231.22,
+                "unit": "mg",
+                "percentOfDailyNeeds": 63.75
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 3.03,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 50.5
               },
               {
                 "name": "Vitamin B3",
-                "amount": 0.74,
+                "amount": 9.77,
                 "unit": "mg",
-                "percentOfDailyNeeds": 3.68
+                "percentOfDailyNeeds": 48.86
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 7.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.52
+              },
+              {
+                "name": "Magnesium",
+                "amount": 148.71,
+                "unit": "mg",
+                "percentOfDailyNeeds": 37.18
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.53,
+                "unit": "mg",
+                "percentOfDailyNeeds": 35.23
+              },
+              {
+                "name": "Fiber",
+                "amount": 7.02,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.08
+              },
+              {
+                "name": "Folate",
+                "amount": 104.38,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.1
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 24.96
+              },
+              {
+                "name": "Iron",
+                "amount": 4.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.94
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.38,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.06
               },
               {
                 "name": "Zinc",
-                "amount": 0.48,
+                "amount": 3.08,
                 "unit": "mg",
-                "percentOfDailyNeeds": 3.19
+                "percentOfDailyNeeds": 20.56
               },
               {
                 "name": "Copper",
-                "amount": 0.06,
+                "amount": 0.39,
                 "unit": "mg",
-                "percentOfDailyNeeds": 3.08
+                "percentOfDailyNeeds": 19.51
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 2.8,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 18.67
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.37,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.74
+              },
+              {
+                "name": "Calcium",
+                "amount": 107.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.7
               }
             ]
           },
-          "summary": "Roasted Broccoli with Lemon and Garlic is a side dish that serves 4. One portion of this dish contains approximately <b>3g of protein</b>, <b>2g of fat</b>, and a total of <b>58 calories</b>. For <b>30 cents per serving</b>, this recipe <b>covers 14%</b> of your daily requirements of vitamins and minerals. If you have lemon juice, ground pepper, salt, and a few other ingredients on hand, you can make it. 11 person have tried and liked this recipe. It is brought to you by Foodista. It is a good option if you're following a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> diet. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. Taking all factors into account, this recipe <b>earns a spoonacular score of 96%</b>, which is awesome. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/roasted-broccoli-with-lemon-and-garlic-1345079\">Roasted Broccoli with Lemon and Garlic</a>, <a href=\"https://spoonacular.com/recipes/roasted-broccoli-with-lemon-and-garlic-1337497\">Roasted Broccoli with Lemon and Garlic</a>, and <a href=\"https://spoonacular.com/recipes/roasted-garlic-lemon-broccoli-110090\">Roasted Garlic Lemon Broccoli</a>.",
+          "summary": "If you want to add more <b>gluten free, dairy free, and whole 30</b> recipes to your collection, Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes might be a recipe you should try. This recipe serves 2 and costs $6.26 per serving. This main course has <b>733 calories</b>, <b>56g of protein</b>, and <b>40g of fat</b> per serving. This recipe is liked by 14 foodies and cooks. Head to the store and pick up lemon juice, parsley leaves, parsley, and a few other things to make it today. It is perfect for <b>Thanksgiving</b>. It is brought to you by Foodista. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 96%</b>. This score is awesome. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/cod-stew-with-chorizo-leeks-potatoes-2655\">Cod Stew With Chorizo, Leeks & Potatoes</a>, <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-1204417\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>, and <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-668002\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>.",
           "dishTypes": [
-            "side dish"
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
           ],
           "diets": [
             "gluten free",
             "dairy free",
-            "paleolithic",
-            "lacto ovo vegetarian",
-            "primal",
-            "whole 30",
-            "vegan"
+            "whole 30"
           ],
-          "spoonacularSourceUrl": "https://spoonacular.com/roasted-broccoli-with-lemon-and-garlic-658509"
+          "spoonacularSourceUrl": "https://spoonacular.com/cod-with-tomato-olive-chorizo-sauce-and-mashed-potatoes-639851"
+        },
+        {
+          "id": 636787,
+          "image": "https://img.spoonacular.com/recipes/636787-556x370.jpg",
+          "title": "Caldo Verde - Portuguese Kale Soup",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7SDK7CGK/caldo-verde-portuguese-kale-soup",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 492.94,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.65
+              },
+              {
+                "name": "Fat",
+                "amount": 10.28,
+                "unit": "g",
+                "percentOfDailyNeeds": 15.81
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 4.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 29.91
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 82.25,
+                "unit": "g",
+                "percentOfDailyNeeds": 27.42
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 70.45,
+                "unit": "g",
+                "percentOfDailyNeeds": 25.62
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.06,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.18
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 40.36,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.45
+              },
+              {
+                "name": "Sodium",
+                "amount": 645.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.06
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 19.76,
+                "unit": "g",
+                "percentOfDailyNeeds": 39.52
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 11734.74,
+                "unit": "IU",
+                "percentOfDailyNeeds": 234.69
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 116.86,
+                "unit": "mg",
+                "percentOfDailyNeeds": 141.64
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 142.51,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 135.72
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.44,
+                "unit": "mg",
+                "percentOfDailyNeeds": 71.91
+              },
+              {
+                "name": "Potassium",
+                "amount": 2140.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 61.16
+              },
+              {
+                "name": "Fiber",
+                "amount": 11.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 47.17
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.02
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 8.78,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.92
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 323.9,
+                "unit": "mg",
+                "percentOfDailyNeeds": 32.39
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.46,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.95
+              },
+              {
+                "name": "Copper",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.48
+              },
+              {
+                "name": "Magnesium",
+                "amount": 116.7,
+                "unit": "mg",
+                "percentOfDailyNeeds": 29.17
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.49,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.69
+              },
+              {
+                "name": "Iron",
+                "amount": 4.98,
+                "unit": "mg",
+                "percentOfDailyNeeds": 27.65
+              },
+              {
+                "name": "Folate",
+                "amount": 104.07,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.02
+              },
+              {
+                "name": "Calcium",
+                "amount": 175.48,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.55
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.01
+              },
+              {
+                "name": "Zinc",
+                "amount": 1.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.95
+              },
+              {
+                "name": "Selenium",
+                "amount": 7.55,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 10.78
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 1.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 9.29
+              }
+            ]
+          },
+          "summary": "Caldo Verde - Portuguese Kale Soup takes approximately <b>45 minutes</b> from beginning to end. One portion of this dish contains around <b>20g of protein</b>, <b>10g of fat</b>, and a total of <b>493 calories</b>. For <b>$2.24 per serving</b>, this recipe <b>covers 35%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. 13 people were glad they tried this recipe. It is a good option if you're following a <b>gluten free, dairy free, and whole 30</b> diet. It is brought to you by Foodista. It works well as a main course. It will be a hit at your <b>Autumn</b> event. Head to the store and pick up onion, carrots, pepper flakes, and a few other things to make it today. With a spoonacular <b>score of 92%</b>, this dish is outstanding. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/portuguese-kale-soup-caldo-verde-499535\">Portuguese Kale Soup (Caldo Verde)</a>, <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-1274837\">Caldo Verde - Portuguese Kale Soup</a>, and <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-598606\">Caldo Verde | Portuguese Kale Soup</a>.",
+          "dishTypes": [
+            "lunch",
+            "soup",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/caldo-verde-portuguese-kale-soup-636787"
+        },
+        {
+          "id": 659135,
+          "image": "https://img.spoonacular.com/recipes/659135-556x370.jpg",
+          "title": "Salmon with roasted vegetables",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 495.53,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.78
+              },
+              {
+                "name": "Fat",
+                "amount": 18.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.32
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 2.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.38
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 44.62,
+                "unit": "g",
+                "percentOfDailyNeeds": 14.87
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 35.64,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.96
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.3,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.44
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 93.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 31.17
+              },
+              {
+                "name": "Sodium",
+                "amount": 121.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.26
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 38.53,
+                "unit": "g",
+                "percentOfDailyNeeds": 77.06
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 5570.94,
+                "unit": "IU",
+                "percentOfDailyNeeds": 111.42
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 97.79
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.49,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.13
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 5.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 90.1
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 15.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 79.22
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 58.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.63
+              },
+              {
+                "name": "Potassium",
+                "amount": 1933.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 55.24
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 505.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 50.55
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.56
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.72
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 40.95
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 3.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.75
+              },
+              {
+                "name": "Copper",
+                "amount": 0.73,
+                "unit": "mg",
+                "percentOfDailyNeeds": 36.66
+              },
+              {
+                "name": "Fiber",
+                "amount": 8.99,
+                "unit": "g",
+                "percentOfDailyNeeds": 35.94
+              },
+              {
+                "name": "Folate",
+                "amount": 141.09,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 35.27
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 36.24,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 34.51
+              },
+              {
+                "name": "Magnesium",
+                "amount": 115.67,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.92
+              },
+              {
+                "name": "Iron",
+                "amount": 3.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.23
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 2.99,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.95
+              },
+              {
+                "name": "Zinc",
+                "amount": 2.16,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.4
+              },
+              {
+                "name": "Calcium",
+                "amount": 110.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.05
+              }
+            ]
+          },
+          "summary": "Salmon with roasted vegetables takes approximately <b>45 minutes</b> from beginning to end. For <b>$5.2 per serving</b>, this recipe <b>covers 45%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. One serving contains <b>496 calories</b>, <b>39g of protein</b>, and <b>18g of fat</b>. Head to the store and pick up lemon juice, salt, carrot, and a few other things to make it today. Not a lot of people made this recipe, and 7 would say it hit the spot. It works well as a main course. It is a good option if you're following a <b>gluten free, dairy free, whole 30, and pescatarian</b> diet. It is brought to you by Foodista. Overall, this recipe earns a <b>great spoonacular score of 94%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-1312689\">Roasted Salmon & Vegetables</a>, <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-36765\">Roasted Salmon & Vegetables</a>, and <a href=\"https://spoonacular.com/recipes/salmon-with-roasted-vegetables-1333407\">Salmon with roasted vegetables</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30",
+            "pescatarian"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
+        },
+        {
+          "id": 639851,
+          "image": "https://img.spoonacular.com/recipes/639851-556x370.jpg",
+          "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/GNSQNH5W/cod-with-tomatoes-olives-and-chorizo",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 733.32,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 36.67
+              },
+              {
+                "name": "Fat",
+                "amount": 40.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 62.18
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 8.46,
+                "unit": "g",
+                "percentOfDailyNeeds": 52.86
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 37.09,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.36
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 30.07,
+                "unit": "g",
+                "percentOfDailyNeeds": 10.93
+              },
+              {
+                "name": "Sugar",
+                "amount": 6.85,
+                "unit": "g",
+                "percentOfDailyNeeds": 7.61
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 143,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.67
+              },
+              {
+                "name": "Sodium",
+                "amount": 1554.36,
+                "unit": "mg",
+                "percentOfDailyNeeds": 67.58
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 55.77,
+                "unit": "g",
+                "percentOfDailyNeeds": 111.54
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 218.26,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 207.87
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 130.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 158.57
+              },
+              {
+                "name": "Selenium",
+                "amount": 90.05,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 128.64
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 3743.98,
+                "unit": "IU",
+                "percentOfDailyNeeds": 74.88
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.4,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.16
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 696.63,
+                "unit": "mg",
+                "percentOfDailyNeeds": 69.66
+              },
+              {
+                "name": "Potassium",
+                "amount": 2231.22,
+                "unit": "mg",
+                "percentOfDailyNeeds": 63.75
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 3.03,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 50.5
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 9.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 48.86
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 7.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.52
+              },
+              {
+                "name": "Magnesium",
+                "amount": 148.71,
+                "unit": "mg",
+                "percentOfDailyNeeds": 37.18
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.53,
+                "unit": "mg",
+                "percentOfDailyNeeds": 35.23
+              },
+              {
+                "name": "Fiber",
+                "amount": 7.02,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.08
+              },
+              {
+                "name": "Folate",
+                "amount": 104.38,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.1
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 24.96
+              },
+              {
+                "name": "Iron",
+                "amount": 4.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.94
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.38,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.06
+              },
+              {
+                "name": "Zinc",
+                "amount": 3.08,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.56
+              },
+              {
+                "name": "Copper",
+                "amount": 0.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.51
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 2.8,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 18.67
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.37,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.74
+              },
+              {
+                "name": "Calcium",
+                "amount": 107.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.7
+              }
+            ]
+          },
+          "summary": "If you want to add more <b>gluten free, dairy free, and whole 30</b> recipes to your collection, Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes might be a recipe you should try. This recipe serves 2 and costs $6.26 per serving. This main course has <b>733 calories</b>, <b>56g of protein</b>, and <b>40g of fat</b> per serving. This recipe is liked by 14 foodies and cooks. Head to the store and pick up lemon juice, parsley leaves, parsley, and a few other things to make it today. It is perfect for <b>Thanksgiving</b>. It is brought to you by Foodista. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 96%</b>. This score is awesome. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/cod-stew-with-chorizo-leeks-potatoes-2655\">Cod Stew With Chorizo, Leeks & Potatoes</a>, <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-1204417\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>, and <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-668002\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/cod-with-tomato-olive-chorizo-sauce-and-mashed-potatoes-639851"
         }
       ],
       "nutrients": {
-        "calories": 1926.33,
-        "protein": 118.56,
-        "fat": 96.31,
+        "calories": 4601.79,
+        "protein": 276.67,
+        "fat": 208.2,
         "carbohydrates": 0
       }
     },
