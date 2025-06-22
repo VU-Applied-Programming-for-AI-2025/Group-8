@@ -23,7 +23,7 @@
                     <a href="{{ url_for('show_history') }}">View Analysis History</a>
                 </div>
             </div>
-            <div class="dropdown">
+            <!-- <div class="dropdown">
                 {# Changed to <button> for better semantics and to use Font Awesome icon #}
                 <button class="dropbtn">Nutrients <i class="fas fa-caret-down"></i></button>
                 <div class="dropdown-content">
@@ -37,10 +37,11 @@
                     <a href="{{ url_for('nutrients') }}?nutrient={{ nutrient }}">{{ nutrient }}</a>
                     {% endfor %}
                 </div>
-            </div>
+            </div> -->
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
             </a>
+            <a href="/home#section_5">Nutrients</a>
             <a href="/home#section_3">How it works</a>
             <a href="/home#section_4">FAQ</a>
         </div>
