@@ -15,7 +15,17 @@
         <div class="container">
             <a href="{{ url_for('home') }}" class="logo">NutriGuide</a>
             <nav>
-                
+                <div class="header-search">
+                    <form method="POST" action="{{ url_for('search_bar') }}" class="search-form">
+                        {{ search_form.hidden_tag() }}
+                        <div class="search-input">
+                            {{ search_form.search_bar(size=20, placeholder="Search nutrients...", class="search-bar") }}
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
 
                 <div class="dropdown">
                     <button class="dropbtn nav-btn">

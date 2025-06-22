@@ -29,6 +29,14 @@ client: str = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 # Initializes the UsersData object where all the user profiles will be stored in a json file.
 users_data = UsersData()
 
+@app.context_processor
+def inject_search_form() -> Dict[str, SearchForm]:
+    """
+    Injects the search form into the template context for easy access in all templates.
+    This allows users to search for recipes or other content from any page.
+    """
+    return dict(search_form=SearchForm())
+
 
 def userAuthHelper() -> UserProfile:
     """
@@ -206,7 +214,6 @@ def home() -> Union[str, Response]:
     Users can generate a mealplan, submit their symtoms for a more custom mealplan and analyze their symptoms.
     """
     # Checks if user is logged in, if not redirects to the authentication page.
-    search_form = SearchForm()
     symptoms_form = SymptomsForm()
 
     user = userAuthHelper()
@@ -220,7 +227,8 @@ def home() -> Union[str, Response]:
             return redirect(url_for("display_results", symptoms=symptoms))
         return redirect(url_for("home_page"))
 
-    return render_template("homepage.html", response=user_name, search_form=search_form, symptoms_form=symptoms_form)
+    return render_template("homepage.html", response=user_name, symptoms_form=symptoms_form)
+
 
 
 # function to analyze symptoms
