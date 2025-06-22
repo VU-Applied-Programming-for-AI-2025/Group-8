@@ -278,7 +278,11 @@ button:hover {
 
 .profile-container,
 .nutrient-container {
-    max-width: 700px;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 2.5em 3em;
 }
 
 .consent-container {
@@ -637,6 +641,10 @@ nav {
     .faq-image {
         margin-right: 0; /* Remove right margin on smaller screens */
         margin-bottom: 20px; /* Add bottom margin instead */
+    }
+
+    .nutrient-container, .profile-container {
+        padding: 1.5em 1em; /* Adjust padding for smaller screens */
     }
 }
 
