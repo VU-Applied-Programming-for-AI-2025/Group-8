@@ -82,7 +82,20 @@
       ""
     ],
     "saved_recipes": [],
-    "analysis_results": [],
+    "analysis_results": [
+      {
+        "symptoms": null,
+        "analyse": {
+          "analysis": "Based on your profile, I'll provide the analysis.\n\n**VitaminD**:\n- Why: As an 18-year-old female, you may have limited sun exposure, which is essential for VitaminD production. Your skin tone is light, which reduces the risk of VitaminD deficiency, but age and potential limited sun exposure are factors.\n- Foods: Fatty fish, Fortified dairy products, Mushrooms\n- Tip: Spend 10-15 minutes outside during peak sun hours (10am-4pm) several times a week to boost natural VitaminD production.\n\n**Iron**:\n- Why: As a female, you're at a higher risk for Iron lack due to menstrual losses. Your age and sex put you in a group that often requires more Iron intake.\n- Foods: Red meat, Spinach, Pumpkin seeds\n- Tip: Include Iron-rich foods in your meals, especially during your menstrual cycle, to help maintain levels.\n\n**Calcium**:\n- Why: Your age is crucial for bone development, and adequate Calcium intake is essential for building peak bone mass. As a young female, ensuring enough Calcium helps prevent future bone density issues.\n- Foods: Dairy products, Fortified plant-based milk, Leafy greens\n- Tip: Incorporate Calcium-rich foods into your daily diet to support bone health.\n\n**Urgency Note**: None. No urgent medical concerns based on the provided information. However, maintaining a balanced diet and considering the mentioned nutrients can help prevent potential issues."
+        }
+      },
+      {
+        "symptoms": null,
+        "analyse": {
+          "analysis": "Based on your profile, I'll provide the analysis.\n\n**VitaminD**:\n- Why: As an 18-year-old female, you may have limited sun exposure, which is essential for VitaminD production. Your skin tone is light, which reduces the risk of VitaminD deficiency, but age and potential limited sun exposure are factors.\n- Foods: Fatty fish, Fortified dairy products, Mushrooms\n- Tip: Spend 10-15 minutes outside during peak sun hours (10am-4pm) several times a week to boost natural VitaminD production.\n\n**Iron**:\n- Why: As a female, you're at a higher risk for Iron lack due to menstrual losses. Your age and sex put you in a group that often requires more Iron intake.\n- Foods: Red meat, Spinach, Pumpkin seeds\n- Tip: Include Iron-rich foods in your meals, especially during your menstrual cycle, to help maintain levels.\n\n**Calcium**:\n- Why: Your age is crucial for bone development, and adequate Calcium intake is essential for building peak bone mass. As a young female, ensuring enough Calcium helps prevent future bone density issues.\n- Foods: Dairy products, Fortified plant-based milk, Leafy greens\n- Tip: Incorporate Calcium-rich foods into your daily diet to support bone health.\n\n**Urgency Note**: None. No urgent medical concerns based on the provided information. However, maintaining a balanced diet and considering the mentioned nutrients can help prevent potential issues."
+        }
+      }
+    ],
     "mealplan": []
   }
 }

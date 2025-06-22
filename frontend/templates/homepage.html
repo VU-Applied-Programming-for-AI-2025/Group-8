@@ -7,11 +7,9 @@
     <p>How can we help you with your nutrition today?</p>
 </div>
 
-
-
 <div class="card">
     <h3>Analyze Symptoms</h3>
-    <form action="{{ url_for('home') }}" method="POST">
+    <form action="{{ url_for('home') }}" method="POST" id="symptoms-form">
         {{ symptoms_form.hidden_tag() }}
         <div class="form-group">
             <label for="symptoms">Describe your symptoms to generate recipes!</label>
@@ -27,4 +25,29 @@
         <a href="{{ url_for('show_favorites') }}" class="btn">View Favorites</a>
     </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('symptoms-form').addEventListener('submit', function() {
+        // Show loading screen
+        document.getElementById('loading-screen').classList.add('active');
+        
+        // Optional: Disable the submit button
+        this.querySelector('button[type="submit"]').disabled = true;
+    });
+
+        // In homepage.html's extra_js block
+    document.querySelector('symptoms-form').addEventListener('submit', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.classList.add('active');
+        
+        // Fallback in case the page takes too long to load
+        setTimeout(() => {
+            if (loadingScreen.classList.contains('active')) {
+                loadingScreen.querySelector('.loading-text').textContent = "Taking longer than expected...";
+            }
+        }, 8000); // 8 seconds
+    });
+</script>
 {% endblock %}

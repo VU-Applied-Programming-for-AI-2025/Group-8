@@ -5,19 +5,8 @@
     <h2>Personalized Recommendations</h2>
     <p>Based on your profile and needs, here are some recipe suggestions:</p>
     
-    <div class="meal-plan-actions">
-        <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}" class="meal-plan-form">
-            <input type="hidden" name="timeFrame" value="day">
-            <input type="hidden" name="diet" value="health">
-            <button type="submit" class="btn btn-generate">
-                <i class="fas fa-magic"></i> Generate Complete Meal Plan
-            </button>
-        </form>
-        
-        <a href="{{ url_for('meal_planner') }}" class="btn btn-custom">
-            <i class="fas fa-edit"></i> Create Custom Meal Plan
-        </a>
-    </div>
+
+    
 </div>
 
 {% for meal_type, recipes in recipes_by_meal.items() %}
@@ -67,6 +56,26 @@
     </div>
 </div>
 {% endfor %}
+<div class="meal-plan-actions">
+        
+    <!-- <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}" class="meal-plan-form">
+        <input type="hidden" name="timeFrame" value="day">
+        <input type="hidden" name="diet" value="health">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-magic"></i> Random Meal Plan
+        </button>
+    </form> -->
+
+    <a href="{{ url_for('spoonacular_builtin_mealplanner') }}" class="btn btn-custom">
+        <i class="fas fa-utensils"></i> Generate Random Meal Plan
+        
+    <a href="{{ url_for('meal_planner') }}" class="btn btn-custom">
+        <i class="fas fa-edit"></i> Create Meal Plan
+    </a>
+
+    <a href="{{ url_for('display_results') }}" class="btn btn-primary">Back To Analysis</a>
+</div>
+
 {% endblock %}
 
 {% block extra_css %}

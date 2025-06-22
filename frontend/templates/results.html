@@ -59,5 +59,35 @@
             alert('Network error occurred');
         }
     });
+
+    // Hide loading screen when results page loads
+    window.addEventListener('load', function() {
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) loadingScreen.classList.remove('active');
+    });
+
+    // Rest of your existing results page JS...
+    document.getElementById('save-results').addEventListener('click', async function() {
+        const analysisText = `{{ analysis|replace('\n', '\\n')|safe }}`;
+        
+        try {
+            const response = await fetch('/save_results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ analysis: analysisText })
+            });
+            
+            if (response.ok) {
+                alert('Results saved successfully!');
+            } else {
+                alert('Failed to save results');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Network error occurred');
+        }
+    });
 </script>
 {% endblock %}
