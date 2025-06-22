@@ -1151,13 +1151,6 @@ footer a:hover {
     text-decoration: underline; /* Underline on hover for links */
 }
 
----
-
-## Accordion Styles
-
-Here are the new styles for your custom accordion, seamlessly integrated into your existing CSS.
-
-```css
 /* Basic styling for the accordion */
 .custom-accordion {
     border: 1px solid #ddd;
