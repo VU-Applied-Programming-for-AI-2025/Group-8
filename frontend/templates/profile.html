@@ -60,11 +60,10 @@
         <label>Password:</label>
         <input type="password" name="password" value="{{ user.password }}">
 
-        <button type="submit">Update Profile</button>
-
-        <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
-
-
+        <div class="profile-actions">
+            <button type="submit" class="update-profile-btn">Update Profile</button>
+            <a href="{{ url_for('logout') }}" class="logout-btn">Logout</a>
+        </div>
     </form>
 
     <a class="back-link" href="{{ url_for('home') }}">← Back to Home</a>

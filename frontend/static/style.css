@@ -1,7 +1,7 @@
 /*base styles*/
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F5F2EA; /* Updated: Matches image background */
+    background-color: #F5F2EA;
     margin: 0;
     padding: 0;
     padding-top: 120px;
@@ -15,24 +15,21 @@ main {
     flex-grow: 1;
     width: 100%;
     max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 /* Global Headings and Paragraphs */
-h1 {
+h1,
+h2 {
     text-align: center;
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
-    margin-bottom: 1.5em; /* Default margin for h1 */
+    color: #3C7F72;
+    margin-bottom: 1.5em;
 }
 
 h2 {
-    text-align: center;
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
-    margin-bottom: 1.5em; /* Default margin for h2 */
-    font-size: 2em; /* Set a default font size for h2 */
+    font-size: 2em;
 }
 
 h4 {
@@ -41,28 +38,31 @@ h4 {
 
 p {
     color: #777;
-    margin: 0.3em 0; /* Default margin for paragraphs */
+    margin: 0.3em 0;
 }
 
 /* Global List Styles */
-ul {
+ul,
+ol {
     padding-left: 1.5em;
+}
+
+ul {
     margin-bottom: 1.5em;
 }
 
-ol {
-    padding-left: 1.5em;
+ol,
+li {
     color: #333;
 }
 
 li {
     margin-bottom: 0.4em;
-    color: #333;
 }
 
 /* Global Link Styles */
 a {
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
     text-decoration: none;
 }
 
@@ -75,15 +75,15 @@ form {
     display: flex;
     flex-direction: column;
     margin-bottom: 2em;
-    gap: 1em; /* Default gap for form elements */
+    gap: 1em;
 }
 
 label {
     margin-bottom: 0.3em;
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
     font-weight: bold;
     font-size: 0.95em;
-    display: block; /* Ensure labels take full width */
+    display: block;
 }
 
 input {
@@ -115,7 +115,7 @@ select {
 }
 
 button {
-    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    background-color: #3C7F72;
     color: white;
     border: none;
     padding: 0.75em;
@@ -129,7 +129,7 @@ button {
 }
 
 button:hover {
-    background-color: #2E6C60; /* Updated: Darker shade for hover */
+    background-color: #2E6C60;
     transform: translateY(-1px);
 }
 
@@ -160,62 +160,61 @@ button:hover {
 
 /* --- NEW Nutrients Periodical Table Section Styles --- */
 .nutrient-periodical-table-section {
-    background-color: var(--background-light); /* Light background matching body for continuity */
-    padding: 80px 0; /* More padding for a distinct section */
+    background-color: var(--background-light);
+    padding: 80px 0;
     text-align: center;
 }
 
 .nutrient-grid {
     display: grid;
-    /* Responsive grid columns: minmax ensures a minimum width and flex for remaining space */
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 15px; /* Space between nutrient cards */
-    max-width: 1100px; /* Max width for the grid to look like a 'table' */
-    margin: 0 auto; /* Center the grid */
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto;
     padding: 20px;
-    box-sizing: border-box; /* Include padding in the element's total width and height */
+    box-sizing: border-box;
 }
 
 .nutrient-card {
     background-color: #fcfdfe;
     border-radius: 10px;
-    box-shadow: 0 4px 15px var(--shadow-color); /* Soft shadow */
+    box-shadow: 0 4px 15px var(--shadow-color);
     padding: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-decoration: none; /* Remove underline for links */
+    text-decoration: none;
     color: var(--primary-color);
     font-weight: 600;
     font-size: 1em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease; /* Added color transition */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
     text-align: center;
-    min-height: 110px; /* Ensure a consistent minimum height for cards */
+    min-height: 110px;
     position: relative;
     overflow: hidden;
 }
 
 .nutrient-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 8px 25px var(--shadow-color-hover); /* More pronounced shadow */
-    background-color: var(--hover-background-light); /* Softer hover background */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color-hover);
+    background-color: var(--hover-background-light);
 }
 
 .nutrient-icon {
-    font-size: 2.5em; /* Larger icon size */
-    margin-bottom: 8px; /* Space between icon and name */
-    color: #3A836D; /* Main accent color for icons */
+    font-size: 2.5em;
+    margin-bottom: 8px;
+    color: #3A836D;
     transition: color 0.2s ease;
 }
 
 .nutrient-card:hover .nutrient-icon {
-    color: var(--secondary-color); /* Darker accent color on hover */
+    color: var(--secondary-color);
 }
 
 .nutrient-name {
-    display: block; /* Ensure name is on a new line */
-    word-break: break-word; /* Break long names if necessary */
+    display: block;
+    word-break: break-word;
     line-height: 1.2;
 }
 
@@ -239,13 +238,13 @@ button:hover {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 3em auto; /* Default margin for containers */
+    margin: 3em auto;
     box-sizing: border-box;
 }
 
 .auth-container,
 .form-container {
-    max-width: 1000px; /* Specific max-width for auth/registration forms */
+    max-width: 1000px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     width: 100%;
     margin: 2em auto;
@@ -268,10 +267,10 @@ button:hover {
 
 .planner-container,
 .meal-planner-container {
-    max-width: 600px; /* Default for planner containers */
+    max-width: 600px;
 }
 
-.planner-container { /* Specific override for edit_mealplanner table */
+.planner-container {
     max-width: 1000px;
     overflow-x: auto;
 }
@@ -309,7 +308,7 @@ nav {
     padding: 9px 24px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     display: flex;
-    justify-content: space-between; /* Distributes items with space between them */
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     box-sizing: border-box;
@@ -317,7 +316,7 @@ nav {
     top: 0;
     left: 0;
     z-index: 1000;
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    flex-wrap: wrap;
 }
 
 .nav-left,
@@ -325,29 +324,27 @@ nav {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-shrink: 0; /* Prevent these from shrinking too much */
+    flex-shrink: 0;
 }
 
 .nav-center {
     font-size: 1.5em;
-    flex-grow: 1; /* Allow it to grow and take available space */
-    text-align: center; /* Center the text content */
-    margin: 0 20px; /* Adjust as needed */
-}
-
-/* Ensure the logo itself is centered within nav-center */
-.nav-center .logo {
-    display: block; /* Make the anchor tag a block to center its text */
+    flex-grow: 1;
     text-align: center;
-    width: 100%; /* Take full width of nav-center */
+    margin: 0 20px;
 }
 
-/* Nav links and dropdown buttons */
+.nav-center .logo {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
 .nav-left a,
 .nav-left .dropdown .dropbtn {
     display: flex;
     align-items: center;
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
     text-align: center;
     padding: 8px 16px;
     text-decoration: none;
@@ -363,35 +360,31 @@ nav {
 
 .nav-left a:hover,
 .nav-left .dropdown .dropbtn:hover {
-    background-color: #EAF2F0; /* Updated: Softer hover background */
-    color: #2E6C60; /* Updated: Darker shade for hover */
+    background-color: #EAF2F0;
+    color: #2E6C60;
 }
 
 .nav-left a.active {
     background-color: white;
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
 }
 
-/* On larger screens, the hamburger icon is hidden */
 .nav-left a.icon {
     display: none;
 }
 
-/* On larger screens, menu items are visible and inline */
 .nav-left .dropdown,
 .nav-left a:not(.icon) {
-    display: flex; /* Use flex to align icon and text for dropdown buttons */
+    display: flex;
     align-items: center;
 }
 
-/* Styles for the hamburger icon when it's displayed on smaller screens */
 .nav-left.responsive a.icon {
-    display: block; /* Show hamburger icon when menu is responsive */
+    display: block;
     position: absolute;
     right: 24px;
     top: 9px;
     margin-left: 0;
-    /* Basic styling for the hamburger icon */
     padding: 8px;
     border: 1px solid #e0e0e0;
     border-radius: 50%;
@@ -405,40 +398,38 @@ nav {
 }
 
 .nav-left a.icon:hover {
-    border-color: #3C7F72; /* Updated: Matches FAQ text color in image */
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    border-color: #3C7F72;
+    color: #3C7F72;
 }
 
-/* When nav-left becomes responsive (hamburger menu open) */
 .nav-left.responsive {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align stacked items to the left */
-    width: 100%; /* Take full width of the nav */
-    position: absolute; /* Position absolutely below the main nav bar */
-    top: 100%; /* Place it right below the nav */
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    position: absolute;
+    top: 100%;
     left: 0;
-    background-color: #ffffff; /* Same as nav background */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.1); /* Add shadow for dropdown effect */
-    padding: 10px 24px; /* Add some padding */
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 24px;
     box-sizing: border-box;
-    order: unset; /* Remove order when it becomes absolute */
+    order: unset;
 }
 
 .nav-left.responsive .dropdown,
 .nav-left.responsive a:not(.icon) {
-    display: block; /* Show hidden items */
+    display: block;
     width: 100%;
     text-align: left;
-    padding: 10px 0; /* Adjust padding for stacked links */
+    padding: 10px 0;
     box-sizing: border-box;
 }
 
-
 /* Search Container */
 .search-container {
-    position: relative; /* Keep this for absolute positioning of the form inside */
-    display: flex; /* Make it a flex container */
-    align-items: center; /* Vertically align items in the center */
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .search-icon-wrapper {
@@ -455,13 +446,13 @@ nav {
     transition: all 0.3s ease;
     color: #666;
     background-color: #f9f9f9;
-    z-index: 2; /* Keep search icon above the expanding form */
-    flex-shrink: 0; /* Prevent the icon from shrinking */
+    z-index: 2;
+    flex-shrink: 0;
 }
 
 .search-icon-wrapper:hover {
-    border-color: #3C7F72; /* Updated: Matches FAQ text color in image */
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    border-color: #3C7F72;
+    color: #3C7F72;
 }
 
 .search-toggle-icon {
@@ -469,10 +460,10 @@ nav {
 }
 
 .search-nav-form {
-    position: absolute; /* Keep absolute positioning for the expanding animation */
+    position: absolute;
     right: 0;
-    top: 50%; /* Position the top edge of the form at the vertical center of its parent */
-    transform: translateY(-50%); /* Move the form up by half its own height to perfectly center it */
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     align-items: center;
     border: 1px solid #e0e0e0;
@@ -484,56 +475,53 @@ nav {
     white-space: nowrap;
     transition: max-width 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-    z-index: 1; /* Ensure form appears below the icon initially */
+    z-index: 1;
 }
 
 .search-nav-form.active {
     max-width: 300px;
     opacity: 1;
-    padding: 2px 10px; /* Add some padding to the sides when active for visual spacing */
-    z-index: 1; /* Keep it at z-index 1 when active */
+    padding: 2px 10px;
+    z-index: 1;
     max-height: 40px;
     right: 0;
-    margin-right: 48px; /* Approximately icon width + padding */
+    margin-right: 48px;
 }
 
 .search-nav-form.active input.search-input {
     padding: 6px 10px;
     height: 36px;
-    border: none; /* Ensure no border */
-    outline: none; /* Remove outline on focus */
-    box-shadow: none; /* Remove any default box-shadow */
+    border: none;
+    outline: none;
+    box-shadow: none;
     background-color: transparent;
     flex-grow: 1;
     width: fit-content;
 }
 
 .search-nav-form.active .search-button {
-    background-color: transparent; /* Make button background transparent */
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    background-color: transparent;
+    color: #3C7F72;
     border: none;
-    padding: 0 8px; /* Adjust padding for the button */
+    padding: 0 8px;
     cursor: pointer;
     font-size: 1.1em;
-    height: 36px; /* Match height with the input field */
-    width: auto; /* Allow button to size to its content */
-    margin-top: 0;
-    margin-bottom: 0;
+    height: 36px;
+    width: auto;
+    margin: 0;
     transition: color 0.2s ease;
 }
 
 .search-nav-form.active .search-button:hover {
-    color: #2E6C60; /* Updated: Darker shade for hover */
+    color: #2E6C60;
     background-color: transparent;
-    transform: none; /* Remove transform on hover for the button */
+    transform: none;
 }
 
-/* Ensure the input element takes full width within the search form when active */
 .search-nav-form input {
-    width: 100%; /* Ensure it takes available width inside the form */
-    margin-bottom: 0; /* Remove default input margin-bottom */
+    width: 100%;
+    margin-bottom: 0;
 }
-/* --- End of New/Modified Search Input Styles --- */
 
 /* Dropdown */
 .dropdown {
@@ -573,81 +561,90 @@ nav {
 
 /*--- Media Queries ---*/
 @media screen and (max-width: 600px) {
-    /* Adjust overall nav behavior on smaller screens */
     nav {
         flex-direction: row;
-        justify-content: space-between; /* Distribute them evenly */
+        justify-content: space-between;
         align-items: center;
-        flex-wrap: nowrap; /* Prevent wrapping for these three main elements */
-        padding-bottom: 9px; /* Reset padding */
+        flex-wrap: nowrap;
+        padding-bottom: 9px;
     }
 
     .nav-left {
-        /* Ensure the hamburger icon remains visible and is the only item from nav-left in the top row initially */
         display: flex;
         align-items: center;
-        justify-content: flex-start; /* Align icon to the start */
+        justify-content: flex-start;
         order: 1;
-        flex-grow: 0; /* Don't let it grow */
-        gap: 0; /* No gap between hidden items and icon */
-        position: relative; /* Make nav-left relative for absolute positioning of responsive menu */
+        flex-grow: 0;
+        gap: 0;
+        position: relative;
     }
 
-    /* On smaller screens, hide the regular menu items */
     .nav-left .dropdown,
     .nav-left a:not(.icon) {
         display: none;
     }
 
-    /* Show the hamburger icon on smaller screens */
     .nav-left a.icon {
         display: block;
     }
 
     .nav-center {
         order: 2;
-        width: auto; /* Allow width to be determined by content */
-        margin: 0; /* Reset margin */
+        width: auto;
+        margin: 0;
         text-align: center;
-        flex-grow: 1; /* Allow logo to take available space between icon and search */
+        flex-grow: 1;
     }
 
     .nav-right {
         order: 3;
         display: flex;
         align-items: center;
-        justify-content: flex-end; /* Align search icon to the end */
-        flex-grow: 0; /* Don't let it grow */
+        justify-content: flex-end;
+        flex-grow: 0;
     }
 
-    /* Ensure search form appears correctly when active on small screens */
     .search-nav-form.active {
-        max-width: calc(100vw - 120px); /* Adjust max-width to fit screen minus some space for icon */
-        margin-right: 0; /* Reset margin */
-        left: auto; /* Allow it to position from the right */
-        right: 48px; /* Position next to the search icon */
+        max-width: calc(100vw - 120px);
+        margin-right: 0;
+        left: auto;
+        right: 48px;
     }
 
-    /* Accordion Responsive adjustments */
-    .col-lg-6, .col-lg-5 {
+    .col-lg-6,
+    .col-lg-5 {
         width: 100%;
-        padding: 15px; /* Ensure padding is consistent */
+        padding: 15px;
     }
 
     .faq-section .row {
-        flex-direction: column; /* Stack image and content on smaller screens */
+        flex-direction: column;
     }
 
     .faq-image {
-        margin-right: 0; /* Remove right margin on smaller screens */
-        margin-bottom: 20px; /* Add bottom margin instead */
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 
-    .nutrient-container, .profile-container {
-        padding: 1.5em 1em; /* Adjust padding for smaller screens */
+    .nutrient-container,
+    .profile-container {
+        padding: 1.5em 1em;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .profile-actions button,
+    .profile-actions .logout-btn {
+        width: 100%;
+        margin-top: 0.5em;
+    }
+
+    .profile-actions button:first-child {
+        margin-top: 0;
     }
 }
-
 
 /*--- Recommendations Section ---*/
 .meal-section {
@@ -700,13 +697,13 @@ nav {
 }
 
 .view-button {
-    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    background-color: #3C7F72;
     color: white;
     transition: background-color 0.2s ease;
 }
 
 .view-button:hover {
-    background-color: #2E6C60; /* Updated: Darker shade for hover */
+    background-color: #2E6C60;
 }
 
 .favorite-btn {
@@ -722,7 +719,7 @@ nav {
 
 .submit-btn {
     margin-top: 2em;
-    background-color: #7BB349; /* Kept green, but using a green from the image */
+    background-color: #7BB349;
     color: white;
     padding: 0.75em 1.5em;
     border-radius: 6px;
@@ -732,7 +729,7 @@ nav {
 }
 
 .submit-btn:hover {
-    background-color: #6A9E3C; /* Darker green for hover */
+    background-color: #6A9E3C;
 }
 
 .spoonacular-link {
@@ -741,7 +738,7 @@ nav {
 }
 
 .spoonacular-link a {
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
     text-decoration: none;
     font-weight: 500;
 }
@@ -769,20 +766,50 @@ nav {
 }
 
 /*--- Profile Section ---*/
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5em;
+    gap: 1em;
+}
+
+.profile-actions button,
+.profile-actions .logout-btn {
+    width: auto;
+    flex-grow: 1;
+    margin: 0;
+    text-align: center;
+}
+
+.profile-actions .update-profile-btn {
+    background-color: #3C7F72;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-actions .update-profile-btn:hover {
+    background-color: #2E6C60;
+    transform: translateY(-1px);
+}
+
 .logout-btn {
     background-color: #dc3545;
     color: white;
-    padding: 8px 15px;
+    padding: 0.75em;
     border-radius: 6px;
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.2s ease, transform 0.2s ease;
     white-space: nowrap;
-    margin-top: 20px;
-    display: block;
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .logout-btn:hover {
@@ -805,7 +832,7 @@ nav {
 
 .button-link {
     display: inline-block;
-    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    background-color: #3C7F72;
     color: white;
     padding: 0.75em 1.5em;
     border-radius: 6px;
@@ -815,7 +842,7 @@ nav {
 }
 
 .button-link:hover {
-    background-color: #2E6C60; /* Updated: Darker shade for hover */
+    background-color: #2E6C60;
 }
 
 .link-wrapper {
@@ -893,7 +920,7 @@ nav {
 }
 
 .recipe a {
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
     text-decoration: none;
     font-weight: 500;
 }
@@ -902,10 +929,9 @@ nav {
     text-decoration: underline;
 }
 
-/* Specific button for favorites form (override global button) */
 .favorites-container form button {
     margin-top: 1em;
-    background-color: #dc3545; /* Changed to red for remove favorite */
+    background-color: #dc3545;
     color: white;
     border: none;
     padding: 0.6em 1.2em;
@@ -913,13 +939,12 @@ nav {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: auto; /* Allow button to size to content within form */
-    margin-left: 0;
-    margin-right: 0;
+    width: auto;
+    margin: 1em 0 0;
 }
 
 .favorites-container form button:hover {
-    background-color: #c82333; /* Darker red on hover */
+    background-color: #c82333;
 }
 
 .no-favorites {
@@ -964,12 +989,12 @@ td form {
     color: #333;
 }
 
-/* --- Section 3 - Timeline specific styles (New/Modified) --- */
+/* --- Section 3 - Timeline specific styles --- */
 .timeline-section {
     position: relative;
     padding: 60px 0;
-    background-color: #3C7F72; /* Updated: Matches FAQ text color in image */
-    overflow: hidden; /* To contain the overlay */
+    background-color: #3C7F72;
+    overflow: hidden;
 }
 
 .section-overlay {
@@ -978,14 +1003,14 @@ td form {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better text readability */
+    background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
 .container-custom {
     position: relative;
-    z-index: 2; /* Ensure content is above the overlay */
-    max-width: 960px; /* Adjust as needed */
+    z-index: 2;
+    max-width: 960px;
     margin: 0 auto;
     padding: 0 15px;
 }
@@ -1003,15 +1028,15 @@ td form {
 }
 
 .mb-4-custom {
-    margin-bottom: 1.5rem; /* Equivalent to Bootstrap's mb-4 */
+    margin-bottom: 1.5rem;
 }
 
 .mb-3-custom {
-    margin-bottom: 1rem; /* Equivalent to Bootstrap's mb-3 */
+    margin-bottom: 1rem;
 }
 
 .mt-5-custom {
-    margin-top: 3rem; /* Equivalent to Bootstrap's mt-5 */
+    margin-top: 3rem;
 }
 
 .btn-custom {
@@ -1042,7 +1067,7 @@ td form {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #2E6C60; /* Updated: Darker teal for hover effect */
+    background: #2E6C60;
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin: 50%;
@@ -1074,11 +1099,11 @@ td form {
 }
 
 .custom-border-btn:hover {
-    border-color: #2E6C60; /* Updated: Match hover background */
+    border-color: #2E6C60;
 }
 
 .ms-3-custom {
-    margin-left: 1rem; /* Equivalent to Bootstrap's ms-3 */
+    margin-left: 1rem;
 }
 
 /* Timeline specific styling */
@@ -1100,24 +1125,24 @@ td form {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px; /* Thickness of the timeline line */
+    width: 4px;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.3); /* Base color of the timeline */
+    background-color: rgba(255, 255, 255, 0.3);
     z-index: 0;
 }
 
 .vertical-scrollable-timeline li {
     position: relative;
-    margin-bottom: 60px; /* Space between timeline items */
+    margin-bottom: 60px;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for list items */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    width: 45%; /* Adjust width for items to sit on either side of the line */
-    opacity: 0; /* Hidden by default for animation */
-    transform: translateY(20px); /* Slight offset for animation */
+    width: 45%;
+    opacity: 0;
+    transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    z-index: 1; /* Ensure list items are above the timeline line */
+    z-index: 1;
 }
 
 .vertical-scrollable-timeline li:nth-child(odd) {
@@ -1125,7 +1150,7 @@ td form {
 }
 
 .vertical-scrollable-timeline li:nth-child(even) {
-    left: 55%; /* Position even items on the right side */
+    left: 55%;
 }
 
 .vertical-scrollable-timeline li.in-view {
@@ -1136,21 +1161,21 @@ td form {
 .vertical-scrollable-timeline li:after {
     content: '';
     position: absolute;
-    top: 25px; /* Position the circle vertically on the line */
-    width: 16px; /* Size of the circle */
+    top: 25px;
+    width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: #fff; /* White circle */
-    border: 3px solid #2E6C60; /* Updated: Darker teal border for the circle */
+    background-color: #fff;
+    border: 3px solid #2E6C60;
     z-index: 2;
 }
 
 .vertical-scrollable-timeline li:nth-child(odd):after {
-    right: -28px; /* Position circle on the right for odd items */
+    right: -28px;
 }
 
 .vertical-scrollable-timeline li:nth-child(even):after {
-    left: -28px; /* Position circle on the left for even items */
+    left: -28px;
 }
 
 .icon-holder {
@@ -1165,59 +1190,56 @@ td form {
 }
 
 .icon-holder i {
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
+    color: #3C7F72;
     font-size: 24px;
 }
 
-/* Progress bar filling the timeline */
 .list-progress {
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 4px; /* Same thickness as the timeline line */
-    height: 0; /* Starts with 0 height */
-    background-color: #fff; /* Color of the filled progress bar */
-    z-index: 1; /* Above the base timeline line but below content */
-    /* Add this inner div to control the height of the progress bar */
-    overflow: hidden; /* To ensure the inner bar stays within its container */
+    width: 4px;
+    height: 0;
+    background-color: #fff;
+    z-index: 1;
+    overflow: hidden;
 }
 
-/* The actual filling bar */
 .list-progress .inner {
     width: 100%;
-    height: 0; /* This height will be controlled by JavaScript */
+    height: 0;
     background-color: #fff;
-    transition: height 0.1s linear; /* Smooth transition for filling */
+    transition: height 0.1s linear;
 }
 
 /*--- Footer Styles ---*/
 footer {
-    background-color: #333; /* Dark background for the footer */
-    color: #fff; /* White text color */
-    padding: 2em 1em; /* Padding top/bottom and left/right */
-    text-align: center; /* Center the text */
-    font-size: 0.9em; /* Slightly smaller font size */
-    margin-top: auto; /* Pushes the footer to the bottom */
+    background-color: #333;
+    color: #fff;
+    padding: 2em 1em;
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: auto;
 }
 
 .footer-content {
-    max-width: 1200px; /* Max width to align with content */
-    margin: 0 auto; /* Center the footer content */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 footer p {
-    margin: 0.5em 0; /* Space between paragraphs */
-    color: #bbb; /* Lighter color for general text */
+    margin: 0.5em 0;
+    color: #bbb;
 }
 
 footer a {
-    color: #3C7F72; /* Updated: Matches FAQ text color in image */
-    text-decoration: none; /* No underline by default */
+    color: #3C7F72;
+    text-decoration: none;
 }
 
 footer a:hover {
-    text-decoration: underline; /* Underline on hover for links */
+    text-decoration: underline;
 }
 
 /* Basic styling for the accordion */
