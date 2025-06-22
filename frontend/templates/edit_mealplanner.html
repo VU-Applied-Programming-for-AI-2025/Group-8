@@ -1,23 +1,209 @@
-<table border="1">
-    <tr>
-        <th>Day</th>
-        {% for meal in mealplan[1].keys() %}
-            <th>{{ meal.title() }}</th>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="meal-planner-container">
+    <h2 class="meal-planner-title">Your Meal Plan</h2>
+    
+    <div class="meal-plan-table">
+        <div class="table-header">
+            <div class="header-cell day-header">Day</div>
+            {% for meal in mealplan[1].keys() %}
+                <div class="header-cell meal-header">{{ meal.title() }}</div>
+            {% endfor %}
+        </div>
+        
+        {% for day, meals in mealplan.items() %}
+        <div class="table-row">
+            <div class="row-cell day-cell">{{ day }}</div>
+            {% for meal, recipe in meals.items() %}
+                <div class="row-cell meal-cell">
+                    <div class="recipe-card">
+                        <h4 class="recipe-title">{{ recipe.title }}</h4>
+                        <div class="recipe-nutrition">
+                            <span class="nutrition-bubble">{{ recipe.nutrition.calories }} kcal</span>
+                            <span class="nutrition-bubble">{{ recipe.nutrition.protein }}g protein</span>
+                        </div>
+                        <form method="POST" action="{{ url_for('replace_meal') }}" class="replace-form">
+                            <input type="hidden" name="day" value="{{ day }}">
+                            <input type="hidden" name="meal" value="{{ meal }}">
+                            <button type="submit" class="replace-btn">
+                                <i class="fas fa-sync-alt"></i> Replace
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
         {% endfor %}
-    </tr>
-    {% for day, meals in mealplan.items() %}
-    <tr>
-        <td>{{ day }}</td>
-        {% for meal, recipe in meals.items() %}
-            <td>
-                {{ recipe.title }}
-                <form method="POST" action="{}">
-                    <input type="hidden" name="day" value="{{ day }}">
-                    <input type="hidden" name="meal" value="{{ meal }}">
-                    <button type="submit">Replace</button>
-                </form>
-            </td>
-        {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
+    </div>
+    
+    <div class="meal-plan-actions">
+        <a href="{{ url_for('spoonacular_builtin_mealplanner') }}" class="btn btn-secondary">
+            <i class="fas fa-redo"></i> Regenerate Plan
+        </a>
+        <button class="btn btn-primary" id="save-plan">
+            <i class="fas fa-save"></i> Save Plan
+        </button>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.meal-planner-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.meal-planner-title {
+    text-align: center;
+    color: #4a6fa5;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+
+.meal-plan-table {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.table-header {
+    display: contents;
+}
+
+.header-cell {
+    background: #4a6fa5;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    border-radius: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.day-header {
+    grid-column: 1;
+}
+
+.table-row {
+    display: contents;
+}
+
+.row-cell {
+    padding: 1rem;
+    border-bottom: 1px solid #e1e8f0;
+    display: flex;
+    align-items: center;
+}
+
+.day-cell {
+    font-weight: 600;
+    color: #4a6fa5;
+    background: #f0f7ff;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    border: 1px solid #e1e8f0;
+    transition: all 0.3s ease;
+}
+
+.recipe-card:hover {
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
+}
+
+.recipe-title {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.recipe-nutrition {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nutrition-bubble {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.replace-form {
+    margin-top: auto;
+}
+
+.replace-btn {
+    background: #f0f7ff;
+    color: #4a6fa5;
+    border: 1px solid #c1d4f0;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.replace-btn:hover {
+    background: #4a6fa5;
+    color: white;
+}
+
+.meal-plan-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .meal-plan-table {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-cell {
+        display: none;
+    }
+    
+    .row-cell {
+        grid-column: 1 !important;
+        padding: 0.5rem;
+    }
+    
+    .day-cell {
+        margin-top: 1rem;
+        background: none;
+        justify-content: flex-start;
+        font-size: 1.1rem;
+        padding-left: 0;
+    }
+    
+    .meal-plan-actions {
+        flex-direction: column;
+    }
+}
+</style>
+{% endblock %}

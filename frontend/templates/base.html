@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NutriGuide{% block title %}{% endblock %}</title>
+    <title>NutriSpoon{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -12,7 +12,7 @@
 <body>
     <header>
         <div class="container">
-            <a href="{{ url_for('home') }}" class="logo">NutriGuide</a>
+            <a href="{{ url_for('home') }}" class="logo">NutriSpoon</a>
             <nav>
                 {% if session.get('logged_in') %}
                 
