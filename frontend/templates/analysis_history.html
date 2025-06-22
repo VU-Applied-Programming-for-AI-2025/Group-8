@@ -8,17 +8,20 @@
     <li style="margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
         <p><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
 
-        <p><strong>Deficiency Analysis:</strong></p>
-        <ul>
-            {% for nutrient, details in entry.analyse.items() %}
-            <li>
-                <h4>{{ nutrient }}</h4>
-                <p><strong>Why:</strong> {{ details.why }}</p>
-                <p><strong>Foods:</strong> {{ details.foods | join(', ') }}</p>
-                <p><strong>Tip:</strong> {{ details.tip }}</p>
-            </li>
-            {% endfor %}
-        </ul>
+        {% if entry.analyse and entry.analyse.analysis %}
+        <div class="analysis-content" style="
+            white-space: pre-wrap;
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        ">
+            {{ entry.analyse.analysis | replace("\n", "<br>") | safe }}
+        </div>
+        {% else %}
+        <p>No analysis details available.</p>
+        {% endif %}
+
     </li>
     {% endfor %}
 </ul>
@@ -27,4 +30,35 @@
 {% endif %}
 
 <a href="{{ url_for('home') }}" class="btn">← Back to Home</a>
+
+<style>
+    .analysis-entry {
+    margin-bottom: 2rem; 
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    }
+
+    .analysis-content {
+        white-space: pre-wrap;
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 5px;
+        margin-top: 1rem;
+    }
+
+    .analysis-content strong {
+        color: #2c3e50;
+    }
+
+    .symptoms {
+        font-size: 1.1rem;
+        color: #3498db;
+    }
+
+    .no-analysis {
+        color: #7f8c8d;
+        font-style: italic;
+    }
+
+</style>
 {% endblock %}
