@@ -1,16 +1,29 @@
-
 <html>
 <head>
     <title>Consent Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
 </head>
 <body>
-    <h2>Consent Form</h2>
-    <p>
-        This application uses generative AI to provide personalized nutritional recommendations.
-        This is not medical advice.
-    </p>
-    <form action="/consentform" method="POST">
-        <button type="submit" name="accept" value="true">I Accept</button>
-    </form>
+    <div class="consent-center-wrapper">
+        <img src="{{ url_for('static', filename='images/spoon.svg') }}" alt="Spoon Icon" style="width: 150px; margin-bottom: 1.5rem;" />
+        <p>
+            Thank you for choosing to use our nutritional recommendation platform.<br>
+            Please read the following information carefully before proceeding.
+        </p>
+        <ul class="consent-bullets">
+            <li>
+                <strong>Purpose:</strong> This application uses generative AI to provide personalized nutritional suggestions.
+            </li>
+            <li>
+                <strong>Disclaimer:</strong> The information provided is for informational purposes only and does not constitute medical advice. Always consult a qualified healthcare professional for medical concerns.
+            </li>
+            <li>
+                <strong>Data Usage:</strong> Your input may be used to improve our services. No personally identifiable information will be shared.
+            </li>
+        </ul>
+        <form action="/consentform" method="POST">
+            <button type="submit" name="accept" value="true">I Accept and Continue</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+
+{% block content %}
 <html>
 <head>
     <meta charset="UTF-8">
@@ -10,3 +15,4 @@
         <a href="/recommendations">Click here to get meal recommendations matching your {{response.diet}} diet and {{response.allergies}} allergies</a>
     </div>
 </body>
+{% endblock %}

@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends "base.html" %}
 
+{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <title>{{ name }} Info</title>
+    <button class="print-btn" onclick="window.print()" title="Print this page">
+        Print Nutrient Info
+    </button>
 </head>
 
 <body>
-    <h1>{{ name }}</h1>
+    <h1 class="nutrient-main-title">{{ name }}</h1>
 
-    <h2>Function</h2>
-    <p>{{ info.function }}</p>
+    <div class="nutrient-info">
 
-    <h2>Why It's Important</h2>
-    <p>{{ info.why }}</p>
+    <h2 class="nutrient-title">Function</h2>
+    <div class="nutrient-section">
+        <p>{{ info.function }}</p>
+    </div>
 
-    <h2>Deficiency Symptoms</h2>
+    <h2 class="nutrient-title">Why It's Important</h2>
+    <div class="nutrient-section">
+        <p>{{ info.why }}</p>
+    </div>
+
+    <h2 class="nutrient-title">Deficiency Symptoms</h2>
+
+    <div class="nutrient-section">
     <ul>
         {% for symptom in info.symptoms %}
         <li>{{ symptom }}</li>
         {% endfor %}
     </ul>
+    </div>
 
-    <h2>Top Food Sources</h2>
+    <h2 class="nutrient-title">Top Food Sources</h2>
+    <div class="nutrient-section">
     <ul>
         {% for food in info.foods %}
         <li>{{ food }}</li>
         {% endfor %}
     </ul>
-
-    <a href="{{ url_for('home') }}">← Back to nutrient list</a>
+    </div>
 </body>
 
 </html>
+{% endblock %}
