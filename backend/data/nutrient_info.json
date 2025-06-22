@@ -1,5 +1,6 @@
 {
     "COPPER": {
+        "icon": "fa-microchip",
         "symptoms": [
             "fatigue",
             "frequent illness",
@@ -18,6 +19,7 @@
         ]
     },
     "CHOLINE": {
+        "icon": "fa-brain",
         "symptoms": [
             "muscle damage",
             "fatty liver",
@@ -36,6 +38,7 @@
         ]
     },
     "CHOLESTEROL": {
+        "icon": "fa-heartbeat",
         "symptoms": [
             "hormonal imbalance",
             "fatigue",
@@ -54,6 +57,7 @@
         ]
     },
     "FLUORIDE": {
+        "icon": "fa-tooth",
         "symptoms": [
             "dental cavities",
             "weak bones",
@@ -70,6 +74,7 @@
         ]
     },
     "SATURATEDFAT": {
+        "icon": "fa-bacon",
         "symptoms": [
             "low energy (from overly restricted fat intake)",
             "poor hormone production",
@@ -86,6 +91,7 @@
         ]
     },
     "VITAMINC": {
+        "icon": "fa-lemon",
         "symptoms": [
             "frequent infections",
             "bleeding gums",
@@ -104,6 +110,7 @@
         ]
     },
     "VITAMINE": {
+        "icon": "fa-leaf",
         "symptoms": [
             "muscle weakness",
             "vision problems",
@@ -121,6 +128,7 @@
         ]
     },
     "VITAMINK": {
+        "icon": "fa-hand-holding-medical",
         "symptoms": [
             "easy bruising",
             "excessive bleeding",
@@ -138,6 +146,7 @@
         ]
     },
     "VITAMINA": {
+        "icon": "fa-eye",
         "symptoms": [
             "night blindness",
             "dry skin",
@@ -157,6 +166,7 @@
         ]
     },
     "VITAMIND": {
+        "icon": "fa-sun",
         "symptoms": [
             "bone pain",
             "muscle weakness",
@@ -175,6 +185,7 @@
         ]
     },
     "VITAMINB1": {
+        "icon": "fa-seedling",
         "symptoms": [
             "fatigue",
             "irritability",
@@ -192,6 +203,7 @@
         ]
     },
     "VITAMINB2": {
+        "icon": "fa-capsules",
         "symptoms": [
             "cracks at mouth corners",
             "sore throat",
@@ -209,6 +221,7 @@
         ]
     },
     "VITAMINB3": {
+        "icon": "fa-flask",
         "symptoms": [
             "fatigue",
             "skin inflammation",
@@ -227,6 +240,7 @@
         ]
     },
     "VITAMINB5": {
+        "icon": "fa-droplet",
         "symptoms": [
             "headache",
             "fatigue",
@@ -245,6 +259,7 @@
         ]
     },
     "VITAMINB6": {
+        "icon": "fa-apple-whole",
         "symptoms": [
             "irritability",
             "depression",
@@ -263,6 +278,7 @@
         ]
     },
     "VITAMINB12": {
+        "icon": "fa-dna",
         "symptoms": [
             "fatigue",
             "weakness",
@@ -281,6 +297,7 @@
         ]
     },
     "FIBER": {
+        "icon": "fa-wheat-awn",
         "symptoms": [
             "constipation",
             "bloating",
@@ -298,6 +315,7 @@
         ]
     },
     "FOLICACID": {
+        "icon": "fa-pills",
         "symptoms": [
             "fatigue",
             "gray hair",
@@ -316,6 +334,7 @@
         ]
     },
     "CALCIUM": {
+        "icon": "fa-bone",
         "symptoms": [
             "muscle cramps",
             "brittle nails",
@@ -335,6 +354,7 @@
         ]
     },
     "FOLATE": {
+        "icon": "fa-leaf",
         "symptoms": [
             "fatigue",
             "irritability",
@@ -354,6 +374,7 @@
         ]
     },
     "IODINE": {
+        "icon": "fa-flask",
         "symptoms": [
             "goiter",
             "fatigue",
@@ -373,6 +394,7 @@
         ]
     },
     "IRON": {
+        "icon": "fa-drumstick-bite",
         "symptoms": [
             "fatigue",
             "pale skin",
@@ -392,6 +414,7 @@
         ]
     },
     "MAGNESIUM": {
+        "icon": "fa-mound",
         "symptoms": [
             "muscle cramps",
             "irritability",
@@ -411,6 +434,7 @@
         ]
     },
     "MANGANESE": {
+        "icon": "fa-mortar-pestle",
         "symptoms": [
             "poor bone growth",
             "skin problems",
@@ -427,6 +451,7 @@
         ]
     },
     "PHOSPHORUS": {
+        "icon": "fa-dna",
         "symptoms": [
             "weak muscles",
             "bone pain",
@@ -444,6 +469,7 @@
         ]
     },
     "POTASSIUM": {
+        "icon": "fa-leaf",
         "symptoms": [
             "muscle weakness",
             "irregular heartbeat",
@@ -462,6 +488,7 @@
         ]
     },
     "SELENIUM": {
+        "icon": "fa-seedling",
         "symptoms": [
             "hair loss",
             "fatigue",
@@ -479,6 +506,7 @@
         ]
     },
     "SODIUM": {
+        "icon": "fa-cube",
         "symptoms": [
             "low blood pressure",
             "dizziness",
@@ -496,6 +524,7 @@
         ]
     },
     "ZINC": {
+        "icon": "fa-fish",
         "symptoms": [
             "slow wound healing",
             "hair loss",

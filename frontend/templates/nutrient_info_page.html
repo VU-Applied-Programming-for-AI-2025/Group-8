@@ -5,8 +5,10 @@
 {% block content %}
 
 <div class="nutrient-container">
-    <h1>{{ name }}</h1>
-
+    <div class="nutrient-card">
+        <i class="fas {{ info.icon }} nutrient-icon"></i>
+        <h2>{{ name }}</h2>
+    </div>
     <h2>Function</h2>
     <p>{{ info.function }}</p>
 

@@ -218,7 +218,9 @@ def home() -> Union[str, Response]:
             return redirect(url_for("display_results", symptoms=symptoms))
         return redirect(url_for("home"))
 
-    return render_template("homepage.html", response=user_name, form=form)
+    nutrients_info = get_nutrient_info()
+
+    return render_template("homepage.html", response=user_name, form=form, nutrients_info=nutrients_info)
 
 
 # function to analyze symptoms
@@ -1027,6 +1029,7 @@ def nutrients_info_page(nutrient_name: str) -> Union[str, Response]:
     """
     nutrient_info = get_nutrient_info()
     nutrient = nutrient_info.get(nutrient_name.upper())
+    print(nutrient)
     
     form = SearchForm()
 
