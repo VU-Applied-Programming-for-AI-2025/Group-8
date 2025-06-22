@@ -1,27 +1,74 @@
-<h2> Your Analysis History</h2>
+<!DOCTYPE html>
+<html lang="en">
 
-{% if results %}
-<ul>
-    {% for entry in results | reverse %}
-    <li style="margin-bottom: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
-        <p><strong>Symptoms:</strong> {{ entry.symptoms }}</p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis History - NutriSpoon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
+</head>
 
-        <p><strong>Deficiency Analysis:</strong></p>
-        <ul>
-            {% for nutrient, details in entry.analyse.items() %}
-            <li>
-                <h4>{{ nutrient }}</h4>
-                <p><strong>Why:</strong> {{ details.why }}</p>
-                <p><strong>Foods:</strong> {{ details.foods | join(', ') }}</p>
-                <p><strong>Tip:</strong> {{ details.tip }}</p>
-            </li>
-            {% endfor %}
-        </ul>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No analysis results saved yet.</p>
-{% endif %}
+<body>
+    <div class="container">
+        <header class="analysis-header">
+            <h1>📚 Your Analysis History</h1>
+            <p class="subtitle">Review your past nutritional analyses and recommendations</p>
+        </header>
 
-<a href="{{ url_for('home') }}">← Back to Home</a>
+        <main class="analysis-container">
+            {% if results %}
+            <div class="analysis-report">
+                {% for entry in results | reverse %}
+                <div class="history-entry">
+                    <div class="entry-header">
+                        <h2 class="symptoms-title">
+                            <span class="icon">🔍</span>
+                            Symptoms: {{ entry.symptoms }}
+                        </h2>
+                    </div>
+
+                    <div class="entry-content">
+                        {% for nutrient, details in entry.analyse.items() %}
+                        <div class="nutrient-box">
+                            <div class="nutrient-header">
+                                <h3 class="nutrient-name">{{ nutrient }}</h3>
+                            </div>
+                            <div class="nutrient-content">
+                                <div class="nutrient-detail">
+                                    <span class="detail-label">Why:</span>
+                                    <span class="detail-value">{{ details.why }}</span>
+                                </div>
+                                <div class="nutrient-detail">
+                                    <span class="detail-label">Foods:</span>
+                                    <span class="detail-value">{{ details.foods | join(', ') }}</span>
+                                </div>
+                                <div class="nutrient-detail">
+                                    <span class="detail-label">Tip:</span>
+                                    <span class="detail-value">{{ details.tip }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="empty-icon">📋</div>
+                <h2>No Analysis History Yet</h2>
+                <p>Start by analyzing your symptoms to see your nutritional recommendations here.</p>
+                <a href="{{ url_for('home') }}" class="btn btn-primary">Start Analysis</a>
+            </div>
+            {% endif %}
+
+            <div class="analysis-actions">
+                <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                    <span>←</span> Back to Home
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
