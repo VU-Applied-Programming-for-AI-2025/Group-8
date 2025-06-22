@@ -12,7 +12,7 @@ from flask import (
 )
 from user_data.user_profile import UserProfile, UsersData
 from dotenv import load_dotenv
-from forms import SearchForm
+from forms import SearchForm, SymptomsForm
 from groq import Groq
 import os, json, requests, random
 
@@ -206,7 +206,9 @@ def home() -> Union[str, Response]:
     Users can generate a mealplan, submit their symtoms for a more custom mealplan and analyze their symptoms.
     """
     # Checks if user is logged in, if not redirects to the authentication page.
-    form = SearchForm()
+    search_form = SearchForm()
+    symptoms_form = SymptomsForm()
+
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
@@ -218,7 +220,7 @@ def home() -> Union[str, Response]:
             return redirect(url_for("display_results", symptoms=symptoms))
         return redirect(url_for("home_page"))
 
-    return render_template("homepage.html", response=user_name, form=form)
+    return render_template("homepage.html", response=user_name, search_form=search_form, symptoms_form=symptoms_form)
 
 
 # function to analyze symptoms

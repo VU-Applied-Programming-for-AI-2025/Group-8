@@ -1,15 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="card">
     <h2>Hello, {{ response }}!</h2>
     <p>How can we help you with your nutrition today?</p>
 </div>
 
+<div class="header-search">
+    <form method="POST" action="{{ url_for('search_bar') }}" class="search-form">
+        {{ search_form.hidden_tag() }}
+        <div class="search-input">
+            {{ search_form.search_bar(size=20, placeholder="Search nutrients...", class="search-bar") }}
+            <button type="submit" class="search-btn">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </form>
+</div>
+
 <div class="card">
     <h3>Analyze Symptoms</h3>
     <form action="{{ url_for('home') }}" method="POST">
-        {{ form.hidden_tag() }}
+        {{ symptoms_form.hidden_tag() }}
         <div class="form-group">
             <label for="symptoms">Describe your symptoms</label>
             <textarea id="symptoms" name="symptoms" class="form-control" placeholder="e.g. fatigue, headaches, dry skin..."></textarea>
