@@ -1369,3 +1369,81 @@ footer a:hover {
 .faq-content {
     flex: 1; /* Allow content to fill remaining space */
 }
+
+/* Specific styles for the embedded input and button */
+.symptoms-form {
+    display: flex; /* Ensures the form itself is a flex container */
+    justify-content: center; /* Centers the input-with-button div horizontally */
+    /* If you want to limit the width of the form itself to center its content, you can add: */
+    max-width: 600px;
+    margin: 0 auto; /* This would center the form if it has a max-width */
+    margin-bottom: 2em;
+    width: 100%; /* Make the form take full width */
+}
+
+.input-with-button {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px; /* More rounded corners for the "pill" shape */
+    padding: 5px; /* Padding inside the container */
+    max-width: 600px; /* Limit the max width of the input field */
+    width: 100%; /* Make it responsive */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-with-button:focus-within {
+    border-color: #3C7F72; /* Highlight border on focus */
+    box-shadow: 0 0 0 3px rgba(60, 127, 114, 0.2); /* Soft glow on focus */
+}
+
+.input-with-button input[type="text"] {
+    flex-grow: 1; /* Allows the input to take up available space */
+    border: none; /* Remove default input border */
+    padding: 10px 15px; /* Adjust padding for aesthetics */
+    border-radius: 20px; /* Match outer container's curvature */
+    font-size: 1.1em;
+    outline: none; /* Remove outline on focus */
+    background-color: transparent; /* Make input background transparent */
+    margin-bottom: 0; /* Remove default margin-bottom from general input style */
+}
+
+.input-with-button .analyze-button {
+    background-color: #3C7F72;
+    color: white;
+    border: none;
+    border-radius: 50%; /* Make it a circular button */
+    width: 40px; /* Fixed width for circular button */
+    height: 40px; /* Fixed height for circular button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 10px; /* Space between input and button */
+    flex-shrink: 0; /* Prevent the button from shrinking */
+    padding: 0; /* Remove default padding */
+}
+
+.input-with-button .analyze-button i {
+    font-size: 1.2em; /* Adjust icon size */
+}
+
+.input-with-button .analyze-button:hover {
+    background-color: #2E6C60;
+    transform: translateY(-1px);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

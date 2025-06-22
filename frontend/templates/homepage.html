@@ -9,10 +9,14 @@
 
     <!-- 🧬 Symptoms Analyzer -->
     <h1>Symptoms Analyzer</h1>
-    <form method="POST" action="/home">
-        <label for="symptoms">Enter your symptoms:</label>
-        <input type="text" id="symptoms" name="symptoms" required>
-        <button type="submit">Analyze</button>
+    <form method="POST" action="/home" class="symptoms-form">
+        <div class="input-with-button">
+            <label for="symptoms" class="sr-only">Enter your symptoms:</label>
+            <input type="text" id="symptoms" name="symptoms" placeholder="Enter your symptoms..." required>
+            <button type="submit" class="analyze-button">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
     </form>
     <section class="timeline-section section-padding" id="section_3">
         <div class="section-overlay"></div>
