@@ -1,36 +1,86 @@
-<!DOCTYPE html>
-<html lang="en">
-<h1>{{ recipe.title}}</h1>
+{% extends "base.html" %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/meals.css') }}">
+{% endblock %}
+{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
 
-<img src="{{ recipe.image }}" width="300">
+{% block content %}
+<div class="recipe-details-outer">
+    <button class="print-btn" onclick="window.print()" title="Print this page">
+        Print Recipe
+    </button>
+    <div class="recipe-image-circle-outer">
+        <div class="recipe-image-circle-wrapper">
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-image-circle">
+        </div>
+    </div>
 
-<h2>Ingredients</h2>
-<ul>
-    {% for ingredient in recipe['extendedIngredients'] %}
-    <li>{{ ingredient.original }}</li>
-    {% endfor %}
-</ul>
+    <h1 class="d-recipe-title">{{ recipe.title }}</h1>
 
-<h2>Nutrition</h2>
-<ul>
-    {% for nutrient in recipe['nutrition']['nutrients'] %}
-    <li>{{ nutrient.name }}: {{ nutrient.amount }}{{ nutrient.unit }}</li>
-    {% endfor %}
-</ul>
+    <div class="recipe-block">
+        <h2 class="recipe-block-title">Ingredients</h2>
+        <ul class="recipe-block-list">
+            {% for ingredient in recipe['extendedIngredients'] %}
+            <li>{{ ingredient.original }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<h2>Instructions</h2>
-{% if recipe["Instructions"] %}
-<div>
-    {{ recipe["Instructions"] | safe }}
+    <div class="recipe-block">
+        <h2 class="recipe-block-title">Instructions</h2>
+        {% if recipe["Instructions"] %}
+        <ol class="recipe-block-list">
+            {% for step in recipe["Instructions"].split('\n') if step.strip() %}
+            <li>{{ step }}</li>
+            {% endfor %}
+        </ol>
+        {% elif recipe.analyzedInstructions and recipe.analyzedInstructions[0].steps %}
+        <ol class="recipe-block-list">
+            {% for step in recipe.analyzedInstructions[0].steps %}
+            <li>{{ step.step }}</li>
+            {% endfor %}
+        </ol>
+        {% else %}
+        <p>No instructions for this recipe.</p>
+        {% endif %}
+    </div>
+
+    <div class="recipe-block">
+        <h2 class="recipe-block-title">Nutrition</h2>
+        <ul class="recipe-block-list">
+            {% for nutrient in recipe['nutrition']['nutrients'] %}
+            <li>{{ nutrient.name }}: {{ nutrient.amount }}{{ nutrient.unit }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <button class="favorite-btn" data-id="{{ recipe.id }}">Save recipe</button>
 </div>
-{% elif recipe.analyzedInstructions and recipe.analyzedInstructions[0].steps %}
-<ol>
-    {% for step in recipe.analyzedInstructions[0].steps %}
-    <li>{{ step.step }}</li>
-    {% endfor %}
-</ol>
-{% else %}
-<p>No instructions for this recipe.</p>
-{% endif %}
 
-</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".favorite-btn").forEach(button => {
+            button.addEventListener("click", async function (event) {
+                event.preventDefault();  // ← THIS is what stops the form submission
+
+                const recipeId = this.dataset.id;
+                const isUnsave = this.textContent.trim().toLowerCase() === "unsave";
+                const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+
+                try {
+                    const response = await fetch(endpoint, { method: "POST" });
+                    if (response.ok) {
+                        this.textContent = isUnsave ? "Save" : "Unsave";
+                    } else {
+                        const msg = await response.text();
+                        alert(msg || "Failed to update favorites.");
+                    }
+                } catch (err) {
+                    console.error("Network error:", err);
+                    alert("Network error. Please try again.");
+                }
+            });
+        });
+    });
+</script>
+{% endblock %}

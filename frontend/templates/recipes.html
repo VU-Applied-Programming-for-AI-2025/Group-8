@@ -1,105 +1,84 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Recipes Matching Your Diet</title>
-    <style>
-        .meal-section {
-            margin-bottom: 40px;
-        }
+{% block title %}Personalized Meal Recommendations{% endblock %}
 
-        .recipe-card {
-            display: inline-block;
-            width: 200px;
-            margin: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-        }
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/meals.css') }}">
+{% endblock %}
 
-        .recipe-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
+{% block content %}
+<h1 class="recipe-main-title">Your Personalized Recipe Selection</h1>
+<p class="recipe-subtitle">
+  Choose your favorite recipes below to build a custom meal plan tailored to your preferences.<br>
+  Select recipes to add them to your plan, or click the heart to save favorites for later.
+</p>
 
-        .view-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-
-<body>
-
-    <h1>Recipes Matching Your Diet</h1>
-
-    <form action="/recommendations/mealplanner/create" method="POST">
-        {% if recipes_by_meal %}
-        {% for category, recipes in recipes_by_meal.items() %}
-        <div class="meal-section">
-            <h2>{{ category.capitalize() }}</h2>
-            {% if recipes %}
+<form action="/recommendations/mealplanner/create" method="POST">
+  {% if recipes_by_meal %}
+    {% for category, recipes in recipes_by_meal.items() %}
+      <div class="recipe-carousel-section">
+        <h2 class="recipe-carousel-title">{{ category.capitalize() }}</h2>
+        <div class="recipe-carousel-wrapper">
+          <button type="button" class="recipe-carousel-nav recipe-carousel-nav-left" onclick="scrollCarousel(this, -1)">‹</button>
+          <div class="recipe-carousel" id="carousel-{{ loop.index }}">
             {% for entry in recipes %}
-            <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
-                <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
-                <p>{{ entry['title'] }}</p>
-                <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}" class="view-button">View details</a>
-                <input type="checkbox" id="{{ entry['id'] }}" name="meals" value="{{ entry['id'] }}">
-
-                <button class="favorite-btn" data-id="{{ entry['id'] }}" data-saved="false">Save</button>
-
-            </div>
+              <div class="recipe-card-wrapper">
+                <label class="recipe-card">
+                  <input type="checkbox" class="recipe-meal-checkbox" name="meals" value="{{ entry['id'] }}" onchange="toggleOverlay(this)">
+                  <button type="button" class="recipe-save-button" data-id="{{ entry['id'] }}" data-saved="false" onclick="toggleFavorite(event, this)">♥</button>
+                  <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}">
+                    <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}">
+                    <div class="recipe-info-banner">
+                      <div class="recipe-title">{{ entry['title'] }}</div>
+                    </div>
+                  </a>
+                  <div class="recipe-white-overlay"></div>
+                </label>
+              </div>
             {% endfor %}
-            {% else %}
-            <p>No recipes found for {{ category }}.</p>
-            {% endif %}
+          </div>
+          <button type="button" class="recipe-carousel-nav recipe-carousel-nav-right" onclick="scrollCarousel(this, 1)">›</button>
         </div>
-        {% endfor %}
-        <button type="submit">Create mealplan from selected meals</button>
-        {% endif %}
-    </form>
-
-
-
-    <div style="margin-top: 40px; text-align: center;">
-        <a href="/recommendations/mealplanner/spoonacular">Use Spoonacular Built-in Plan</a>
+      </div>
+    {% endfor %}
+    <div class="recipe-submit-section">
+      <button type="submit">Create mealplan from selected meals</button>
     </div>
-
-</body>
-
-</html>
-
-</html>
+  {% endif %}
+</form>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".favorite-btn").forEach(button => {
-            button.addEventListener("click", async function (event) {
-                event.preventDefault();  // ← THIS is what stops the form submission
+  function scrollCarousel(button, direction) {
+    const wrapper = button.parentElement.querySelector('.recipe-carousel');
+    const scrollAmount = wrapper.offsetWidth / 1.5;
+    wrapper.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  }
 
-                const recipeId = this.dataset.id;
-                const isUnsave = this.textContent.trim().toLowerCase() === "unsave";
-                const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+  function toggleFavorite(event, button) {
+    event.preventDefault();
+    event.stopPropagation();
+    const recipeId = button.dataset.id;
+    const isUnsave = button.classList.contains('saved');
+    const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
 
-                try {
-                    const response = await fetch(endpoint, { method: "POST" });
-                    if (response.ok) {
-                        this.textContent = isUnsave ? "Save" : "Unsave";
-                    } else {
-                        const msg = await response.text();
-                        alert(msg || "Failed to update favorites.");
-                    }
-                } catch (err) {
-                    console.error("Network error:", err);
-                    alert("Network error. Please try again.");
-                }
-            });
-        });
-    });
+    fetch(endpoint, { method: "POST" })
+      .then(res => {
+        if (res.ok) {
+          button.classList.toggle('saved');
+        } else {
+          alert("Recipe is already in favorites.");
+        }
+      })
+      .catch(() => alert("Network error."));
+  }
+
+  function toggleOverlay(checkbox) {
+    const card = checkbox.closest('.recipe-card');
+    if (checkbox.checked) {
+      card.classList.add('selected');
+    } else {
+      card.classList.remove('selected');
+    }
+  }
 </script>
+{% endblock %}

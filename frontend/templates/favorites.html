@@ -1,33 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Your Favorite Recipes</title>
-</head>
+{% block title %}Your Favorite Recipes{% endblock %}
 
-<body>
-    <h1>🍽️ Your Favorite Recipes</h1>
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/meals.css') }}">
+{% endblock %}
 
-    {% if recipes %}
-    <ul>
-        {% for recipe in recipes %}
-        <li style="margin-bottom: 20px;">
-            <h2>{{ recipe.title }}</h2>
-            <img src="{{ recipe.image }}" alt="{{ recipe.title }}" width="250">
-            <p><a href="{{ recipe.sourceUrl }}" target="_blank">View full recipe</a></p>
+{% block content %}
+<h1 class="fav-main-title">Your Saved Favorite Recipes</h1>
+<p class="fav-subtitle">
+  Here you can view all the recipes you've marked as favorites.<br>
+  Click on a recipe to see more details, or use the heart button to remove it from your favorites list.
+</p>
 
-            <form method="post" action="/remove_favorite/{{ recipe.id }}">
-                <button type="submit">Remove from Favorites</button>
-            </form>
-        </li>
-        {% endfor %}
-    </ul>
-    {% else %}
+<div class="fav-mealplan-container">
+  {% if recipes %}
+    <div class="fav-meal-grid">
+      {% for recipe in recipes %}
+        <div class="fav-meal-card">
+          <button
+            type="button"
+            class="fav-save-button fav-saved"
+            data-id="{{ recipe.id }}"
+            onclick="favToggleFavorite(event, this)"
+            aria-label="Remove from favorites"
+            title="Remove from favorites"
+          >♥</button>
+          <a href="{{ url_for('recipe_details', recipe_id=recipe.id) }}">
+            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+            <div class="fav-meal-info">
+              <div class="fav-meal-title">{{ recipe.title }}</div>
+              {% if recipe.readyInMinutes %}
+                <div class="fav-meal-time">{{ recipe.readyInMinutes }} min</div>
+              {% endif %}
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
     <p>No favorites saved yet!</p>
-    {% endif %}
+  {% endif %}
+</div>
 
-    <a href="/home">← Back to Home</a>
-</body>
+<script>
+  function favToggleFavorite(event, button) {
+    event.preventDefault();
+    event.stopPropagation();
 
-</html>
+    const recipeId = button.dataset.id;
+    const isUnsave = button.classList.contains('fav-saved');
+    const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+
+    fetch(endpoint, { method: "POST" })
+      .then(res => {
+        if (res.ok) {
+          button.classList.toggle('fav-saved');
+          // Optionally remove card from DOM if unsaved
+          if (isUnsave) {
+            const card = button.closest('.fav-meal-card');
+            card.style.transition = "opacity 0.3s";
+            card.style.opacity = 0;
+            setTimeout(() => card.remove(), 300);
+          }
+        } else {
+          alert("Could not update favorites.");
+        }
+      })
+      .catch(() => alert("Network error."));
+  }
+</script>
+{% endblock %}
