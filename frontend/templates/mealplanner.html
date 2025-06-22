@@ -12,15 +12,15 @@
 
   {% elif day_plan %}
     <h2>Day Plan</h2>
-    <ul>
+    <div class="recipe-grid">
       {% for meal in day_plan.meals %}
-        <li>
-          <strong>{{ meal.title }}</strong> ({{ meal.readyInMinutes }} min) –
-          <a href="{{ meal.sourceUrl }}" target="_blank">View Recipe</a>
-        </li>
+      <div class="recipe-card" draggable="true" data-id="{{ meal['id'] }}">
+          <img src="{{ meal['image'] }}" alt="{{ meal['title'] }}">
+          <p>{{ meal['title'] }}</p>
+          <a href="{{meal['sourceUrl']}}" class="view-button" target="_blank">View Details</a><br>
+      </div>
       {% endfor %}
-    </ul>
-
+  </div>
     <h3>Nutrients</h3>
     <ul>
       {% for key, value in day_plan.nutrients.items() %}

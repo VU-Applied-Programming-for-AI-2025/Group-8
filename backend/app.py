@@ -11,6 +11,7 @@ from flask import (
     Response,
 )
 from user_data.user_profile import UserProfile, UsersData
+from meal_data.meals_data import Meal, MealsData
 from dotenv import load_dotenv
 from forms import SearchForm
 from groq import Groq
@@ -32,6 +33,8 @@ client: str = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 # Initializes the UsersData object where all the user profiles will be stored in a json file.
 users_data = UsersData()
 
+# Initializes the MealsData object where all the meals will be stored in a json file.
+meals_data = MealsData()
 
 def userAuthHelper() -> UserProfile:
     """
@@ -785,30 +788,51 @@ def meal_planner() -> Union[str, Response]:
         print("selected_meals")
         print(selected_meals)
 
-        # Loop through selected recipe IDs and fetch their details
-        for recipe_id in selected_meals:
-            print(f"id = {recipe_id}")
-            response = requests.get(
-                f"https://api.spoonacular.com/recipes/{recipe_id}/information",
-                params={"apiKey": spoonacular_api_key,
-                        "includeNutrition": True},
-            )
-            recipe_info = response.json()
-            print("recipe_info")
-            print(recipe_info)
-            meal_plan["meals"].append(recipe_info)
-
+        meals_to_check_with_spoonacular = []
+        for id in selected_meals:
+            meal = meals_data.get_meal(id)
+            if not meal:
+                meals_to_check_with_spoonacular.append(id)
+                continue
+            meal_plan['meals'].append(meal.to_dict())
             # Sum nutritional values for calories, protein, fat
-            for nutrient in recipe_info["nutrition"]["nutrients"]:
+            for nutrient in meal.nutrition["nutrients"]:
                 if nutrient["name"].lower() in nutrients_to_check:
-                    meal_plan["nutrients"][nutrient["name"].lower()] += nutrient[
-                        "amount"
-                    ]
+                    meal_plan["nutrients"][nutrient["name"].lower()] += nutrient["amount"]
+            
+        if len(meals_to_check_with_spoonacular) > 0:
+        # Loop through selected recipe IDs and fetch their details
+            for recipe_id in selected_meals:
+                print(f"id = {recipe_id}")
+                response = requests.get(
+                    f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+                    params={"apiKey": spoonacular_api_key,
+                            "includeNutrition": True},
+                )
+                recipe_info = response.json()
+                nutrients = {"nutrition": {"nutrients": recipe_info["nutrition"]["nutrients"]}}
+                meal = Meal(
+                    recipe_info["id"],
+                    recipe_info["title"],
+                    recipe_info["image"],
+                    recipe_info["readyInMinutes"],
+                    recipe_info["sourceUrl"],
+                    nutrients,
+                    recipe_info["summary"],
+                    recipe_info["dishTypes"],
+                    recipe_info["diets"],
+                    recipe_info["spoonacularSourceUrl"])
+                meals_data.add_meal(meal.to_dict())
+                meal_plan["meals"].append(meal.to_dict())
 
+                # Sum nutritional values for calories, protein, fat
+                for nutrient in meal.nutrition["nutrients"]:
+                    if nutrient["name"].lower() in nutrients_to_check:
+                        meal_plan["nutrients"][nutrient["name"].lower()] += nutrient["amount"]
+            meals_data.save_to_file()
         # Save plan to user's profile
         user.mealplan = meal_plan
         users_data.save_to_file()
-
         return redirect(url_for("edit_meal_planner"))
 
     # If GET request, show the form

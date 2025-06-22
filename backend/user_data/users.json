@@ -1145,266 +1145,1101 @@
       }
     ],
     "mealplan": {
-      "week": {
-        "monday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
+      "meals": [
+        {
+          "id": 664054,
+          "image": "https://img.spoonacular.com/recipes/664054-556x370.jpg",
+          "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 571.94,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 28.6
+              },
+              {
+                "name": "Fat",
+                "amount": 39.7,
+                "unit": "g",
+                "percentOfDailyNeeds": 61.08
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 12.27,
+                "unit": "g",
+                "percentOfDailyNeeds": 76.68
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 19.87,
+                "unit": "g",
+                "percentOfDailyNeeds": 6.62
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 15.46,
+                "unit": "g",
+                "percentOfDailyNeeds": 5.62
+              },
+              {
+                "name": "Sugar",
+                "amount": 6.81,
+                "unit": "g",
+                "percentOfDailyNeeds": 7.56
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 552.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 184.09
+              },
+              {
+                "name": "Sodium",
+                "amount": 876.48,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.11
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 34.1,
+                "unit": "g",
+                "percentOfDailyNeeds": 68.19
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 427.4,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 407.05
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 11847.56,
+                "unit": "IU",
+                "percentOfDailyNeeds": 236.95
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.8,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.58
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 565.33,
+                "unit": "mg",
+                "percentOfDailyNeeds": 56.53
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 56.36
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 10.33,
+                "unit": "mg",
+                "percentOfDailyNeeds": 51.65
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 4.57,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.74
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 42.2
+              },
+              {
+                "name": "Potassium",
+                "amount": 1257.21,
+                "unit": "mg",
+                "percentOfDailyNeeds": 35.92
+              },
+              {
+                "name": "Copper",
+                "amount": 0.7,
+                "unit": "mg",
+                "percentOfDailyNeeds": 34.87
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 1.96,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 32.68
+              },
+              {
+                "name": "Zinc",
+                "amount": 4.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.72
+              },
+              {
+                "name": "Folate",
+                "amount": 118.79,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 29.7
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.73
+              },
+              {
+                "name": "Iron",
+                "amount": 5.05,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.07
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 4.12,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 27.49
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.47,
+                "unit": "mg",
+                "percentOfDailyNeeds": 23.44
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 18.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.55
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 3.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.79
+              },
+              {
+                "name": "Magnesium",
+                "amount": 83.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.86
+              },
+              {
+                "name": "Fiber",
+                "amount": 4.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.65
+              },
+              {
+                "name": "Calcium",
+                "amount": 136.35,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.64
+              }
+            ]
+          },
+          "summary": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble might be just the breakfast you are searching for. One serving contains <b>572 calories</b>, <b>34g of protein</b>, and <b>40g of fat</b>. This recipe serves 2 and costs $3.59 per serving. This recipe is liked by 6 foodies and cooks. Head to the store and pick up sweet potato, diestel breakfast sausage, olive oil, and a few other things to make it today. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. It is brought to you by Foodista. It is a good option if you're following a <b>gluten free, dairy free, paleolithic, and primal</b> diet. With a spoonacular <b>score of 77%</b>, this dish is good. Similar recipes include <a href=\"https://spoonacular.com/recipes/turkey-sausage-chard-sweet-potato-breakfast-scramble-1393989\">Turkey Sausage, Chard & Sweet Potato Breakfast Scramble</a>, <a href=\"https://spoonacular.com/recipes/turkey-sausage-chard-sweet-potato-breakfast-scramble-1378233\">Turkey Sausage, Chard & Sweet Potato Breakfast Scramble</a>, and <a href=\"https://spoonacular.com/recipes/turkey-sausage-chard-sweet-potato-breakfast-scramble-1282549\">Turkey Sausage, Chard & Sweet Potato Breakfast Scramble</a>.",
+          "dishTypes": [
+            "morning meal",
+            "brunch",
+            "breakfast"
           ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "primal",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/turkey-sausage-chard-sweet-potato-breakfast-scramble-664054"
         },
-        "tuesday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
+        {
+          "id": 794350,
+          "image": "https://img.spoonacular.com/recipes/794350-556x370.jpg",
+          "title": "Cherry Coconut Milk Smoothie",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodandspice.com/2016/07/cherry-coconut-milk-smoothie.html",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 305.09,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 15.25
+              },
+              {
+                "name": "Fat",
+                "amount": 17.36,
+                "unit": "g",
+                "percentOfDailyNeeds": 26.71
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 14.45,
+                "unit": "g",
+                "percentOfDailyNeeds": 90.32
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 38.07,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.69
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 33.47,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.17
+              },
+              {
+                "name": "Sugar",
+                "amount": 25.11,
+                "unit": "g",
+                "percentOfDailyNeeds": 27.91
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Sodium",
+                "amount": 33.51,
+                "unit": "mg",
+                "percentOfDailyNeeds": 1.46
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0.69,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0.28,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 4.12,
+                "unit": "g",
+                "percentOfDailyNeeds": 8.24
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 19.67,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 131.11
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 41.95
+              },
+              {
+                "name": "Potassium",
+                "amount": 704.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.12
+              },
+              {
+                "name": "Iron",
+                "amount": 3.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.08
+              },
+              {
+                "name": "Fiber",
+                "amount": 4.76,
+                "unit": "g",
+                "percentOfDailyNeeds": 19.03
+              },
+              {
+                "name": "Magnesium",
+                "amount": 75.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 18.96
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 15.55,
+                "unit": "mg",
+                "percentOfDailyNeeds": 18.84
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 171.76,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.18
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 15.29
+              },
+              {
+                "name": "Copper",
+                "amount": 0.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.91
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.17,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.18
+              },
+              {
+                "name": "Calcium",
+                "amount": 83.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 8.38
+              },
+              {
+                "name": "Folate",
+                "amount": 27.87,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 6.97
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.09,
+                "unit": "mg",
+                "percentOfDailyNeeds": 6.13
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 0.59,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.88
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 1.09,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.47
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 208.02,
+                "unit": "IU",
+                "percentOfDailyNeeds": 4.16
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 0.25,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 4.1
+              },
+              {
+                "name": "Zinc",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 4.06
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 3.19,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 3.04
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 0.35,
+                "unit": "mg",
+                "percentOfDailyNeeds": 2.35
+              }
+            ]
+          },
+          "summary": "Cherry Coconut Milk Smoothie is a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> recipe with 2 servings. One portion of this dish contains approximately <b>4g of protein</b>, <b>17g of fat</b>, and a total of <b>305 calories</b>. For <b>$2.04 per serving</b>, this recipe <b>covers 14%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up hemp milk, vanilla, coconut milk, and a few other things to make it today. Several people really liked this breakfast. This recipe is liked by 130 foodies and cooks. From preparation to the plate, this recipe takes about <b>45 minutes</b>. It is brought to you by foodandspice.blogspot.com. All things considered, we decided this recipe <b>deserves a spoonacular score of 68%</b>. This score is solid. <a href=\"https://spoonacular.com/recipes/cherry-coconut-milk-smoothie-1329549\">Cherry Coconut Milk Smoothie</a>, <a href=\"https://spoonacular.com/recipes/cherry-coconut-milk-smoothie-1593441\">Cherry Coconut Milk Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/coconut-milk-smoothie-125557\">Coconut Milk Smoothie</a> are very similar to this recipe.",
+          "dishTypes": [
+            "morning meal",
+            "brunch",
+            "beverage",
+            "breakfast",
+            "drink"
           ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "lacto ovo vegetarian",
+            "primal",
+            "vegan"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/cherry-coconut-milk-smoothie-794350"
         },
-        "wednesday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
+        {
+          "id": 659135,
+          "image": "https://img.spoonacular.com/recipes/659135-556x370.jpg",
+          "title": "Salmon with roasted vegetables",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 495.53,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.78
+              },
+              {
+                "name": "Fat",
+                "amount": 18.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.32
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 2.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.38
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 44.62,
+                "unit": "g",
+                "percentOfDailyNeeds": 14.87
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 35.64,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.96
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.3,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.44
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 93.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 31.17
+              },
+              {
+                "name": "Sodium",
+                "amount": 121.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.26
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 38.53,
+                "unit": "g",
+                "percentOfDailyNeeds": 77.06
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 5570.94,
+                "unit": "IU",
+                "percentOfDailyNeeds": 111.42
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 97.79
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.49,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.13
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 5.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 90.1
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 15.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 79.22
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 58.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.63
+              },
+              {
+                "name": "Potassium",
+                "amount": 1933.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 55.24
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 505.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 50.55
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.56
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.72
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 40.95
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 3.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.75
+              },
+              {
+                "name": "Copper",
+                "amount": 0.73,
+                "unit": "mg",
+                "percentOfDailyNeeds": 36.66
+              },
+              {
+                "name": "Fiber",
+                "amount": 8.99,
+                "unit": "g",
+                "percentOfDailyNeeds": 35.94
+              },
+              {
+                "name": "Folate",
+                "amount": 141.09,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 35.27
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 36.24,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 34.51
+              },
+              {
+                "name": "Magnesium",
+                "amount": 115.67,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.92
+              },
+              {
+                "name": "Iron",
+                "amount": 3.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.23
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 2.99,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.95
+              },
+              {
+                "name": "Zinc",
+                "amount": 2.16,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.4
+              },
+              {
+                "name": "Calcium",
+                "amount": 110.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.05
+              }
+            ]
+          },
+          "summary": "Salmon with roasted vegetables takes approximately <b>45 minutes</b> from beginning to end. For <b>$5.2 per serving</b>, this recipe <b>covers 45%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. One serving contains <b>496 calories</b>, <b>39g of protein</b>, and <b>18g of fat</b>. Head to the store and pick up lemon juice, salt, carrot, and a few other things to make it today. Not a lot of people made this recipe, and 7 would say it hit the spot. It works well as a main course. It is a good option if you're following a <b>gluten free, dairy free, whole 30, and pescatarian</b> diet. It is brought to you by Foodista. Overall, this recipe earns a <b>great spoonacular score of 94%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-1312689\">Roasted Salmon & Vegetables</a>, <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-36765\">Roasted Salmon & Vegetables</a>, and <a href=\"https://spoonacular.com/recipes/salmon-with-roasted-vegetables-1333407\">Salmon with roasted vegetables</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
           ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30",
+            "pescatarian"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
         },
-        "thursday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
+        {
+          "id": 659135,
+          "image": "https://img.spoonacular.com/recipes/659135-556x370.jpg",
+          "title": "Salmon with roasted vegetables",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 495.53,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.78
+              },
+              {
+                "name": "Fat",
+                "amount": 18.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.32
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 2.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.38
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 44.62,
+                "unit": "g",
+                "percentOfDailyNeeds": 14.87
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 35.64,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.96
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.3,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.44
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 93.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 31.17
+              },
+              {
+                "name": "Sodium",
+                "amount": 121.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.26
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 38.53,
+                "unit": "g",
+                "percentOfDailyNeeds": 77.06
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 5570.94,
+                "unit": "IU",
+                "percentOfDailyNeeds": 111.42
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 97.79
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.49,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.13
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 5.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 90.1
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 15.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 79.22
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 58.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.63
+              },
+              {
+                "name": "Potassium",
+                "amount": 1933.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 55.24
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 505.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 50.55
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.56
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.72
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 40.95
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 3.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.75
+              },
+              {
+                "name": "Copper",
+                "amount": 0.73,
+                "unit": "mg",
+                "percentOfDailyNeeds": 36.66
+              },
+              {
+                "name": "Fiber",
+                "amount": 8.99,
+                "unit": "g",
+                "percentOfDailyNeeds": 35.94
+              },
+              {
+                "name": "Folate",
+                "amount": 141.09,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 35.27
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 36.24,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 34.51
+              },
+              {
+                "name": "Magnesium",
+                "amount": 115.67,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.92
+              },
+              {
+                "name": "Iron",
+                "amount": 3.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.23
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 2.99,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.95
+              },
+              {
+                "name": "Zinc",
+                "amount": 2.16,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.4
+              },
+              {
+                "name": "Calcium",
+                "amount": 110.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.05
+              }
+            ]
+          },
+          "summary": "Salmon with roasted vegetables takes approximately <b>45 minutes</b> from beginning to end. For <b>$5.2 per serving</b>, this recipe <b>covers 45%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. One serving contains <b>496 calories</b>, <b>39g of protein</b>, and <b>18g of fat</b>. Head to the store and pick up lemon juice, salt, carrot, and a few other things to make it today. Not a lot of people made this recipe, and 7 would say it hit the spot. It works well as a main course. It is a good option if you're following a <b>gluten free, dairy free, whole 30, and pescatarian</b> diet. It is brought to you by Foodista. Overall, this recipe earns a <b>great spoonacular score of 94%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-1312689\">Roasted Salmon & Vegetables</a>, <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-36765\">Roasted Salmon & Vegetables</a>, and <a href=\"https://spoonacular.com/recipes/salmon-with-roasted-vegetables-1333407\">Salmon with roasted vegetables</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
           ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30",
+            "pescatarian"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
         },
-        "friday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
+        {
+          "id": 658509,
+          "image": "https://img.spoonacular.com/recipes/658509-556x370.jpg",
+          "title": "Roasted Broccoli with Lemon and Garlic",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/3Z8R4RGY/roasted-broccoli-with-lemon-and-garlic",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 58.24,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 2.91
+              },
+              {
+                "name": "Fat",
+                "amount": 2.43,
+                "unit": "g",
+                "percentOfDailyNeeds": 3.75
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 0.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 2.56
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 8,
+                "unit": "g",
+                "percentOfDailyNeeds": 2.67
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 4.97,
+                "unit": "g",
+                "percentOfDailyNeeds": 1.81
+              },
+              {
+                "name": "Sugar",
+                "amount": 1.96,
+                "unit": "g",
+                "percentOfDailyNeeds": 2.18
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Sodium",
+                "amount": 328.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.28
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 3.28,
+                "unit": "g",
+                "percentOfDailyNeeds": 6.57
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 101.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 123.56
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 117.65,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 112.05
+              },
+              {
+                "name": "Folate",
+                "amount": 71.85,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 17.96
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.21
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 710.13,
+                "unit": "IU",
+                "percentOfDailyNeeds": 14.2
+              },
+              {
+                "name": "Fiber",
+                "amount": 3.04,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.15
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.21,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.47
+              },
+              {
+                "name": "Potassium",
+                "amount": 366.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.47
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 7.91
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 1.18,
+                "unit": "mg",
+                "percentOfDailyNeeds": 7.86
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 76.67,
+                "unit": "mg",
+                "percentOfDailyNeeds": 7.67
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 0.66,
+                "unit": "mg",
+                "percentOfDailyNeeds": 6.61
+              },
+              {
+                "name": "Magnesium",
+                "amount": 24.55,
+                "unit": "mg",
+                "percentOfDailyNeeds": 6.14
+              },
+              {
+                "name": "Calcium",
+                "amount": 56.17,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.62
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.08,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.51
+              },
+              {
+                "name": "Iron",
+                "amount": 0.88,
+                "unit": "mg",
+                "percentOfDailyNeeds": 4.9
+              },
+              {
+                "name": "Selenium",
+                "amount": 2.96,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 4.23
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 0.74,
+                "unit": "mg",
+                "percentOfDailyNeeds": 3.68
+              },
+              {
+                "name": "Zinc",
+                "amount": 0.48,
+                "unit": "mg",
+                "percentOfDailyNeeds": 3.19
+              },
+              {
+                "name": "Copper",
+                "amount": 0.06,
+                "unit": "mg",
+                "percentOfDailyNeeds": 3.08
+              }
+            ]
+          },
+          "summary": "Roasted Broccoli with Lemon and Garlic is a side dish that serves 4. One portion of this dish contains approximately <b>3g of protein</b>, <b>2g of fat</b>, and a total of <b>58 calories</b>. For <b>30 cents per serving</b>, this recipe <b>covers 14%</b> of your daily requirements of vitamins and minerals. If you have lemon juice, ground pepper, salt, and a few other ingredients on hand, you can make it. 11 person have tried and liked this recipe. It is brought to you by Foodista. It is a good option if you're following a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> diet. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. Taking all factors into account, this recipe <b>earns a spoonacular score of 96%</b>, which is awesome. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/roasted-broccoli-with-lemon-and-garlic-1345079\">Roasted Broccoli with Lemon and Garlic</a>, <a href=\"https://spoonacular.com/recipes/roasted-broccoli-with-lemon-and-garlic-1337497\">Roasted Broccoli with Lemon and Garlic</a>, and <a href=\"https://spoonacular.com/recipes/roasted-garlic-lemon-broccoli-110090\">Roasted Garlic Lemon Broccoli</a>.",
+          "dishTypes": [
+            "side dish"
           ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
-        },
-        "saturday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "lacto ovo vegetarian",
+            "primal",
+            "whole 30",
+            "vegan"
           ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
-        },
-        "sunday": {
-          "meals": [
-            {
-              "id": 664054,
-              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
-              "imageType": "jpg",
-              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
-              "readyInMinutes": 45,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
-            },
-            {
-              "id": 1095806,
-              "image": "spanish-style-salmon-fillets-1095806.jpg",
-              "imageType": "jpg",
-              "title": "Spanish style salmon fillets",
-              "readyInMinutes": 30,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
-            },
-            {
-              "id": 633348,
-              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
-              "imageType": "jpg",
-              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
-              "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
-            }
-          ],
-          "nutrients": {
-            "calories": 1629.93,
-            "protein": 101.26,
-            "fat": 104.11,
-            "carbohydrates": 74.31
-          }
+          "spoonacularSourceUrl": "https://spoonacular.com/roasted-broccoli-with-lemon-and-garlic-658509"
         }
+      ],
+      "nutrients": {
+        "calories": 1926.33,
+        "protein": 118.56,
+        "fat": 96.31,
+        "carbohydrates": 0
       }
     },
     "symptom_analysis": {
