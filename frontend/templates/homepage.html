@@ -1,25 +1,71 @@
-<!-- templates/home.html -->
 {% extends "base.html" %}
-
-{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+{% block title %}NutriSpoon – AI-Powered Symptom & Nutrient Analyzer{% endblock %}
 
 {% block content %}
-<form method="POST" action="{{ url_for('search_bar') }}">
+
+<section class="hero">
+  <h1 class="hero-title">Empower Your Health With Food</h1>
+  <p class="hero-subtitle">AI-driven analysis to detect nutrient inadequacies based on your symptoms.</p>
+  <h2 class="hero-getstarted">Get started</h2>
+  <form method="POST" action="/home" class="hero-form">
+    <label for="symptoms">Enter your symptoms below to get an analysis of possible nutrient inadequacies:</label>
+    <input type="text" id="symptoms" name="symptoms" placeholder="e.g., hairloss, bone pain..." required>
+    <button type="submit">Analyze Symptoms</button>
+  </form>
+</section>
+
+<section class="features-alt">
+  <div class="feature-card left">
+    <h2>Personalized Nutrient Insights</h2>
+    <p>Get instant suggestions on nutrients you may lack and how to fix it with food.</p>
+  </div>
+  
+  <div class="feature-card right">
+    <h2>Smart Recipe Matching</h2>
+    <p>Receive recipes tailored to your nutrient needs and dietary preferences.</p>
+  </div>
+
+  <div class="feature-card left">
+    <h2>Meal Plan Generation</h2>
+    <p>Generate meal plans based on your health goals and analysis history.</p>
+  </div>
+</section>
+
+<section class="searchbar-section">
+  <h2>Search for a nutrient</h2>
+  <p class="searchbar-description">
+    to discover foods rich in it and common symptoms of its deficiency.
+  </p>
+  <form method="POST" action="{{ url_for('search_bar') }}" class="rounded-searchbar-form">
     {{ form.hidden_tag() }}
-    {{ form.search_bar.label }}
-    {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
-    <button type="submit">Search</button>
-</form>
+    {{ form.search_bar(size=30, placeholder="Search a nutrient...", class_="rounded-searchbar-input") }}
+    <button type="submit" class="rounded-searchbar-btn">Search</button>
+  </form>
+</section>
 
+<section class="about">
+  <h2>Why NutriSpoon?</h2>
+  <p>
+    NutriSpoon is designed to address the often-overlooked issue of nutrient inadequacy, empowering users to make informed dietary choices. By analyzing your symptoms, our AI-driven platform identifies potential gaps in your nutrient intake and recommends specific foods to help you achieve optimal nutrition. Each nutrient featured in NutriSpoon includes detailed information about its role in the body, signs of inadequacy, and top food sources. With personalized insights, custom recipes, and meal plan generation, NutriSpoon makes it easier than ever to support your health and well-being through food. Our mission is to raise awareness about nutrient inadequacy and provide practical tools for healthier living.
+  </p>
+</section>
 
-<div>
-    <h2>Welcome to NutriSpoon{{response.fullname}}</h2>
-</div>
+<script>
+  // filepath: /Users/yasminaassarrar/Documents/GitHub/ferufera-keik0o-sevvalyelmer-yassie101-general-template/frontend/templates/homepage.html
+  document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll('.feature-card');
+    function checkCards() {
+      const trigger = window.innerHeight * 0.92;
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        if(rect.top < trigger) {
+          card.classList.add('in-view');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkCards);
+    checkCards();
+  });
+</script>
+{% endblock   %}
 
-<h1>Symptoms analyzer</h1>
-<form method="POST" action="/home">
-    <label for="symptoms">Enter your symptoms:</label>
-    <input type="text" id="symptoms" name="symptoms" required>
-    <button type="submit">Analyze</button>
-</form>
-{% endblock %}
