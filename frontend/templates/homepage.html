@@ -14,7 +14,7 @@
     <form action="{{ url_for('home') }}" method="POST">
         {{ symptoms_form.hidden_tag() }}
         <div class="form-group">
-            <label for="symptoms">Describe your symptoms</label>
+            <label for="symptoms">Describe your symptoms to generate recipes!</label>
             <textarea id="symptoms" name="symptoms" class="form-control" placeholder="e.g. fatigue, headaches, dry skin..."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Analyze</button>
@@ -24,8 +24,6 @@
 <div class="card">
     <h3>Quick Actions</h3>
     <div class="quick-actions">
-        <a href="{{ url_for('recommendations') }}" class="btn">Get Recommendations</a>
-        <a href="{{ url_for('spoonacular_builtin_mealplanner') }}" class="btn">Create Meal Plan</a>
         <a href="{{ url_for('show_favorites') }}" class="btn">View Favorites</a>
     </div>
 </div>
