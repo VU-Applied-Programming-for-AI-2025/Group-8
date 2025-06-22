@@ -502,10 +502,11 @@ def display_results() -> Union[str, Response]:
     """
     This function displays the groq llm analysis on the webpage.
     """
+    form = SearchForm()
     analysis = analyze_symptoms()
     symptoms = request.args.get("symptoms")
 
-    return render_template("results.html", symptoms=symptoms, analysis=analysis)
+    return render_template("results.html", symptoms=symptoms, analysis=analysis, form=form)
 
 
 @app.route("/recommendations")
