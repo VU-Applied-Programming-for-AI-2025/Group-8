@@ -1,7 +1,31 @@
 {
   "dora": {
     "username": "dora",
-    "password": "test",
+    "password": "123",
+    "name": "dora",
+    "age": 18,
+    "sex": "female",
+    "height": 172.0,
+    "weight": 63.0,
+    "skin_color": "light",
+    "country": "test",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      "iron deficiency "
+    ],
+    "allergies": [
+      "hay fever"
+    ],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
+  },
+  "doortje": {
+    "username": "doortje",
+    "password": "123",
     "name": "dora",
     "age": 18,
     "sex": "female",
@@ -22,9 +46,15 @@
     "saved_recipes": [],
     "analysis_results": [
       {
-        "symptoms": "acne",
+        "symptoms": "fatigue, headaches",
         "analyse": {
-          "analysis": "Based on your profile and symptoms, here is the analysis:\n\n**Zinc**:\n- Why: As an 18-year-old female, your body requires zinc for immune function and skin health. Acne can be a sign of a lack of zinc, which is essential for wound healing and inflammation regulation. \n- Foods: oysters, beef, chicken\n- Tip: Consider incorporating zinc-rich foods into your breakfast to boost your daily intake.\n\n**VitaminA**:\n- Why: Vitamin A is crucial for skin health, and its lack can lead to acne. As a young adult, your skin is still developing, and adequate Vitamin A intake can help regulate skin cell turnover.\n- Foods: sweet potatoes, carrots, dark leafy greens\n- Tip: Snack on Vitamin A-rich fruits and vegetables to support your skin health.\n\n**VitaminE**:\n- Why: Vitamin E helps protect your skin from damage and supports skin health. A lack of Vitamin E can exacerbate acne. As a female, you may be more prone to Vitamin E deficiencies due to hormonal fluctuations.\n- Foods: almonds, sunflower seeds, spinach\n- Tip: Add a handful of nuts or seeds to your daily meals to increase your Vitamin E intake.\n\n**Urgency Note**: None flagged. However, if your acne persists or worsens, consider consulting a healthcare professional to rule out any underlying conditions."
+          "analysis": "Based on the user's profile and symptoms, here's the analysis:\n\n**Fatigue:**\n\n* Iron: \n  - Why: As an 18-year-old female, you have a higher risk of iron insufficiency due to menstruation. Your low weight and height may also contribute to lower iron stores. \n  - Foods: Spinach, fortified cereals, pumpkin seeds\n  - Tip: Engage in regular exercise to improve circulation and boost energy levels.\n\n* VitaminB12: \n  - Why: As a young adult, a lack of VitaminB12 can cause fatigue. Your diet and age make you prone to this issue.\n  - Foods: Salmon, eggs, dairy products\n  - Tip: Establish a consistent sleep schedule to help regulate energy levels.\n\n* Magnesium: \n  - Why: Low magnesium levels can cause fatigue. Your age and sex do not provide any specific risks, but a lack of magnesium is common in general.\n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Practice stress-reducing techniques, such as meditation or deep breathing.\n\n**Headaches:**\n\n* Magnesium: \n  - Why: A lack of magnesium can cause or exacerbate headaches. \n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Stay hydrated by drinking plenty of water throughout the day.\n\n* VitaminB2 (Riboflavin): \n  - Why: A lack of VitaminB2 can contribute to headaches. \n  - Foods: Almonds, milk, leafy greens\n  - Tip: Take regular breaks to stretch and move around, especially if you have a desk job.\n\n* Potassium: \n  - Why: A lack of potassium can cause or contribute to headaches. \n  - Foods: Bananas, avocados, sweet potatoes\n  - Tip: Limit caffeine intake, which can trigger or worsen headaches.\n\n[Urgency Note]: No urgent medical concerns were identified based on the provided information. However, if you experience severe or persistent symptoms, consider consulting a healthcare professional for personalized advice."
+        }
+      },
+      {
+        "symptoms": "fatigue, headaches",
+        "analyse": {
+          "analysis": "Based on the user's profile and symptoms, here's the analysis:\n\n**Fatigue:**\n\n* Iron: \n  - Why: As an 18-year-old female, you have a higher risk of iron insufficiency due to menstruation. Your low weight and height may also contribute to lower iron stores. \n  - Foods: Spinach, fortified cereals, pumpkin seeds\n  - Tip: Engage in regular exercise to improve circulation and boost energy levels.\n\n* VitaminB12: \n  - Why: As a young adult, a lack of VitaminB12 can cause fatigue. Your diet and age make you prone to this issue.\n  - Foods: Salmon, eggs, dairy products\n  - Tip: Establish a consistent sleep schedule to help regulate energy levels.\n\n* Magnesium: \n  - Why: Low magnesium levels can cause fatigue. Your age and sex do not provide any specific risks, but a lack of magnesium is common in general.\n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Practice stress-reducing techniques, such as meditation or deep breathing.\n\n**Headaches:**\n\n* Magnesium: \n  - Why: A lack of magnesium can cause or exacerbate headaches. \n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Stay hydrated by drinking plenty of water throughout the day.\n\n* VitaminB2 (Riboflavin): \n  - Why: A lack of VitaminB2 can contribute to headaches. \n  - Foods: Almonds, milk, leafy greens\n  - Tip: Take regular breaks to stretch and move around, especially if you have a desk job.\n\n* Potassium: \n  - Why: A lack of potassium can cause or contribute to headaches. \n  - Foods: Bananas, avocados, sweet potatoes\n  - Tip: Limit caffeine intake, which can trigger or worsen headaches.\n\n[Urgency Note]: No urgent medical concerns were identified based on the provided information. However, if you experience severe or persistent symptoms, consider consulting a healthcare professional for personalized advice."
         }
       }
     ],
@@ -33,42 +63,11 @@
   "test": {
     "username": "test",
     "password": "test",
-    "name": "test",
-    "age": 19,
-    "sex": "female",
-    "height": 172.0,
-    "weight": 63.0,
-    "skin_color": "light",
-    "country": "test",
-    "medication": [
-      ""
-    ],
-    "diet": "none",
-    "existing_conditions": [
-      ""
-    ],
-    "allergies": [
-      ""
-    ],
-    "saved_recipes": [],
-    "analysis_results": [
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "analysis": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 19-year-old female, adequate VitaminA intake is essential for maintaining healthy skin.\n- Foods: sweet potatoes, carrots, dark leafy greens\n- Tip: Include VitaminA-rich foods in your daily meals to support skin health.\n\n**Zinc**:\n- Why: A lack of Zinc can impair wound healing and contribute to acne. As a female, Zinc is essential for hormone regulation, and its inadequate intake can exacerbate acne. At 19 years old, Zinc is crucial for overall health and skin well-being.\n- Foods: oysters, beef, chicken\n- Tip: Eat Zinc-rich foods like oysters, beef, and chicken to support immune function and skin health.\n\n**VitaminD**:\n- Why: A lack of VitaminD can contribute to acne due to its role in regulating immune responses and skin cell growth. As a 19-year-old female with light skin tone, VitaminD levels may be lower due to reduced UVB absorption.\n- Foods: fatty fish, fortified dairy products, mushrooms\n- Tip: Spend time outdoors during peak sun hours (with sunscreen) and consume VitaminD-rich foods to maintain adequate levels.\n\n**Urgency Note**: None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
-        }
-      }
-    ],
-    "mealplan": []
-  },
-  "doortje": {
-    "username": "doortje",
-    "password": "test",
-    "name": "test",
+    "name": "dora",
     "age": 18,
     "sex": "female",
     "height": 172.0,
-    "weight": 63.0,
+    "weight": 1.0,
     "skin_color": "light",
     "country": "test",
     "medication": [
@@ -84,27 +83,15 @@
     "saved_recipes": [],
     "analysis_results": [
       {
-        "symptoms": null,
+        "symptoms": "fatigue, headaches",
         "analyse": {
-          "analysis": "Based on your profile, I'll provide the analysis.\n\n**VitaminD**:\n- Why: As an 18-year-old female, you may have limited sun exposure, which is essential for VitaminD production. Your skin tone is light, which reduces the risk of VitaminD deficiency, but age and potential limited sun exposure are factors.\n- Foods: Fatty fish, Fortified dairy products, Mushrooms\n- Tip: Spend 10-15 minutes outside during peak sun hours (10am-4pm) several times a week to boost natural VitaminD production.\n\n**Iron**:\n- Why: As a female, you're at a higher risk for Iron lack due to menstrual losses. Your age and sex put you in a group that often requires more Iron intake.\n- Foods: Red meat, Spinach, Pumpkin seeds\n- Tip: Include Iron-rich foods in your meals, especially during your menstrual cycle, to help maintain levels.\n\n**Calcium**:\n- Why: Your age is crucial for bone development, and adequate Calcium intake is essential for building peak bone mass. As a young female, ensuring enough Calcium helps prevent future bone density issues.\n- Foods: Dairy products, Fortified plant-based milk, Leafy greens\n- Tip: Incorporate Calcium-rich foods into your daily diet to support bone health.\n\n**Urgency Note**: None. No urgent medical concerns based on the provided information. However, maintaining a balanced diet and considering the mentioned nutrients can help prevent potential issues."
+          "analysis": "Based on the user's profile and symptoms, here's the analysis:\n\n**Fatigue:**\n\n* Iron: \n  - Why: As an 18-year-old female, you have a higher risk of iron insufficiency due to menstruation. Your low weight and height may also contribute to lower iron stores. \n  - Foods: Spinach, fortified cereals, pumpkin seeds\n  - Tip: Engage in regular exercise to improve circulation and boost energy levels.\n\n* VitaminB12: \n  - Why: As a young adult, a lack of VitaminB12 can cause fatigue. Your diet and age make you prone to this issue.\n  - Foods: Salmon, eggs, dairy products\n  - Tip: Establish a consistent sleep schedule to help regulate energy levels.\n\n* Magnesium: \n  - Why: Low magnesium levels can cause fatigue. Your age and sex do not provide any specific risks, but a lack of magnesium is common in general.\n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Practice stress-reducing techniques, such as meditation or deep breathing.\n\n**Headaches:**\n\n* Magnesium: \n  - Why: A lack of magnesium can cause or exacerbate headaches. \n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Stay hydrated by drinking plenty of water throughout the day.\n\n* VitaminB2 (Riboflavin): \n  - Why: A lack of VitaminB2 can contribute to headaches. \n  - Foods: Almonds, milk, leafy greens\n  - Tip: Take regular breaks to stretch and move around, especially if you have a desk job.\n\n* Potassium: \n  - Why: A lack of potassium can cause or contribute to headaches. \n  - Foods: Bananas, avocados, sweet potatoes\n  - Tip: Limit caffeine intake, which can trigger or worsen headaches.\n\n[Urgency Note]: No urgent medical concerns were identified based on the provided information. However, if you experience severe or persistent symptoms, consider consulting a healthcare professional for personalized advice."
         }
       },
       {
-        "symptoms": null,
+        "symptoms": "fatigue, headaches",
         "analyse": {
-          "analysis": "Based on your profile, I'll provide the analysis.\n\n**VitaminD**:\n- Why: As an 18-year-old female, you may have limited sun exposure, which is essential for VitaminD production. Your skin tone is light, which reduces the risk of VitaminD deficiency, but age and potential limited sun exposure are factors.\n- Foods: Fatty fish, Fortified dairy products, Mushrooms\n- Tip: Spend 10-15 minutes outside during peak sun hours (10am-4pm) several times a week to boost natural VitaminD production.\n\n**Iron**:\n- Why: As a female, you're at a higher risk for Iron lack due to menstrual losses. Your age and sex put you in a group that often requires more Iron intake.\n- Foods: Red meat, Spinach, Pumpkin seeds\n- Tip: Include Iron-rich foods in your meals, especially during your menstrual cycle, to help maintain levels.\n\n**Calcium**:\n- Why: Your age is crucial for bone development, and adequate Calcium intake is essential for building peak bone mass. As a young female, ensuring enough Calcium helps prevent future bone density issues.\n- Foods: Dairy products, Fortified plant-based milk, Leafy greens\n- Tip: Incorporate Calcium-rich foods into your daily diet to support bone health.\n\n**Urgency Note**: None. No urgent medical concerns based on the provided information. However, maintaining a balanced diet and considering the mentioned nutrients can help prevent potential issues."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "analysis": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As an 18-year-old female, adequate VitaminA intake is crucial for maintaining healthy skin.\n- Foods: sweet potatoes, carrots, dark leafy greens\n- Tip: Include VitaminA-rich foods in your daily meals to support skin health.\n\n**Zinc**:\n- Why: A lack of Zinc can exacerbate acne as it plays a key role in wound healing, inflammation reduction, and immune function. As a female, Zinc is essential for hormone regulation, which can impact acne.\n- Foods: oysters, beef, chicken\n- Tip: Increase Zinc intake through food sources or consider a supplement after consulting a healthcare professional.\n\n**VitaminC**:\n- Why: A lack of VitaminC can contribute to acne due to its antioxidant properties, which help reduce inflammation and promote collagen production. As a young adult, VitaminC is essential for overall health and skin well-being.\n- Foods: oranges, strawberries, bell peppers\n- Tip: Eat foods rich in VitaminC to support immune function and skin health.\n\n**Urgency Note**: None flagged. However, if acne persists or worsens, consult a healthcare professional for personalized advice and treatment."
-        }
-      },
-      {
-        "symptoms": "acne",
-        "analyse": {
-          "analysis": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As an 18-year-old female, adequate VitaminA intake is crucial for maintaining healthy skin.\n- Foods: sweet potatoes, carrots, dark leafy greens\n- Tip: Include VitaminA-rich foods in your daily meals to support skin health.\n\n**Zinc**:\n- Why: A lack of Zinc can exacerbate acne as it plays a key role in wound healing, inflammation reduction, and immune function. As a female, Zinc is essential for hormone regulation, which can impact acne.\n- Foods: oysters, beef, chicken\n- Tip: Increase Zinc intake through food sources or consider a supplement after consulting a healthcare professional.\n\n**VitaminC**:\n- Why: A lack of VitaminC can contribute to acne due to its antioxidant properties, which help reduce inflammation and promote collagen production. As a young adult, VitaminC is essential for overall health and skin well-being.\n- Foods: oranges, strawberries, bell peppers\n- Tip: Eat foods rich in VitaminC to support immune function and skin health.\n\n**Urgency Note**: None flagged. However, if acne persists or worsens, consult a healthcare professional for personalized advice and treatment."
+          "analysis": "Based on the user's profile and symptoms, here's the analysis:\n\n**Fatigue:**\n\n* Iron: \n  - Why: As an 18-year-old female, you have a higher risk of iron insufficiency due to menstruation. Your low weight and height may also contribute to lower iron stores. \n  - Foods: Spinach, fortified cereals, pumpkin seeds\n  - Tip: Engage in regular exercise to improve circulation and boost energy levels.\n\n* VitaminB12: \n  - Why: As a young adult, a lack of VitaminB12 can cause fatigue. Your diet and age make you prone to this issue.\n  - Foods: Salmon, eggs, dairy products\n  - Tip: Establish a consistent sleep schedule to help regulate energy levels.\n\n* Magnesium: \n  - Why: Low magnesium levels can cause fatigue. Your age and sex do not provide any specific risks, but a lack of magnesium is common in general.\n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Practice stress-reducing techniques, such as meditation or deep breathing.\n\n**Headaches:**\n\n* Magnesium: \n  - Why: A lack of magnesium can cause or exacerbate headaches. \n  - Foods: Dark chocolate, almonds, brown rice\n  - Tip: Stay hydrated by drinking plenty of water throughout the day.\n\n* VitaminB2 (Riboflavin): \n  - Why: A lack of VitaminB2 can contribute to headaches. \n  - Foods: Almonds, milk, leafy greens\n  - Tip: Take regular breaks to stretch and move around, especially if you have a desk job.\n\n* Potassium: \n  - Why: A lack of potassium can cause or contribute to headaches. \n  - Foods: Bananas, avocados, sweet potatoes\n  - Tip: Limit caffeine intake, which can trigger or worsen headaches.\n\n[Urgency Note]: No urgent medical concerns were identified based on the provided information. However, if you experience severe or persistent symptoms, consider consulting a healthcare professional for personalized advice."
         }
       }
     ],
