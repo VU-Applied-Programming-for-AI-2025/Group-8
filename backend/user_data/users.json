@@ -51,6 +51,37 @@
       ""
     ],
     "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "analysis": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 19-year-old female, adequate VitaminA intake is essential for maintaining healthy skin.\n- Foods: sweet potatoes, carrots, dark leafy greens\n- Tip: Include VitaminA-rich foods in your daily meals to support skin health.\n\n**Zinc**:\n- Why: A lack of Zinc can impair wound healing and contribute to acne. As a female, Zinc is essential for hormone regulation, and its inadequate intake can exacerbate acne. At 19 years old, Zinc is crucial for overall health and skin well-being.\n- Foods: oysters, beef, chicken\n- Tip: Eat Zinc-rich foods like oysters, beef, and chicken to support immune function and skin health.\n\n**VitaminD**:\n- Why: A lack of VitaminD can contribute to acne due to its role in regulating immune responses and skin cell growth. As a 19-year-old female with light skin tone, VitaminD levels may be lower due to reduced UVB absorption.\n- Foods: fatty fish, fortified dairy products, mushrooms\n- Tip: Spend time outdoors during peak sun hours (with sunscreen) and consume VitaminD-rich foods to maintain adequate levels.\n\n**Urgency Note**: None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      }
+    ],
+    "mealplan": []
+  },
+  "doortje": {
+    "username": "doortje",
+    "password": "test",
+    "name": "test",
+    "age": 18,
+    "sex": "female",
+    "height": 172.0,
+    "weight": 63.0,
+    "skin_color": "light",
+    "country": "test",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
     "analysis_results": [],
     "mealplan": []
   }
