@@ -1,31 +1,101 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="card">
-    <h2>Analysis Results for: {{ symptoms }}</h2>
-    
-    <div class="analysis-results">
-        {% for line in analysis.split('\n') %}
-            {% if line.strip() %}
-                {% if line.startswith('[') and ']' in line %}
-                    <h3>{{ line }}</h3>
-                {% elif line.startswith('- Why:') %}
-                    <p><strong>Why:</strong> {{ line[6:] }}</p>
-                {% elif line.startswith('- Foods:') %}
-                    <p><strong>Foods:</strong> {{ line[8:] }}</p>
-                {% elif line.startswith('- Tip:') %}
-                    <p><strong>Tip:</strong> {{ line[6:] }}</p>
-                    <hr>
-                {% elif line.startswith('[Urgency Note]:') %}
-                    <div class="urgency-note">
-                        <p><strong>Urgency Note:</strong> {{ line[15:] }}</p>
+<div class="interactive-analysis">
+    <div class="analysis-header">
+        <h2 class="analysis-title">Your Nutrition Analysis</h2>
+        
+        <div class="symptoms-display">
+            <div class="user-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="symptoms-bubble">
+                <p>Reported Symptoms:</p>
+                <div class="bubble">{{ symptoms }}</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nutrient-cards">
+        {% set nutrient_blocks = analysis.split('\n\n') %}
+        {% for block in nutrient_blocks %}
+            {% set clean_block = block.strip() %}
+            
+            {% if clean_block.startswith('[Urgency Note]:') or clean_block.startswith('**Urgency Note**') %}
+                <!-- Render urgency note -->
+                <div class="urgency-note">
+                    <div class="note-header">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Urgency Note</h3>
                     </div>
-                {% else %}
-                    <p>{{ line }}</p>
-                {% endif %}
+                    <p>{{ clean_block | replace('[Urgency Note]:', '') | replace('**Urgency Note**', '') | trim }}</p>
+                </div>
+            
+            {% elif clean_block.startswith('Based on') %}
+            <p class="intro-analysis-text">{{ clean_block }}</p>
+            
+            {% elif clean_block %}
+                <!-- Render valid nutrient card -->
+                {% set lines = clean_block.split('\n') %}
+                <div class="nutrient-card">
+                    <div class="nutrient-header">
+                        <div class="nutrient-icon">
+                            {% if 'VitaminD' in clean_block %}
+                            <i class="fas fa-sun"></i>
+                            {% elif 'Iron' in clean_block %}
+                            <i class="fas fa-magnet"></i>
+                            {% elif 'VitaminB' in clean_block %}
+                            <i class="fas fa-bolt"></i>
+                            {% else %}
+                            <i class="fas fa-pills"></i>
+                            {% endif %}
+                        </div>
+                        <h3>{{ lines[0].replace(':', '') }}</h3>
+                        <div class="severity-indicator low"></div>
+                    </div>
+    
+                    <div class="nutrient-details">
+                        {% for line in lines[1:] %}
+                            {% if line.startswith('- Why:') %}
+                            <div class="detail-section">
+                                <h4><i class="fas fa-question-circle"></i> Why This Matters</h4>
+                                <p>{{ line[6:] }}</p>
+                            </div>
+                            {% elif line.startswith('- Foods:') %}
+                            <div class="detail-section">
+                                <h4><i class="fas fa-utensils"></i> Recommended Foods</h4>
+                                <div class="food-bubbles">
+                                    {% for food in line[8:].split(', ') %}
+                                    <span class="food-bubble">{{ food }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% elif line.startswith('- Tip:') %}
+                            <div class="detail-section tip-section">
+                                <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                                <p>{{ line[6:] }}</p>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- <button class="action-btn">Add to Action Plan</button> -->
+                </div>
             {% endif %}
         {% endfor %}
     </div>
+    
+    
+    {% for block in nutrient_blocks if block.startswith('[Urgency Note]:') %}
+    <div class="urgency-note">
+        <div class="note-header">
+            <i class="fas fa-exclamation-triangle"></i>
+            <h3>Important Note</h3>
+        </div>
+        <p>{{ block[15:] }}</p>
+    </div>
+    {% endfor %}
+    
     
     <div class="actions">
         <button id="save-results" class="btn btn-primary">Save Results</button>
@@ -33,10 +103,302 @@
         <a href="{{ url_for('home') }}" class="btn">Back home</a>
     </div>
 </div>
+
+<style>
+/* Interactive Analysis Styles */
+.intro-analysis-text {
+    font-style: italic;
+    color: #4a6fa5;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.interactive-analysis {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.analysis-title {
+    text-align: center;
+    color: #4a6fa5;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.symptoms-display {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.user-avatar {
+    font-size: 3rem;
+    color: #6c8fc7;
+}
+
+.symptoms-bubble p {
+    margin: 0;
+    font-weight: 500;
+    color: #666;
+}
+
+.bubble {
+    background: #f0f7ff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: #4a6fa5;
+    font-weight: 600;
+}
+
+.nutrient-cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: start;
+}
+
+.nutrient-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    border: 1px solid #e1e8f0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.nutrient-card:nth-child(1) {
+    animation-delay: 0s;
+}
+.nutrient-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+.nutrient-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nutrient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.nutrient-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nutrient-icon {
+    font-size: 1.5rem;
+    color: #6c8fc7;
+    background: #f0f7ff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nutrient-header h3 {
+    margin: 0;
+    flex-grow: 1;
+    color: #4a4a4a;
+}
+
+.severity-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+.severity-indicator.low {
+    background: #4caf50;
+}
+
+.nutrient-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    margin-top: 0; /* Prevents spacing issues when collapsed */
+}
+
+.nutrient-card.expanded .nutrient-details {
+    max-height: 1000px; /* Should be enough for your content */
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+    color: #4a6fa5;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.food-bubbles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.food-bubble {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.tip-section {
+    background: #fff8e1;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.action-btn {
+    background: #6c8fc7;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.action-btn:hover {
+    background: #4a6fa5;
+}
+
+.urgency-note {
+    background: #fff3e0;
+    border-left: 4px solid #ff9800;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 2rem 0;
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #e65100;
+    margin-bottom: 0.5rem;
+}
+
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .symptoms-display {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .nutrient-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+}
+</style>
+
 {% endblock %}
 
 {% block extra_js %}
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced card toggling
+    function setupCardToggles() {
+        document.querySelectorAll('.nutrient-card').forEach(card => {
+            card.removeEventListener('click', handleCardClick);
+            card.addEventListener('click', handleCardClick);
+        });
+    }
+
+    function handleCardClick(e) {
+        const clickedButton = e.target.closest('.action-btn');
+        if (clickedButton) {
+            e.stopPropagation();
+            return;
+        }
+        this.classList.toggle('expanded');
+        if (this.classList.contains('expanded')) {
+            this.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+    }
+
+    setupCardToggles();
+
+    // Add to action plan buttons
+    document.querySelectorAll('.action-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const card = this.closest('.nutrient-card');
+            const nutrient = card.querySelector('h3').textContent;
+
+            const foods = [];
+            card.querySelectorAll('.food-bubble').forEach(bubble => {
+                foods.push(bubble.textContent);
+            });
+
+            const tipSection = card.querySelector('.tip-section p');
+            const tip = tipSection ? tipSection.textContent : '';
+
+            addToActionPlan(nutrient, foods, tip);
+
+            this.textContent = '✓ Added to Plan';
+            this.style.background = '#4caf50';
+            setTimeout(() => {
+                this.textContent = 'Add to Action Plan';
+                this.style.background = '#6c8fc7';
+            }, 2000);
+        });
+    });
+
+
+
+    // Existing save results functionality
     document.getElementById('save-results').addEventListener('click', async function() {
         const analysisText = `{{ analysis|replace('\n', '\\n')|safe }}`;
         
@@ -65,29 +427,6 @@
         const loadingScreen = document.getElementById('loading-screen');
         if (loadingScreen) loadingScreen.classList.remove('active');
     });
-
-    // Rest of your existing results page JS...
-    document.getElementById('save-results').addEventListener('click', async function() {
-        const analysisText = `{{ analysis|replace('\n', '\\n')|safe }}`;
-        
-        try {
-            const response = await fetch('/save_results', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ analysis: analysisText })
-            });
-            
-            if (response.ok) {
-                alert('Results saved successfully!');
-            } else {
-                alert('Failed to save results');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Network error occurred');
-        }
-    });
+});
 </script>
 {% endblock %}
