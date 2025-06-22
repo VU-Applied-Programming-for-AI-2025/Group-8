@@ -212,16 +212,16 @@
     }
     </style>
 
-        <!-- Background Decorations -->
+    <!-- Background Decorations -->
     <div class="bg-decorations">
         <!-- Flower 1 (Top Left) -->
         <svg class="decoration" style="top: 10%; left: 5%; width: 120px; color: #fbcfe8; animation-delay: 0.5s;">
-            <path d="M50 0C50 27.6142 72.3858 50 100 50C72.3858 50 50 72.3858 50 100C50 72.3858 27.6142 50 0 50C27.6142 50 50 27.6142 50 0Z"/>
+            <path fill="currentColor" d="M50 0C50 27.6142 72.3858 50 100 50C72.3858 50 50 72.3858 50 100C50 72.3858 27.6142 50 0 50C27.6142 50 50 27.6142 50 0Z"/>
         </svg>
         
         <!-- Flower 2 (Bottom Right) -->
         <svg class="decoration" style="bottom: 10%; right: 5%; width: 150px; color: #f9a8d4; animation-delay: 2s;">
-            <path d="M50 0C50 27.6142 72.3858 50 100 50C72.3858 50 50 72.3858 50 100C50 72.3858 27.6142 50 0 50C27.6142 50 50 27.6142 50 0Z"/>
+            <path fill="currentColor" d="M50 0C50 27.6142 72.3858 50 100 50C72.3858 50 50 72.3858 50 100C50 72.3858 27.6142 50 0 50C27.6142 50 50 27.6142 50 0Z"/>
         </svg>
         
         <!-- Stars -->
@@ -232,10 +232,12 @@
         <div class="decoration" style="top: 40%; left: 10%; font-size: 20px; color: #fca5a5;">♥</div>
         <div class="decoration" style="bottom: 30%; right: 10%; font-size: 16px; color: #fecaca; animation-delay: 3s;">♥</div>
         
-        <!-- Sparkles (using Font Awesome) -->
-        <i class="fas fa-sparkle decoration pulse" style="top: 15%; left: 20%; font-size: 18px; color: #a5b4fc;"></i>
-        <i class="fas fa-sparkle decoration pulse" style="bottom: 20%; right: 20%; font-size: 22px; color: #c4b5fd; animation-delay: 1s;"></i>
+        <!-- Sparkles (Unicode replacement for FA sparkle) -->
+        <div class="decoration pulse" style="top: 15%; left: 20%; font-size: 22px; color: #a5b4fc;">✨</div>
+        <div class="decoration pulse" style="bottom: 20%; right: 20%; font-size: 26px; color: #c4b5fd; animation-delay: 1s;">✨</div>
     </div>
+        
+
 
     <style>
         /* Background Decorations Styles */

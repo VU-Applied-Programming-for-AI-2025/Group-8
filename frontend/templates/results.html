@@ -3,7 +3,8 @@
 {% block content %}
 <div class="interactive-analysis">
     <div class="analysis-header">
-        <h2 class="analysis-title">Your Nutrition Analysis</h2>
+        <h1 class="typewriter">Your Personalized Nutrition Analysis</h1>
+
         
         <div class="symptoms-display">
             <div class="user-avatar">
@@ -324,6 +325,18 @@
     gap: 1rem;
     flex-wrap: wrap;
     margin-top: 2rem;
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #4a6fa5;
+    width: 0;
+    animation: typing 2s steps(40, end) forwards;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
 }
 
 @media (max-width: 768px) {
