@@ -1,105 +1,112 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Recipes Matching Your Diet</title>
-    <style>
-        .meal-section {
-            margin-bottom: 40px;
-        }
-
-        .recipe-card {
-            display: inline-block;
-            width: 200px;
-            margin: 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .recipe-card img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-        }
-
-        .view-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes Matching Your Diet - NutriSpoon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/recipes.css') }}">
 </head>
 
 <body>
+    <div class="container">
+        <header class="recipes-header">
+            <h1>🍽️ Recipes Matching Your Diet</h1>
+            <p class="subtitle">Discover delicious recipes tailored to your nutritional needs</p>
+        </header>
 
-    <h1>Recipes Matching Your Diet</h1>
+        <main class="recipes-content">
+            <form action="/recommendations/mealplanner/create" method="POST">
+                {% if recipes_by_meal %}
+                {% for category, recipes in recipes_by_meal.items() %}
+                <div class="meal-section">
+                    <h2 class="meal-category">{{ category.capitalize() }}</h2>
+                    {% if recipes %}
+                    <div class="recipes-grid">
+                        {% for entry in recipes %}
+                        <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
+                            <div class="recipe-image">
+                                <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" loading="lazy">
+                            </div>
+                            <div class="recipe-content">
+                                <h3 class="recipe-title">{{ entry['title'] }}</h3>
+                                <div class="recipe-actions">
+                                    <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}"
+                                        class="btn btn-primary">
+                                        <span>👁️</span> View Details
+                                    </a>
+                                    <div class="recipe-options">
+                                        <label class="checkbox-container">
+                                            <input type="checkbox" id="{{ entry['id'] }}" name="meals"
+                                                value="{{ entry['id'] }}">
+                                            <span class="checkmark">✓</span>
+                                            <span class="checkbox-label">Select</span>
+                                        </label>
+                                        <button class="btn btn-secondary favorite-btn" data-id="{{ entry['id'] }}"
+                                            data-saved="false">
+                                            <span>💾</span> Save
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="empty-state">
+                        <p>No recipes found for {{ category }}.</p>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary create-mealplan-btn">
+                        <span>📋</span> Create Meal Plan from Selected Meals
+                    </button>
+                </div>
+                {% endif %}
+            </form>
 
-    <form action="/recommendations/mealplanner/create" method="POST">
-        {% if recipes_by_meal %}
-        {% for category, recipes in recipes_by_meal.items() %}
-        <div class="meal-section">
-            <h2>{{ category.capitalize() }}</h2>
-            {% if recipes %}
-            {% for entry in recipes %}
-            <div class="recipe-card" draggable="true" data-id="{{ entry['id'] }}">
-                <img src="{{ entry['image'] }}" alt="{{ entry['title'] }}" width="200">
-                <p>{{ entry['title'] }}</p>
-                <a href="{{ url_for('recipe_details', recipe_id = entry['id']) }}" class="view-button">View details</a>
-                <input type="checkbox" id="{{ entry['id'] }}" name="meals" value="{{ entry['id'] }}">
-
-                <button class="favorite-btn" data-id="{{ entry['id'] }}" data-saved="false">Save</button>
-
+            <div class="alternative-option">
+                <a href="/recommendations/mealplanner/spoonacular" class="btn btn-secondary">
+                    <span>🔧</span> Use Spoonacular Built-in Plan
+                </a>
             </div>
-            {% endfor %}
-            {% else %}
-            <p>No recipes found for {{ category }}.</p>
-            {% endif %}
-        </div>
-        {% endfor %}
-        <button type="submit">Create mealplan from selected meals</button>
-        {% endif %}
-    </form>
-
-
-
-    <div style="margin-top: 40px; text-align: center;">
-        <a href="/recommendations/mealplanner/spoonacular">Use Spoonacular Built-in Plan</a>
+        </main>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll(".favorite-btn").forEach(button => {
+                button.addEventListener("click", async function (event) {
+                    event.preventDefault();
+
+                    const recipeId = this.dataset.id;
+                    const isUnsave = this.textContent.trim().toLowerCase().includes("unsave");
+                    const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
+
+                    try {
+                        const response = await fetch(endpoint, { method: "POST" });
+                        if (response.ok) {
+                            if (isUnsave) {
+                                this.innerHTML = '<span>💾</span> Save';
+                                this.dataset.saved = "false";
+                            } else {
+                                this.innerHTML = '<span>🗑️</span> Unsave';
+                                this.dataset.saved = "true";
+                            }
+                        } else {
+                            const msg = await response.text();
+                            alert(msg || "Failed to update favorites.");
+                        }
+                    } catch (err) {
+                        console.error("Network error:", err);
+                        alert("Network error. Please try again.");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
-
-</html>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelectorAll(".favorite-btn").forEach(button => {
-            button.addEventListener("click", async function (event) {
-                event.preventDefault();  // ← THIS is what stops the form submission
-
-                const recipeId = this.dataset.id;
-                const isUnsave = this.textContent.trim().toLowerCase() === "unsave";
-                const endpoint = isUnsave ? `/remove_favorite/${recipeId}` : `/save_favorite/${recipeId}`;
-
-                try {
-                    const response = await fetch(endpoint, { method: "POST" });
-                    if (response.ok) {
-                        this.textContent = isUnsave ? "Save" : "Unsave";
-                    } else {
-                        const msg = await response.text();
-                        alert(msg || "Failed to update favorites.");
-                    }
-                } catch (err) {
-                    console.error("Network error:", err);
-                    alert("Network error. Please try again.");
-                }
-            });
-        });
-    });
-</script>
