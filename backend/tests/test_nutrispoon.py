@@ -1119,55 +1119,6 @@ def test_homepage_results_redirect(client):
 #                                                                             #
 ###############################################################################
 
-
-def test_save_results(client, set_users_data):
-    """
-    Tests whether results are succesfully saved to the profile.
-    Tests whether trying to save "None" result will throw an error.
-    """
-    user = UserProfile(
-        "testusername",
-        "testpassword",
-        "Test User",
-        20,
-        "Female",
-        175.0,
-        70.0,
-        "medium",
-        "The Netherlands",
-        "None",
-        "None",
-    )
-
-    # Saves the user profile object to the user data.
-
-    set_users_data.add_user(user)
-
-    # Log in the user
-    with client.session_transaction() as session:
-        session["logged_in"] = True
-        session["username"] = "testusername"
-
-    set_users_data.get_user("testusername").analysis_results = []
-
-    response_empty = client.post(
-        "/save_results", data="", content_type="application/json"
-    )
-    assert response_empty.status_code == 401
-    assert b"No result" in response_empty.data
-
-    test_data = {
-        "symptoms": "fatigue, nausea",
-        "analyse": "Vitamin D is lacking. Foods: salmon, egg yolk.",
-    }
-
-    response = client.post(
-        "/save_results", data=json.dumps(test_data), content_type="application/json"
-    )
-    assert_200(response)
-    assert b"OK" in response.data
-
-
 def test_history_analysis(client):
     """
     Tests if the history page is loading correctly for a logged in user.

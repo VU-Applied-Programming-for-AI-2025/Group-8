@@ -259,6 +259,188 @@
         "fat": 81.13,
         "carbohydrates": 184.12
       }
+    },
+    "symptom_analysis": {
+      "headache": {
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin cell turnover and sebum regulation. As a 20-year-old female, adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, Vitamin C helps to combat oxidative stress and inflammation.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in sebum regulation, inflammation, and wound healing. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        },
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664054,
+                "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+                "image": "https://img.spoonacular.com/recipes/664054-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 794350,
+                "title": "Cherry Coconut Milk Smoothie",
+                "image": "https://img.spoonacular.com/recipes/794350-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642346,
+                "title": "Egyptain Cauliflower Side Salad",
+                "image": "https://img.spoonacular.com/recipes/642346-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 653549,
+                "title": "Okra Tomato Salad",
+                "image": "https://img.spoonacular.com/recipes/653549-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664419,
+                "title": "Vegan Colcannon Soup",
+                "image": "https://img.spoonacular.com/recipes/664419-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659689,
+                "title": "Seasonal Autumn Stew",
+                "image": "https://img.spoonacular.com/recipes/659689-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 658509,
+                "title": "Roasted Broccoli with Lemon and Garlic",
+                "image": "https://img.spoonacular.com/recipes/658509-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
+          },
+          "nutrients": {
+            "calories": 1733.28,
+            "protein": 68.26,
+            "fat": 81.13,
+            "carbohydrates": 184.12
+          }
+        }
+      }
     }
   },
   "testusername": {
@@ -277,7 +459,8 @@
     "allergies": [],
     "saved_recipes": [],
     "analysis_results": [],
-    "mealplan": []
+    "mealplan": [],
+    "symptom_analysis": {}
   },
   "feru": {
     "username": "feru",
@@ -728,6 +911,237 @@
           },
           "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
         }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Take a VitaminB6-rich snack, like sweet potatoes, with a balanced meal to maintain stable energy levels."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and its lack can lead to increased headache frequency. As a Whole30 dieter, Feru may be at risk of inadequate magnesium intake if her diet is not well-planned.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Incorporate magnesium-rich foods, like spinach, into your daily meals to help regulate muscle and nerve function."
+          },
+          "Iron": {
+            "why": "Iron lack can cause headaches, particularly in women of childbearing age due to menstrual blood loss.",
+            "foods": [
+              "beef liver",
+              "clams",
+              "pumpkin seeds"
+            ],
+            "tip": "Pair iron-rich foods, like beef liver, with VitaminC-rich foods to enhance iron absorption."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall nutrient absorption."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and a lack of it can lead to increased headache frequency. As a Whole30 dieter, Feru may be at risk of inadequate magnesium intake if her diet is not well-planned.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation or deep breathing exercises."
+          },
+          "Iron": {
+            "why": "Iron is essential for transporting oxygen to the brain, and a lack of iron can cause headaches. As a female, Feru is at a higher risk of iron insufficiency due to menstrual blood loss.",
+            "foods": [
+              "beef",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Cook in cast-iron cookware to increase iron intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall nutrient absorption."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation, to help regulate Magnesium levels."
+          },
+          "Iron": {
+            "why": "Iron insufficiency is common in women of childbearing age, and a lack of Iron can cause headaches; Feru's sex and age put her at a higher risk.",
+            "foods": [
+              "beef liver",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Increase Iron absorption by consuming VitaminC-rich foods (like citrus fruits) along with Iron-rich foods."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex don't particularly put her at risk, but her Whole30 diet may lead to inadequate intake if not properly planned.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chicken breast"
+            ],
+            "tip": "Cook at home using various spices to ensure adequate VitaminB6 intake."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and as a female, Feru is more prone to magnesium imbalances due to menstruation; her Whole30 diet may not provide sufficient magnesium if not carefully planned.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "brown rice"
+            ],
+            "tip": "Incorporate magnesium-rich foods into your daily meals, and consider consulting a registered dietitian for personalized guidance."
+          },
+          "VitaminC": {
+            "why": "VitaminC helps alleviate headaches, and as a Whole30 dieter, Feru may have limited sources of VitaminC if not consuming enough fruits and vegetables.",
+            "foods": [
+              "oranges",
+              "bell peppers",
+              "kiwi"
+            ],
+            "tip": "Include a variety of colorful fruits and vegetables in your meals to boost VitaminC intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 deficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Take a warm bath to relax and reduce stress, which can contribute to headaches."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice gentle stretches to relieve tension, which can contribute to headaches."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, and as a 26-year-old female, Feru is at a higher risk due to menstrual blood loss.",
+            "foods": [
+              "beef liver",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Eat small, frequent meals to maintain stable energy levels and prevent iron-related headaches."
+          },
+          "Urgency Note": "If Feru experiences severe or frequent headaches, it's essential to consult a healthcare professional to rule out any underlying medical conditions. No urgent concerns are flagged based on the provided information."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches due to its role in neurotransmitter synthesis and its effect on blood vessel constriction. As a 26-year-old female, Feru's age and sex do not particularly put her at risk, but her Whole30 diet may lead to inadequate intake if not properly planned.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chicken breast"
+            ],
+            "tip": "Include a source of VitaminB6 with every meal to maintain stable levels."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches as it plays a crucial role in blood vessel relaxation and neuronal function. Feru's Whole30 diet, which tends to be low in processed foods, might still be insufficient if her intake of dark leafy greens and nuts is limited.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "brown rice"
+            ],
+            "tip": "Engage in stress-reducing activities like yoga or meditation to help your body retain Magnesium."
+          },
+          "Iron": {
+            "why": "Iron lack can cause headaches due to reduced oxygen delivery to the brain. As a female, Feru is at a higher risk of iron deficiency due to menstrual blood loss. Her Whole30 diet may not include sufficient iron-rich foods if not carefully planned.",
+            "foods": [
+              "beef liver",
+              "clams",
+              "pumpkin seeds"
+            ],
+            "tip": "Consume VitaminC-rich foods along with iron-rich foods to enhance iron absorption."
+          },
+          "Urgency Note": "If Feru experiences frequent, severe, or worsening headaches, she should consult a healthcare professional to rule out any underlying conditions that may require immediate attention. No urgent concerns are flagged based on the provided information."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall nutrient uptake and metabolism."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help regulate Magnesium levels."
+          },
+          "Iron": {
+            "why": "Iron insufficiency is common in women of childbearing age, and a lack of Iron can cause headaches due to inadequate oxygen delivery to the brain; Feru's sex and age put her at a higher risk.",
+            "foods": [
+              "beef liver",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Cook in cast-iron cookware to increase Iron intake."
+          },
+          "Urgency Note": "None flagged. However, if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
       }
     ],
     "mealplan": {
@@ -989,6 +1403,333 @@
             "protein": 101.26,
             "fat": 104.11,
             "carbohydrates": 74.31
+          }
+        }
+      }
+    },
+    "symptom_analysis": {
+      "headache": {
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin cell turnover and sebum regulation. As a 20-year-old female, adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, Vitamin C helps to combat oxidative stress and inflammation.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in sebum regulation, inflammation, and wound healing. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        },
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664054,
+                "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+                "image": "https://img.spoonacular.com/recipes/664054-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 794350,
+                "title": "Cherry Coconut Milk Smoothie",
+                "image": "https://img.spoonacular.com/recipes/794350-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642346,
+                "title": "Egyptain Cauliflower Side Salad",
+                "image": "https://img.spoonacular.com/recipes/642346-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 653549,
+                "title": "Okra Tomato Salad",
+                "image": "https://img.spoonacular.com/recipes/653549-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664419,
+                "title": "Vegan Colcannon Soup",
+                "image": "https://img.spoonacular.com/recipes/664419-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659689,
+                "title": "Seasonal Autumn Stew",
+                "image": "https://img.spoonacular.com/recipes/659689-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 658509,
+                "title": "Roasted Broccoli with Lemon and Garlic",
+                "image": "https://img.spoonacular.com/recipes/658509-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
+          },
+          "nutrients": {
+            "calories": 1733.28,
+            "protein": 68.26,
+            "fat": 81.13,
+            "carbohydrates": 184.12
+          }
+        }
+      },
+      "acne": {
+        "analyse": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminA**:\n- Why: Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly affect her Vitamin A levels, but her Whole30 diet may be low in Vitamin A if she's not consuming enough animal products or sweet potatoes.\n- Foods: sweet potatoes, carrots, liver\n- Tip: Include Vitamin A-rich foods in your meals, especially at breakfast to help regulate skin cell turnover throughout the day.\n\n**VitaminD**:\n- Why: Low Vitamin D levels have been linked to acne, possibly due to its role in regulating immune responses and skin cell growth. As a 26-year-old female, Feru may be at risk for Vitamin D insufficiency due to limited sun exposure, especially during winter months. Her Whole30 diet may not provide enough Vitamin D if she's not consuming fatty fish or fortified foods.\n- Foods: fatty fish, fortified dairy, mushrooms\n- Tip: Spend some time outdoors during peak sun hours or consider a Vitamin D supplement, especially during winter.\n\n**Zinc**:\n- Why: Zinc plays a crucial role in wound healing, inflammation, and immune function, all of which are relevant to acne. Feru's Whole30 diet may be low in Zinc if she's not consuming enough oysters, meat, or poultry.\n- Foods: oysters, beef, chicken\n- Tip: Include Zinc-rich foods in your meals, and consider taking a Zinc supplement if you're not getting enough from your diet.\n\n**Urgency Note**: None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance.",
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664054,
+                "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+                "image": "https://img.spoonacular.com/recipes/664054-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 794350,
+                "title": "Cherry Coconut Milk Smoothie",
+                "image": "https://img.spoonacular.com/recipes/794350-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642346,
+                "title": "Egyptain Cauliflower Side Salad",
+                "image": "https://img.spoonacular.com/recipes/642346-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 653549,
+                "title": "Okra Tomato Salad",
+                "image": "https://img.spoonacular.com/recipes/653549-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664419,
+                "title": "Vegan Colcannon Soup",
+                "image": "https://img.spoonacular.com/recipes/664419-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659689,
+                "title": "Seasonal Autumn Stew",
+                "image": "https://img.spoonacular.com/recipes/659689-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 658509,
+                "title": "Roasted Broccoli with Lemon and Garlic",
+                "image": "https://img.spoonacular.com/recipes/658509-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
           }
         }
       }
