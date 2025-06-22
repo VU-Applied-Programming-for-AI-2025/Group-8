@@ -1244,7 +1244,7 @@ footer a:hover {
 
 /* Basic styling for the accordion */
 .custom-accordion {
-    border: 1px solid #ddd;
+    border: 1px none #ddd;
     border-radius: 4px;
     margin-bottom: 2em; /* Added margin for spacing below the accordion */
 }
