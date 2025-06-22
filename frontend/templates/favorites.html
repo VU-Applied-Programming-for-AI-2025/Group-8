@@ -1,21 +1,61 @@
-<h1>🍽️ Your Favorite Recipes</h1>
+<!DOCTYPE html>
+<html lang="en">
 
-{% if recipes %}
-<ul>
-    {% for recipe in recipes %}
-    <li style="margin-bottom: 20px;">
-        <h2>{{ recipe.title }}</h2>
-        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" width="250">
-        <p><a href="{{ recipe.sourceUrl }}" target="_blank">View full recipe</a></p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favorite Recipes - NutriSpoon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/favorites.css') }}">
+</head>
 
-        <form method="post" action="/remove_favorite/{{ recipe.id }}">
-            <button type="submit">Remove from Favorites</button>
-        </form>
-    </li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No favorites saved yet!</p>
-{% endif %}
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h1>🍽️ Your Favorite Recipes</h1>
+            <p class="subtitle">Your saved recipes are ready to cook!</p>
+        </header>
 
-<a href="/home">← Back to Home</a>
+
+        <main class="favorites-content">
+            {% if recipes %}
+            <div class="favorites-grid">
+                {% for recipe in recipes %}
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="{{ recipe.image }}" alt="{{ recipe.title }}" loading="lazy">
+                    </div>
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">{{ recipe.title }}</h3>
+                        <div class="recipe-actions">
+                            <a href="{{ recipe.sourceUrl }}" target="_blank" class="btn btn-primary">
+                                <span>👁️</span> View Recipe
+                            </a>
+                            <form method="post" action="/remove_favorite/{{ recipe.id }}" class="remove-form">
+                                <button type="submit" class="btn btn-danger">
+                                    <span>🗑️</span> Remove
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="empty-icon">📚</div>
+                <h2>No favorites yet!</h2>
+                <p>Start exploring recipes and save your favorites to see them here.</p>
+                <a href="/home" class="btn btn-primary">Explore Recipes</a>
+            </div>
+            {% endif %}
+        </main>
+
+        <footer class="page-footer">
+            <a href="/home" class="btn btn-secondary">
+                <span>←</span> Back to Home
+            </a>
+        </footer>
+    </div>
+</body>
+
+</html>
