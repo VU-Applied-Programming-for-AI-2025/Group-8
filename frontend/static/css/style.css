@@ -192,7 +192,7 @@ textarea.form-control {
 }
 
 .nutrient-info {
-    background-color: var(--pastel-yellow);
+    background-color: var(--white);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -200,7 +200,7 @@ textarea.form-control {
 
 .nutrient-info h2 {
     margin-bottom: 15px;
-    color: #6c5ce7;
+    color: #3d3384;
 }
 
 .nutrient-info p {
