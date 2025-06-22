@@ -29,5 +29,29 @@
       }
     ],
     "mealplan": []
+  },
+  "test": {
+    "username": "test",
+    "password": "test",
+    "name": "test",
+    "age": 19,
+    "sex": "female",
+    "height": 172.0,
+    "weight": 63.0,
+    "skin_color": "light",
+    "country": "test",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
   }
 }
