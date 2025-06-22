@@ -695,43 +695,302 @@
           },
           "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
         }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "Magnesium": {
+            "why": "Lack of magnesium can cause headaches, and as a 26-year-old female, Feru may be more prone to magnesium imbalances due to hormonal fluctuations. Her Whole30 diet may be low in magnesium-rich foods if she's not careful.",
+            "foods": [
+              "dark leafy greens",
+              "nuts",
+              "seeds"
+            ],
+            "tip": "Take a warm bath with Epsom salts to help relax and replenish magnesium levels."
+          },
+          "VitaminB6": {
+            "why": "VitaminB6 plays a role in headache prevention, and as a female, Feru may be more susceptible to vitaminB6 imbalances due to hormonal changes.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise, like yoga, to help reduce stress and promote vitaminB6 utilization."
+          },
+          "Iron": {
+            "why": "Iron levels can contribute to headaches, and as a female, Feru may be at risk for iron imbalances due to menstrual blood loss.",
+            "foods": [
+              "spinach",
+              "beef",
+              "lentils"
+            ],
+            "tip": "Cook in cast iron cookware to help increase iron intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
       }
     ],
     "mealplan": {
-      "meals": [
-        {
-          "id": 1747693,
-          "image": "your-basic-low-carb-breakfast-1747693.jpg",
-          "imageType": "jpg",
-          "title": "Your Basic Low Carb Breakfast",
-          "readyInMinutes": 7,
-          "servings": 1,
-          "sourceUrl": "https://supersimplelowcarb.com/blogs/low-carb-recipes/your-basic-low-carb-breakfast"
+      "week": {
+        "monday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
         },
-        {
-          "id": 1697531,
-          "image": "southern-tuna-salad-1697531.jpg",
-          "imageType": "jpg",
-          "title": "Southern Tuna Salad",
-          "readyInMinutes": 5,
-          "servings": 2,
-          "sourceUrl": "https://maplewoodroad.com/southern-tuna-salad/"
+        "tuesday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
         },
-        {
-          "id": 659135,
-          "image": "Salmon-with-roasted-vegetables-659135.jpg",
-          "imageType": "jpg",
-          "title": "Salmon with roasted vegetables",
-          "readyInMinutes": 45,
-          "servings": 2,
-          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables"
+        "wednesday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
+        },
+        "thursday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
+        },
+        "friday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
+        },
+        "saturday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
+        },
+        "sunday": {
+          "meals": [
+            {
+              "id": 664054,
+              "image": "Turkey-Sausage--Chard---Sweet-Potato-Breakfast-Scramble-664054.jpg",
+              "imageType": "jpg",
+              "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+              "readyInMinutes": 45,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble"
+            },
+            {
+              "id": 1095806,
+              "image": "spanish-style-salmon-fillets-1095806.jpg",
+              "imageType": "jpg",
+              "title": "Spanish style salmon fillets",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/JS5W8D53/spanish-style-salmon-fillets"
+            },
+            {
+              "id": 633348,
+              "image": "Bacon-Wrapped-Prawns-With-Basil-and-Tellicherry-Pepper-633348.jpg",
+              "imageType": "jpg",
+              "title": "Bacon Wrapped Prawns With Basil and Tellicherry Pepper",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/7ZTLJVLN/bacon-wrapped-prawns-with-basil-and-tellicherry-pepper"
+            }
+          ],
+          "nutrients": {
+            "calories": 1629.93,
+            "protein": 101.26,
+            "fat": 104.11,
+            "carbohydrates": 74.31
+          }
         }
-      ],
-      "nutrients": {
-        "calories": 1330.16,
-        "protein": 90.01,
-        "fat": 80.12,
-        "carbohydrates": 64.18
       }
     }
   }

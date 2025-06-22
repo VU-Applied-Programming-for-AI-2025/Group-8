@@ -521,6 +521,7 @@ def recommendations() -> Union[str, Response]:
         str: Rendered HTML template with recipe suggestions.
     """
     # Checks if user is logged in, if not redirects to the authentication page.
+    form = SearchForm()
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
@@ -581,7 +582,7 @@ def recommendations() -> Union[str, Response]:
     print("API params:", params)
     print("API response:", data)
 
-    return render_template("recipes.html", recipes_by_meal=meal_recipes)
+    return render_template("recipes.html", recipes_by_meal=meal_recipes, form=form)
 
 
 # display recipe details
@@ -618,6 +619,7 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
         return redirect(url_for("auth_page"))
 
     # Handle form submission
+    form = SearchForm()
     if request.method == "POST":
         time_frame = request.form.get("timeFrame", "day")
         # calories = request.form.get("calories")
@@ -662,7 +664,7 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
             )
 
     # Show form on GET
-    return render_template("builtin_meal_planner.html")
+    return render_template("builtin_meal_planner.html", form=form)
 
 
 def get_meal_plan(
