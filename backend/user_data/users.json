@@ -12,7 +12,7 @@
     "medication": [
       ""
     ],
-    "diet": "vegetarian",
+    "diet": "none",
     "existing_conditions": [
       ""
     ],
@@ -488,6 +488,302 @@
             "tip": "Practice stress-reducing techniques like yoga or meditation to help regulate magnesium levels."
           }
         }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a vegetarian diet may not provide sufficient VitaminA if not planned properly.",
+            "foods": [
+              "sweet potatoes",
+              "dark leafy greens",
+              "carrots"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne as it plays a role in collagen production and inflammation regulation. As a young adult, a diet lacking in VitaminC-rich foods may lead to skin issues.",
+            "foods": [
+              "citrus fruits",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne due to its role in wound healing, inflammation regulation, and sebum production. As a female, Zinc is essential for hormonal balance, and a vegetarian diet may require extra attention to ensure adequate intake.",
+            "foods": [
+              "beans",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Include Zinc-rich plant-based foods in your diet and consider consulting a healthcare professional about potential supplements."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne, as it regulates sebum production and has anti-inflammatory properties. As a 20-year-old female, a lack of VitaminA may be due to inadequate dietary intake, as the body cannot produce it on its own.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals, such as having sweet potatoes for breakfast or snacking on carrots."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production, leading to skin issues like acne. As a female, VitaminC is essential for maintaining healthy skin, and a lack of it may be exacerbated by a vegetarian diet if not planned properly.",
+            "foods": [
+              "citrus fruits",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne, as it regulates sebum production, inflammation, and skin cell growth. As a vegetarian, it may be challenging to get enough Zinc, which is commonly found in animal products.",
+            "foods": [
+              "pumpkin seeds",
+              "chickpeas",
+              "quinoa"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, such as snacking on pumpkin seeds or adding chickpeas to your meals."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 20-year-old female, adequate VitaminA intake is essential for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and lead to acne. As a female, VitaminC helps protect against oxidative stress and inflammation. At 20 years old, your skin is still developing, and VitaminC supports healthy skin cell growth.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can contribute to acne due to its role in regulating sebum production, wound healing, and inflammation. As a female, Zinc is essential for hormonal balance, and its lack may exacerbate acne.",
+            "foods": [
+              "beans",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, and consider taking a Zinc supplement after consulting a doctor, especially if you're experiencing persistent acne."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a vegetarian diet may lead to inadequate VitaminA intake if not properly planned.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and lead to acne. As a young adult, VitaminC is essential for overall health, and a vegetarian diet can be rich in VitaminC if a variety of fruits and vegetables are consumed.",
+            "foods": [
+              "citrus fruits",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Eat foods high in VitaminC with iron-rich foods to enhance iron absorption."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can contribute to acne due to its role in regulating inflammation and sebum production. As a female, Zinc is essential for overall health, and a vegetarian diet may require careful planning to meet Zinc needs.",
+            "foods": [
+              "beans",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Include Zinc-rich foods in your diet and consider consulting a registered dietitian for personalized guidance."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Vitamin A": {
+            "why": "A lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, a lack of Vitamin A may be more pronounced due to hormonal fluctuations.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "Vitamin C": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a female, Vitamin C is essential for hormonal balance, and a lack of it may exacerbate acne.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Increase Vitamin C intake through fruits and vegetables to help regulate sebum production."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its anti-inflammatory properties and role in wound healing. As a 20-year-old female, Zinc is essential for hormonal balance, and a lack of it may contribute to acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support immune function and skin health."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Vitamin A": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin health and cell turnover. As a 20-year-old female, a balanced diet is crucial for hormonal and skin health.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "Vitamin C": {
+            "why": "A lack of Vitamin C can exacerbate acne due to its antioxidant properties and role in collagen production. As a young adult, adequate Vitamin C intake is essential for overall health.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can contribute to acne due to its anti-inflammatory properties and role in wound healing. As a female, Zinc is particularly important for hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstruation to support hormonal balance."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 20-year-old female, adequate VitaminA intake is essential for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Incorporate VitaminA-rich foods into your daily meals, such as having sweet potatoes for breakfast or snacking on carrots."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production, leading to skin issues like acne. As a young adult, VitaminC is crucial for maintaining skin health and immunity.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can disrupt hormone regulation, leading to acne. As a female, Zinc is essential for maintaining healthy skin and hormonal balance. At 20 years old, adequate Zinc intake supports immune function and skin health.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstrual cycles, to help regulate hormones."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a lack of VitaminA may be more pronounced due to increased sebum production during puberty and adolescence.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne as it plays a role in collagen production and inflammation reduction. As a female, VitaminC is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in regulating sebum production, wound healing, and inflammation. As a female, Zinc is essential for hormonal balance, and a lack of it may exacerbate acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstruation to compensate for losses."
+          }
+        }
       }
     ],
     "mealplan": {
@@ -495,260 +791,260 @@
         "monday": {
           "meals": [
             {
-              "id": 716417,
-              "image": "strawberry-shortcake-w-mini-strawberry-poptarts-driscollsberry-strawshortcake-716417.jpg",
+              "id": 665040,
+              "image": "Watermelon--Kiwi--Apple-and-Frozen-Banana-Smoothie-665040.jpg",
               "imageType": "jpg",
-              "title": "Strawberry Shortcake w. Mini Strawberry PopTarts",
+              "title": "Watermelon, Kiwi, Apple and Frozen Banana Smoothie",
               "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://fullbellysisters.blogspot.com/2014/06/strawberry-shortcake-w-mini-strawberry.html"
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/LDFFHSFG/watermelon-kiwi-apple-and-frozen-banana-smoothie"
             },
             {
-              "id": 637283,
-              "image": "Catfish-Meunire-637283.jpg",
+              "id": 639954,
+              "image": "Colorful-Wild-Rice-Salad-639954.jpg",
               "imageType": "jpg",
-              "title": "Catfish Meuni\u00e8re",
-              "readyInMinutes": 25,
-              "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/76HPF5BC/catfish-meuni-re"
+              "title": "Colorful Wild Rice Salad",
+              "readyInMinutes": 30,
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/RRSS27DD/colorful-wild-rice-salad"
             },
             {
-              "id": 610952,
-              "image": "Crispy-Buttermilk-herb-fried-chicken-610952.jpg",
+              "id": 657651,
+              "image": "Quick-Veggie-Stir-Fry-657651.jpg",
               "imageType": "jpg",
-              "title": "Crispy Buttermilk-herb fried chicken",
-              "readyInMinutes": 60,
-              "servings": 4,
-              "sourceUrl": "https://spoonacular.com/-1409912088675"
+              "title": "Quick Veggie Stir-Fry",
+              "readyInMinutes": 45,
+              "servings": 1,
+              "sourceUrl": "https://www.foodista.com/recipe/JQYJXV3Y/quick-veggie-stir-fry"
             }
           ],
           "nutrients": {
-            "calories": 1133.31,
-            "protein": 75.55,
-            "fat": 51.48,
-            "carbohydrates": 91.01
+            "calories": 1433.3,
+            "protein": 45.18,
+            "fat": 62.59,
+            "carbohydrates": 190.64
           }
         },
         "tuesday": {
           "meals": [
             {
-              "id": 664585,
-              "image": "Vegetable-Quiche-Made-With-Fresh-Tomatoes--Spinach--Basil-and-Goat-Cheese-664585.jpg",
+              "id": 648632,
+              "image": "Jules-Banana-Bread-648632.jpg",
               "imageType": "jpg",
-              "title": "Vegetable Quiche Made With Fresh Tomatoes, Spinach, Basil and Goat Cheese",
-              "readyInMinutes": 90,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/8KLLFP2C/vegetable-quiche-made-with-fresh-tomatoes-spinach-basil-and-goat-cheese"
-            },
-            {
-              "id": 1516713,
-              "image": "instant-pot-crack-chicken-chili-1516713.jpg",
-              "imageType": "jpg",
-              "title": "Instant Pot Crack Chicken Chili",
-              "readyInMinutes": 16,
-              "servings": 6,
-              "sourceUrl": "https://www.pinkwhen.com/instant-pot-crack-chicken-chili/"
-            },
-            {
-              "id": 654120,
-              "image": "Orzo-With-Cherry-Tomatoes--Zucchini-and-Queso-Fresco-654120.jpg",
-              "imageType": "jpg",
-              "title": "Orzo With Cherry Tomatoes, Zucchini and Queso Fresco",
+              "title": "Jules' Banana Bread",
               "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/BYT4L4XH/jules-banana-bread"
+            },
+            {
+              "id": 642777,
+              "image": "Fig-and-Goat-Cheese-Pizza-With-Pesto-642777.jpg",
+              "imageType": "jpg",
+              "title": "Fig and Goat Cheese Pizza With Pesto",
+              "readyInMinutes": 15,
               "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/WD88XCX8/orzo-with-cherry-tomatoes-zucchini-and-queso-fresco"
+              "sourceUrl": "https://www.foodista.com/recipe/KFX4GS4M/fig-and-goat-cheese-pizza-with-pesto"
+            },
+            {
+              "id": 654991,
+              "image": "Pastitsio-654991.jpg",
+              "imageType": "jpg",
+              "title": "Pastitsio",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/FYZF5573/pastitsio"
             }
           ],
           "nutrients": {
-            "calories": 1133.44,
-            "protein": 50.57,
-            "fat": 58.89,
-            "carbohydrates": 103.34
+            "calories": 1433.38,
+            "protein": 40.81,
+            "fat": 75.93,
+            "carbohydrates": 151.52
           }
         },
         "wednesday": {
           "meals": [
             {
-              "id": 1017374,
-              "image": "easy-weekday-breakfast-muffins-1017374.jpg",
+              "id": 657768,
+              "image": "Raisin-Scones-657768.jpg",
               "imageType": "jpg",
-              "title": "Easy Weekday Breakfast Muffins",
-              "readyInMinutes": 30,
-              "servings": 12,
-              "sourceUrl": "https://www.pinkwhen.com/easy-weekday-breakfast-muffins/"
-            },
-            {
-              "id": 716297,
-              "image": "breaded-shrimp-and-spicy-mayo-716297.jpg",
-              "imageType": "jpg",
-              "title": "Breaded Shrimp and Spicy Mayo Appetizer",
-              "readyInMinutes": 20,
-              "servings": 4,
-              "sourceUrl": "https://www.afrolems.com/2013/10/13/breaded-shrimp-and-spicy-mayo/"
-            },
-            {
-              "id": 640686,
-              "image": "Creamy-Potato-Soup-640686.jpg",
-              "imageType": "jpg",
-              "title": "Creamy Potato Soup",
+              "title": "Raisin Scones",
               "readyInMinutes": 45,
-              "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/WRH8N7RC/creamy-potato-soup"
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/68J6C6RW/raisin-scones"
+            },
+            {
+              "id": 642585,
+              "image": "Farfalle-with-fresh-tomatoes--basil-and-mozzarella-642585.jpg",
+              "imageType": "jpg",
+              "title": "Farfalle with fresh tomatoes, basil and mozzarella",
+              "readyInMinutes": 15,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/B6CC3QXM/farfalle-with-fresh-tomatoes-basil-and-mozzarella"
+            },
+            {
+              "id": 642121,
+              "image": "Easy-Tabouleh-642121.jpg",
+              "imageType": "jpg",
+              "title": "Easy Tabouleh",
+              "readyInMinutes": 45,
+              "servings": 1,
+              "sourceUrl": "https://www.foodista.com/recipe/HC6SVFST/easy-tabouleh"
             }
           ],
           "nutrients": {
-            "calories": 1133.41,
-            "protein": 45.07,
-            "fat": 52.41,
-            "carbohydrates": 123.22
+            "calories": 1433.35,
+            "protein": 33.26,
+            "fat": 65.04,
+            "carbohydrates": 188.43
           }
         },
         "thursday": {
           "meals": [
             {
-              "id": 634004,
-              "image": "Banana-Bread-Nice-Cream-634004.jpg",
+              "id": 637222,
+              "image": null,
               "imageType": "jpg",
-              "title": "Banana Bread Nice Cream",
+              "title": "Carrot Quinoa Muffins",
               "readyInMinutes": 45,
-              "servings": 3,
-              "sourceUrl": "https://www.foodista.com/recipe/R6VK6CZJ/banana-bread-nice-cream"
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/LXQSTRQW/carrot-quinoa-muffins"
             },
             {
-              "id": 1098354,
-              "image": "rotisserie-chicken-and-bean-toastatas-1098354.jpg",
+              "id": 653251,
+              "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
               "imageType": "jpg",
-              "title": "Rotisserie Chicken and Bean Tostadas",
+              "title": "Noodles and Veggies With Peanut Sauce",
               "readyInMinutes": 30,
-              "servings": 3,
-              "sourceUrl": "https://www.foodista.com/recipe/YQF7DW47/rotisserie-chicken-and-bean-toastatas"
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
             },
             {
-              "id": 657031,
-              "image": "Potatoes-Smothered-W--Egg-Sauce-(Cariucho)-657031.jpg",
+              "id": 660494,
+              "image": "Soba-Noodle-Salad-with-Avocado-and-Mango-660494.jpg",
               "imageType": "jpg",
-              "title": "Potatoes Smothered with Egg Sauce (Cariucho)",
+              "title": "Soba Noodle Salad with Avocado and Mango",
               "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/GT7KS5FJ/potatoes-smothered-w-egg-sauce-cariucho"
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/CD8QSZWH/soba-noodle-salad-with-avocado-and-mango"
             }
           ],
           "nutrients": {
-            "calories": 1133.41,
-            "protein": 71.25,
-            "fat": 50.65,
-            "carbohydrates": 106.89
+            "calories": 1433.35,
+            "protein": 40.19,
+            "fat": 59.2,
+            "carbohydrates": 197.71
           }
         },
         "friday": {
           "meals": [
             {
-              "id": 632305,
-              "image": "Amazingly-Fluffy-Waffles-632305.jpg",
+              "id": 637222,
+              "image": null,
               "imageType": "jpg",
-              "title": "Amazingly Fluffy Waffles",
+              "title": "Carrot Quinoa Muffins",
               "readyInMinutes": 45,
-              "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/JVHM6NJ5/amazingly-fluffy-waffles"
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/LXQSTRQW/carrot-quinoa-muffins"
             },
             {
-              "id": 649988,
-              "image": "Light-and-Easy-Alfredo-649988.jpg",
+              "id": 641387,
+              "image": "Delicious-Creamy-Lentils-and-Chestnuts-Soup-641387.jpg",
               "imageType": "jpg",
-              "title": "Light and Easy Alfredo",
-              "readyInMinutes": 15,
-              "servings": 2,
-              "sourceUrl": "https://www.foodista.com/recipe/DT2ZGSNK/light-and-easy-alfredo"
+              "title": "Delicious Creamy Lentils and Chestnuts Soup",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/6NB227RW/delicious-creamy-lentils-and-chestnuts-soup"
             },
             {
-              "id": 637374,
-              "image": "Ceviche-Tostadas-637374.jpg",
+              "id": 648852,
+              "image": "Khachapuri-648852.jpg",
               "imageType": "jpg",
-              "title": "Ceviche Tostadas",
+              "title": "Khachapuri",
               "readyInMinutes": 45,
-              "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/QTKFQYPS/ceviche-tostadas"
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/6KTLX5JQ/khachapuri"
             }
           ],
           "nutrients": {
-            "calories": 1133.29,
-            "protein": 57.73,
-            "fat": 59.2,
-            "carbohydrates": 95.71
+            "calories": 1433.35,
+            "protein": 63.13,
+            "fat": 88.58,
+            "carbohydrates": 101.39
           }
         },
         "saturday": {
           "meals": [
             {
-              "id": 651972,
-              "image": "Mini-Pumpkin-Donuts-651972.jpg",
+              "id": 640767,
+              "image": "Crepes-Suzette-640767.jpg",
               "imageType": "jpg",
-              "title": "Mini Pumpkin Donuts",
-              "readyInMinutes": 45,
-              "servings": 38,
-              "sourceUrl": "http://www.foodista.com/recipe/ZPS3TBPC/mini-pumpkin-donuts"
-            },
-            {
-              "id": 1697677,
-              "image": "super-easy-oven-baked-cod-1697677.jpg",
-              "imageType": "jpg",
-              "title": "Super Easy Oven Baked Cod",
-              "readyInMinutes": 20,
-              "servings": 2,
-              "sourceUrl": "https://maplewoodroad.com/super-easy-oven-baked-cod/"
-            },
-            {
-              "id": 662363,
-              "image": "Super-Speedy-Spicy-Sweet-and-Sour-Shrimp-662363.jpg",
-              "imageType": "jpg",
-              "title": "Super Speedy Spicy Sweet and Sour Shrimp",
+              "title": "Crepes Suzette",
               "readyInMinutes": 45,
               "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/J35D5LYD/super-speedy-spicy-sweet-and-sour-shrimp"
+              "sourceUrl": "https://www.foodista.com/recipe/KD8ZMRJ6/crepes-suzette"
+            },
+            {
+              "id": 982371,
+              "image": "instant-pot-quinoa-grain-bowl-982371.jpg",
+              "imageType": "jpg",
+              "title": "Instant Pot Quinoa Grain Bowl",
+              "readyInMinutes": 13,
+              "servings": 4,
+              "sourceUrl": "https://www.pinkwhen.com/instant-pot-quinoa-grain-bowl/"
+            },
+            {
+              "id": 982371,
+              "image": "instant-pot-quinoa-grain-bowl-982371.jpg",
+              "imageType": "jpg",
+              "title": "Instant Pot Quinoa Grain Bowl",
+              "readyInMinutes": 13,
+              "servings": 4,
+              "sourceUrl": "https://www.pinkwhen.com/instant-pot-quinoa-grain-bowl/"
             }
           ],
           "nutrients": {
-            "calories": 1133.37,
-            "protein": 79.74,
-            "fat": 26.72,
-            "carbohydrates": 143.11
+            "calories": 1433.44,
+            "protein": 42.14,
+            "fat": 58.62,
+            "carbohydrates": 191.69
           }
         },
         "sunday": {
           "meals": [
             {
-              "id": 639590,
-              "image": "Classic-Custard-Quiche-Lorraine-639590.jpg",
+              "id": 640767,
+              "image": "Crepes-Suzette-640767.jpg",
               "imageType": "jpg",
-              "title": "Classic Custard Quiche Lorraine",
-              "readyInMinutes": 45,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/LR7FP65S/classic-custard-quiche-lorraine"
-            },
-            {
-              "id": 1050444,
-              "image": "how-to-make-the-perfect-instant-pot-chicken-1050444.jpg",
-              "imageType": "jpg",
-              "title": "How to Make the Perfect Instant Pot Chicken",
-              "readyInMinutes": 18,
-              "servings": 6,
-              "sourceUrl": "https://www.pinkwhen.com/instant-pot-chicken/"
-            },
-            {
-              "id": 641429,
-              "image": "Demeter-Mades-Creamy-Corn-Chowder-641429.jpg",
-              "imageType": "jpg",
-              "title": "Creamy Corn Chowder",
+              "title": "Crepes Suzette",
               "readyInMinutes": 45,
               "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/HZK7N6PW/demeter-mades-creamy-corn-chowder"
+              "sourceUrl": "https://www.foodista.com/recipe/KD8ZMRJ6/crepes-suzette"
+            },
+            {
+              "id": 638780,
+              "image": "Chock-Full-Of-Broccoli-Soup-638780.jpg",
+              "imageType": "jpg",
+              "title": "Chock Full Of Broccoli Soup",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/MYJMGP67/chock-full-of-broccoli-soup"
+            },
+            {
+              "id": 661365,
+              "image": "Spinach--Tomato---Onion-Couscous-661365.jpg",
+              "imageType": "jpg",
+              "title": "Spinach, Tomato & Onion Couscous",
+              "readyInMinutes": 45,
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/SVZDH8S4/spinach-tomato-onion-couscous"
             }
           ],
           "nutrients": {
-            "calories": 1133.34,
-            "protein": 49.93,
-            "fat": 63.84,
-            "carbohydrates": 100.87
+            "calories": 1433.41,
+            "protein": 47.61,
+            "fat": 72.32,
+            "carbohydrates": 167.08
           }
         }
       }
