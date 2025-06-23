@@ -3,50 +3,11 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
     <meta charset="UTF-8">
     <title>{% block title %}My App{% endblock %}</title>
-    <style>
-        nav {
-            background-color: #f0f0f0;
-            padding: 10px;
-        }
-
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropbtn {
-            background-color: transparent;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 8px 12px;
-            text-decoration: none;
-            color: black;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #e0e0e0;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
+    
 </head>
 
 <body>
@@ -91,6 +52,12 @@
         <a href="/show_favorites">Favorites</a> |
         <a href="{{ url_for('edit_meal_planner') }}" class="btn btn-primary">My Meal Plan</a> |
         <a href="{{ url_for('show_history') }}">View Analysis History</a> |
+        <form method="POST" action="{{ url_for('search_bar') }}">
+            {{ form.hidden_tag() }}
+            {{ form.search_bar.label }}
+            {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
+            <button type="submit">Search</button>
+        </form> |
 
         <a href="/logout">Logout</a>
     </nav>

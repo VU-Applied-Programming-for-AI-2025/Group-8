@@ -3,33 +3,70 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Spoonacular Meal Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spoonacular Meal Planner - NutriSpoon</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
 </head>
 
 <body>
-  <h1>Generate Meal Plan with Spoonacular</h1>
+  <div class="container">
+    <header class="mealplan-header">
+      <h1>🔧 Generate Meal Plan with Spoonacular</h1>
+      <p class="subtitle">Create personalized meal plans using Spoonacular's AI</p>
+    </header>
 
-  {% if error %}
-  <p style="color:red">{{ error }}</p>
-  {% endif %}
+    <main class="mealplan-content">
+      {% if error %}
+      <div class="message-box">
+        <p style="color: #ff4757;">{{ error }}</p>
+      </div>
+      {% endif %}
 
-  <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}">
-    <label for="timeFrame">Plan for:</label>
-    <select name="timeFrame" id="timeFrame">
-      <option value="day">1 Day</option>
-      <option value="week">1 Week</option>
-    </select><br><br>
+      <section class="mealplan-section">
+        <h2 class="section-title">
+          <span class="icon">⚙️</span>
+          Plan Configuration
+        </h2>
 
-    <label for="diet">Which diet are you</label>
-    <label for="diet">Plan for:</label>
-    <select name="diet" id="diet">
-      <option value="gain">Gain weight</option>
-      <option value="loose">Loose weight</option>
-      <option value="health">Stay healthy</option>
-    </select><br><br>
+        <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}" class="mealplan-form">
+          <div class="form-group">
+            <label for="timeFrame" class="form-label">
+              <span class="icon">📅</span>
+              Plan Duration
+            </label>
+            <select name="timeFrame" id="timeFrame" class="form-select">
+              <option value="day">1 Day</option>
+              <option value="week">1 Week</option>
+            </select>
+          </div>
 
-    <button type="submit">Generate Plan</button>
-  </form>
+          <div class="form-group">
+            <label for="diet" class="form-label">
+              <span class="icon">🎯</span>
+              Diet Goal
+            </label>
+            <select name="diet" id="diet" class="form-select">
+              <option value="gain">Gain Weight</option>
+              <option value="loose">Lose Weight</option>
+              <option value="health">Stay Healthy</option>
+            </select>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary generate-btn">
+              <span>🚀</span> Generate Plan
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <div class="mealplan-actions">
+        <a href="javascript:history.back()" class="btn btn-secondary">
+          <span>←</span> Back
+        </a>
+      </div>
+    </main>
+  </div>
 </body>
 
 </html>

@@ -18,7 +18,11 @@ import os, json, requests, random
 
 load_dotenv()
 
-app = Flask(__name__, template_folder="../frontend/templates")
+app = Flask(
+    __name__,
+    template_folder="../frontend/templates",
+    static_folder="../frontend/static",
+)
 app.secret_key = "VerySupersecretKey"  # A secret key for the sessions.
 
 # Retrieves the spoonacular API key from the .env file
@@ -87,7 +91,7 @@ def auth_page() -> Union[str, Response]:
         Response: Redirect to consent or home page.
     """
     if session.get("consent_given") and not session.get("logged_in"):
-        return render_template("auth.html")
+        return render_template("registration.html")
 
     if not session.get("consent_given"):
         return redirect(url_for("show_consent"))
@@ -181,7 +185,7 @@ def login() -> Union[str, Response]:
             return redirect(url_for("home"))
         else:
             # If the authentication fails, the user will stay on the authentication page and get the corresponding error message.
-            return render_template("auth.html", error=message)
+            return render_template("registration.html", error=message)
 
 
 @app.route("/logout")

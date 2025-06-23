@@ -20,8 +20,7 @@
       ""
     ],
     "saved_recipes": [
-      716432,
-      642129
+      716432
     ],
     "analysis_results": [
       {
@@ -56,43 +55,998 @@
           },
           "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
         }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, a lack of VitaminA may be more pronounced due to hormonal fluctuations.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne as it plays a role in collagen production and inflammation reduction. As a young adult, adequate VitaminC intake is essential for overall health and skin well-being.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne as it regulates sebum production, inflammation, and wound healing. As a female, Zinc intake is crucial for hormonal balance and skin health.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstruation to compensate for losses."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, adequate VitaminA intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, VitaminC is essential for overall health and skin well-being.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne as it plays a crucial role in regulating inflammation and sebum production. As a female, Zinc is particularly important for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support immune function and skin health."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional for proper evaluation and treatment."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 20-year-old female, a is in a demographic where VitaminB6 intake might be lower due to dietary choices or menstrual losses.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "potatoes"
+            ],
+            "tip": "Consider keeping a food diary to track VitaminB6 intake and menstrual cycle to identify any patterns."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and its lack can exacerbate headache frequency and severity. Given a's age and sex, ensuring adequate magnesium intake is essential.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Engage in stress-reducing activities like yoga or meditation to help your body absorb magnesium better."
+          },
+          "Iron": {
+            "why": "Although a doesn't have existing conditions that might affect iron levels, as a female, she is at risk of iron insufficiency, particularly if she has heavy menstrual periods, which can lead to headaches.",
+            "foods": [
+              "clams",
+              "beef liver",
+              "fortified cereals"
+            ],
+            "tip": "Consult with a healthcare provider about getting your menstrual periods checked for any abnormalities that could affect iron levels."
+          },
+          "Urgency Note": "No urgent medical concerns were flagged based on the provided information. However, if headaches persist or worsen, it is recommended to consult a healthcare professional for further evaluation."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause headaches, and as a 20-year-old female, a diet lacking in this vitamin may contribute to the symptom. VitaminB6 plays a crucial role in neurotransmitter synthesis and hemoglobin production.",
+            "foods": [
+              "chicken breast",
+              "salmon",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall circulation and help reduce headache frequency."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a young adult, a diet low in magnesium-rich foods may contribute to the issue. Magnesium helps regulate neurotransmitter function and blood vessel tone.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation or deep breathing, to help manage stress and alleviate headache symptoms."
+          },
+          "Iron": {
+            "why": "A lack of Iron can contribute to headaches, particularly in females due to menstrual blood loss. Iron is essential for hemoglobin production and oxygen delivery to the brain.",
+            "foods": [
+              "beef liver",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Include iron-rich foods in your diet, especially during menstrual periods, to help maintain healthy iron levels."
+          },
+          "Urgency Note": "None flagged, as there are no reported existing conditions, allergies, or medication that would indicate an urgent medical concern. However, if headaches persist or worsen, it is recommended to consult a healthcare professional for proper evaluation and treatment."
+        }
+      },
+      {
+        "symptoms": "hairloss",
+        "analyse": {
+          "Iron": {
+            "why": "A 20-year-old female with hair loss may experience hair thinning or loss due to a lack of iron, as iron plays a crucial role in the production of hemoglobin, which carries oxygen to hair follicles. Women of childbearing age are at higher risk of iron insufficiency due to menstrual blood loss.",
+            "foods": [
+              "Spinach",
+              "beef",
+              "fortified cereals"
+            ],
+            "tip": "Engage in regular exercise to improve blood circulation, which can help promote hair growth."
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can contribute to hair loss, as it plays a role in the production of melanin, the pigment that gives color to hair. At 20 years old, hormonal fluctuations may affect Vitamin B6 levels, and women are more likely to experience hair loss due to hormonal imbalances.",
+            "foods": [
+              "Chicken",
+              "salmon",
+              "sunflower seeds"
+            ],
+            "tip": "Reduce stress through meditation or yoga, as high stress levels can exacerbate hair loss."
+          },
+          "Zinc": {
+            "why": "A lack of zinc can lead to hair loss, as zinc is essential for hair growth and maintenance. Women with a low body mass index (BMI) or those who are vegetarian/vegan may be at risk of zinc insufficiency.",
+            "foods": [
+              "Oysters",
+              "beef",
+              "pumpkin seeds"
+            ],
+            "tip": "Get regular trims to prevent split ends and breakage, which can be particularly problematic for individuals with hair loss."
+          },
+          "Urgency Note": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "hairloss",
+        "analyse": {
+          "Iron": {
+            "why": "A 20-year-old female with hair loss may experience a lack of iron due to menstruation, which can lead to iron deficiency. Females of childbearing age are at a higher risk.",
+            "foods": [
+              "Spinach",
+              "beef liver",
+              "fortified cereals"
+            ],
+            "tip": "Consider incorporating iron-rich foods into your diet, especially during menstruation."
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can contribute to hair loss, and females are more prone to B6 deficiency due to hormonal fluctuations. At 20 years old, hormonal changes can affect nutrient absorption.",
+            "foods": [
+              "Chicken breast",
+              "salmon",
+              "chickpeas"
+            ],
+            "tip": "Include a variety of protein sources in your diet to ensure adequate B6 intake."
+          },
+          "Zinc": {
+            "why": "A lack of zinc can lead to hair loss, and as a female, the user's hormonal fluctuations may increase zinc requirements. At 20 years old, inadequate diet or increased demand can lead to a lack of zinc.",
+            "foods": [
+              "Oysters",
+              "beef",
+              "chicken thighs"
+            ],
+            "tip": "Eat zinc-rich foods regularly, as zinc plays a crucial role in hair growth."
+          },
+          "Urgency Note": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "hairloss",
+        "analyse": {
+          "Iron": {
+            "why": "A 20-year-old female with hair loss may experience hair loss due to a lack of iron, as iron plays a crucial role in the production of hemoglobin, which carries oxygen to hair follicles. Women of childbearing age are at higher risk of iron deficiency due to menstrual blood loss.",
+            "foods": [
+              "Spinach",
+              "beef",
+              "pumpkin seeds"
+            ],
+            "tip": "Engage in regular exercise to improve blood circulation, which can help promote hair growth."
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can contribute to hair loss, as it plays a role in the production of melanin, the pigment responsible for hair color. At 20 years old, hormonal fluctuations may affect Vitamin B6 levels.",
+            "foods": [
+              "Chicken",
+              "salmon",
+              "sunflower seeds"
+            ],
+            "tip": "Reduce stress through meditation or yoga, as high stress levels can exacerbate hair loss."
+          },
+          "Zinc": {
+            "why": "Zinc is essential for hair growth, and a lack of zinc can lead to hair loss. As a 20-year-old female, hormonal changes and inadequate diet may contribute to zinc insufficiency.",
+            "foods": [
+              "Oysters",
+              "eggs",
+              "almonds"
+            ],
+            "tip": "Maintain a balanced diet with a variety of whole foods to ensure adequate zinc intake."
+          },
+          "Urgency Note": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "hairloss",
+        "analyse": {
+          "Iron": {
+            "why": "A 20-year-old female with hair loss may experience hair thinning or shedding due to a lack of iron, as iron plays a crucial role in the production of hemoglobin, which carries oxygen to hair follicles. As a female, she is at a higher risk of iron deficiency due to menstrual blood loss.",
+            "foods": [
+              "Spinach",
+              "beef liver",
+              "fortified cereals"
+            ],
+            "tip": "Increase iron intake through iron-rich foods, especially during menstrual periods."
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can contribute to hair loss, as it plays a role in the production of melanin, the pigment that gives color to hair. Additionally, Vitamin B6 helps regulate hormones, which can contribute to hair growth.",
+            "foods": [
+              "Chicken breast",
+              "salmon",
+              "chickpeas"
+            ],
+            "tip": "Maintain a balanced diet with a variety of whole foods to ensure adequate Vitamin B6 intake."
+          },
+          "Zinc": {
+            "why": "Zinc is essential for hair growth, and a lack of zinc can lead to hair loss. As a female, she may be at risk of zinc deficiency due to inadequate dietary intake or increased excretion.",
+            "foods": [
+              "Oysters",
+              "beef",
+              "pumpkin seeds"
+            ],
+            "tip": "Include zinc-rich foods in her diet, and consider taking a zinc supplement if necessary, but only under medical guidance."
+          },
+          "Urgency Note": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "hairloss",
+        "analyse": {
+          "Iron": {
+            "why": "A 20-year-old female with hair loss may experience hair thinning or loss due to a lack of iron, as iron plays a crucial role in the production of hemoglobin, which carries oxygen to hair follicles. Women of childbearing age are at higher risk of iron insufficiency due to menstrual blood loss.",
+            "foods": [
+              "Spinach",
+              "beef",
+              "fortified cereals"
+            ],
+            "tip": "Increase iron intake through iron-rich foods, especially during menstrual periods."
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can contribute to hair loss, as it plays a role in the growth and maintenance of hair. Young adults, particularly women, may be at risk due to inadequate dietary intake.",
+            "foods": [
+              "Chicken",
+              "salmon",
+              "chickpeas"
+            ],
+            "tip": "Include Vitamin B6-rich foods in your diet and consider a balanced multivitamin if your diet is lacking."
+          },
+          "Zinc": {
+            "why": "Zinc is essential for hair growth and maintenance. A lack of zinc can lead to hair loss, and young women may be at risk due to inadequate dietary intake or increased requirements.",
+            "foods": [
+              "Oysters",
+              "beef",
+              "pumpkin seeds"
+            ],
+            "tip": "Consume zinc-rich foods, and consider taking a supplement if your diet is insufficient."
+          },
+          "Urgency Note": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "dry eyes",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause dry eyes, as it plays a crucial role in maintaining the health of the cornea and retina. As a 20-year-old female, a vegetarian diet may lead to a lower intake of Vitamin A-rich foods, particularly if not consuming enough plant-based sources like sweet potatoes, carrots, and dark leafy greens.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support eye health."
+          },
+          "VitaminE": {
+            "why": "A lack of Vitamin E can contribute to dry eyes, as it helps protect cells from damage and supports eye health. As a young adult, a diet lacking in nuts, seeds, and vegetable oils may lead to inadequate Vitamin E intake.",
+            "foods": [
+              "almonds",
+              "sunflower seeds",
+              "olive oil"
+            ],
+            "tip": "Snack on nuts and seeds, like almonds and sunflower seeds, to boost Vitamin E intake."
+          },
+          "VitaminB2": {
+            "why": "Although not directly linked, a lack of Vitamin B2 (Riboflavin) can contribute to eye strain and blurred vision. As a vegetarian, a lower intake of B2-rich animal products may occur. At 20 years old, adequate B2 intake supports energy production and can alleviate eye strain.",
+            "foods": [
+              "milk",
+              "almonds",
+              "mushrooms"
+            ],
+            "tip": "Eat a balanced diet with varied whole foods to ensure sufficient Vitamin B2 intake."
+          }
+        }
+      },
+      {
+        "symptoms": "dry eyes",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause dry eyes, as it plays a crucial role in maintaining the health of the cornea and retina. As a 20-year-old female, a vegetarian diet may not provide sufficient Vitamin A if not planned properly.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals, especially in breakfast."
+          },
+          "VitaminE": {
+            "why": "A lack of Vitamin E can contribute to dry eyes, as it helps protect the eyes from damage caused by free radicals. As a young adult, a diet rich in Vitamin E can help maintain eye health.",
+            "foods": [
+              "almonds",
+              "sunflower seeds",
+              "spinach"
+            ],
+            "tip": "Snack on Vitamin E-rich nuts and seeds to support eye health."
+          },
+          "Omega-3 fatty acids are not in the list, so I used": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can contribute to dry eyes, although the link is less direct. Vitamin B6 helps with the production of neurotransmitters and may play a role in maintaining eye health.",
+            "foods": [
+              "chickpeas",
+              "brown rice",
+              "sesame seeds"
+            ],
+            "tip": "Eat a balanced diet with whole grains and legumes to support overall health."
+          }
+        }
+      },
+      {
+        "symptoms": "cant loose weight",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Iron": {
+            "why": "As a 20-year-old female, the user is at a higher risk for iron insufficiency due to menstrual blood loss. A lack of iron can impede weight loss efforts as it plays a crucial role in metabolism and energy production.",
+            "foods": [
+              "Spinach",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Engage in regular aerobic exercises to improve iron absorption and overall metabolism."
+          },
+          "VitaminB12": {
+            "why": "As a vegetarian, the user may not consume enough VitaminB12, which is primarily found in animal products. A lack of VitaminB12 can lead to fatigue and sluggish metabolism, making it harder to lose weight.",
+            "foods": [
+              "Fortified plant-based milk",
+              "nutritional yeast",
+              "cereals"
+            ],
+            "tip": "Consider consulting a dietitian to ensure adequate VitaminB12 intake through plant-based sources."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a role in regulating metabolism and energy production. A lack of magnesium can contribute to weight loss difficulties. As a young adult, the user's diet may not provide sufficient magnesium.",
+            "foods": [
+              "Dark leafy greens",
+              "almonds",
+              "brown rice"
+            ],
+            "tip": "Practice stress-reducing techniques like yoga or meditation to help regulate magnesium levels."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a vegetarian diet may not provide sufficient VitaminA if not planned properly.",
+            "foods": [
+              "sweet potatoes",
+              "dark leafy greens",
+              "carrots"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne as it plays a role in collagen production and inflammation regulation. As a young adult, a diet lacking in VitaminC-rich foods may lead to skin issues.",
+            "foods": [
+              "citrus fruits",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne due to its role in wound healing, inflammation regulation, and sebum production. As a female, Zinc is essential for hormonal balance, and a vegetarian diet may require extra attention to ensure adequate intake.",
+            "foods": [
+              "beans",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Include Zinc-rich plant-based foods in your diet and consider consulting a healthcare professional about potential supplements."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne, as it regulates sebum production and has anti-inflammatory properties. As a 20-year-old female, a lack of VitaminA may be due to inadequate dietary intake, as the body cannot produce it on its own.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals, such as having sweet potatoes for breakfast or snacking on carrots."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production, leading to skin issues like acne. As a female, VitaminC is essential for maintaining healthy skin, and a lack of it may be exacerbated by a vegetarian diet if not planned properly.",
+            "foods": [
+              "citrus fruits",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne, as it regulates sebum production, inflammation, and skin cell growth. As a vegetarian, it may be challenging to get enough Zinc, which is commonly found in animal products.",
+            "foods": [
+              "pumpkin seeds",
+              "chickpeas",
+              "quinoa"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, such as snacking on pumpkin seeds or adding chickpeas to your meals."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 20-year-old female, adequate VitaminA intake is essential for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and lead to acne. As a female, VitaminC helps protect against oxidative stress and inflammation. At 20 years old, your skin is still developing, and VitaminC supports healthy skin cell growth.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can contribute to acne due to its role in regulating sebum production, wound healing, and inflammation. As a female, Zinc is essential for hormonal balance, and its lack may exacerbate acne.",
+            "foods": [
+              "beans",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, and consider taking a Zinc supplement after consulting a doctor, especially if you're experiencing persistent acne."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a vegetarian diet may lead to inadequate VitaminA intake if not properly planned.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and lead to acne. As a young adult, VitaminC is essential for overall health, and a vegetarian diet can be rich in VitaminC if a variety of fruits and vegetables are consumed.",
+            "foods": [
+              "citrus fruits",
+              "bell peppers",
+              "broccoli"
+            ],
+            "tip": "Eat foods high in VitaminC with iron-rich foods to enhance iron absorption."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can contribute to acne due to its role in regulating inflammation and sebum production. As a female, Zinc is essential for overall health, and a vegetarian diet may require careful planning to meet Zinc needs.",
+            "foods": [
+              "beans",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Include Zinc-rich foods in your diet and consider consulting a registered dietitian for personalized guidance."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Vitamin A": {
+            "why": "A lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, a lack of Vitamin A may be more pronounced due to hormonal fluctuations.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "Vitamin C": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a female, Vitamin C is essential for hormonal balance, and a lack of it may exacerbate acne.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Increase Vitamin C intake through fruits and vegetables to help regulate sebum production."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its anti-inflammatory properties and role in wound healing. As a 20-year-old female, Zinc is essential for hormonal balance, and a lack of it may contribute to acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support immune function and skin health."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Vitamin A": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin health and cell turnover. As a 20-year-old female, a balanced diet is crucial for hormonal and skin health.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "Vitamin C": {
+            "why": "A lack of Vitamin C can exacerbate acne due to its antioxidant properties and role in collagen production. As a young adult, adequate Vitamin C intake is essential for overall health.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can contribute to acne due to its anti-inflammatory properties and role in wound healing. As a female, Zinc is particularly important for hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstruation to support hormonal balance."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 20-year-old female, adequate VitaminA intake is essential for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Incorporate VitaminA-rich foods into your daily meals, such as having sweet potatoes for breakfast or snacking on carrots."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production, leading to skin issues like acne. As a young adult, VitaminC is crucial for maintaining skin health and immunity.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can disrupt hormone regulation, leading to acne. As a female, Zinc is essential for maintaining healthy skin and hormonal balance. At 20 years old, adequate Zinc intake supports immune function and skin health.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstrual cycles, to help regulate hormones."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a lack of VitaminA may be more pronounced due to increased sebum production during puberty and adolescence.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne as it plays a role in collagen production and inflammation reduction. As a female, VitaminC is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in regulating sebum production, wound healing, and inflammation. As a female, Zinc is essential for hormonal balance, and a lack of it may exacerbate acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstruation to compensate for losses."
+          }
+        }
       }
     ],
     "mealplan": {
-      "meals": [
-        {
-          "id": 1161746,
-          "image": "peanut-butter-muffins-1161746.jpg",
-          "imageType": "jpg",
-          "title": "Peanut Butter Muffins",
-          "readyInMinutes": 28,
-          "servings": 12,
-          "sourceUrl": "https://www.pinkwhen.com/peanut-butter-muffins/"
+      "week": {
+        "monday": {
+          "meals": [
+            {
+              "id": 665040,
+              "image": "Watermelon--Kiwi--Apple-and-Frozen-Banana-Smoothie-665040.jpg",
+              "imageType": "jpg",
+              "title": "Watermelon, Kiwi, Apple and Frozen Banana Smoothie",
+              "readyInMinutes": 45,
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/LDFFHSFG/watermelon-kiwi-apple-and-frozen-banana-smoothie"
+            },
+            {
+              "id": 639954,
+              "image": "Colorful-Wild-Rice-Salad-639954.jpg",
+              "imageType": "jpg",
+              "title": "Colorful Wild Rice Salad",
+              "readyInMinutes": 30,
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/RRSS27DD/colorful-wild-rice-salad"
+            },
+            {
+              "id": 657651,
+              "image": "Quick-Veggie-Stir-Fry-657651.jpg",
+              "imageType": "jpg",
+              "title": "Quick Veggie Stir-Fry",
+              "readyInMinutes": 45,
+              "servings": 1,
+              "sourceUrl": "https://www.foodista.com/recipe/JQYJXV3Y/quick-veggie-stir-fry"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.3,
+            "protein": 45.18,
+            "fat": 62.59,
+            "carbohydrates": 190.64
+          }
         },
-        {
-          "id": 653251,
-          "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
-          "imageType": "jpg",
-          "title": "Noodles and Veggies With Peanut Sauce",
-          "readyInMinutes": 30,
-          "servings": 4,
-          "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
+        "tuesday": {
+          "meals": [
+            {
+              "id": 648632,
+              "image": "Jules-Banana-Bread-648632.jpg",
+              "imageType": "jpg",
+              "title": "Jules' Banana Bread",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/BYT4L4XH/jules-banana-bread"
+            },
+            {
+              "id": 642777,
+              "image": "Fig-and-Goat-Cheese-Pizza-With-Pesto-642777.jpg",
+              "imageType": "jpg",
+              "title": "Fig and Goat Cheese Pizza With Pesto",
+              "readyInMinutes": 15,
+              "servings": 6,
+              "sourceUrl": "https://www.foodista.com/recipe/KFX4GS4M/fig-and-goat-cheese-pizza-with-pesto"
+            },
+            {
+              "id": 654991,
+              "image": "Pastitsio-654991.jpg",
+              "imageType": "jpg",
+              "title": "Pastitsio",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/FYZF5573/pastitsio"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.38,
+            "protein": 40.81,
+            "fat": 75.93,
+            "carbohydrates": 151.52
+          }
         },
-        {
-          "id": 679540,
-          "image": "baked-whole-wheat-breakfast-quesadilla-679540.png",
-          "imageType": "png",
-          "title": "Baked Whole Wheat Breakfast Quesadilla",
-          "readyInMinutes": 45,
-          "servings": 2,
-          "sourceUrl": "https://fullbellysisters.blogspot.com/2015/08/baked-whole-wheat-breakfast-quesadilla.html"
+        "wednesday": {
+          "meals": [
+            {
+              "id": 657768,
+              "image": "Raisin-Scones-657768.jpg",
+              "imageType": "jpg",
+              "title": "Raisin Scones",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/68J6C6RW/raisin-scones"
+            },
+            {
+              "id": 642585,
+              "image": "Farfalle-with-fresh-tomatoes--basil-and-mozzarella-642585.jpg",
+              "imageType": "jpg",
+              "title": "Farfalle with fresh tomatoes, basil and mozzarella",
+              "readyInMinutes": 15,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/B6CC3QXM/farfalle-with-fresh-tomatoes-basil-and-mozzarella"
+            },
+            {
+              "id": 642121,
+              "image": "Easy-Tabouleh-642121.jpg",
+              "imageType": "jpg",
+              "title": "Easy Tabouleh",
+              "readyInMinutes": 45,
+              "servings": 1,
+              "sourceUrl": "https://www.foodista.com/recipe/HC6SVFST/easy-tabouleh"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.35,
+            "protein": 33.26,
+            "fat": 65.04,
+            "carbohydrates": 188.43
+          }
+        },
+        "thursday": {
+          "meals": [
+            {
+              "id": 637222,
+              "image": null,
+              "imageType": "jpg",
+              "title": "Carrot Quinoa Muffins",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/LXQSTRQW/carrot-quinoa-muffins"
+            },
+            {
+              "id": 653251,
+              "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
+              "imageType": "jpg",
+              "title": "Noodles and Veggies With Peanut Sauce",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
+            },
+            {
+              "id": 660494,
+              "image": "Soba-Noodle-Salad-with-Avocado-and-Mango-660494.jpg",
+              "imageType": "jpg",
+              "title": "Soba Noodle Salad with Avocado and Mango",
+              "readyInMinutes": 45,
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/CD8QSZWH/soba-noodle-salad-with-avocado-and-mango"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.35,
+            "protein": 40.19,
+            "fat": 59.2,
+            "carbohydrates": 197.71
+          }
+        },
+        "friday": {
+          "meals": [
+            {
+              "id": 637222,
+              "image": null,
+              "imageType": "jpg",
+              "title": "Carrot Quinoa Muffins",
+              "readyInMinutes": 45,
+              "servings": 12,
+              "sourceUrl": "https://www.foodista.com/recipe/LXQSTRQW/carrot-quinoa-muffins"
+            },
+            {
+              "id": 641387,
+              "image": "Delicious-Creamy-Lentils-and-Chestnuts-Soup-641387.jpg",
+              "imageType": "jpg",
+              "title": "Delicious Creamy Lentils and Chestnuts Soup",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/6NB227RW/delicious-creamy-lentils-and-chestnuts-soup"
+            },
+            {
+              "id": 648852,
+              "image": "Khachapuri-648852.jpg",
+              "imageType": "jpg",
+              "title": "Khachapuri",
+              "readyInMinutes": 45,
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/6KTLX5JQ/khachapuri"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.35,
+            "protein": 63.13,
+            "fat": 88.58,
+            "carbohydrates": 101.39
+          }
+        },
+        "saturday": {
+          "meals": [
+            {
+              "id": 640767,
+              "image": "Crepes-Suzette-640767.jpg",
+              "imageType": "jpg",
+              "title": "Crepes Suzette",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/KD8ZMRJ6/crepes-suzette"
+            },
+            {
+              "id": 982371,
+              "image": "instant-pot-quinoa-grain-bowl-982371.jpg",
+              "imageType": "jpg",
+              "title": "Instant Pot Quinoa Grain Bowl",
+              "readyInMinutes": 13,
+              "servings": 4,
+              "sourceUrl": "https://www.pinkwhen.com/instant-pot-quinoa-grain-bowl/"
+            },
+            {
+              "id": 982371,
+              "image": "instant-pot-quinoa-grain-bowl-982371.jpg",
+              "imageType": "jpg",
+              "title": "Instant Pot Quinoa Grain Bowl",
+              "readyInMinutes": 13,
+              "servings": 4,
+              "sourceUrl": "https://www.pinkwhen.com/instant-pot-quinoa-grain-bowl/"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.44,
+            "protein": 42.14,
+            "fat": 58.62,
+            "carbohydrates": 191.69
+          }
+        },
+        "sunday": {
+          "meals": [
+            {
+              "id": 640767,
+              "image": "Crepes-Suzette-640767.jpg",
+              "imageType": "jpg",
+              "title": "Crepes Suzette",
+              "readyInMinutes": 45,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/KD8ZMRJ6/crepes-suzette"
+            },
+            {
+              "id": 638780,
+              "image": "Chock-Full-Of-Broccoli-Soup-638780.jpg",
+              "imageType": "jpg",
+              "title": "Chock Full Of Broccoli Soup",
+              "readyInMinutes": 30,
+              "servings": 4,
+              "sourceUrl": "https://www.foodista.com/recipe/MYJMGP67/chock-full-of-broccoli-soup"
+            },
+            {
+              "id": 661365,
+              "image": "Spinach--Tomato---Onion-Couscous-661365.jpg",
+              "imageType": "jpg",
+              "title": "Spinach, Tomato & Onion Couscous",
+              "readyInMinutes": 45,
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/SVZDH8S4/spinach-tomato-onion-couscous"
+            }
+          ],
+          "nutrients": {
+            "calories": 1433.41,
+            "protein": 47.61,
+            "fat": 72.32,
+            "carbohydrates": 167.08
+          }
         }
-      ],
-      "nutrients": {
-        "calories": 1733.28,
-        "protein": 68.26,
-        "fat": 81.13,
-        "carbohydrates": 184.12
       }
     }
   },
@@ -112,6 +1066,455 @@
     "allergies": [],
     "saved_recipes": [],
     "analysis_results": [],
+    "mealplan": []
+  },
+  "f": {
+    "username": "f",
+    "password": "f",
+    "name": "f",
+    "age": 20,
+    "sex": "female",
+    "height": 179.0,
+    "weight": 88.0,
+    "skin_color": "light",
+    "country": "spain",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, f's skin is more prone to hormonal fluctuations, which can increase the need for VitaminA.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production, leading to skin issues like acne. As a young adult, f's body requires adequate VitaminC for optimal skin health.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can disrupt hormone regulation, leading to acne. As a female, f is more susceptible to Zinc imbalances due to hormonal fluctuations. At 20 years old, f's body is still developing, and Zinc is essential for skin health.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support hormone regulation and skin health."
+          }
+        }
+      },
+      {
+        "symptoms": "nail breaking",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB5": {
+            "why": "A lack of VitaminB5 can cause nail breaking due to its role in maintaining healthy skin, hair, and nails. As a 20-year-old female, adequate VitaminB5 intake is essential for overall health.",
+            "foods": [
+              "sweet potatoes",
+              "avocados",
+              "sunflower seeds"
+            ],
+            "tip": "Take a balanced diet with a variety of whole foods."
+          },
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can contribute to nail weakness and breaking, as it plays a crucial role in maintaining healthy nails.",
+            "foods": [
+              "chickpeas",
+              "bananas",
+              "potatoes"
+            ],
+            "tip": "Include VitaminB6-rich foods in your daily meals."
+          },
+          "VitaminE": {
+            "why": "A lack of VitaminE can cause nail breaking due to its antioxidant properties, which help protect nails from damage.",
+            "foods": [
+              "almonds",
+              "spinach",
+              "sweet potatoes"
+            ],
+            "tip": "Snack on VitaminE-rich nuts and seeds."
+          }
+        }
+      },
+      {
+        "symptoms": "nail breaking",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB5": {
+            "why": "A lack of VitaminB5 can cause nail brittleness and breaking, as it plays a crucial role in maintaining healthy skin, hair, and nails. As a 20-year-old female, a diet rich in VitaminB5 is essential for overall health.",
+            "foods": [
+              "Salmon",
+              "avocado",
+              "sweet potatoes"
+            ],
+            "tip": "Take a biotin and VitaminB5 rich supplement after consulting a doctor, but for now focus on a balanced diet."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can contribute to nail breaking, as it helps maintain nail health and strength. As a female, Magnesium is essential for overall health, and a lack of it can be more pronounced during certain life stages.",
+            "foods": [
+              "Dark leafy greens",
+              "almonds",
+              "brown rice"
+            ],
+            "tip": "Include Magnesium-rich foods in your diet and consider taking a warm bath with Epsom salt to boost Magnesium levels."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can cause nail brittleness and breaking, as it plays a crucial role in maintaining healthy skin, hair, and nails. As a 20-year-old female, a diet rich in Zinc is essential for overall health.",
+            "foods": [
+              "Oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Increase Zinc intake through a balanced diet, and consider consulting a doctor about potential supplements."
+          },
+          "[No Urgency Note]": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          }
+        }
+      },
+      {
+        "symptoms": "nail breaking",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause nail brittleness and breaking. As a 20-year-old female, f's age and sex do not particularly affect VitaminB6 levels, but a diet lacking in variety can.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "spinach"
+            ],
+            "tip": "Take a biotin supplement after consulting a doctor."
+          },
+          "VitaminE": {
+            "why": "A lack of VitaminE can cause nail damage. As f has a light skin tone, she may be more prone to VitaminE deficiency due to reduced UV protection, which helps the body produce VitaminE.",
+            "foods": [
+              "almonds",
+              "sunflower seeds",
+              "olive oil"
+            ],
+            "tip": "Wear sunscreen with at least SPF 30 daily."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can cause nail brittleness. As a female, f may be at a higher risk due to menstrual losses.",
+            "foods": [
+              "dark chocolate",
+              "avocado",
+              "brown rice"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation."
+          }
+        }
+      },
+      {
+        "symptoms": "nail breaking",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB5": {
+            "why": "A lack of VitaminB5 can cause nail breaking due to its role in maintaining healthy skin, hair, and nails. As a 20-year-old female, a diet rich in VitaminB5 is essential for overall health.",
+            "foods": [
+              "Sweet potatoes",
+              "avocados",
+              "sunflower seeds"
+            ],
+            "tip": "Take a biotin supplement after consulting a doctor, as it can help strengthen nails."
+          },
+          "VitaminE": {
+            "why": "A lack of VitaminE can cause nail breaking due to its antioxidant properties that protect cells from damage. As a 20-year-old female with a height of 179.0 cm and weight of 88.0 kg, VitaminE helps maintain overall health.",
+            "foods": [
+              "Almonds",
+              "spinach",
+              "sweet potatoes"
+            ],
+            "tip": "Include VitaminE-rich foods in your daily meals to promote healthy skin, hair, and nails."
+          },
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause nail breaking due to its role in maintaining healthy skin, hair, and nails. As a 20-year-old female, VitaminB6 is essential for red blood cell production and nerve function.",
+            "foods": [
+              "Chicken breast",
+              "fish",
+              "chickpeas"
+            ],
+            "tip": "Eat a balanced diet that includes VitaminB6-rich foods to support overall health."
+          }
+        }
+      },
+      {
+        "symptoms": "fatigue",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "**Iron": {
+            "why": "As a 20-year-old female, f is at risk of iron insufficiency due to menstrual blood loss, which can lead to fatigue. Her age and sex put her in a high-risk category.",
+            "foods": [
+              "Spinach",
+              "beef liver",
+              "fortified cereals"
+            ],
+            "tip": "Engage in regular exercise to improve iron absorption."
+          },
+          "**VitaminB12": {
+            "why": "As a young adult, f's diet may not be providing sufficient VitaminB12, which is essential for energy production. A lack of VitaminB12 can cause fatigue.",
+            "foods": [
+              "Salmon",
+              "eggs",
+              "dairy products"
+            ],
+            "tip": "Consider consulting a doctor or registered dietitian to assess dietary VitaminB12 intake."
+          },
+          "**Magnesium": {
+            "why": "f's age and sex do not specifically put her at risk, but a lack of Magnesium can cause fatigue. As a young adult, her diet may not be providing sufficient Magnesium.",
+            "foods": [
+              "Dark chocolate",
+              "avocado",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation, to help conserve Magnesium."
+          }
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause headaches, and as a 20-year-old female, f may be more prone to VitaminB6 insufficiency due to increased demand during menstruation (if applicable) and a potentially inadequate diet.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "bananas"
+            ],
+            "tip": "Engage in regular physical activity to enhance VitaminB6 absorption."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and given f's age and sex, she may be at risk due to inadequate dietary intake or increased excretion; her diet not being specified may contribute to this risk.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help manage Magnesium levels."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in females of childbearing age due to menstrual blood loss; f's profile puts her in a demographic at risk for Iron insufficiency.",
+            "foods": [
+              "red meat",
+              "pumpkin seeds",
+              "lentils"
+            ],
+            "tip": "Consume VitaminC-rich foods alongside Iron-rich foods to enhance absorption."
+          }
+        }
+      },
+      {
+        "symptoms": "dry eyes",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause dry eyes, as it plays a crucial role in maintaining the health of the cornea and retina. As a 20-year-old female, f's age and sex do not particularly put her at risk for Vitamin A issues, but her diet may be lacking in this essential nutrient.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support eye health."
+          },
+          "VitaminE": {
+            "why": "A lack of Vitamin E can contribute to dry eyes, as it helps protect the eyes from damage caused by free radicals. As a young adult, f's age does not put her at significant risk, but her diet may not be providing sufficient Vitamin E.",
+            "foods": [
+              "almonds",
+              "sunflower seeds",
+              "spinach"
+            ],
+            "tip": "Snack on Vitamin E-rich nuts and seeds to support eye health."
+          },
+          "Omega-3 fatty acids are not in the list, but  VitaminB2": {
+            "why": "A lack of Vitamin B2 (Riboflavin) can cause eye problems, including dry eyes, as it plays a role in maintaining the health of the cornea. As a 20-year-old female, f's diet may not be providing sufficient Vitamin B2, particularly if she has a restricted diet.",
+            "foods": [
+              "dairy products",
+              "leafy greens",
+              "whole grains"
+            ],
+            "tip": "Ensure you're consuming enough whole grains and leafy greens to support eye health."
+          }
+        }
+      },
+      {
+        "symptoms": "dry eyes",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause dry eyes, as it plays a crucial role in maintaining the health of the cornea and retina. As a 20-year-old female, f's age and sex do not particularly put her at risk, but her diet may be lacking in Vitamin A-rich foods.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support eye health."
+          },
+          "VitaminE": {
+            "why": "A lack of Vitamin E can contribute to dry eyes, as it helps protect the eyes from damage caused by free radicals. As a young adult, f's body may require adequate Vitamin E to maintain healthy skin and eyes.",
+            "foods": [
+              "almonds",
+              "sunflower seeds",
+              "spinach"
+            ],
+            "tip": "Snack on Vitamin E-rich nuts and seeds to support eye health."
+          },
+          "Omega-3 fatty acids are not in the list, but  VitaminB2": {
+            "why": "A lack of Vitamin B2 (Riboflavin) can cause eye problems, including dry eyes. As a 20-year-old female, f's diet may be lacking in Vitamin B2-rich foods, particularly if she follows a restrictive diet.",
+            "foods": [
+              "dairy products",
+              "leafy greens",
+              "whole grains"
+            ],
+            "tip": "Eat whole grains and leafy greens to support eye health."
+          }
+        }
+      }
+    ],
+    "mealplan": []
+  },
+  "b": {
+    "username": "b",
+    "password": "b",
+    "name": "b",
+    "age": 20,
+    "sex": "male",
+    "height": 189.0,
+    "weight": 87.0,
+    "skin_color": "medium",
+    "country": "chad",
+    "medication": [
+      ""
+    ],
+    "diet": "glutenfree",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": []
+  },
+  "c": {
+    "username": "c",
+    "password": "c",
+    "name": "c",
+    "age": 45,
+    "sex": "female",
+    "height": 158.0,
+    "weight": 99.0,
+    "skin_color": "light",
+    "country": "netherlands",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      "high blood pressure"
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "cant loose weight",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can affect metabolism and weight regulation. As a 45-year-old female, hormonal changes during menopause can impact VitaminB6 levels. Existing high blood pressure may also be related to VitaminB6 imbalance.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "sunflower seeds"
+            ],
+            "tip": "Engage in regular physical activity, such as brisk walking, to enhance VitaminB6 absorption and overall weight management."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in regulating metabolism and energy production. As a female with high blood pressure, magnesium levels may be lower due to increased excretion. Age 45 also brings natural decline in magnesium levels.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocado"
+            ],
+            "tip": "Limit caffeine intake to minimize magnesium loss through urine."
+          },
+          "VitaminB12": {
+            "why": "As a 45-year-old female, VitaminB12 levels may decrease due to natural decline in absorption. Existing high blood pressure and potential weight issues may also be linked to VitaminB12 imbalance.",
+            "foods": [
+              "beef",
+              "fortified plant-based milk",
+              "clams"
+            ],
+            "tip": "Consider consulting a doctor about VitaminB12 supplements, especially if you're experiencing fatigue or weakness."
+          }
+        }
+      }
+    ],
     "mealplan": []
   }
 }

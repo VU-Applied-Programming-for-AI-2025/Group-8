@@ -1,36 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-<h1>{{ recipe.title}}</h1>
 
-<img src="{{ recipe.image }}" width="300">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ recipe.title }} - NutriSpoon</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/recipe_details.css') }}">
+</head>
 
-<h2>Ingredients</h2>
-<ul>
-    {% for ingredient in recipe['extendedIngredients'] %}
-    <li>{{ ingredient.original }}</li>
-    {% endfor %}
-</ul>
+<body>
+    <div class="container">
+        <header class="recipe-header">
+            <h1 class="recipe-title">{{ recipe.title }}</h1>
+        </header>
 
-<h2>Nutrition</h2>
-<ul>
-    {% for nutrient in recipe['nutrition']['nutrients'] %}
-    <li>{{ nutrient.name }}: {{ nutrient.amount }}{{ nutrient.unit }}</li>
-    {% endfor %}
-</ul>
+        <main class="recipe-content">
+            <div class="recipe-hero">
+                <div class="recipe-image-container">
+                    <img src="{{ recipe.image }}" alt="{{ recipe.title }}" class="recipe-image">
+                </div>
+            </div>
 
-<h2>Instructions</h2>
-{% if recipe["Instructions"] %}
-<div>
-    {{ recipe["Instructions"] | safe }}
-</div>
-{% elif recipe.analyzedInstructions and recipe.analyzedInstructions[0].steps %}
-<ol>
-    {% for step in recipe.analyzedInstructions[0].steps %}
-    <li>{{ step.step }}</li>
-    {% endfor %}
-</ol>
-{% else %}
-<p>No instructions for this recipe.</p>
-{% endif %}
+            <div class="recipe-sections">
+                <!-- Ingredients Section -->
+                <section class="recipe-section">
+                    <h2 class="section-title">
+                        <span class="icon">🥘</span>
+                        Ingredients
+                    </h2>
+                    <div class="section-content">
+                        <ul class="ingredients-list">
+                            {% for ingredient in recipe['extendedIngredients'] %}
+                            <li class="ingredient-item">
+                                <span class="ingredient-text">{{ ingredient.original }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Nutrition Section -->
+                <section class="recipe-section">
+                    <h2 class="section-title">
+                        <span class="icon">📊</span>
+                        Nutrition
+                    </h2>
+                    <div class="section-content">
+                        <div class="nutrition-grid">
+                            {% for nutrient in recipe['nutrition']['nutrients'] %}
+                            <div class="nutrition-item">
+                                <span class="nutrient-name">{{ nutrient.name }}</span>
+                                <span class="nutrient-value">{{ nutrient.amount }}{{ nutrient.unit }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Instructions Section -->
+                <section class="recipe-section">
+                    <h2 class="section-title">
+                        <span class="icon">📝</span>
+                        Instructions
+                    </h2>
+                    <div class="section-content">
+                        {% if recipe["Instructions"] %}
+                        <div class="instructions-content">
+                            {{ recipe["Instructions"] | safe }}
+                        </div>
+                        {% elif recipe.analyzedInstructions and recipe.analyzedInstructions[0].steps %}
+                        <ol class="instructions-list">
+                            {% for step in recipe.analyzedInstructions[0].steps %}
+                            <li class="instruction-step">
+                                <span class="step-number">{{ loop.index }}</span>
+                                <span class="step-text">{{ step.step }}</span>
+                            </li>
+                            {% endfor %}
+                        </ol>
+                        {% else %}
+                        <div class="no-instructions">
+                            <p>No instructions available for this recipe.</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+
+            <div class="recipe-actions">
+                <a href="javascript:history.back()" class="btn btn-secondary">
+                    <span>←</span> Back to Recipes
+                </a>
+            </div>
+        </main>
+    </div>
+</body>
 
 </html>

@@ -3,73 +3,144 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analysis results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
 </head>
 
 <body>
-    <h1>Analysis for {{symptoms}}</h1>
-    <div>
-        <pre id="analysis">{{ analysis }}</pre>
-    </div>
+    <div class="container">
+        <header class="analysis-header">
+            <div class="title-box">
+                <h1>Analysis for <span class="symptoms-text">{{symptoms}}</span></h1>
+            </div>
+        </header>
 
-    <div>
-        <a href="/recommendations">Get recipes</a>
+        <main class="analysis-container">
+            <div class="analysis-report" id="analysis">
+                <pre>{{ analysis }}</pre>
+            </div>
+
+            <div class="recommendation">
+                <a href="/recommendations">Get Personalized Recipes</a>
+            </div>
+        </main>
     </div>
 
     <script>
-        const rawText = document.getElementById("analysis").innerText;
+        document.addEventListener('DOMContentLoaded', function () {
+            const rawText = document.getElementById("analysis").innerText;
+            const results = {};
+            const lines = rawText.split("\n");
+            let currentNutrient = null;
 
-        // Parser for Groq response
-        const results = {};
-        const lines = rawText.split("\n");
+            console.log("Raw analysis text:\n", rawText); // Debug output
 
-        let currentNutrient = null;
+            // Parse the analysis text
+            for (let line of lines) {
+                line = line.trim();
 
-        for (let line of lines) {
-            line = line.trim();
+                // Match bolded or plain nutrient headers with colon
+                const nutrientMatch =
+                    line.match(/^\*{0,2}(.+?)\*{0,2}:\s*$/)
 
-            // Nutrient name line e.g., **Magnesium**:
-            const nutrientMatch = line.match(/^\*\*(.+?)\*\*:/);
-            if (nutrientMatch) {
-                currentNutrient = nutrientMatch[1];
-                results[currentNutrient] = {
-                    why: "",
-                    foods: [],
-                    tip: ""
-                };
-                continue;
+                if (nutrientMatch) {
+                    const potentialNutrient = nutrientMatch[1].trim();
+                    if (!["Why", "Foods", "Tip", "Urgency Note"].includes(potentialNutrient)) {
+                        currentNutrient = potentialNutrient;
+                        results[currentNutrient] = { why: "", foods: [], tip: "" };
+                        continue;
+                    }
+                }
+
+                if (currentNutrient) {
+                    const lowerLine = line.toLowerCase();
+                    if (lowerLine.startsWith("- why:")) {
+                        results[currentNutrient].why = line.slice(6).trim();
+                    } else if (lowerLine.startsWith("- foods:")) {
+                        results[currentNutrient].foods = line.slice(8).split(",").map(f => f.trim()).filter(Boolean);
+                    } else if (lowerLine.startsWith("- tip:")) {
+                        results[currentNutrient].tip = line.slice(6).trim();
+                    }
+                }
             }
 
-            // Extract sections under each nutrient
-            if (currentNutrient && line.startsWith("- Why:")) {
-                results[currentNutrient].why = line.replace("- Why:", "").trim();
-            } else if (currentNutrient && line.startsWith("- Foods:")) {
-                const foodList = line.replace("- Foods:", "").split(",");
-                results[currentNutrient].foods = foodList.map(f => f.trim());
-            } else if (currentNutrient && line.startsWith("- Tip:")) {
-                results[currentNutrient].tip = line.replace("- Tip:", "").trim();
+            console.log("Parsed results object:", results); // Debug output
+
+            // Format and inject the new analysis view
+            const formattedHTML = formatAnalysis(results);
+            if (formattedHTML) {
+                document.getElementById("analysis").innerHTML = formattedHTML;
             }
-        }
 
-        // Optional: include urgency note if needed
-        const urgencyMatch = rawText.match(/\*\*Urgency Note\*\*: (.+)$/m);
-        if (urgencyMatch) {
-            results["Urgency Note"] = urgencyMatch[1].trim();
-        }
+            // Save to backend if valid
+            if (Object.keys(results).length > 0) {
+                fetch("/save_results", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(results)
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            console.error("Error saving results:", response.status, response.statusText);
+                        } else {
+                            console.log("Results saved successfully");
+                        }
+                    })
+                    .catch(error => console.error("Error saving results:", error));
+            } else {
+                console.warn("No valid results to save");
+            }
 
-        // Send to Flask
-        fetch("/save_results", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(results)
-        })
-            .then(res => res.text())
-            .then(data => {
-                console.log("Saved to backend:", data);
-            });
+            // Format analysis into styled boxes
+            function formatAnalysis(data) {
+                let html = '';
+                for (const [nutrient, info] of Object.entries(data)) {
+                    if (nutrient === "Urgency Note") continue;
+
+                    html += `
+                        <div class="nutrient-box">
+                            <div class="nutrient-header">
+                                <h3 class="nutrient-name">${nutrient}</h3>
+                            </div>
+                            <div class="nutrient-content">
+                                <div class="nutrient-detail">
+                                    <span class="detail-label">Why:</span>
+                                    <span class="detail-value">${info.why || 'No explanation provided'}</span>
+                                </div>
+                                <div class="nutrient-detail">
+                                    <span class="detail-label">Foods:</span>
+                                    <span class="detail-value">${info.foods?.join(", ") || 'No foods suggested'}</span>
+                                </div>
+                                <div class="nutrient-detail">
+                                    <span class="detail-label">Tip:</span>
+                                    <span class="detail-value">${info.tip || 'No tip provided'}</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                // Urgency Note
+                if (data["Urgency Note"]) {
+                    html += `
+                        <div class="urgency-box">
+                            <div class="urgency-title">
+                                <span>⚠️</span>
+                                <span>Important Note</span>
+                            </div>
+                            <p>${data["Urgency Note"]}</p>
+                        </div>
+                    `;
+                }
+
+                return html;
+            }
+        });
     </script>
+
 </body>
 
 </html>

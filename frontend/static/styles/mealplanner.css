@@ -1,0 +1,540 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@400;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+    --first-color: #f9798e;
+    --first-color-alt: #B9647A;
+    --title-color: hsl(233, 32%, 15%);
+    --text-color: hsl(233, 4%, 35%);
+    --body-color: hsl(2, 100%, 97%);
+    --white-color: #ffffff;
+    --card-bg: rgba(255, 240, 245, 0.95);
+    --shadow-color: rgba(255, 182, 193, 0.2);
+
+    /* Font sizes */
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
+
+    /* Font families */
+    --body-font: 'Open Sans', sans-serif;
+    --second-font: 'Lemon', cursive;
+}
+
+/*=============== BASE STYLES ===============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: calc(var(--header-height) + 1rem) 1.5rem 1rem;
+}
+
+/*=============== HEADER ===============*/
+.mealplan-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.mealplan-header h1 {
+    font-family: var(--second-font);
+    color: var(--first-color);
+    font-size: 2.2rem;
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: var(--first-color-alt);
+    font-weight: 400;
+}
+
+/*=============== MAIN CONTENT ===============*/
+.mealplan-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/*=============== MESSAGE BOX ===============*/
+.message-box {
+    background: var(--card-bg);
+    border: 2px solid var(--first-color);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.message-box p {
+    color: var(--first-color-alt);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+/*=============== MEAL PLAN SECTIONS ===============*/
+.mealplan-section {
+    background: var(--white-color);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid var(--first-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mealplan-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(185, 100, 122, 0.15);
+}
+
+.section-title {
+    font-family: var(--second-font);
+    color: var(--first-color-alt);
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title .icon {
+    font-size: 1.6rem;
+}
+
+/*=============== FORM STYLES ===============*/
+.mealplan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--title-color);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.form-label .icon {
+    font-size: 1.2rem;
+}
+
+.form-select {
+    padding: 1rem;
+    border: 2px solid var(--card-bg);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--body-font);
+    background: var(--white-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--first-color);
+    box-shadow: 0 0 0 3px rgba(185, 100, 122, 0.1);
+}
+
+.form-select:hover {
+    border-color: var(--first-color-alt);
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.generate-btn {
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: var(--white-color);
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(185, 100, 122, 0.3);
+    transition: all 0.3s ease;
+}
+
+.generate-btn:hover {
+    background: linear-gradient(135deg, #e86a7a, #a85a6a);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(185, 100, 122, 0.4);
+}
+
+/*=============== MEALS CONTAINER ===============*/
+.meals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.meal-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--first-color);
+    transition: all 0.3s ease;
+}
+
+.meal-card:hover {
+    background: rgba(255, 240, 245, 1);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(185, 100, 122, 0.2);
+}
+
+.meal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.meal-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--title-color);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.cooking-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--white-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--first-color-alt);
+    white-space: nowrap;
+}
+
+.meal-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*=============== NUTRIENTS SECTION ===============*/
+.nutrients-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--card-bg);
+}
+
+.nutrients-title {
+    font-family: var(--second-font);
+    color: var(--first-color-alt);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nutrients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.nutrient-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 3px solid var(--first-color-alt);
+    transition: all 0.3s ease;
+}
+
+.nutrient-item:hover {
+    background: rgba(255, 240, 245, 1);
+    transform: translateX(5px);
+}
+
+.nutrient-name {
+    font-weight: 600;
+    color: var(--title-color);
+}
+
+.nutrient-value {
+    font-weight: 700;
+    color: var(--first-color-alt);
+    background: var(--white-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+/*=============== WEEK CONTAINER ===============*/
+.week-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.day-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid var(--first-color);
+    transition: all 0.3s ease;
+}
+
+.day-card:hover {
+    background: rgba(255, 240, 245, 1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(185, 100, 122, 0.2);
+}
+
+.day-title {
+    font-family: var(--second-font);
+    color: var(--first-color-alt);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+}
+
+.day-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(to right, var(--first-color), var(--first-color-alt));
+    border-radius: 1px;
+}
+
+.day-meals {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.meal-item {
+    background: var(--white-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.meal-item:hover {
+    transform: translateX(3px);
+    box-shadow: 0 3px 10px rgba(185, 100, 122, 0.15);
+}
+
+.meal-info {
+    flex: 1;
+}
+
+.meal-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--title-color);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.recipe-title {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.meal-time {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--first-color-alt);
+    font-weight: 500;
+}
+
+/*=============== CUSTOM MEAL PLAN ===============*/
+.custom-mealplan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+/*=============== BUTTON STYLES ===============*/
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    justify-content: center;
+    font-family: var(--body-font);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: var(--white-color);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #e86a7a, #a85a6a);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(185, 100, 122, 0.4);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--first-color-alt);
+    border: 2px solid var(--first-color);
+}
+
+.btn-secondary:hover {
+    background: var(--first-color);
+    color: var(--white-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(185, 100, 122, 0.3);
+}
+
+/*=============== MEAL PLAN ACTIONS ===============*/
+.mealplan-actions {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/*=============== RESPONSIVE DESIGN ===============*/
+@media (max-width: 768px) {
+    .container {
+        padding: calc(var(--header-height) + 0.5rem) 1rem 0.5rem;
+    }
+
+    .mealplan-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .mealplan-section {
+        padding: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .meal-header {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cooking-time {
+        align-self: flex-start;
+    }
+
+    .week-container {
+        grid-template-columns: 1fr;
+    }
+
+    .custom-mealplan {
+        grid-template-columns: 1fr;
+    }
+
+    .nutrients-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .meal-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .form-select {
+        padding: 0.9rem;
+    }
+
+    .generate-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mealplan-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .mealplan-section {
+        padding: 1.25rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+    }
+
+    .day-card {
+        padding: 1.25rem;
+    }
+
+    .meal-card {
+        padding: 1.25rem;
+    }
+
+    .nutrient-item {
+        padding: 0.75rem;
+    }
+
+    .form-select {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+}
