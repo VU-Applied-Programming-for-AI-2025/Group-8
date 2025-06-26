@@ -240,8 +240,19 @@ def analyze_symptoms() -> str:
 
     # Build detailed prompt for LLM with user profile and request instructions
     ai_prompt = f"""
-        user profile:
-        - name: {user.name}
+        Analyze the following user profile (#user profile) and symptoms (#user symptoms) to identify the 3 most likely potential nutrient inadequacies. Your output should be exactly as specified in #output.
+        
+        Provide a structured analysis which you should output as specified in #output that includes:
+        - top 3 likely nutrient inadequacies based on the user's profile, using only the specified nutrients:
+            - Nutrients to base analysis on: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium, Zinc.
+        - For each possible nutrient in inadequacy, give:
+            1 (Why): A biological explanation, if the user's profile plays a role on the nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
+            2 (Foods): The top 3 foods to consume to improve the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
+            3 (Tip): One lifestyle tip, that aligns with the user's profile.
+
+        
+        
+        #user profile:
         - age: {user.age}
         - sex: {user.sex}
         - height: {user.height}
@@ -251,24 +262,30 @@ def analyze_symptoms() -> str:
         - existing conditions: {", ".join(user.existing_conditions) if user.existing_conditions else "none"}
         - allergies: {", ".join(user.allergies) if user.allergies else "none"}
         - diet: {user.diet}
+        - country: {user.country}
 
-        user symptoms: {symptoms}
+        #user symptoms:
+        - {symptoms}
 
-        required analysis: 
-        1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight. ONLY use these vitamin/minerals: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium, Sugar, Zinc
-        2. for each deficiency:
-        - biological explanation, if the user's profile plays a role on the vitamin/nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
-        - top 3 foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
-        - 1 lifestyle tip, that aligns with the user's profile
-        3. flag any urgent medical concerns, including the user's medication, existing conditions and allergies
+        #output:
+        Based on your personal profile and symptoms, here are the most likely nutrients in inadequacy:
 
-        return the analysis ONLY in this format:
-        [vitamin/mineral name] (no extra stuff):
+        [Nutrient name]:
         - Why: [explanation]
         - Foods: [comma-separated list]
-        - Tip: [actionable advice]
+        - Tip: [actionable advice]        
 
-        [Urgency Note]: (optional)
+        [Nutrient name]:
+        - Why: [explanation]
+        - Foods: [comma-separated list]
+        - Tip: [actionable advice]    
+
+        [Nutrient name]:
+        - Why: [explanation]
+        - Foods: [comma-separated list]
+        - Tip: [actionable advice]    
+
+        Always consult a healthcare professional before taking any supplements or making significant dietary changes.
         """
 
     # llm should incorporate the pesonal details of the user like allergies, pregnancy, etc
@@ -322,7 +339,6 @@ def extract_deficiency_keywords(text: str) -> List[str]:
         "potassium",
         "selenium",
         "sodium",
-        "sugar",
         "zinc",
     }
 
@@ -361,7 +377,7 @@ def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
     }}
 
     nutrients/vitamins: {", ".join(str(d) for d in deficiencies)}
-    rule: only do it in the exameple format provided above.
+    rule: only do it in the example format provided above.
 
     """
     try:
@@ -401,77 +417,9 @@ def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
         return {}
 
 
-if __name__ == "__main__":
-    deficiencies = ["VitaminA", "Zinc", "Calcium"]
-    intake_recommendations = vitamin_intake(deficiencies)
-    print("Recommended minimum intakes:")
-    print(intake_recommendations)
-
-
-def vitamin_intake(deficiencies: List[str]) -> Dict[str, Dict[str, int]]:
-    """ """
-
-    if not deficiencies:
-        return {}
-
-    prompt = f"""
-    for each of the following nutrients/vitamins, suggest a minimum daily amount (in mg) to consume when mildly lacking it. the maximum amount cannot exceed 100 mg,
-    in this JSON format: 
-    {{
-        "vitamin_a": {{ "minVitaminA": 5 }},
-        "zinc": {{ "minZinc": 10 }}
-    }}
-
-    nutrients/vitamins: {", ".join(str(d) for d in deficiencies)}
-    rule: only do it in the exameple format provided above.
-
-    """
-    try:
-        response = client.chat.completions.create(
-            model="meta-llama/llama-4-scout-17b-16e-instruct",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a nutrition analysis API that responds strictly in JSON.",
-                },
-                {"role": "user", "content": prompt},
-            ],
-            temperature=0.7,
-            max_completion_tokens=1024,
-            top_p=1,
-            stop=None,
-            response_format={"type": "json_object"},
-        )
-
-        uncleaned_data = json.loads(response.choices[0].message.content)
-
-        cleaned = {
-            nutrient_name: {
-                min_amount_key: int(val)
-                for min_amount_key, val in nutrient_data.items()
-                if isinstance(val, (int, float, str)) and str(val).isdigit()
-            }
-            for nutrient_name, nutrient_data in uncleaned_data.items()
-            if isinstance(nutrient_data, dict)
-        }
-
-        return cleaned
-
-    except Exception as e:
-        print("Groq API failed:", e)
-        return {}
-
-
-if __name__ == "__main__":
-    deficiencies = ["VitaminA", "Zinc", "Calcium"]
-    intake_recommendations = vitamin_intake(deficiencies)
-    print("Recommended minimum intakes:")
-    print(intake_recommendations)
-
-
-# helper to function extract foods from the groq response
 def extract_food_recs() -> List[str]:
     """
+    Helper to function extract foods from the groq response
     Tries to get symptom analysis from Groq. Falls back if unavailable.
     Returns two lists: vitamins, foods
     """
@@ -689,34 +637,6 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
     return render_template("builtin_meal_planner.html")
 
 
-def get_meal_plan(
-    api_key, diet=None, exclude=None, calories=None, time_frame="day"
-) -> Dict:
-    """
-    Retrieves a meal plan from the Spoonacular API based on user preferences and calorie needs.
-
-    :param api_key: Your Spoonacular API key
-    :param diet: Diet type (e.g. vegetarian, keto)
-    :param exclude: Ingredients to exclude (e.g. allergies)
-    :param calories: Target calorie intake
-    :param time_frame: 'day' or 'week'
-    :return: Meal plan data as dictionary
-    """
-    url = "https://api.spoonacular.com/mealplanner/generate"
-    params = {
-        "apiKey": api_key,
-        "timeFrame": time_frame,
-    }
-    if diet:
-        params["diet"] = diet
-    if exclude:
-        params["exclude"] = exclude
-    if calories:
-        params["targetCalories"] = calories
-
-    response = requests.get(url, params=params)
-    return response.json()
-
 
 def calculate_bmr() -> float:
     """
@@ -834,67 +754,6 @@ def edit_meal_planner() -> str:
         return render_template(
             "mealplanner.html", message="Unexpected meal plan format."
         )
-
-
-def generate_mealplan(
-    days: int, meals: List[str], user: UserProfile
-) -> Dict[str, List[Dict]]:
-    """
-    Provides a mealplan with categorized recipe recommendations for breakfast, lunch, and / or dinner.
-    Falls back to random recipes if no results are found.
-    :param days (int): The number of days for the meal plan.
-    :param meals (List[str]): A list of meals to include in the meal plan (breakfast, lunch, dinner).
-    :param user (UserProfile): The UserProfile object containing user information.
-    :return (Dict[str, List[Dict]]): A dictionary with meal plan details.
-    """
-    if not user:
-        return redirect(url_for("auth_page"))
-    mealplan = {}
-
-    # Generate recipes for each day and each selected meal type
-    for day in range(1, days + 1):
-        mealplan[day] = {}
-        for meal in meals:
-            recipe = generate_recipe(meal)
-            mealplan[day][meal] = recipe
-
-    return mealplan
-
-
-def generate_recipe(meal: str, exclude_ingredients: List[str] = []) -> Dict:
-    """
-    Generates a recipe based on the user's preferences and dietary restrictions.
-    :param meal (str): The type of meal to generate a recipe for (e.g., breakfast, lunch, dinner).
-    :param exclude_ingredients (List[str]): A optional list of ingredients to exclude from the recipe.
-    :return (Dict): A dictionary containing the generated recipe details.
-    """
-    user = userAuthHelper()
-    diet = user.diet
-    intolerance = ",".join(user.allergies).join(exclude_ingredients)
-
-    category_to_types = {
-        "breakfast": ["breakfast"],
-        "lunch": ["main course", "salad", "soup"],
-        "dinner": ["main course", "side dish", "appetizer"],
-    }
-
-    types = category_to_types.get(meal, [meal])
-    selected_type = random.choice(types)
-
-    params = {
-        "diet": diet,
-        "excludeIngredients": intolerance,
-        "type": selected_type,
-        "number": 1,
-        "apiKey": spoonacular_api_key,
-    }
-    response = requests.get("https://api.spoonacular.com/recipes/random", params=params)
-    if response.status_code == 200:
-        data = response.json()
-        recipe = data.get("recipes", [])[0]
-        return jsonify(recipe)
-    else:
-        return jsonify({"error": "Failed to fetch recipe"}), 500
 
 
 @app.route("/save_favorite/<recipe_id>", methods=["POST"])
