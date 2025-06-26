@@ -256,7 +256,7 @@ img {
     transform: rotate(15deg);
     left: 1rem;
     right: 0;
-    top: 1rem;
+    top: 5rem;
     margin: 0 auto;
     animation: float-juice 4s ease-in-out infinite;
 }
