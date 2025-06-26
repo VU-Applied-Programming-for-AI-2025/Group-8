@@ -548,15 +548,17 @@ def recommendations() -> Union[str, Response]:
     }
 
     meal_recipes = {}
-    min_nutrient_params = {}
 
-    # Flatten nutrient parameters for API request
+    min_nutrient_params = []
     for nutrient_dict in min_nutrients.values():
-        min_nutrient_params.update(nutrient_dict)
+        min_nutrient_params.append(nutrient_dict)
+
+    nutrient_index = 0
 
     # Loop through each meal category and fetch recipes
-    for category, types in category_to_types.items():
+    for category in category_to_types:
         collected_recipes = []
+        types = category_to_types.get(category, [category])
 
         for t in types:
             params = {
@@ -566,7 +568,12 @@ def recommendations() -> Union[str, Response]:
                 "number": 3,
                 "apiKey": spoonacular_api_key,
             }
-            params.update(min_nutrient_params)
+            if min_nutrient_params:
+                nutrient_params = min_nutrient_params[nutrient_index]
+                nutrient_index = (nutrient_index + 1) % len(min_nutrient_params)
+                params.update(nutrient_params)
+            else:
+                nutrient_params = {}
 
             try:
                 response = requests.get(
@@ -574,15 +581,13 @@ def recommendations() -> Union[str, Response]:
                 )
                 data = response.json()
                 collected_recipes.extend(data.get("results", []))
+
             except Exception as e:
                 print(f"Error fetching {category} ({t}):", e)
 
         # fallback logic removed to avoid unrelated random recipes
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
-
-    print("API params:", params)
-    print("API response:", data)
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
