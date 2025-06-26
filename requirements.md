@@ -49,8 +49,8 @@
 
 ## 7. Meal Planning
 
-- Generate a custom meal plan based on recommended nutrients to consume.
-- View meal plans for a day or week.
+- Generate a custom meal plan from recommended recipes.
+- Create a custom Spoonacular meal plan based on the BMR which will be calculated with the users data.
 - Find mealplans back on homepage where you can go to your mealplan.
 
 ---
