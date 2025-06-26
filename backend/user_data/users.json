@@ -20,7 +20,8 @@
       ""
     ],
     "saved_recipes": [
-      716432
+      716432,
+      756814
     ],
     "analysis_results": [
       {
@@ -784,6 +785,348 @@
             "tip": "Include Zinc-rich foods in your diet, especially during menstruation to compensate for losses."
           }
         }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, a lack of VitaminA may be more pronounced due to increased sebum production during puberty and adolescence.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne as it plays a role in collagen production and has antioxidant properties that help reduce inflammation. As a female, VitaminC is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne as it regulates sebum production, reduces inflammation, and supports immune function. As a 20-year-old female, Zinc is essential for maintaining healthy skin, and a lack of it may exacerbate acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, a lack of VitaminA may be more pronounced due to increased sebum production during this age.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and contribute to acne. As a female, VitaminC is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC to boost collagen production and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can disrupt hormonal balance and lead to acne. As a 20-year-old female, Zinc is crucial for regulating androgens and supporting skin health.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support hormonal balance and skin health."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in regulating skin cell growth and differentiation. As a 20-year-old female, a lack of Vitamin A may be more pronounced due to hormonal fluctuations.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne as it plays a role in collagen production and wound healing. As a young adult, adequate Vitamin C intake is essential for overall health.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with iron-rich foods to enhance iron absorption."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne as it regulates inflammation and supports immune function. As a female, Zinc intake is crucial for hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support immune function and skin health."
+          }
+        }
+      },
+      {
+        "symptoms": "fatigue",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Iron": {
+            "why": "As a 20-year-old female, a lack of iron is common due to menstrual blood loss. Iron is essential for transporting oxygen to cells, and a lack of it can cause fatigue.",
+            "foods": [
+              "Spinach",
+              "beans",
+              "fortified cereals"
+            ],
+            "tip": "Take vitamin C-rich foods like citrus fruits or bell peppers with iron-rich foods to enhance absorption."
+          },
+          "VitaminB12": {
+            "why": "A lack of Vitamin B12 can cause fatigue, and as a 20-year-old female, it's essential to maintain adequate levels. Vitamin B12 plays a crucial role in energy production.",
+            "foods": [
+              "Salmon",
+              "eggs",
+              "fortified plant-based milk"
+            ],
+            "tip": "Consider consulting a doctor about Vitamin B12 supplements if you're following a plant-based diet."
+          },
+          "Magnesium": {
+            "why": "A lack of magnesium can cause fatigue, and it's essential for energy production. As a young adult, magnesium is crucial for maintaining healthy bones and muscles.",
+            "foods": [
+              "Dark chocolate",
+              "almonds",
+              "quinoa"
+            ],
+            "tip": "Engage in regular physical activity to improve magnesium absorption and overall energy levels."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 20-year-old female, a lack of VitaminA may be more pronounced due to hormonal fluctuations.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Incorporate VitaminA-rich foods into your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and worsen acne. As a young adult, adequate VitaminC intake is essential for skin health and immune function.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne due to its role in regulating inflammation and immune function. As a female, Zinc intake is crucial during menstruation to compensate for monthly losses.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstruation, to support immune function."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and reducing inflammation. As a 20-year-old female, adequate VitaminA intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can impair collagen production and contribute to acne. As a young adult, VitaminC is essential for overall health, and its antioxidant properties can help reduce acne severity.",
+            "foods": [
+              "oranges",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in VitaminC with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can disrupt hormone balance and lead to acne. As a female, Zinc is particularly important for regulating menstrual cycles and androgen hormones, which can contribute to acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstrual periods, to help regulate hormones."
+          }
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "VitaminA": {
+            "why": "A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, a lack of VitaminA may be more pronounced due to hormonal fluctuations.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of VitaminC can contribute to acne due to its antioxidant properties and role in collagen production. As a female, VitaminC is essential for hormonal balance, and a lack of it may exacerbate acne.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Increase VitaminC intake through fruits and vegetables to help regulate sebum production."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its anti-inflammatory properties and role in wound healing. As a 20-year-old female, Zinc is essential for hormonal balance, and a lack of it may contribute to acne.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support skin health and reduce inflammation."
+          }
+        }
+      },
+      {
+        "symptoms": "fatigue",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Iron": {
+            "why": "A 20-year-old female experiencing fatigue may be at risk of iron insufficiency due to menstrual blood loss, which is common in women of childbearing age. The user's profile does not indicate any existing conditions or medication that would directly affect iron levels, but age and sex are risk factors.",
+            "foods": [
+              "Spinach",
+              "beans",
+              "lentils"
+            ],
+            "tip": "Engage in regular exercise to improve circulation and oxygen delivery to cells, which can help combat fatigue."
+          },
+          "Vitamin B12": {
+            "why": "Fatigue in a young female can also be linked to a lack of Vitamin B12, which is crucial for energy production. Although there's no indication of existing conditions or medication affecting B12 levels, being a female of childbearing age puts her at risk, especially if her diet is lacking.",
+            "foods": [
+              "Salmon",
+              "eggs",
+              "fortified cereal"
+            ],
+            "tip": "Consider keeping a food diary to track Vitamin B12 intake and identify any patterns or deficiencies."
+          },
+          "Vitamin D": {
+            "why": "A lack of Vitamin D can cause fatigue, and young women are at risk, especially if they have limited sun exposure. The user's profile does not mention any existing conditions or medication affecting Vitamin D levels.",
+            "foods": [
+              "Fatty fish",
+              "fortified milk",
+              "mushrooms"
+            ],
+            "tip": "Spend at least 15-20 minutes outside during peak sunlight hours to boost natural Vitamin D production."
+          }
+        }
+      },
+      {
+        "symptoms": "stomach pain",
+        "analyse": {
+          "Based on the user's profile and symptoms, here is the analysis": {
+            "why": "",
+            "foods": [],
+            "tip": ""
+          },
+          "Iron": {
+            "why": "As a 20-year-old female, a lack of iron is common due to menstrual blood loss. Stomach pain can be a symptom of iron deficiency, and females are at higher risk.",
+            "foods": [
+              "clams",
+              "oysters",
+              "beef liver",
+              "fortified cereals",
+              "cooked spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Engage in regular exercise to improve circulation and help reduce menstrual cramps."
+          },
+          "VitaminB6": {
+            "why": "A lack of Vitamin B6 can cause stomach pain, and females are more likely to have lower levels due to hormonal fluctuations. Age 20 is also a critical period for establishing healthy eating habits.",
+            "foods": [
+              "chicken breast",
+              "salmon",
+              "potatoes",
+              "chickpeas",
+              "brown rice",
+              "sunflower seeds"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation or deep breathing to help manage hormonal fluctuations."
+          },
+          "Magnesium": {
+            "why": "A lack of magnesium can cause stomach cramps and pain. As a young adult, dietary habits and stress levels can contribute to low magnesium levels.",
+            "foods": [
+              "dark chocolate",
+              "avocado",
+              "almonds",
+              "spinach",
+              "quinoa",
+              "black beans"
+            ],
+            "tip": "Establish a consistent sleep schedule to help regulate magnesium levels and overall bodily functions."
+          }
+        }
       }
     ],
     "mealplan": {
@@ -791,260 +1134,260 @@
         "monday": {
           "meals": [
             {
-              "id": 665040,
-              "image": "Watermelon--Kiwi--Apple-and-Frozen-Banana-Smoothie-665040.jpg",
+              "id": 667698,
+              "image": "artichoke-leek-frittata-667698.jpg",
               "imageType": "jpg",
-              "title": "Watermelon, Kiwi, Apple and Frozen Banana Smoothie",
-              "readyInMinutes": 45,
-              "servings": 3,
-              "sourceUrl": "https://www.foodista.com/recipe/LDFFHSFG/watermelon-kiwi-apple-and-frozen-banana-smoothie"
+              "title": "artichoke leek frittata",
+              "readyInMinutes": 60,
+              "servings": 4,
+              "sourceUrl": "https://spoonacular.com/-1436560650587"
             },
             {
-              "id": 639954,
-              "image": "Colorful-Wild-Rice-Salad-639954.jpg",
+              "id": 650127,
+              "image": "Linguine-in-Cream-Sauce-with-Poached-Eggs-and-Bacon-650127.jpg",
               "imageType": "jpg",
-              "title": "Colorful Wild Rice Salad",
-              "readyInMinutes": 30,
-              "servings": 3,
-              "sourceUrl": "https://www.foodista.com/recipe/RRSS27DD/colorful-wild-rice-salad"
+              "title": "Linguine in Cream Sauce with Poached Eggs and Bacon",
+              "readyInMinutes": 25,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/YQQZ6X46/linguine-in-cream-sauce-with-poached-eggs-and-bacon"
             },
             {
-              "id": 657651,
-              "image": "Quick-Veggie-Stir-Fry-657651.jpg",
+              "id": 639632,
+              "image": "Classic-Ragu---Tried---True-639632.jpg",
               "imageType": "jpg",
-              "title": "Quick Veggie Stir-Fry",
-              "readyInMinutes": 45,
-              "servings": 1,
-              "sourceUrl": "https://www.foodista.com/recipe/JQYJXV3Y/quick-veggie-stir-fry"
+              "title": "Classic Ragu",
+              "readyInMinutes": 180,
+              "servings": 6,
+              "sourceUrl": "https://www.foodista.com/recipe/Q5SC6477/classic-ragu-tried-true"
             }
           ],
           "nutrients": {
-            "calories": 1433.3,
-            "protein": 45.18,
-            "fat": 62.59,
-            "carbohydrates": 190.64
+            "calories": 1433.45,
+            "protein": 60.84,
+            "fat": 82.24,
+            "carbohydrates": 113.23
           }
         },
         "tuesday": {
           "meals": [
             {
-              "id": 648632,
-              "image": "Jules-Banana-Bread-648632.jpg",
+              "id": 665776,
+              "image": "Zucchini-Quiche---Almond-Flax-Crust-665776.jpg",
               "imageType": "jpg",
-              "title": "Jules' Banana Bread",
+              "title": "Zucchini Quiche & Almond Flax Crust",
               "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/BYT4L4XH/jules-banana-bread"
-            },
-            {
-              "id": 642777,
-              "image": "Fig-and-Goat-Cheese-Pizza-With-Pesto-642777.jpg",
-              "imageType": "jpg",
-              "title": "Fig and Goat Cheese Pizza With Pesto",
-              "readyInMinutes": 15,
               "servings": 6,
-              "sourceUrl": "https://www.foodista.com/recipe/KFX4GS4M/fig-and-goat-cheese-pizza-with-pesto"
+              "sourceUrl": "https://www.foodista.com/recipe/X4RDRKMQ/zucchini-quiche-almond-flax-crust"
             },
             {
-              "id": 654991,
-              "image": "Pastitsio-654991.jpg",
+              "id": 650127,
+              "image": "Linguine-in-Cream-Sauce-with-Poached-Eggs-and-Bacon-650127.jpg",
               "imageType": "jpg",
-              "title": "Pastitsio",
+              "title": "Linguine in Cream Sauce with Poached Eggs and Bacon",
+              "readyInMinutes": 25,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/YQQZ6X46/linguine-in-cream-sauce-with-poached-eggs-and-bacon"
+            },
+            {
+              "id": 639855,
+              "image": "Codfish-Salad-639855.jpg",
+              "imageType": "jpg",
+              "title": "Codfish Salad",
               "readyInMinutes": 45,
-              "servings": 12,
-              "sourceUrl": "https://www.foodista.com/recipe/FYZF5573/pastitsio"
+              "servings": 6,
+              "sourceUrl": "https://www.foodista.com/recipe/CXK6TBP5/codfish-salad"
             }
           ],
           "nutrients": {
-            "calories": 1433.38,
-            "protein": 40.81,
-            "fat": 75.93,
-            "carbohydrates": 151.52
+            "calories": 1433.46,
+            "protein": 88.04,
+            "fat": 79.64,
+            "carbohydrates": 91.29
           }
         },
         "wednesday": {
           "meals": [
             {
-              "id": 657768,
-              "image": "Raisin-Scones-657768.jpg",
+              "id": 650650,
+              "image": "Make-Ahead-Quiche-650650.jpg",
               "imageType": "jpg",
-              "title": "Raisin Scones",
+              "title": "Make Ahead Quiche",
               "readyInMinutes": 45,
-              "servings": 12,
-              "sourceUrl": "https://www.foodista.com/recipe/68J6C6RW/raisin-scones"
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/SLFFTBGD/make-ahead-quiche"
             },
             {
-              "id": 642585,
-              "image": "Farfalle-with-fresh-tomatoes--basil-and-mozzarella-642585.jpg",
+              "id": 650127,
+              "image": "Linguine-in-Cream-Sauce-with-Poached-Eggs-and-Bacon-650127.jpg",
               "imageType": "jpg",
-              "title": "Farfalle with fresh tomatoes, basil and mozzarella",
-              "readyInMinutes": 15,
+              "title": "Linguine in Cream Sauce with Poached Eggs and Bacon",
+              "readyInMinutes": 25,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/YQQZ6X46/linguine-in-cream-sauce-with-poached-eggs-and-bacon"
+            },
+            {
+              "id": 664565,
+              "image": "Vegetable-Minestrone-Soup-664565.jpg",
+              "imageType": "jpg",
+              "title": "Vegetable Minestrone Soup",
+              "readyInMinutes": 30,
               "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/B6CC3QXM/farfalle-with-fresh-tomatoes-basil-and-mozzarella"
-            },
-            {
-              "id": 642121,
-              "image": "Easy-Tabouleh-642121.jpg",
-              "imageType": "jpg",
-              "title": "Easy Tabouleh",
-              "readyInMinutes": 45,
-              "servings": 1,
-              "sourceUrl": "https://www.foodista.com/recipe/HC6SVFST/easy-tabouleh"
+              "sourceUrl": "https://www.foodista.com/recipe/RMQ7YGLH/vegetable-minestrone-soup"
             }
           ],
           "nutrients": {
-            "calories": 1433.35,
-            "protein": 33.26,
-            "fat": 65.04,
-            "carbohydrates": 188.43
+            "calories": 1433.44,
+            "protein": 55.62,
+            "fat": 64.26,
+            "carbohydrates": 161.99
           }
         },
         "thursday": {
           "meals": [
             {
-              "id": 637222,
-              "image": null,
+              "id": 648006,
+              "image": "Irish-Soda-Bread-By-Mommie-Cooks-648006.jpg",
               "imageType": "jpg",
-              "title": "Carrot Quinoa Muffins",
+              "title": "Irish Soda Bread By Mommie Cooks",
               "readyInMinutes": 45,
-              "servings": 12,
-              "sourceUrl": "https://www.foodista.com/recipe/LXQSTRQW/carrot-quinoa-muffins"
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/RNKM52BK/irish-soda-bread-by-mommie-cooks"
             },
             {
-              "id": 653251,
-              "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
+              "id": 1516713,
+              "image": "instant-pot-crack-chicken-chili-1516713.jpg",
               "imageType": "jpg",
-              "title": "Noodles and Veggies With Peanut Sauce",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
+              "title": "Instant Pot Crack Chicken Chili",
+              "readyInMinutes": 16,
+              "servings": 6,
+              "sourceUrl": "https://www.pinkwhen.com/instant-pot-crack-chicken-chili/"
             },
             {
-              "id": 660494,
-              "image": "Soba-Noodle-Salad-with-Avocado-and-Mango-660494.jpg",
+              "id": 648974,
+              "image": "Kks-Fish-Tacos-648974.jpg",
               "imageType": "jpg",
-              "title": "Soba Noodle Salad with Avocado and Mango",
+              "title": "Kk's Fish Tacos",
               "readyInMinutes": 45,
-              "servings": 3,
-              "sourceUrl": "https://www.foodista.com/recipe/CD8QSZWH/soba-noodle-salad-with-avocado-and-mango"
+              "servings": 10,
+              "sourceUrl": "https://www.foodista.com/recipe/2TTY2HPQ/kks-fish-tacos"
             }
           ],
           "nutrients": {
-            "calories": 1433.35,
-            "protein": 40.19,
-            "fat": 59.2,
-            "carbohydrates": 197.71
+            "calories": 1433.32,
+            "protein": 87.82,
+            "fat": 58.1,
+            "carbohydrates": 142.33
           }
         },
         "friday": {
           "meals": [
             {
-              "id": 637222,
-              "image": null,
+              "id": 640389,
+              "image": "Cranberry-Orange-Banana-Bread-640389.jpg",
               "imageType": "jpg",
-              "title": "Carrot Quinoa Muffins",
-              "readyInMinutes": 45,
-              "servings": 12,
-              "sourceUrl": "https://www.foodista.com/recipe/LXQSTRQW/carrot-quinoa-muffins"
+              "title": "Cranberry Orange Banana Bread",
+              "readyInMinutes": 75,
+              "servings": 18,
+              "sourceUrl": "https://www.foodista.com/recipe/NF8TZYG4/cranberry-orange-banana-bread"
             },
             {
-              "id": 641387,
-              "image": "Delicious-Creamy-Lentils-and-Chestnuts-Soup-641387.jpg",
+              "id": 639320,
+              "image": "Chorizo-and-egg-bake-639320.jpg",
               "imageType": "jpg",
-              "title": "Delicious Creamy Lentils and Chestnuts Soup",
+              "title": "Chorizo and egg bake",
               "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/6NB227RW/delicious-creamy-lentils-and-chestnuts-soup"
+              "servings": 3,
+              "sourceUrl": "https://www.foodista.com/recipe/58RHVHVF/chorizo-and-egg-bake"
             },
             {
-              "id": 648852,
-              "image": "Khachapuri-648852.jpg",
+              "id": 633321,
+              "image": "Bacon-Potato-Cake-with-Cheese-633321.jpg",
               "imageType": "jpg",
-              "title": "Khachapuri",
+              "title": "Bacon Potato Cake with Cheese",
               "readyInMinutes": 45,
-              "servings": 8,
-              "sourceUrl": "https://www.foodista.com/recipe/6KTLX5JQ/khachapuri"
+              "servings": 1,
+              "sourceUrl": "https://www.foodista.com/recipe/BHKMS7W8/bacon-potato-cake-with-cheese"
             }
           ],
           "nutrients": {
-            "calories": 1433.35,
-            "protein": 63.13,
-            "fat": 88.58,
-            "carbohydrates": 101.39
+            "calories": 1433.33,
+            "protein": 63.06,
+            "fat": 73.36,
+            "carbohydrates": 133.02
           }
         },
         "saturday": {
           "meals": [
             {
-              "id": 640767,
-              "image": "Crepes-Suzette-640767.jpg",
+              "id": 658850,
+              "image": "Royal-Wedding-Pear-and-Coriander-Scones-658850.jpg",
               "imageType": "jpg",
-              "title": "Crepes Suzette",
+              "title": "Royal Wedding Pear and Coriander Scones",
               "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/KD8ZMRJ6/crepes-suzette"
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/FS6V8XD5/royal-wedding-pear-and-coriander-scones"
             },
             {
-              "id": 982371,
-              "image": "instant-pot-quinoa-grain-bowl-982371.jpg",
-              "imageType": "jpg",
-              "title": "Instant Pot Quinoa Grain Bowl",
-              "readyInMinutes": 13,
-              "servings": 4,
-              "sourceUrl": "https://www.pinkwhen.com/instant-pot-quinoa-grain-bowl/"
+              "id": 1697749,
+              "image": "snappy-shrimp-spicy-hot-pepper-flakes-and-garlic-breath-1697749.jpeg",
+              "imageType": "jpeg",
+              "title": "Snappy Shrimp, Spicy Hot Pepper Flakes, and Garlic Breath",
+              "readyInMinutes": 30,
+              "servings": 2,
+              "sourceUrl": "https://maplewoodroad.com/pasta-shrimp/"
             },
             {
-              "id": 982371,
-              "image": "instant-pot-quinoa-grain-bowl-982371.jpg",
+              "id": 633508,
+              "image": "Baked-Cheese-Manicotti-633508.jpg",
               "imageType": "jpg",
-              "title": "Instant Pot Quinoa Grain Bowl",
-              "readyInMinutes": 13,
-              "servings": 4,
-              "sourceUrl": "https://www.pinkwhen.com/instant-pot-quinoa-grain-bowl/"
+              "title": "Baked Cheese Manicotti",
+              "readyInMinutes": 45,
+              "servings": 6,
+              "sourceUrl": "https://www.foodista.com/recipe/T4CGXXW2/baked-cheese-manicotti"
             }
           ],
           "nutrients": {
-            "calories": 1433.44,
-            "protein": 42.14,
-            "fat": 58.62,
-            "carbohydrates": 191.69
+            "calories": 1433.36,
+            "protein": 70.18,
+            "fat": 59.95,
+            "carbohydrates": 149.29
           }
         },
         "sunday": {
           "meals": [
             {
-              "id": 640767,
-              "image": "Crepes-Suzette-640767.jpg",
+              "id": 650650,
+              "image": "Make-Ahead-Quiche-650650.jpg",
               "imageType": "jpg",
-              "title": "Crepes Suzette",
+              "title": "Make Ahead Quiche",
               "readyInMinutes": 45,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/KD8ZMRJ6/crepes-suzette"
+              "servings": 8,
+              "sourceUrl": "https://www.foodista.com/recipe/SLFFTBGD/make-ahead-quiche"
             },
             {
-              "id": 638780,
-              "image": "Chock-Full-Of-Broccoli-Soup-638780.jpg",
+              "id": 650378,
+              "image": "Low-Carb-Curry-Chicken-Salad-650378.jpg",
               "imageType": "jpg",
-              "title": "Chock Full Of Broccoli Soup",
-              "readyInMinutes": 30,
-              "servings": 4,
-              "sourceUrl": "https://www.foodista.com/recipe/MYJMGP67/chock-full-of-broccoli-soup"
+              "title": "Curry Chicken Salad",
+              "readyInMinutes": 25,
+              "servings": 2,
+              "sourceUrl": "https://www.foodista.com/recipe/RSNP5GR2/low-carb-curry-chicken-salad"
             },
             {
-              "id": 661365,
-              "image": "Spinach--Tomato---Onion-Couscous-661365.jpg",
+              "id": 648567,
+              "image": "Jerk-Grilled-Pork-Chops-648567.jpg",
               "imageType": "jpg",
-              "title": "Spinach, Tomato & Onion Couscous",
+              "title": "Jerk Grilled Pork Chops",
               "readyInMinutes": 45,
-              "servings": 3,
-              "sourceUrl": "https://www.foodista.com/recipe/SVZDH8S4/spinach-tomato-onion-couscous"
+              "servings": 4,
+              "sourceUrl": "http://www.foodista.com/recipe/SJY2HLQB/jerk-grilled-pork-chops"
             }
           ],
           "nutrients": {
-            "calories": 1433.41,
-            "protein": 47.61,
-            "fat": 72.32,
-            "carbohydrates": 167.08
+            "calories": 1433.4,
+            "protein": 74.57,
+            "fat": 107.11,
+            "carbohydrates": 45.68
           }
         }
       }
