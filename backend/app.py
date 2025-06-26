@@ -14,10 +14,7 @@ from user_data.user_profile import UserProfile, UsersData
 from dotenv import load_dotenv
 from forms import SearchForm
 from groq import Groq
-import os
-import json
-import requests
-import random
+import os, json, requests, random
 
 load_dotenv()
 
@@ -130,8 +127,7 @@ def register() -> Union[str, Response]:
         country = request.form.get("country")
         medication = request.form.get("medication", "").split(",")
         diet = request.form.get("diet")
-        existing_conditions = request.form.get(
-            "existing_conditions", "").split(",")
+        existing_conditions = request.form.get("existing_conditions", "").split(",")
         allergies = request.form.get("allergies", "").split(",")
 
         # Makes a user profile object and adds it to the users_data object
@@ -180,8 +176,7 @@ def login() -> Union[str, Response]:
         password = request.form.get("password")
 
         # Checks if the username and password corresponds to a user profile in the users_data object
-        authenticated, message = users_data.user_authentication(
-            username, password)
+        authenticated, message = users_data.user_authentication(username, password)
 
         # If the authentication succeeded, the user will be logged in and redirected to the homepage.
         if authenticated:
@@ -511,26 +506,10 @@ def display_results() -> Union[str, Response]:
     """
     This function displays the groq llm analysis on the webpage.
     """
-    user = userAuthHelper()
-    if not user:
-        return redirect(url_for("auth_page"))
-    form = SearchForm()
     analysis = analyze_symptoms()
-    # if we already analyzed the symptom previously, then no need to call groq again
-    # just serve the result from the database
     symptoms = request.args.get("symptoms")
-    past_analysis = user.symptom_analysis
-    if symptoms in past_analysis:
-        return render_template("results.html", symptoms=symptoms, analysis=past_analysis[symptoms]["analyse"], form=form)
-    analysis = analyze_symptoms()
 
-    # store the analysis result to database for later use
-    # we don't want to call groq over and over again for the same symptoms
-    user.symptom_analysis[symptoms] = {
-        "analyse": analysis
-    }
-    users_data.save_to_file()
-    return render_template("results.html", symptoms=symptoms, analysis=analysis, form=form)
+    return render_template("results.html", symptoms=symptoms, analysis=analysis)
 
 
 @app.route("/recommendations")
@@ -544,22 +523,10 @@ def recommendations() -> Union[str, Response]:
     :returns:
         str: Rendered HTML template with recipe suggestions.
     """
-    form = SearchForm()
+    # Checks if user is logged in, if not redirects to the authentication page.
     logged_in_user = userAuthHelper()
     if not logged_in_user:
         return redirect(url_for("auth_page"))
-
-    # return early if we already had meal recommendations for the given symptom
-    # this allows us to reduce the spoonacular usage, which should allow us to not run out of daily request limits
-    symptoms = request.args.get("symptoms")
-    previously_analyzed_symptoms = logged_in_user.symptom_analysis
-    found_symptom = {}
-    if symptoms in previously_analyzed_symptoms:
-        found_symptom = previously_analyzed_symptoms[symptoms]
-
-    if "recommended_meals" in found_symptom:
-        meal_recipes = previously_analyzed_symptoms[symptoms]["recommended_meals"]["meals"]
-        return render_template("recipes.html", recipes_by_meal=meal_recipes, form=form)
 
     try:
         analysis_text = analyze_symptoms()
@@ -581,17 +548,15 @@ def recommendations() -> Union[str, Response]:
     }
 
     meal_recipes = {}
+    min_nutrient_params = {}
 
-    min_nutrient_params = []
+    # Flatten nutrient parameters for API request
     for nutrient_dict in min_nutrients.values():
-        min_nutrient_params.append(nutrient_dict)
-
-    nutrient_index = 0
+        min_nutrient_params.update(nutrient_dict)
 
     # Loop through each meal category and fetch recipes
-    for category in category_to_types:
+    for category, types in category_to_types.items():
         collected_recipes = []
-        types = category_to_types.get(category, [category])
 
         for t in types:
             params = {
@@ -601,12 +566,7 @@ def recommendations() -> Union[str, Response]:
                 "number": 3,
                 "apiKey": spoonacular_api_key,
             }
-            if min_nutrient_params:
-                nutrient_params = min_nutrient_params[nutrient_index]
-                nutrient_index = (nutrient_index + 1) % len(min_nutrient_params)
-                params.update(nutrient_params)
-            else:
-                nutrient_params = {}
+            params.update(min_nutrient_params)
 
             try:
                 response = requests.get(
@@ -614,7 +574,6 @@ def recommendations() -> Union[str, Response]:
                 )
                 data = response.json()
                 collected_recipes.extend(data.get("results", []))
-
             except Exception as e:
                 print(f"Error fetching {category} ({t}):", e)
 
@@ -622,9 +581,8 @@ def recommendations() -> Union[str, Response]:
         unique = {r["id"]: r for r in collected_recipes}
         meal_recipes[category] = list(unique.values())
 
-    found_symptom["recommended_meals"] = {"meals": meal_recipes}
-    logged_in_user.symptom_analysis[symptoms] = found_symptom
-    users_data.save_to_file()
+    print("API params:", params)
+    print("API response:", data)
 
     return render_template("recipes.html", recipes_by_meal=meal_recipes)
 
@@ -640,9 +598,8 @@ def recipe_details(recipe_id) -> str:
     """
     response = requests.get(
         f"https://api.spoonacular.com/recipes/{recipe_id}/information",
-        params={"apiKey": spoonacular_api_key,
-                        "includeNutrition": True},
-            )
+        params={"apiKey": spoonacular_api_key, "includeNutrition": True},
+    )
     recipe_info = response.json()
     return render_template("recipe_details.html", recipe=recipe_info)
 
@@ -839,8 +796,6 @@ def edit_meal_planner() -> str:
     if not user:
         return redirect(url_for("auth_page"))
 
-    form = SearchForm()
-
     mealplan = user.mealplan
     if not mealplan:
         return render_template(
@@ -856,7 +811,7 @@ def edit_meal_planner() -> str:
         return render_template("mealplanner.html", week_plan=mealplan["week"])
     else:
         return render_template(
-            "mealplanner.html", message="Unexpected meal plan format.", form=form
+            "mealplanner.html", message="Unexpected meal plan format."
         )
 
 
@@ -912,8 +867,7 @@ def generate_recipe(meal: str, exclude_ingredients: List[str] = []) -> Dict:
         "number": 1,
         "apiKey": spoonacular_api_key,
     }
-    response = requests.get(
-        "https://api.spoonacular.com/recipes/random", params=params)
+    response = requests.get("https://api.spoonacular.com/recipes/random", params=params)
     if response.status_code == 200:
         data = response.json()
         recipe = data.get("recipes", [])[0]
@@ -977,8 +931,6 @@ def show_favorites() -> Union[str, Response]:
     if not user:
         return redirect(url_for("auth_page"))
 
-    form = SearchForm()
-
     recipes = []
     # Fetch recipe details for each saved ID
     for recipe_id in user.saved_recipes:
@@ -989,7 +941,40 @@ def show_favorites() -> Union[str, Response]:
         if response.ok:
             recipes.append(response.json())
 
-    return render_template("favorites.html", recipes=recipes, form=form)
+    return render_template("favorites.html", recipes=recipes)
+
+
+@app.route("/save_results", methods=["POST"])
+def save_results() -> Union[str, Response]:
+    """
+    Saves analysis results to the user profile that were given by the Groq API
+    It returns 401 if the there is no result.
+    It returns 401 if the format of the analysis is not a json file.
+    """
+
+    user = userAuthHelper()
+    if not user:
+        return redirect(url_for("auth_page"))
+
+    if not request.is_json:
+        return "No result", 401
+
+    analysis = request.get_json(silent=True)
+
+    if not analysis:
+        return "No result", 401
+
+    symptoms = session.get("last_symptoms", "Unknown")
+
+    user.analysis_results.append(
+        {
+            "symptoms": symptoms,
+            "analyse": analysis,
+        }
+    )
+    users_data.save_to_file()
+
+    return "OK"
 
 
 @app.route("/analysis_history")
@@ -1003,9 +988,7 @@ def show_history() -> Union[str, Response]:
     user = userAuthHelper()
     if not user:
         return redirect(url_for("auth_page"))
-
-    form = SearchForm()
-    return render_template("analysis_history.html", results=user.analysis_results, form=form)
+    return render_template("analysis_history.html", results=user.analysis_results)
 
 
 def get_nutrient_info() -> Dict[str, Any]:
@@ -1014,8 +997,7 @@ def get_nutrient_info() -> Dict[str, Any]:
 
     :return: Dictionary of nutrient data.
     """
-    path = os.path.join(os.path.dirname(__file__),
-                        "data", "nutrient_info.json")
+    path = os.path.join(os.path.dirname(__file__), "data", "nutrient_info.json")
     with open(path, "r") as f:
         nutrients_data = json.load(f)
     return nutrients_data
@@ -1101,8 +1083,6 @@ def profile() -> Union[str, Response]:
     if not user:
         return redirect(url_for("auth_page"))
 
-    form = SearchForm()
-
     # Retrieves the form data from the profile page and updates the user profile.
     if request.method == "POST":
         # Uses the helperfunction to check if the required fields are not left blank, for it would show a error message.
@@ -1129,7 +1109,7 @@ def profile() -> Union[str, Response]:
         users_data.save_to_file()
 
         message: str = "Profile updated!"
-        return render_template("profile.html", user=user, message=message, form=form)
+        return render_template("profile.html", user=user, message=message)
 
     return render_template("profile.html", user=user)
 
