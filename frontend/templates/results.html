@@ -1,32 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis results</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
-</head>
-
+    <title>Your Personalized Nutrition Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    </head>
 <body>
-    <div class="container">
-        <header class="analysis-header">
-            <div class="title-box">
-                <h1>Analysis for <span class="symptoms-text">{{symptoms}}</span></h1>
-            </div>
-        </header>
+    <div class="interactive-analysis">
+        <div class="analysis-header">
+            <h1 class="typewriter">Your Personalized Nutrition Analysis</h1>
 
-        <main class="analysis-container">
-            <div class="analysis-report" id="analysis">
-                <pre>{{ analysis }}</pre>
+            <div class="symptoms-display">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="symptoms-bubble">
+                    <p>Reported Symptoms:</p>
+                    <div class="bubble">{{ symptoms }}</div>
+                </div>
             </div>
+        </div>
 
-            <div class="recommendation">
-                <a class="button-link" href="/recommendations?symptoms={{symptoms}}">Get Personalized Recipes</a>
-            </div>
-        </main>
+        <div class="nutrient-cards"> {# This will be our event delegation target #}
+            {% set nutrient_blocks = analysis.split('\n\n') %}
+            {% for block in nutrient_blocks %}
+                {% set clean_block = block.strip() %}
+
+                {% if clean_block.startswith('[Urgency Note]:') or clean_block.startswith('**Urgency Note**') %}
+                    <div class="urgency-note">
+                        <div class="note-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Urgency Note</h3>
+                        </div>
+                        <p>{{ clean_block | replace('[Urgency Note]:', '') | replace('**Urgency Note**', '') | trim }}</p>
+                    </div>
+
+                {% elif clean_block.startswith('Based on') %}
+                <p class="intro-analysis-text">{{ clean_block }}</p>
+
+                {% elif clean_block %}
+                    {% set lines = clean_block.split('\n') %}
+                    <div class="nutrient-card">
+                        <div class="nutrient-header">
+                            <div class="nutrient-icon">
+                                {% if 'VitaminD' in clean_block %}
+                                <i class="fas fa-sun"></i>
+                                {% elif 'Iron' in clean_block %}
+                                <i class="fas fa-magnet"></i>
+                                {% elif 'VitaminB' in clean_block %}
+                                <i class="fas fa-bolt"></i>
+                                {% else %}
+                                <i class="fas fa-pills"></i>
+                                {% endif %}
+                            </div>
+                            <h3>{{ lines[0].replace(':', '') }}</h3>
+                            <div class="severity-indicator low"></div> {# Consider dynamic severity here #}
+                        </div>
+
+                        <div class="nutrient-details">
+                            {% for line in lines[1:] %}
+                                {% if line.startswith('- Why:') %}
+                                <div class="detail-section">
+                                    <h4><i class="fas fa-question-circle"></i> Why This Matters</h4>
+                                    <p>{{ line[6:] }}</p>
+                                </div>
+                                {% elif line.startswith('- Foods:') %}
+                                <div class="detail-section">
+                                    <h4><i class="fas fa-utensils"></i> Recommended Foods</h4>
+                                    <div class="food-bubbles">
+                                        {% for food in line[8:].split(', ') %}
+                                        <span class="food-bubble">{{ food }}</span>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% elif line.startswith('- Tip:') %}
+                                <div class="detail-section tip-section">
+                                    <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                                    <p>{{ line[6:] }}</p>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('home') }}" class="btn">Back home</a>
+            <a href="{{ url_for('recommendations') }}" class="btn btn-primary">Get Food Recommendations</a>
+        </div>
     </div>
 
-</body>
+    <style>
+    /* General body styling (consider moving to a base CSS file) */
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
+        margin: 0;
+        padding: 0;
+        color: #333;
+        line-height: 1.6;
+    }
 
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-align: center;
+        border: none;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #6c8fc7;
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: #4a6fa5;
+        transform: translateY(-2px);
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+
+    /* Interactive Analysis Styles */
+    .intro-analysis-text {
+        font-style: italic;
+        color: #4a6fa5;
+        margin-bottom: 1.5rem;
+        padding: 0.5rem 0;
+    }
+
+    .interactive-analysis {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .analysis-title {
+        text-align: center;
+        color: #4a6fa5;
+        margin-bottom: 2rem;
+        font-size: 2rem;
+    }
+
+    .symptoms-display {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .user-avatar {
+        font-size: 3rem;
+        color: #6c8fc7;
+    }
+
+    .symptoms-bubble p {
+        margin: 0;
+        font-weight: 500;
+        color: #666;
+    }
+
+    .bubble {
+        background: #f0f7ff;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        display: inline-block;
+        margin-top: 0.5rem;
+        color: #4a6fa5;
+        font-weight: 600;
+    }
+
+    .nutrient-cards {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        align-items: start;
+    }
+
+    .nutrient-card {
+        background: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        border: 1px solid #e1e8f0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.6s ease forwards;
+        position: relative;
+        z-index: 1;
+    }
+
+    .nutrient-card:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .nutrient-card:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    .nutrient-card:nth-child(3) {
+        animation-delay: 0.6s;
+    }
+
+    /* Animation keyframes */
+    @keyframes fadeInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .nutrient-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .nutrient-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .nutrient-icon {
+        font-size: 1.5rem;
+        color: #6c8fc7;
+        background: #f0f7ff;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nutrient-header h3 {
+        margin: 0;
+        flex-grow: 1;
+        color: #4a4a4a;
+    }
+
+    .severity-indicator {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+
+    .severity-indicator.low {
+        background: #4caf50; /* Example color for 'low' severity */
+    }
+
+    .nutrient-details {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.4s ease-out, opacity 0.4s ease-out, margin-top 0.4s ease-out;
+        margin-top: 0;
+        padding-top: 0; /* Ensure no padding before expansion */
+        padding-bottom: 0; /* Ensure no padding before expansion */
+    }
+
+    .nutrient-card.expanded .nutrient-details {
+        max-height: 1000px; /* Should be enough to contain all content */
+        opacity: 1;
+        margin-top: 1rem;
+        padding-top: 0.5rem; /* Add some padding back for content */
+        padding-bottom: 0.5rem; /* Add some padding back for content */
+        transition: max-height 0.6s ease-in, opacity 0.6s ease-in, margin-top 0.6s ease-in, padding 0.6s ease-in;
+    }
+
+
+    .detail-section {
+        margin-bottom: 1.5rem;
+    }
+
+    .detail-section:last-child { /* Fixes extra margin at the end when expanded */
+        margin-bottom: 0;
+    }
+
+    .detail-section h4 {
+        color: #4a6fa5;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .food-bubbles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .food-bubble {
+        background: #e8f5e9;
+        color: #2e7d32;
+        padding: 0.3rem 0.8rem;
+        border-radius: 15px;
+        font-size: 0.9rem;
+        white-space: nowrap; /* Prevent breaking food names */
+    }
+
+    .tip-section {
+        background: #fff8e1;
+        padding: 1rem;
+        border-radius: 8px;
+        border-left: 4px solid #ffc107;
+    }
+
+    .urgency-note {
+        background: #fff3e0;
+        border-left: 4px solid #ff9800;
+        padding: 1rem;
+        border-radius: 0 8px 8px 0;
+        margin: 2rem 0;
+    }
+
+    .note-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #e65100;
+        margin-bottom: 0.5rem;
+    }
+
+    .actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        justify-content: center; /* Center the buttons */
+    }
+
+    /* Make Get Food Recommendations button primary style since it's the main action now */
+    .actions .btn:first-of-type {
+        background-color: #6c8fc7;
+        color: white;
+    }
+
+    .actions .btn:first-of-type:hover {
+        background-color: #4a6fa5;
+    }
+
+    .typewriter {
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 3px solid #4a6fa5;
+        width: 0;
+        animation: typing 2s steps(40, end) forwards;
+    }
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @media (max-width: 768px) {
+        .symptoms-display {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .nutrient-cards {
+            grid-template-columns: 1fr;
+        }
+
+        .actions {
+            flex-direction: column;
+            align-items: stretch; /* Stretch buttons to full width */
+        }
+    }
+    </style>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("DOM Content Loaded. Setting up event listeners.");
+
+        // --- Robust Event Delegation for Card Toggling ---
+        // Attach a single click listener to the parent container of all cards.
+        const nutrientCardsContainer = document.querySelector('.nutrient-cards');
+
+        if (nutrientCardsContainer) {
+            nutrientCardsContainer.addEventListener('click', function(event) {
+                // Find the closest parent that is a .nutrient-card
+                const clickedCard = event.target.closest('.nutrient-card');
+
+                // If a nutrient-card was clicked (or a child of it)
+                if (clickedCard) {
+                    console.log("Card clicked:", clickedCard);
+                    clickedCard.classList.toggle('expanded'); // Toggle the 'expanded' class
+
+                    if (clickedCard.classList.contains('expanded')) {
+                        console.log("Card expanded. Checking if scroll is needed.");
+                        // Scroll the card into view when expanded, if it's not fully visible
+                        const rect = clickedCard.getBoundingClientRect();
+                        // Check if the top is above or bottom is below the viewport
+                        if (rect.top < 0 || rect.bottom > window.innerHeight) {
+                            clickedCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }
+                    } else {
+                        console.log("Card collapsed.");
+                    }
+                } else {
+                    console.log("Click detected, but not on a nutrient-card or its child:", event.target);
+                }
+            });
+        } else {
+            console.error("Error: .nutrient-cards container not found!");
+        }
+
+
+        // Hide loading screen when results page loads (if you have one)
+        window.addEventListener('load', function() {
+            const loadingScreen = document.getElementById('loading-screen');
+            if (loadingScreen) {
+                loadingScreen.classList.remove('active');
+                console.log("Loading screen hidden.");
+            }
+        });
+    });
+    </script>
+</body>
 </html>
