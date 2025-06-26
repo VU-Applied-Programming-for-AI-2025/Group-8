@@ -1,52 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-{% extends "base.html" %}
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/nutrient_info.css') }}">
+<main class="main">
+    <div class="container">
+        <!--==================== NUTRIENT HEADER ====================-->
+        <header class="nutrient-header">
+            <div class="nutrient-hero">
+                <h1 class="nutrient-title">
+                    <span class="nutrient-icon">💊</span>
+                    {{ name }}
+                </h1>
+                <p class="nutrient-subtitle">Essential information about {{ name }} and its role in your health</p>
+                <div class="nutrient-badge">
+                    <span class="badge-text">Essential Nutrient</span>
+                </div>
+            </div>
+        </header>
 
-{% block title %}Homepage - Symptoms Analyzer & Meal Recommendations{% endblock %}
+        <!--==================== NUTRIENT CONTENT ====================-->
+        <div class="nutrient-content">
+            <div class="nutrient-sections">
+                <!-- Function Section -->
+                <section class="nutrient-section function-section">
+                    <h2 class="section-title">
+                        <span class="icon">⚙️</span>
+                        Function
+                    </h2>
+                    <div class="section-content">
+                        <p>{{ info.function }}</p>
+                    </div>
+                </section>
 
-{% block content %}
-<head>
-    <meta charset="UTF-8">
-    <title>{{ name }} Info</title>
-    <button class="print-btn" onclick="window.print()" title="Print this page">
-        Print Nutrient Info
-    </button>
-</head>
+                <!-- Importance Section -->
+                <section class="nutrient-section importance-section">
+                    <h2 class="section-title">
+                        <span class="icon">⭐</span>
+                        Why It's Important
+                    </h2>
+                    <div class="section-content">
+                        <p>{{ info.why }}</p>
+                    </div>
+                </section>
 
-<body>
-    <h1 class="nutrient-main-title">{{ name }}</h1>
+                <!-- Deficiency Symptoms Section -->
+                <section class="nutrient-section symptoms-section">
+                    <h2 class="section-title">
+                        <span class="icon">⚠️</span>
+                        Deficiency Symptoms
+                    </h2>
+                    <div class="section-content">
+                        <ul class="symptoms-list">
+                            {% for symptom in info.symptoms %}
+                            <li class="symptom-item">
+                                <span class="symptom-bullet">•</span>
+                                {{ symptom }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </section>
 
-    <div class="nutrient-info">
+                <!-- Food Sources Section -->
+                <section class="nutrient-section foods-section">
+                    <h2 class="section-title">
+                        <span class="icon">🍽️</span>
+                        Top Food Sources
+                    </h2>
+                    <div class="section-content">
+                        <div class="foods-grid">
+                            {% for food in info.foods %}
+                            <div class="food-item">
+                                <span class="food-icon">🥗</span>
+                                {{ food }}
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+            </div>
 
-    <h2 class="nutrient-title">Function</h2>
-    <div class="nutrient-section">
-        <p>{{ info.function }}</p>
+            <!--==================== NUTRIENT ACTIONS ====================-->
+            <div class="nutrient-actions">
+                <a href="{{ url_for('home') }}" class="btn btn-secondary">
+                    <span class="btn-icon">←</span>
+                    Back to Nutrient List
+                </a>
+                </a>
+            </div>
+        </div>
     </div>
-
-    <h2 class="nutrient-title">Why It's Important</h2>
-    <div class="nutrient-section">
-        <p>{{ info.why }}</p>
-    </div>
-
-    <h2 class="nutrient-title">Deficiency Symptoms</h2>
-
-    <div class="nutrient-section">
-    <ul>
-        {% for symptom in info.symptoms %}
-        <li>{{ symptom }}</li>
-        {% endfor %}
-    </ul>
-    </div>
-
-    <h2 class="nutrient-title">Top Food Sources</h2>
-    <div class="nutrient-section">
-    <ul>
-        {% for food in info.foods %}
-        <li>{{ food }}</li>
-        {% endfor %}
-    </ul>
-    </div>
-</body>
-
-</html>
-{% endblock %}
+</main>

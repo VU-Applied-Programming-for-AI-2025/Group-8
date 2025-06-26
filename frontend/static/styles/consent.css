@@ -1,0 +1,162 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@400;600&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+    /* Colors */
+    --first-color: #faafbb;
+    --first-color-alt: #B9647A;
+    --title-color: hsl(233, 32%, 15%);
+    --text-color: hsl(233, 4%, 35%);
+    --body-color: hsl(2, 100%, 97%);
+    --white-color: hsl(0, 0%, 100%);
+    --border-color: hsl(2, 100%, 88%);
+    --disclaimer-bg: hsl(2, 100%, 95%);
+
+    /* Fonts */
+    --body-font: 'Open Sans', sans-serif;
+    --heading-font: 'Lemon', cursive;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+}
+
+/*=============== BASE STYLES ===============*/
+body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*=============== CONSENT FORM ===============*/
+.consent-form {
+    background-color: var(--white-color);
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px hsla(2, 100%, 35%, 0.1);
+    padding: 2.5rem;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.consent-form::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: var(--border-color);
+    border-radius: 50%;
+    filter: blur(80px);
+    top: -50px;
+    left: -50px;
+    z-index: 0;
+}
+
+.consent-form__content {
+    position: relative;
+    z-index: 1;
+}
+
+
+.consent-form h2 {
+    font-style: italic;
+    /* Lemon font looks great italicized */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.consent-form__disclaimer {
+    font-weight: 600;
+    font-style: italic;
+    border-left-width: 6px;
+}
+
+.consent-form p {
+    margin-bottom: 1.5rem;
+    font-size: var(--normal-font-size);
+}
+
+
+.consent-form__features {
+    text-align: left;
+    margin: 1.5rem 0;
+}
+
+.consent-form__features ul {
+    padding-left: 1.25rem;
+}
+
+
+.consent-form__features li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-weight: 600;
+}
+
+.consent-form__features li:before {
+    content: "•";
+    color: var(--first-color);
+    font-weight: bold;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -0.2rem;
+}
+
+/* Punchy footer */
+.consent-form__footer {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--title-color);
+}
+
+.consent-form__button {
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: var(--white-color);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-family: var(--body-font);
+    font-weight: 800;
+    /* Extra bold */
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px hsla(2, 56%, 61%, 0.427);
+    margin: 1.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.consent-form__button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px hsla(2, 62%, 61%, 0.619);
+}
+
+.consent-form__button:active {
+    transform: translateY(0);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    body {
+        padding: 1rem;
+    }
+
+    .consent-form {
+        padding: 1.5rem;
+    }
+
+    .consent-form h2 {
+        font-size: 1.5rem;
+    }
+}

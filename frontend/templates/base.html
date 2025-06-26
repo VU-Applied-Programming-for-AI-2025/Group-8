@@ -5,12 +5,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}My App{% endblock %}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/main.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/sidebar.css') }}">
-  <link rel="stylesheet" href="https://use.typekit.net/zxi6jdg.css">
-  {% block extra_css %}{% endblock %}
+    <link rel="stylesheet" href="/assets/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <title>{% block title %}My App{% endblock %}</title>
+    
 </head>
 <body class="ready">
 
@@ -156,42 +155,54 @@ z"/>
   <!-- Sidebar Navigation -->
     <aside id="sidebar" class="sidebar hidden">
     <nav>
-        <ul>
-        <li><a href="{{ url_for('show_favorites') }}">Favorites</a></li>
-        <li><a href="{{ url_for('edit_meal_planner') }}">Latest Meal Plan</a></li>
-        <li><a href="{{ url_for('show_history') }}">View Analysis History</a></li>
-		<li><a href="/recommendations/mealplanner/spoonacular">Generate BMR Meal Plan</a></li>
-        <li class="divider">Nutrients</li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Copper">Copper</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Choline">Choline</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Cholesterol">Cholesterol</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Fluoride">Fluoride</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=SaturatedFat">Saturated Fat</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminA">Vitamin A</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminC">Vitamin C</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminD">Vitamin D</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminE">Vitamin E</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminK">Vitamin K</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminB1">Vitamin B1</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminB2">Vitamin B2</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminB3">Vitamin B3</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminB5">Vitamin B5</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminB6">Vitamin B6</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=VitaminB12">Vitamin B12</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Fiber">Fiber</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=FolicAcid">Folic Acid</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Manganese">Manganese</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Phosphorus">Phosphorus</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Potassium">Potassium</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Selenium">Selenium</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Sodium">Sodium</a></li>
-        <li><a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a></li>
-        </ul>
+        <a href="/profile">Profile</a> |
+        <div class="dropdown">
+            <button class="dropbtn">Nutrients</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('nutrients') }}?nutrient=Copper">Copper</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Choline">Choline</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Cholesterol">Cholesterol</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Fluoride">Fluoride</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=SaturatedFat">Saturated Fat</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminA">Vitamin A</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminC">Vitamin C</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminD">Vitamin D</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminE">Vitamin E</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminK">Vitamin K</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB1">Vitamin B1</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB2">Vitamin B2</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB3">Vitamin B3</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB5">Vitamin B5</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB6">Vitamin B6</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=VitaminB12">Vitamin B12</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Fiber">Fiber</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=FolicAcid">Folic Acid</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Manganese">Manganese</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Phosphorus">Phosphorus</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Potassium">Potassium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Selenium">Selenium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Sodium">Sodium</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Sugar">Sugar</a>
+                <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
+            </div>
+
+        </div> |
+        <a href="/show_favorites">Favorites</a> |
+        <a href="{{ url_for('edit_meal_planner') }}" class="btn btn-primary">My Meal Plan</a> |
+        <a href="{{ url_for('show_history') }}">View Analysis History</a> |
+        <form method="POST" action="{{ url_for('search_bar') }}">
+            {{ form.hidden_tag() }}
+            {{ form.search_bar.label }}
+            {{ form.search_bar(size=30, placeholder="Search a nutrient...") }}
+            <button type="submit">Search</button>
+        </form> |
+
+        <a href="/logout">Logout</a>
     </nav>
     </aside>
 

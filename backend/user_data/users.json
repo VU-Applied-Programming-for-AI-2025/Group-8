@@ -56,6 +56,171 @@
           },
           "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
         }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause headaches, and as a 20-year-old female, a diet lacking sufficient VitaminB6-rich foods may contribute to this issue. VitaminB6 plays a crucial role in neurotransmitter synthesis and its deficiency can lead to neurological symptoms like headaches.",
+            "foods": [
+              "chicken breast",
+              "salmon",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall circulation and help alleviate headache symptoms."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can cause headaches, and given the user's age and sex, a diet low in Magnesium-rich foods may contribute to this issue. Magnesium deficiency is common in young adults, particularly females, and can lead to neurological symptoms like headaches.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "brown rice"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help manage stress, which can exacerbate Magnesium deficiency symptoms."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in females due to menstrual blood loss. As a 20-year-old female, the user may be at risk for Iron deficiency, which can lead to headaches and fatigue.",
+            "foods": [
+              "red meat",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Increase consumption of VitaminC-rich foods along with Iron-rich foods to enhance Iron absorption."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "A lack of VitaminB6 can cause headaches, and as a 20-year-old female, the user's age and sex may contribute to a higher risk of VitaminB6 deficiency due to menstruation and increased demand for the vitamin.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "potatoes"
+            ],
+            "tip": "Engage in regular exercise to improve overall circulation and reduce headache frequency."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a female, the user may be at a higher risk due to menstrual losses; additionally, a diet lacking in Magnesium-rich foods may contribute to the issue.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation or deep breathing, to help manage headache triggers."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in females of childbearing age due to menstrual blood losses; the user's age and sex put her at a higher risk for Iron insufficiency.",
+            "foods": [
+              "red meat",
+              "fortified cereals",
+              "pumpkin seeds"
+            ],
+            "tip": "Include Iron-rich foods in meals and snacks, and consider consulting a healthcare professional about potential Iron supplements."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 20-year-old female, adequate Vitamin A intake is essential for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can impair collagen production and contribute to acne. As a young adult, sufficient Vitamin C intake is crucial for maintaining healthy skin and immune function.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can exacerbate acne due to its role in regulating sebum production and inflammation. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support immune function and skin health."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 20-year-old female, a balanced diet is crucial. VitaminB6 plays a significant role in neurotransmitter synthesis, and its insufficient intake can lead to headaches.",
+            "foods": [
+              "salmon",
+              "chickpeas",
+              "banana"
+            ],
+            "tip": "Engage in regular physical activity to enhance VitaminB6 absorption."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can cause headaches, and as a female, there's a higher risk of Magnesium insufficiency due to menstruation.",
+            "foods": [
+              "dark chocolate",
+              "spinach",
+              "almonds"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help your body retain Magnesium."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in females due to menstrual blood loss. At 20 years old, Iron intake is crucial for healthy red blood cells.",
+            "foods": [
+              "red meat",
+              "pumpkin seeds",
+              "quinoa"
+            ],
+            "tip": "Increase Iron absorption by consuming VitaminC-rich foods alongside Iron-rich foods."
+          },
+          "Urgency Note": "None flagged, but if headaches persist, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "back pain",
+        "analyse": {
+          "Vitamin D": {
+            "why": "As a 20-year-old female with light skin tone, a lack of Vitamin D may contribute to back pain. People with light skin tone have less melanin, which can reduce the skin's ability to produce Vitamin D from sunlight.",
+            "foods": [
+              "Fatty fish",
+              "fortified dairy products",
+              "mushrooms"
+            ],
+            "tip": "Spend time outdoors during peak sun hours (10am-4pm) for 10-15 minutes to boost natural Vitamin D production."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can contribute to muscle and nerve function issues, including back pain. As a young adult, adequate Magnesium intake is essential for bone health and muscle function.",
+            "foods": [
+              "Dark leafy greens",
+              "nuts",
+              "whole grains"
+            ],
+            "tip": "Engage in regular stretching exercises to help maintain muscle flexibility and reduce muscle strain."
+          },
+          "Calcium": {
+            "why": "A lack of Calcium can affect bone health, potentially leading to back pain. As a young female, adequate Calcium intake is crucial for building and maintaining strong bones.",
+            "foods": [
+              "Fortified plant-based milk",
+              "calcium-set tofu",
+              "leafy greens"
+            ],
+            "tip": "Incorporate weight-bearing exercises, such as walking or jogging, to help strengthen bones."
+          },
+          "Urgency Note": "None flagged. However, if back pain persists or worsens, consult a healthcare professional to rule out any underlying medical conditions."
+        }
       }
     ],
     "mealplan": {
@@ -94,6 +259,188 @@
         "fat": 81.13,
         "carbohydrates": 184.12
       }
+    },
+    "symptom_analysis": {
+      "headache": {
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin cell turnover and sebum regulation. As a 20-year-old female, adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, Vitamin C helps to combat oxidative stress and inflammation.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in sebum regulation, inflammation, and wound healing. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        },
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664054,
+                "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+                "image": "https://img.spoonacular.com/recipes/664054-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 794350,
+                "title": "Cherry Coconut Milk Smoothie",
+                "image": "https://img.spoonacular.com/recipes/794350-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642346,
+                "title": "Egyptain Cauliflower Side Salad",
+                "image": "https://img.spoonacular.com/recipes/642346-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 653549,
+                "title": "Okra Tomato Salad",
+                "image": "https://img.spoonacular.com/recipes/653549-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664419,
+                "title": "Vegan Colcannon Soup",
+                "image": "https://img.spoonacular.com/recipes/664419-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659689,
+                "title": "Seasonal Autumn Stew",
+                "image": "https://img.spoonacular.com/recipes/659689-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 658509,
+                "title": "Roasted Broccoli with Lemon and Garlic",
+                "image": "https://img.spoonacular.com/recipes/658509-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
+          },
+          "nutrients": {
+            "calories": 1733.28,
+            "protein": 68.26,
+            "fat": 81.13,
+            "carbohydrates": 184.12
+          }
+        }
+      }
     }
   },
   "testusername": {
@@ -112,6 +459,2980 @@
     "allergies": [],
     "saved_recipes": [],
     "analysis_results": [],
-    "mealplan": []
+    "mealplan": [],
+    "symptom_analysis": {}
+  },
+  "feru": {
+    "username": "feru",
+    "password": "feru",
+    "name": "feru",
+    "age": 26,
+    "sex": "female",
+    "height": 163.0,
+    "weight": 53.0,
+    "skin_color": "light",
+    "country": "Netherlands",
+    "medication": [
+      ""
+    ],
+    "diet": "whole30",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly put her at risk, but her Whole30 diet may be low in Vitamin A if she's not consuming enough animal products or sweet potatoes.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "liver"
+            ],
+            "tip": "Include liver in your diet once a week to boost Vitamin A intake."
+          },
+          "VitaminB6": {
+            "why": "Vitamin B6 helps regulate hormones, which can contribute to acne. A lack of Vitamin B6 can lead to hormonal imbalances. As a female, Feru may be more prone to hormonal fluctuations.",
+            "foods": [
+              "bananas",
+              "avocados",
+              "chicken breast"
+            ],
+            "tip": "Eat a banana or avocado as a snack to help regulate hormones."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in wound healing and inflammation reduction. A lack of Zinc can impede skin health, leading to acne. Whole30 diet can be low in Zinc if Feru doesn't consume enough animal products or seafood.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken thighs"
+            ],
+            "tip": "Add oysters to your diet once a month to boost Zinc intake."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and sebum production. As a 26-year-old female, Feru's age and sex may contribute to hormonal fluctuations that affect Vitamin A levels.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Incorporate Vitamin A-rich foods into your Whole30 diet to support skin health."
+          },
+          "VitaminB6": {
+            "why": "Vitamin B6 helps regulate hormones and can alleviate acne symptoms. As a female, Feru may be more prone to hormonal imbalances, making Vitamin B6 crucial.",
+            "foods": [
+              "salmon",
+              "bananas",
+              "avocados"
+            ],
+            "tip": "Include Vitamin B6-rich foods in your diet to help regulate hormonal fluctuations."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in wound healing, inflammation reduction, and acne treatment. As a Whole30 dieter, Feru may be at risk for Zinc insufficiency due to restricted food groups.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Add Zinc-rich foods to your diet to support acne treatment and overall health."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and sebum production. As a 26-year-old female, Feru's skin health may be affected by hormonal fluctuations, and a lack of Vitamin A may exacerbate acne.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminC": {
+            "why": "Vitamin C is essential for collagen production and can help reduce acne inflammation. As a female, Feru may be more prone to oxidative stress, which Vitamin C can help mitigate.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C to support collagen production and boost immunity."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating hormones, inflammation, and skin health. A lack of Zinc can contribute to acne. As a female, Feru may be at risk of Zinc insufficiency due to inadequate dietary intake or hormonal fluctuations.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, and consider consulting a healthcare professional about potential Zinc supplements."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminA insufficiency, especially if her diet is not well-planned.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminB6": {
+            "why": "VitaminB6 helps regulate hormones, which can contribute to acne. A lack of VitaminB6 may exacerbate acne symptoms. As a female, Feru may be more prone to hormonal fluctuations.",
+            "foods": [
+              "salmon",
+              "bananas",
+              "avocados"
+            ],
+            "tip": "Eat VitaminB6-rich foods to help regulate hormones and reduce acne symptoms."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in wound healing, inflammation, and acne regulation. A lack of Zinc can lead to acne, and as a female, Feru may have a higher risk of Zinc insufficiency due to menstruation.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet to support skin health and acne reduction."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "Vitamin A": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly increase her risk for Vitamin A insufficiency, but her Whole30 diet may be low in Vitamin A if she's not consuming sufficient animal products or sweet potatoes.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "liver"
+            ],
+            "tip": "Include Vitamin A-rich foods in your meals, especially if you're noticing skin issues."
+          },
+          "Vitamin D": {
+            "why": "Low Vitamin D levels have been linked to increased acne risk, possibly due to its role in regulating immune responses. As a 26-year-old female, Feru may be at risk for Vitamin D insufficiency due to limited sun exposure or inadequate dietary sources.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy",
+              "mushrooms"
+            ],
+            "tip": "Spend time outdoors during peak sun hours or consider a Vitamin D supplement after consulting a healthcare professional."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in skin health and acne prevention by regulating inflammation and wound healing. Feru's Whole30 diet may be low in Zinc if she's not consuming enough animal products or zinc-rich plant-based foods.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your meals, and consider taking a Zinc supplement if you're experiencing persistent skin issues."
+          },
+          "Urgency Note": "None flagged. However, if Feru's acne persists or worsens, it's essential to consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of VitaminA can contribute to acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, feru's hormonal fluctuations may increase her skin's sensitivity to VitaminA levels.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminC": {
+            "why": "VitaminC's antioxidant properties help reduce inflammation and promote collagen production, which can alleviate acne. As a female, feru may be more prone to VitaminC deficiency due to lower dietary intake.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Consume VitaminC-rich foods with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating sebum production, wound healing, and inflammation, all of which can impact acne. As a Whole30 dieter, feru may be at risk for Zinc insufficiency if she's not consuming enough zinc-rich foods.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include zinc-rich foods in your diet, and consider consulting a healthcare professional about potential Zinc supplementation."
+          },
+          "Urgency Note": "None flagged. However, if feru's acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's skin health may be influenced by hormonal fluctuations, making Vitamin A crucial.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your Whole30 diet to support skin health."
+          },
+          "VitaminC": {
+            "why": "Vitamin C's antioxidant properties help reduce inflammation and promote collagen production, which can alleviate acne. Feru's age and sex do not particularly influence Vitamin C needs, but her Whole30 diet may be low in Vitamin C if not properly planned.",
+            "foods": [
+              "citrus fruits",
+              "berries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating hormones, reducing inflammation, and preventing acne. As a female, Feru may be at risk for Zinc insufficiency due to inadequate dietary intake or increased requirements during menstrual cycles.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during menstrual periods, to support hormonal balance."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of VitaminA can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, feru's age and sex do not particularly increase her risk for VitaminA lack, but her whole30 diet may limit her intake of VitaminA-rich foods if not properly planned.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include VitaminA-rich foods in your Whole30 meals to support skin health."
+          },
+          "VitaminD": {
+            "why": "Low VitaminD levels have been linked to increased acne risk, possibly due to its effects on skin cell growth and differentiation. As a 26-year-old female, feru may be at risk for VitaminD lack due to limited sun exposure, especially during winter months. Her whole30 diet may not provide sufficient VitaminD if not including fortified foods or fatty fish.",
+            "foods": [
+              "fatty fish",
+              "fortified dairy alternatives",
+              "mushrooms"
+            ],
+            "tip": "Consider spending time outdoors during peak sun hours or taking a VitaminD supplement after consulting with a healthcare professional."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in skin health, and its lack can lead to acne. As a female, feru may be at higher risk for Zinc lack due to inadequate dietary intake or increased requirements during menstrual cycles.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your Whole30 diet, and consider cooking in cast-iron cookware to increase Zinc intake."
+          },
+          "Urgency Note": "None flagged. However, if feru's acne persists or worsens, consult a healthcare professional to rule out underlying conditions that may require medical attention."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly increase her risk for Vitamin A insufficiency, but her Whole30 diet may be low in Vitamin A-rich foods if not planned properly.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your Whole30 meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "Vitamin C's antioxidant properties help reduce inflammation and promote collagen production, which can help alleviate acne. Feru's age and sex do not particularly impact her Vitamin C needs, but a lack of Vitamin C can occur if her diet is not rich in fruits and vegetables.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating hormones, including those that contribute to acne. A lack of Zinc can disrupt the body's natural ability to regulate sebum production, leading to clogged pores. As a female, Feru may be at risk for Zinc insufficiency due to inadequate dietary intake.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially if you're experiencing acne."
+          },
+          "Urgency Note": "None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "acne",
+        "analyse": {
+          "VitaminA": {
+            "why": "Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly increase her risk for Vitamin A lack, but her Whole30 diet may be low in Vitamin A if she's not consuming enough animal products or sweet potatoes.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "liver"
+            ],
+            "tip": "Include a source of healthy fat with Vitamin A-rich foods to enhance absorption."
+          },
+          "VitaminC": {
+            "why": "Vitamin C helps regulate collagen production and has antioxidant properties that can help combat acne. Feru's Whole30 diet is likely rich in fruits and vegetables, but a lack of Vitamin C can still occur if she's not consuming enough.",
+            "foods": [
+              "oranges",
+              "bell peppers",
+              "kiwis"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption."
+          },
+          "Zinc": {
+            "why": "Zinc plays a crucial role in regulating sebum production and reducing inflammation, making it essential for acne-prone skin. As a female, Feru may be at risk for Zinc lack due to inadequate dietary intake or increased excretion.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Take a Zinc supplement or consume Zinc-rich foods with acidic foods like citrus or tomatoes to enhance absorption."
+          }
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to menstruation and hormonal fluctuations.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall circulation and help alleviate headaches."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help manage headache triggers."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, particularly in menstruating women like Feru, who may be at risk of iron insufficiency due to monthly blood loss.",
+            "foods": [
+              "beef liver",
+              "clams",
+              "pumpkin seeds"
+            ],
+            "tip": "Cook in cast-iron cookware to increase iron intake."
+          },
+          "Urgency Note": "None flagged. However, if headaches persist or worsen, it is essential for Feru to consult a healthcare professional to rule out underlying medical conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "Magnesium": {
+            "why": "Lack of magnesium can cause headaches, and as a 26-year-old female, Feru may be more prone to magnesium imbalances due to hormonal fluctuations. Additionally, a Whole30 diet may be low in magnesium-rich foods if not properly planned.",
+            "foods": [
+              "dark leafy greens",
+              "nuts",
+              "seeds"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation or deep breathing to help manage magnesium levels."
+          },
+          "VitaminB6": {
+            "why": "Vitamin B6 plays a role in headache prevention, and a lack of it may contribute to Feru's symptoms. As a female, Feru may be more susceptible to vitamin B6 imbalances due to hormonal changes.",
+            "foods": [
+              "chicken",
+              "salmon",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular physical activity to help improve vitamin B6 absorption."
+          },
+          "Iron": {
+            "why": "Iron deficiency is common in females, especially during reproductive years, and can cause headaches. Feru's Whole30 diet may be low in iron-rich foods if not properly planned.",
+            "foods": [
+              "beef",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Cook in cast-iron cookware to increase iron intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "Magnesium": {
+            "why": "Lack of magnesium can cause headaches, and as a 26-year-old female, Feru may be more prone to magnesium imbalances due to hormonal fluctuations. Her Whole30 diet may be low in magnesium-rich foods if she's not careful.",
+            "foods": [
+              "dark leafy greens",
+              "nuts",
+              "seeds"
+            ],
+            "tip": "Take a warm bath with Epsom salts to help relax and replenish magnesium levels."
+          },
+          "VitaminB6": {
+            "why": "VitaminB6 plays a role in headache prevention, and as a female, Feru may be more susceptible to vitaminB6 imbalances due to hormonal changes.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise, like yoga, to help reduce stress and promote vitaminB6 utilization."
+          },
+          "Iron": {
+            "why": "Iron levels can contribute to headaches, and as a female, Feru may be at risk for iron imbalances due to menstrual blood loss.",
+            "foods": [
+              "spinach",
+              "beef",
+              "lentils"
+            ],
+            "tip": "Cook in cast iron cookware to help increase iron intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Take a VitaminB6-rich snack, like sweet potatoes, with a balanced meal to maintain stable energy levels."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and its lack can lead to increased headache frequency. As a Whole30 dieter, Feru may be at risk of inadequate magnesium intake if her diet is not well-planned.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Incorporate magnesium-rich foods, like spinach, into your daily meals to help regulate muscle and nerve function."
+          },
+          "Iron": {
+            "why": "Iron lack can cause headaches, particularly in women of childbearing age due to menstrual blood loss.",
+            "foods": [
+              "beef liver",
+              "clams",
+              "pumpkin seeds"
+            ],
+            "tip": "Pair iron-rich foods, like beef liver, with VitaminC-rich foods to enhance iron absorption."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall nutrient absorption."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and a lack of it can lead to increased headache frequency. As a Whole30 dieter, Feru may be at risk of inadequate magnesium intake if her diet is not well-planned.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation or deep breathing exercises."
+          },
+          "Iron": {
+            "why": "Iron is essential for transporting oxygen to the brain, and a lack of iron can cause headaches. As a female, Feru is at a higher risk of iron insufficiency due to menstrual blood loss.",
+            "foods": [
+              "beef",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Cook in cast-iron cookware to increase iron intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall nutrient absorption."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques, such as meditation, to help regulate Magnesium levels."
+          },
+          "Iron": {
+            "why": "Iron insufficiency is common in women of childbearing age, and a lack of Iron can cause headaches; Feru's sex and age put her at a higher risk.",
+            "foods": [
+              "beef liver",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Increase Iron absorption by consuming VitaminC-rich foods (like citrus fruits) along with Iron-rich foods."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex don't particularly put her at risk, but her Whole30 diet may lead to inadequate intake if not properly planned.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chicken breast"
+            ],
+            "tip": "Cook at home using various spices to ensure adequate VitaminB6 intake."
+          },
+          "Magnesium": {
+            "why": "Magnesium plays a crucial role in headache prevention, and as a female, Feru is more prone to magnesium imbalances due to menstruation; her Whole30 diet may not provide sufficient magnesium if not carefully planned.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "brown rice"
+            ],
+            "tip": "Incorporate magnesium-rich foods into your daily meals, and consider consulting a registered dietitian for personalized guidance."
+          },
+          "VitaminC": {
+            "why": "VitaminC helps alleviate headaches, and as a Whole30 dieter, Feru may have limited sources of VitaminC if not consuming enough fruits and vegetables.",
+            "foods": [
+              "oranges",
+              "bell peppers",
+              "kiwi"
+            ],
+            "tip": "Include a variety of colorful fruits and vegetables in your meals to boost VitaminC intake."
+          },
+          "Urgency Note": "None flagged, but if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 deficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Take a warm bath to relax and reduce stress, which can contribute to headaches."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice gentle stretches to relieve tension, which can contribute to headaches."
+          },
+          "Iron": {
+            "why": "A lack of Iron can cause headaches, and as a 26-year-old female, Feru is at a higher risk due to menstrual blood loss.",
+            "foods": [
+              "beef liver",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Eat small, frequent meals to maintain stable energy levels and prevent iron-related headaches."
+          },
+          "Urgency Note": "If Feru experiences severe or frequent headaches, it's essential to consult a healthcare professional to rule out any underlying medical conditions. No urgent concerns are flagged based on the provided information."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches due to its role in neurotransmitter synthesis and its effect on blood vessel constriction. As a 26-year-old female, Feru's age and sex do not particularly put her at risk, but her Whole30 diet may lead to inadequate intake if not properly planned.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chicken breast"
+            ],
+            "tip": "Include a source of VitaminB6 with every meal to maintain stable levels."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches as it plays a crucial role in blood vessel relaxation and neuronal function. Feru's Whole30 diet, which tends to be low in processed foods, might still be insufficient if her intake of dark leafy greens and nuts is limited.",
+            "foods": [
+              "spinach",
+              "almonds",
+              "brown rice"
+            ],
+            "tip": "Engage in stress-reducing activities like yoga or meditation to help your body retain Magnesium."
+          },
+          "Iron": {
+            "why": "Iron lack can cause headaches due to reduced oxygen delivery to the brain. As a female, Feru is at a higher risk of iron deficiency due to menstrual blood loss. Her Whole30 diet may not include sufficient iron-rich foods if not carefully planned.",
+            "foods": [
+              "beef liver",
+              "clams",
+              "pumpkin seeds"
+            ],
+            "tip": "Consume VitaminC-rich foods along with iron-rich foods to enhance iron absorption."
+          },
+          "Urgency Note": "If Feru experiences frequent, severe, or worsening headaches, she should consult a healthcare professional to rule out any underlying conditions that may require immediate attention. No urgent concerns are flagged based on the provided information."
+        }
+      },
+      {
+        "symptoms": "headache",
+        "analyse": {
+          "VitaminB6": {
+            "why": "Lack of VitaminB6 can cause headaches, and as a 26-year-old female, Feru's age and sex may contribute to a higher risk of VitaminB6 insufficiency due to increased demand during menstruation and childbearing years.",
+            "foods": [
+              "salmon",
+              "sweet potatoes",
+              "chickpeas"
+            ],
+            "tip": "Engage in regular exercise to improve overall nutrient uptake and metabolism."
+          },
+          "Magnesium": {
+            "why": "A lack of Magnesium can lead to headaches, and as a Whole30 dieter, Feru may be at risk if not consuming enough Magnesium-rich foods, as the diet can be low in certain minerals.",
+            "foods": [
+              "dark leafy greens",
+              "almonds",
+              "avocados"
+            ],
+            "tip": "Practice stress-reducing techniques like meditation to help regulate Magnesium levels."
+          },
+          "Iron": {
+            "why": "Iron insufficiency is common in women of childbearing age, and a lack of Iron can cause headaches due to inadequate oxygen delivery to the brain; Feru's sex and age put her at a higher risk.",
+            "foods": [
+              "beef liver",
+              "spinach",
+              "pumpkin seeds"
+            ],
+            "tip": "Cook in cast-iron cookware to increase Iron intake."
+          },
+          "Urgency Note": "None flagged. However, if headaches persist or worsen, consult a healthcare professional to rule out underlying conditions."
+        }
+      }
+    ],
+    "mealplan": {
+      "meals": [
+        {
+          "id": 756814,
+          "image": "https://img.spoonacular.com/recipes/756814-556x370.jpg",
+          "title": "Powerhouse Almond Matcha Superfood Smoothie",
+          "readyInMinutes": 10,
+          "sourceUrl": "https://www.foodista.com/blog/2015/05/17/powehouse-almond-matcha-superfood-smoothie",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 281.18,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 14.06
+              },
+              {
+                "name": "Fat",
+                "amount": 12.94,
+                "unit": "g",
+                "percentOfDailyNeeds": 19.91
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 0.93,
+                "unit": "g",
+                "percentOfDailyNeeds": 5.79
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 33.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.26
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 26.7,
+                "unit": "g",
+                "percentOfDailyNeeds": 9.71
+              },
+              {
+                "name": "Sugar",
+                "amount": 20.05,
+                "unit": "g",
+                "percentOfDailyNeeds": 22.28
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Sodium",
+                "amount": 252.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.99
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0.34,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0.11,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 10.33,
+                "unit": "g",
+                "percentOfDailyNeeds": 20.65
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 59.6,
+                "unit": "mg",
+                "percentOfDailyNeeds": 72.24
+              },
+              {
+                "name": "Manganese",
+                "amount": 1.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 64.01
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 43.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 41.34
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 1946.24,
+                "unit": "IU",
+                "percentOfDailyNeeds": 38.92
+              },
+              {
+                "name": "Calcium",
+                "amount": 348.07,
+                "unit": "mg",
+                "percentOfDailyNeeds": 34.81
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 4.41,
+                "unit": "mg",
+                "percentOfDailyNeeds": 29.37
+              },
+              {
+                "name": "Fiber",
+                "amount": 7.08,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.31
+              },
+              {
+                "name": "Magnesium",
+                "amount": 89.11,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.28
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.37,
+                "unit": "mg",
+                "percentOfDailyNeeds": 18.35
+              },
+              {
+                "name": "Copper",
+                "amount": 0.35,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.63
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 16.06
+              },
+              {
+                "name": "Iron",
+                "amount": 2.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 15.47
+              },
+              {
+                "name": "Potassium",
+                "amount": 521.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.91
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 145.22,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.52
+              },
+              {
+                "name": "Folate",
+                "amount": 57.63,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 14.41
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 9.82
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.12,
+                "unit": "mg",
+                "percentOfDailyNeeds": 8.14
+              },
+              {
+                "name": "Zinc",
+                "amount": 0.95,
+                "unit": "mg",
+                "percentOfDailyNeeds": 6.34
+              },
+              {
+                "name": "Selenium",
+                "amount": 3.59,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 5.12
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 0.47,
+                "unit": "mg",
+                "percentOfDailyNeeds": 4.71
+              }
+            ]
+          },
+          "summary": "Powerhouse Almond Matcha Superfood Smoothie is a breakfast that serves 2. One serving contains <b>289 calories</b>, <b>11g of protein</b>, and <b>13g of fat</b>. For <b>$2.59 per serving</b>, this recipe <b>covers 27%</b> of your daily requirements of vitamins and minerals. If you have chia seeds, matcha tea powder, banana, and a few other ingredients on hand, you can make it. It is a good option if you're following a <b>gluten free, dairy free, and whole 30</b> diet. This recipe from Foodista has 80 fans. From preparation to the plate, this recipe takes around <b>10 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 98%</b>. This score is awesome. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/powerhouse-almond-matcha-superfood-smoothie-1244781\">Powerhouse Almond Matcha Superfood Smoothie</a>, <a href=\"https://spoonacular.com/recipes/chocolate-almond-superfood-smoothie-1600269\">Chocolate Almond Superfood Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/powerhouse-golden-turmeric-smoothie-882363\">Powerhouse Golden Turmeric Smoothie</a>.",
+          "dishTypes": [
+            "morning meal",
+            "brunch",
+            "beverage",
+            "breakfast",
+            "drink"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/powerhouse-almond-matcha-superfood-smoothie-756814"
+        },
+        {
+          "id": 664054,
+          "image": "https://img.spoonacular.com/recipes/664054-556x370.jpg",
+          "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/S3LTQRHW/turkey-sausage-chard-sweet-potato-breakfast-scramble",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 571.94,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 28.6
+              },
+              {
+                "name": "Fat",
+                "amount": 39.7,
+                "unit": "g",
+                "percentOfDailyNeeds": 61.08
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 12.27,
+                "unit": "g",
+                "percentOfDailyNeeds": 76.68
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 19.87,
+                "unit": "g",
+                "percentOfDailyNeeds": 6.62
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 15.46,
+                "unit": "g",
+                "percentOfDailyNeeds": 5.62
+              },
+              {
+                "name": "Sugar",
+                "amount": 6.81,
+                "unit": "g",
+                "percentOfDailyNeeds": 7.56
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 552.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 184.09
+              },
+              {
+                "name": "Sodium",
+                "amount": 876.48,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.11
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 34.1,
+                "unit": "g",
+                "percentOfDailyNeeds": 68.19
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 427.4,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 407.05
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 11847.56,
+                "unit": "IU",
+                "percentOfDailyNeeds": 236.95
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.8,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.58
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 565.33,
+                "unit": "mg",
+                "percentOfDailyNeeds": 56.53
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 56.36
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 10.33,
+                "unit": "mg",
+                "percentOfDailyNeeds": 51.65
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 4.57,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.74
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 42.2
+              },
+              {
+                "name": "Potassium",
+                "amount": 1257.21,
+                "unit": "mg",
+                "percentOfDailyNeeds": 35.92
+              },
+              {
+                "name": "Copper",
+                "amount": 0.7,
+                "unit": "mg",
+                "percentOfDailyNeeds": 34.87
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 1.96,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 32.68
+              },
+              {
+                "name": "Zinc",
+                "amount": 4.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.72
+              },
+              {
+                "name": "Folate",
+                "amount": 118.79,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 29.7
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.73
+              },
+              {
+                "name": "Iron",
+                "amount": 5.05,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.07
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 4.12,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 27.49
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.47,
+                "unit": "mg",
+                "percentOfDailyNeeds": 23.44
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 18.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.55
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 3.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.79
+              },
+              {
+                "name": "Magnesium",
+                "amount": 83.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.86
+              },
+              {
+                "name": "Fiber",
+                "amount": 4.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.65
+              },
+              {
+                "name": "Calcium",
+                "amount": 136.35,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.64
+              }
+            ]
+          },
+          "summary": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble might be just the breakfast you are searching for. One serving contains <b>572 calories</b>, <b>34g of protein</b>, and <b>40g of fat</b>. This recipe serves 2 and costs $3.59 per serving. This recipe is liked by 6 foodies and cooks. Head to the store and pick up sweet potato, diestel breakfast sausage, olive oil, and a few other things to make it today. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. It is brought to you by Foodista. It is a good option if you're following a <b>gluten free, dairy free, paleolithic, and primal</b> diet. With a spoonacular <b>score of 77%</b>, this dish is good. Similar recipes include <a href=\"https://spoonacular.com/recipes/turkey-sausage-chard-sweet-potato-breakfast-scramble-1393989\">Turkey Sausage, Chard & Sweet Potato Breakfast Scramble</a>, <a href=\"https://spoonacular.com/recipes/turkey-sausage-chard-sweet-potato-breakfast-scramble-1378233\">Turkey Sausage, Chard & Sweet Potato Breakfast Scramble</a>, and <a href=\"https://spoonacular.com/recipes/turkey-sausage-chard-sweet-potato-breakfast-scramble-1282549\">Turkey Sausage, Chard & Sweet Potato Breakfast Scramble</a>.",
+          "dishTypes": [
+            "morning meal",
+            "brunch",
+            "breakfast"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "primal",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/turkey-sausage-chard-sweet-potato-breakfast-scramble-664054"
+        },
+        {
+          "id": 794350,
+          "image": "https://img.spoonacular.com/recipes/794350-556x370.jpg",
+          "title": "Cherry Coconut Milk Smoothie",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodandspice.com/2016/07/cherry-coconut-milk-smoothie.html",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 305.09,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 15.25
+              },
+              {
+                "name": "Fat",
+                "amount": 17.36,
+                "unit": "g",
+                "percentOfDailyNeeds": 26.71
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 14.45,
+                "unit": "g",
+                "percentOfDailyNeeds": 90.32
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 38.07,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.69
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 33.47,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.17
+              },
+              {
+                "name": "Sugar",
+                "amount": 25.11,
+                "unit": "g",
+                "percentOfDailyNeeds": 27.91
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 0,
+                "unit": "mg",
+                "percentOfDailyNeeds": 0
+              },
+              {
+                "name": "Sodium",
+                "amount": 33.51,
+                "unit": "mg",
+                "percentOfDailyNeeds": 1.46
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0.69,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0.28,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 4.12,
+                "unit": "g",
+                "percentOfDailyNeeds": 8.24
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 19.67,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 131.11
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 41.95
+              },
+              {
+                "name": "Potassium",
+                "amount": 704.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.12
+              },
+              {
+                "name": "Iron",
+                "amount": 3.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.08
+              },
+              {
+                "name": "Fiber",
+                "amount": 4.76,
+                "unit": "g",
+                "percentOfDailyNeeds": 19.03
+              },
+              {
+                "name": "Magnesium",
+                "amount": 75.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 18.96
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 15.55,
+                "unit": "mg",
+                "percentOfDailyNeeds": 18.84
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 171.76,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.18
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 0.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 15.29
+              },
+              {
+                "name": "Copper",
+                "amount": 0.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.91
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.17,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.18
+              },
+              {
+                "name": "Calcium",
+                "amount": 83.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 8.38
+              },
+              {
+                "name": "Folate",
+                "amount": 27.87,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 6.97
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.09,
+                "unit": "mg",
+                "percentOfDailyNeeds": 6.13
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 0.59,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.88
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 1.09,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.47
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 208.02,
+                "unit": "IU",
+                "percentOfDailyNeeds": 4.16
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 0.25,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 4.1
+              },
+              {
+                "name": "Zinc",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 4.06
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 3.19,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 3.04
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 0.35,
+                "unit": "mg",
+                "percentOfDailyNeeds": 2.35
+              }
+            ]
+          },
+          "summary": "Cherry Coconut Milk Smoothie is a <b>gluten free, dairy free, paleolithic, and lacto ovo vegetarian</b> recipe with 2 servings. One portion of this dish contains approximately <b>4g of protein</b>, <b>17g of fat</b>, and a total of <b>305 calories</b>. For <b>$2.04 per serving</b>, this recipe <b>covers 14%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up hemp milk, vanilla, coconut milk, and a few other things to make it today. Several people really liked this breakfast. This recipe is liked by 130 foodies and cooks. From preparation to the plate, this recipe takes about <b>45 minutes</b>. It is brought to you by foodandspice.blogspot.com. All things considered, we decided this recipe <b>deserves a spoonacular score of 68%</b>. This score is solid. <a href=\"https://spoonacular.com/recipes/cherry-coconut-milk-smoothie-1329549\">Cherry Coconut Milk Smoothie</a>, <a href=\"https://spoonacular.com/recipes/cherry-coconut-milk-smoothie-1593441\">Cherry Coconut Milk Smoothie</a>, and <a href=\"https://spoonacular.com/recipes/coconut-milk-smoothie-125557\">Coconut Milk Smoothie</a> are very similar to this recipe.",
+          "dishTypes": [
+            "morning meal",
+            "brunch",
+            "beverage",
+            "breakfast",
+            "drink"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "paleolithic",
+            "lacto ovo vegetarian",
+            "primal",
+            "vegan"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/cherry-coconut-milk-smoothie-794350"
+        },
+        {
+          "id": 636787,
+          "image": "https://img.spoonacular.com/recipes/636787-556x370.jpg",
+          "title": "Caldo Verde - Portuguese Kale Soup",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7SDK7CGK/caldo-verde-portuguese-kale-soup",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 492.94,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.65
+              },
+              {
+                "name": "Fat",
+                "amount": 10.28,
+                "unit": "g",
+                "percentOfDailyNeeds": 15.81
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 4.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 29.91
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 82.25,
+                "unit": "g",
+                "percentOfDailyNeeds": 27.42
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 70.45,
+                "unit": "g",
+                "percentOfDailyNeeds": 25.62
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.06,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.18
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 40.36,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.45
+              },
+              {
+                "name": "Sodium",
+                "amount": 645.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.06
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 19.76,
+                "unit": "g",
+                "percentOfDailyNeeds": 39.52
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 11734.74,
+                "unit": "IU",
+                "percentOfDailyNeeds": 234.69
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 116.86,
+                "unit": "mg",
+                "percentOfDailyNeeds": 141.64
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 142.51,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 135.72
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.44,
+                "unit": "mg",
+                "percentOfDailyNeeds": 71.91
+              },
+              {
+                "name": "Potassium",
+                "amount": 2140.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 61.16
+              },
+              {
+                "name": "Fiber",
+                "amount": 11.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 47.17
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.02
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 8.78,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.92
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 323.9,
+                "unit": "mg",
+                "percentOfDailyNeeds": 32.39
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.46,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.95
+              },
+              {
+                "name": "Copper",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.48
+              },
+              {
+                "name": "Magnesium",
+                "amount": 116.7,
+                "unit": "mg",
+                "percentOfDailyNeeds": 29.17
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.49,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.69
+              },
+              {
+                "name": "Iron",
+                "amount": 4.98,
+                "unit": "mg",
+                "percentOfDailyNeeds": 27.65
+              },
+              {
+                "name": "Folate",
+                "amount": 104.07,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.02
+              },
+              {
+                "name": "Calcium",
+                "amount": 175.48,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.55
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.01
+              },
+              {
+                "name": "Zinc",
+                "amount": 1.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.95
+              },
+              {
+                "name": "Selenium",
+                "amount": 7.55,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 10.78
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 1.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 9.29
+              }
+            ]
+          },
+          "summary": "Caldo Verde - Portuguese Kale Soup takes approximately <b>45 minutes</b> from beginning to end. One portion of this dish contains around <b>20g of protein</b>, <b>10g of fat</b>, and a total of <b>493 calories</b>. For <b>$2.24 per serving</b>, this recipe <b>covers 35%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. 13 people were glad they tried this recipe. It is a good option if you're following a <b>gluten free, dairy free, and whole 30</b> diet. It is brought to you by Foodista. It works well as a main course. It will be a hit at your <b>Autumn</b> event. Head to the store and pick up onion, carrots, pepper flakes, and a few other things to make it today. With a spoonacular <b>score of 92%</b>, this dish is outstanding. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/portuguese-kale-soup-caldo-verde-499535\">Portuguese Kale Soup (Caldo Verde)</a>, <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-1274837\">Caldo Verde - Portuguese Kale Soup</a>, and <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-598606\">Caldo Verde | Portuguese Kale Soup</a>.",
+          "dishTypes": [
+            "lunch",
+            "soup",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/caldo-verde-portuguese-kale-soup-636787"
+        },
+        {
+          "id": 659135,
+          "image": "https://img.spoonacular.com/recipes/659135-556x370.jpg",
+          "title": "Salmon with roasted vegetables",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 495.53,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.78
+              },
+              {
+                "name": "Fat",
+                "amount": 18.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.32
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 2.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.38
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 44.62,
+                "unit": "g",
+                "percentOfDailyNeeds": 14.87
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 35.64,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.96
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.3,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.44
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 93.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 31.17
+              },
+              {
+                "name": "Sodium",
+                "amount": 121.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.26
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 38.53,
+                "unit": "g",
+                "percentOfDailyNeeds": 77.06
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 5570.94,
+                "unit": "IU",
+                "percentOfDailyNeeds": 111.42
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 97.79
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.49,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.13
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 5.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 90.1
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 15.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 79.22
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 58.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.63
+              },
+              {
+                "name": "Potassium",
+                "amount": 1933.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 55.24
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 505.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 50.55
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.56
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.72
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 40.95
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 3.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.75
+              },
+              {
+                "name": "Copper",
+                "amount": 0.73,
+                "unit": "mg",
+                "percentOfDailyNeeds": 36.66
+              },
+              {
+                "name": "Fiber",
+                "amount": 8.99,
+                "unit": "g",
+                "percentOfDailyNeeds": 35.94
+              },
+              {
+                "name": "Folate",
+                "amount": 141.09,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 35.27
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 36.24,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 34.51
+              },
+              {
+                "name": "Magnesium",
+                "amount": 115.67,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.92
+              },
+              {
+                "name": "Iron",
+                "amount": 3.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.23
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 2.99,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.95
+              },
+              {
+                "name": "Zinc",
+                "amount": 2.16,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.4
+              },
+              {
+                "name": "Calcium",
+                "amount": 110.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.05
+              }
+            ]
+          },
+          "summary": "Salmon with roasted vegetables takes approximately <b>45 minutes</b> from beginning to end. For <b>$5.2 per serving</b>, this recipe <b>covers 45%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. One serving contains <b>496 calories</b>, <b>39g of protein</b>, and <b>18g of fat</b>. Head to the store and pick up lemon juice, salt, carrot, and a few other things to make it today. Not a lot of people made this recipe, and 7 would say it hit the spot. It works well as a main course. It is a good option if you're following a <b>gluten free, dairy free, whole 30, and pescatarian</b> diet. It is brought to you by Foodista. Overall, this recipe earns a <b>great spoonacular score of 94%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-1312689\">Roasted Salmon & Vegetables</a>, <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-36765\">Roasted Salmon & Vegetables</a>, and <a href=\"https://spoonacular.com/recipes/salmon-with-roasted-vegetables-1333407\">Salmon with roasted vegetables</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30",
+            "pescatarian"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
+        },
+        {
+          "id": 639851,
+          "image": "https://img.spoonacular.com/recipes/639851-556x370.jpg",
+          "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/GNSQNH5W/cod-with-tomatoes-olives-and-chorizo",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 733.32,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 36.67
+              },
+              {
+                "name": "Fat",
+                "amount": 40.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 62.18
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 8.46,
+                "unit": "g",
+                "percentOfDailyNeeds": 52.86
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 37.09,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.36
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 30.07,
+                "unit": "g",
+                "percentOfDailyNeeds": 10.93
+              },
+              {
+                "name": "Sugar",
+                "amount": 6.85,
+                "unit": "g",
+                "percentOfDailyNeeds": 7.61
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 143,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.67
+              },
+              {
+                "name": "Sodium",
+                "amount": 1554.36,
+                "unit": "mg",
+                "percentOfDailyNeeds": 67.58
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 55.77,
+                "unit": "g",
+                "percentOfDailyNeeds": 111.54
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 218.26,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 207.87
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 130.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 158.57
+              },
+              {
+                "name": "Selenium",
+                "amount": 90.05,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 128.64
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 3743.98,
+                "unit": "IU",
+                "percentOfDailyNeeds": 74.88
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.4,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.16
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 696.63,
+                "unit": "mg",
+                "percentOfDailyNeeds": 69.66
+              },
+              {
+                "name": "Potassium",
+                "amount": 2231.22,
+                "unit": "mg",
+                "percentOfDailyNeeds": 63.75
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 3.03,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 50.5
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 9.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 48.86
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 7.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.52
+              },
+              {
+                "name": "Magnesium",
+                "amount": 148.71,
+                "unit": "mg",
+                "percentOfDailyNeeds": 37.18
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.53,
+                "unit": "mg",
+                "percentOfDailyNeeds": 35.23
+              },
+              {
+                "name": "Fiber",
+                "amount": 7.02,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.08
+              },
+              {
+                "name": "Folate",
+                "amount": 104.38,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.1
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 24.96
+              },
+              {
+                "name": "Iron",
+                "amount": 4.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.94
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.38,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.06
+              },
+              {
+                "name": "Zinc",
+                "amount": 3.08,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.56
+              },
+              {
+                "name": "Copper",
+                "amount": 0.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.51
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 2.8,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 18.67
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.37,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.74
+              },
+              {
+                "name": "Calcium",
+                "amount": 107.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.7
+              }
+            ]
+          },
+          "summary": "If you want to add more <b>gluten free, dairy free, and whole 30</b> recipes to your collection, Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes might be a recipe you should try. This recipe serves 2 and costs $6.26 per serving. This main course has <b>733 calories</b>, <b>56g of protein</b>, and <b>40g of fat</b> per serving. This recipe is liked by 14 foodies and cooks. Head to the store and pick up lemon juice, parsley leaves, parsley, and a few other things to make it today. It is perfect for <b>Thanksgiving</b>. It is brought to you by Foodista. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 96%</b>. This score is awesome. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/cod-stew-with-chorizo-leeks-potatoes-2655\">Cod Stew With Chorizo, Leeks & Potatoes</a>, <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-1204417\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>, and <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-668002\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/cod-with-tomato-olive-chorizo-sauce-and-mashed-potatoes-639851"
+        },
+        {
+          "id": 636787,
+          "image": "https://img.spoonacular.com/recipes/636787-556x370.jpg",
+          "title": "Caldo Verde - Portuguese Kale Soup",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7SDK7CGK/caldo-verde-portuguese-kale-soup",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 492.94,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.65
+              },
+              {
+                "name": "Fat",
+                "amount": 10.28,
+                "unit": "g",
+                "percentOfDailyNeeds": 15.81
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 4.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 29.91
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 82.25,
+                "unit": "g",
+                "percentOfDailyNeeds": 27.42
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 70.45,
+                "unit": "g",
+                "percentOfDailyNeeds": 25.62
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.06,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.18
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 40.36,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.45
+              },
+              {
+                "name": "Sodium",
+                "amount": 645.28,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.06
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 19.76,
+                "unit": "g",
+                "percentOfDailyNeeds": 39.52
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 11734.74,
+                "unit": "IU",
+                "percentOfDailyNeeds": 234.69
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 116.86,
+                "unit": "mg",
+                "percentOfDailyNeeds": 141.64
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 142.51,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 135.72
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.44,
+                "unit": "mg",
+                "percentOfDailyNeeds": 71.91
+              },
+              {
+                "name": "Potassium",
+                "amount": 2140.43,
+                "unit": "mg",
+                "percentOfDailyNeeds": 61.16
+              },
+              {
+                "name": "Fiber",
+                "amount": 11.79,
+                "unit": "g",
+                "percentOfDailyNeeds": 47.17
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.94,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.02
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 8.78,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.92
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 323.9,
+                "unit": "mg",
+                "percentOfDailyNeeds": 32.39
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.46,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.95
+              },
+              {
+                "name": "Copper",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 30.48
+              },
+              {
+                "name": "Magnesium",
+                "amount": 116.7,
+                "unit": "mg",
+                "percentOfDailyNeeds": 29.17
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.49,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.69
+              },
+              {
+                "name": "Iron",
+                "amount": 4.98,
+                "unit": "mg",
+                "percentOfDailyNeeds": 27.65
+              },
+              {
+                "name": "Folate",
+                "amount": 104.07,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.02
+              },
+              {
+                "name": "Calcium",
+                "amount": 175.48,
+                "unit": "mg",
+                "percentOfDailyNeeds": 17.55
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.3,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.01
+              },
+              {
+                "name": "Zinc",
+                "amount": 1.79,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.95
+              },
+              {
+                "name": "Selenium",
+                "amount": 7.55,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 10.78
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 1.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 9.29
+              }
+            ]
+          },
+          "summary": "Caldo Verde - Portuguese Kale Soup takes approximately <b>45 minutes</b> from beginning to end. One portion of this dish contains around <b>20g of protein</b>, <b>10g of fat</b>, and a total of <b>493 calories</b>. For <b>$2.24 per serving</b>, this recipe <b>covers 35%</b> of your daily requirements of vitamins and minerals. This recipe serves 4. 13 people were glad they tried this recipe. It is a good option if you're following a <b>gluten free, dairy free, and whole 30</b> diet. It is brought to you by Foodista. It works well as a main course. It will be a hit at your <b>Autumn</b> event. Head to the store and pick up onion, carrots, pepper flakes, and a few other things to make it today. With a spoonacular <b>score of 92%</b>, this dish is outstanding. Users who liked this recipe also liked <a href=\"https://spoonacular.com/recipes/portuguese-kale-soup-caldo-verde-499535\">Portuguese Kale Soup (Caldo Verde)</a>, <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-1274837\">Caldo Verde - Portuguese Kale Soup</a>, and <a href=\"https://spoonacular.com/recipes/caldo-verde-portuguese-kale-soup-598606\">Caldo Verde | Portuguese Kale Soup</a>.",
+          "dishTypes": [
+            "lunch",
+            "soup",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/caldo-verde-portuguese-kale-soup-636787"
+        },
+        {
+          "id": 659135,
+          "image": "https://img.spoonacular.com/recipes/659135-556x370.jpg",
+          "title": "Salmon with roasted vegetables",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/7TTSVX56/salmon-with-roasted-vegetables",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 495.53,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 24.78
+              },
+              {
+                "name": "Fat",
+                "amount": 18.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.32
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 2.78,
+                "unit": "g",
+                "percentOfDailyNeeds": 17.38
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 44.62,
+                "unit": "g",
+                "percentOfDailyNeeds": 14.87
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 35.64,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.96
+              },
+              {
+                "name": "Sugar",
+                "amount": 10.3,
+                "unit": "g",
+                "percentOfDailyNeeds": 11.44
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 93.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 31.17
+              },
+              {
+                "name": "Sodium",
+                "amount": 121.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 5.26
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 38.53,
+                "unit": "g",
+                "percentOfDailyNeeds": 77.06
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 5570.94,
+                "unit": "IU",
+                "percentOfDailyNeeds": 111.42
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.96,
+                "unit": "mg",
+                "percentOfDailyNeeds": 97.79
+              },
+              {
+                "name": "Selenium",
+                "amount": 64.49,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 92.13
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 5.41,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 90.1
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 15.84,
+                "unit": "mg",
+                "percentOfDailyNeeds": 79.22
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 58.27,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.63
+              },
+              {
+                "name": "Potassium",
+                "amount": 1933.31,
+                "unit": "mg",
+                "percentOfDailyNeeds": 55.24
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 505.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 50.55
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 45.56
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 43.72
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.61,
+                "unit": "mg",
+                "percentOfDailyNeeds": 40.95
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 3.87,
+                "unit": "mg",
+                "percentOfDailyNeeds": 38.75
+              },
+              {
+                "name": "Copper",
+                "amount": 0.73,
+                "unit": "mg",
+                "percentOfDailyNeeds": 36.66
+              },
+              {
+                "name": "Fiber",
+                "amount": 8.99,
+                "unit": "g",
+                "percentOfDailyNeeds": 35.94
+              },
+              {
+                "name": "Folate",
+                "amount": 141.09,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 35.27
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 36.24,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 34.51
+              },
+              {
+                "name": "Magnesium",
+                "amount": 115.67,
+                "unit": "mg",
+                "percentOfDailyNeeds": 28.92
+              },
+              {
+                "name": "Iron",
+                "amount": 3.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 21.23
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 2.99,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.95
+              },
+              {
+                "name": "Zinc",
+                "amount": 2.16,
+                "unit": "mg",
+                "percentOfDailyNeeds": 14.4
+              },
+              {
+                "name": "Calcium",
+                "amount": 110.45,
+                "unit": "mg",
+                "percentOfDailyNeeds": 11.05
+              }
+            ]
+          },
+          "summary": "Salmon with roasted vegetables takes approximately <b>45 minutes</b> from beginning to end. For <b>$5.2 per serving</b>, this recipe <b>covers 45%</b> of your daily requirements of vitamins and minerals. This recipe serves 2. One serving contains <b>496 calories</b>, <b>39g of protein</b>, and <b>18g of fat</b>. Head to the store and pick up lemon juice, salt, carrot, and a few other things to make it today. Not a lot of people made this recipe, and 7 would say it hit the spot. It works well as a main course. It is a good option if you're following a <b>gluten free, dairy free, whole 30, and pescatarian</b> diet. It is brought to you by Foodista. Overall, this recipe earns a <b>great spoonacular score of 94%</b>. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-1312689\">Roasted Salmon & Vegetables</a>, <a href=\"https://spoonacular.com/recipes/roasted-salmon-vegetables-36765\">Roasted Salmon & Vegetables</a>, and <a href=\"https://spoonacular.com/recipes/salmon-with-roasted-vegetables-1333407\">Salmon with roasted vegetables</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30",
+            "pescatarian"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/salmon-with-roasted-vegetables-659135"
+        },
+        {
+          "id": 639851,
+          "image": "https://img.spoonacular.com/recipes/639851-556x370.jpg",
+          "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+          "readyInMinutes": 45,
+          "sourceUrl": "https://www.foodista.com/recipe/GNSQNH5W/cod-with-tomatoes-olives-and-chorizo",
+          "nutrition": {
+            "nutrients": [
+              {
+                "name": "Calories",
+                "amount": 733.32,
+                "unit": "kcal",
+                "percentOfDailyNeeds": 36.67
+              },
+              {
+                "name": "Fat",
+                "amount": 40.41,
+                "unit": "g",
+                "percentOfDailyNeeds": 62.18
+              },
+              {
+                "name": "Saturated Fat",
+                "amount": 8.46,
+                "unit": "g",
+                "percentOfDailyNeeds": 52.86
+              },
+              {
+                "name": "Carbohydrates",
+                "amount": 37.09,
+                "unit": "g",
+                "percentOfDailyNeeds": 12.36
+              },
+              {
+                "name": "Net Carbohydrates",
+                "amount": 30.07,
+                "unit": "g",
+                "percentOfDailyNeeds": 10.93
+              },
+              {
+                "name": "Sugar",
+                "amount": 6.85,
+                "unit": "g",
+                "percentOfDailyNeeds": 7.61
+              },
+              {
+                "name": "Cholesterol",
+                "amount": 143,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.67
+              },
+              {
+                "name": "Sodium",
+                "amount": 1554.36,
+                "unit": "mg",
+                "percentOfDailyNeeds": 67.58
+              },
+              {
+                "name": "Alcohol",
+                "amount": 0,
+                "unit": "g",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Alcohol %",
+                "amount": 0,
+                "unit": "%",
+                "percentOfDailyNeeds": 100
+              },
+              {
+                "name": "Protein",
+                "amount": 55.77,
+                "unit": "g",
+                "percentOfDailyNeeds": 111.54
+              },
+              {
+                "name": "Vitamin K",
+                "amount": 218.26,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 207.87
+              },
+              {
+                "name": "Vitamin C",
+                "amount": 130.82,
+                "unit": "mg",
+                "percentOfDailyNeeds": 158.57
+              },
+              {
+                "name": "Selenium",
+                "amount": 90.05,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 128.64
+              },
+              {
+                "name": "Vitamin A",
+                "amount": 3743.98,
+                "unit": "IU",
+                "percentOfDailyNeeds": 74.88
+              },
+              {
+                "name": "Vitamin B6",
+                "amount": 1.4,
+                "unit": "mg",
+                "percentOfDailyNeeds": 70.16
+              },
+              {
+                "name": "Phosphorus",
+                "amount": 696.63,
+                "unit": "mg",
+                "percentOfDailyNeeds": 69.66
+              },
+              {
+                "name": "Potassium",
+                "amount": 2231.22,
+                "unit": "mg",
+                "percentOfDailyNeeds": 63.75
+              },
+              {
+                "name": "Vitamin B12",
+                "amount": 3.03,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 50.5
+              },
+              {
+                "name": "Vitamin B3",
+                "amount": 9.77,
+                "unit": "mg",
+                "percentOfDailyNeeds": 48.86
+              },
+              {
+                "name": "Vitamin E",
+                "amount": 7.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 47.52
+              },
+              {
+                "name": "Magnesium",
+                "amount": 148.71,
+                "unit": "mg",
+                "percentOfDailyNeeds": 37.18
+              },
+              {
+                "name": "Vitamin B1",
+                "amount": 0.53,
+                "unit": "mg",
+                "percentOfDailyNeeds": 35.23
+              },
+              {
+                "name": "Fiber",
+                "amount": 7.02,
+                "unit": "g",
+                "percentOfDailyNeeds": 28.08
+              },
+              {
+                "name": "Folate",
+                "amount": 104.38,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 26.1
+              },
+              {
+                "name": "Manganese",
+                "amount": 0.5,
+                "unit": "mg",
+                "percentOfDailyNeeds": 24.96
+              },
+              {
+                "name": "Iron",
+                "amount": 4.13,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.94
+              },
+              {
+                "name": "Vitamin B2",
+                "amount": 0.38,
+                "unit": "mg",
+                "percentOfDailyNeeds": 22.06
+              },
+              {
+                "name": "Zinc",
+                "amount": 3.08,
+                "unit": "mg",
+                "percentOfDailyNeeds": 20.56
+              },
+              {
+                "name": "Copper",
+                "amount": 0.39,
+                "unit": "mg",
+                "percentOfDailyNeeds": 19.51
+              },
+              {
+                "name": "Vitamin D",
+                "amount": 2.8,
+                "unit": "\u00b5g",
+                "percentOfDailyNeeds": 18.67
+              },
+              {
+                "name": "Vitamin B5",
+                "amount": 1.37,
+                "unit": "mg",
+                "percentOfDailyNeeds": 13.74
+              },
+              {
+                "name": "Calcium",
+                "amount": 107.03,
+                "unit": "mg",
+                "percentOfDailyNeeds": 10.7
+              }
+            ]
+          },
+          "summary": "If you want to add more <b>gluten free, dairy free, and whole 30</b> recipes to your collection, Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes might be a recipe you should try. This recipe serves 2 and costs $6.26 per serving. This main course has <b>733 calories</b>, <b>56g of protein</b>, and <b>40g of fat</b> per serving. This recipe is liked by 14 foodies and cooks. Head to the store and pick up lemon juice, parsley leaves, parsley, and a few other things to make it today. It is perfect for <b>Thanksgiving</b>. It is brought to you by Foodista. From preparation to the plate, this recipe takes approximately <b>45 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 96%</b>. This score is awesome. If you like this recipe, you might also like recipes such as <a href=\"https://spoonacular.com/recipes/cod-stew-with-chorizo-leeks-potatoes-2655\">Cod Stew With Chorizo, Leeks & Potatoes</a>, <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-1204417\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>, and <a href=\"https://spoonacular.com/recipes/tuna-steaks-in-spicy-tomato-sauce-with-mashed-potatoes-668002\">Tuna Steaks In Spicy Tomato Sauce With Mashed Potatoes</a>.",
+          "dishTypes": [
+            "lunch",
+            "main course",
+            "main dish",
+            "dinner"
+          ],
+          "diets": [
+            "gluten free",
+            "dairy free",
+            "whole 30"
+          ],
+          "spoonacularSourceUrl": "https://spoonacular.com/cod-with-tomato-olive-chorizo-sauce-and-mashed-potatoes-639851"
+        }
+      ],
+      "nutrients": {
+        "calories": 4601.79,
+        "protein": 276.67,
+        "fat": 208.2,
+        "carbohydrates": 0
+      }
+    },
+    "symptom_analysis": {
+      "headache": {
+        "analyse": {
+          "VitaminA": {
+            "why": "A lack of Vitamin A can cause acne due to its role in skin cell turnover and sebum regulation. As a 20-year-old female, adequate Vitamin A intake is crucial for maintaining healthy skin.",
+            "foods": [
+              "sweet potatoes",
+              "carrots",
+              "dark leafy greens"
+            ],
+            "tip": "Include Vitamin A-rich foods in your daily meals to support skin health."
+          },
+          "VitaminC": {
+            "why": "A lack of Vitamin C can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, Vitamin C helps to combat oxidative stress and inflammation.",
+            "foods": [
+              "citrus fruits",
+              "strawberries",
+              "bell peppers"
+            ],
+            "tip": "Eat foods high in Vitamin C with meals to enhance iron absorption and support skin health."
+          },
+          "Zinc": {
+            "why": "A lack of Zinc can lead to acne due to its role in sebum regulation, inflammation, and wound healing. As a female, Zinc is essential for maintaining healthy skin and hormonal balance.",
+            "foods": [
+              "oysters",
+              "beef",
+              "chicken"
+            ],
+            "tip": "Include Zinc-rich foods in your diet, especially during meals to enhance absorption."
+          },
+          "Urgency Note": "None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance."
+        },
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664054,
+                "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+                "image": "https://img.spoonacular.com/recipes/664054-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 794350,
+                "title": "Cherry Coconut Milk Smoothie",
+                "image": "https://img.spoonacular.com/recipes/794350-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642346,
+                "title": "Egyptain Cauliflower Side Salad",
+                "image": "https://img.spoonacular.com/recipes/642346-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 653549,
+                "title": "Okra Tomato Salad",
+                "image": "https://img.spoonacular.com/recipes/653549-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664419,
+                "title": "Vegan Colcannon Soup",
+                "image": "https://img.spoonacular.com/recipes/664419-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659689,
+                "title": "Seasonal Autumn Stew",
+                "image": "https://img.spoonacular.com/recipes/659689-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 658509,
+                "title": "Roasted Broccoli with Lemon and Garlic",
+                "image": "https://img.spoonacular.com/recipes/658509-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
+          },
+          "nutrients": {
+            "calories": 1733.28,
+            "protein": 68.26,
+            "fat": 81.13,
+            "carbohydrates": 184.12
+          }
+        }
+      },
+      "acne": {
+        "analyse": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminA**:\n- Why: Lack of Vitamin A can cause acne due to its role in regulating skin cell turnover and preventing clogged pores. As a 26-year-old female, Feru's age and sex do not particularly affect her Vitamin A levels, but her Whole30 diet may be low in Vitamin A if she's not consuming enough animal products or sweet potatoes.\n- Foods: sweet potatoes, carrots, liver\n- Tip: Include Vitamin A-rich foods in your meals, especially at breakfast to help regulate skin cell turnover throughout the day.\n\n**VitaminD**:\n- Why: Low Vitamin D levels have been linked to acne, possibly due to its role in regulating immune responses and skin cell growth. As a 26-year-old female, Feru may be at risk for Vitamin D insufficiency due to limited sun exposure, especially during winter months. Her Whole30 diet may not provide enough Vitamin D if she's not consuming fatty fish or fortified foods.\n- Foods: fatty fish, fortified dairy, mushrooms\n- Tip: Spend some time outdoors during peak sun hours or consider a Vitamin D supplement, especially during winter.\n\n**Zinc**:\n- Why: Zinc plays a crucial role in wound healing, inflammation, and immune function, all of which are relevant to acne. Feru's Whole30 diet may be low in Zinc if she's not consuming enough oysters, meat, or poultry.\n- Foods: oysters, beef, chicken\n- Tip: Include Zinc-rich foods in your meals, and consider taking a Zinc supplement if you're not getting enough from your diet.\n\n**Urgency Note**: None flagged, but if acne persists or worsens, consult a healthcare professional for further evaluation and guidance.",
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664054,
+                "title": "Turkey Sausage, Chard & Sweet Potato Breakfast Scramble",
+                "image": "https://img.spoonacular.com/recipes/664054-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 794350,
+                "title": "Cherry Coconut Milk Smoothie",
+                "image": "https://img.spoonacular.com/recipes/794350-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642346,
+                "title": "Egyptain Cauliflower Side Salad",
+                "image": "https://img.spoonacular.com/recipes/642346-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 653549,
+                "title": "Okra Tomato Salad",
+                "image": "https://img.spoonacular.com/recipes/653549-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 664419,
+                "title": "Vegan Colcannon Soup",
+                "image": "https://img.spoonacular.com/recipes/664419-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659689,
+                "title": "Seasonal Autumn Stew",
+                "image": "https://img.spoonacular.com/recipes/659689-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 636787,
+                "title": "Caldo Verde - Portuguese Kale Soup",
+                "image": "https://img.spoonacular.com/recipes/636787-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 639851,
+                "title": "Cod with Tomato-Olive-Chorizo Sauce and Mashed Potatoes",
+                "image": "https://img.spoonacular.com/recipes/639851-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 658509,
+                "title": "Roasted Broccoli with Lemon and Garlic",
+                "image": "https://img.spoonacular.com/recipes/658509-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 637162,
+                "title": "Carrot and Cabbage Salad With Coriander+cumin Dry Rub",
+                "image": "https://img.spoonacular.com/recipes/637162-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715543,
+                "title": "Homemade Guacamole",
+                "image": "https://img.spoonacular.com/recipes/715543-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 634437,
+                "title": "Basil Tagliatelle with Roasted Red Bell Pepper Salad",
+                "image": "https://img.spoonacular.com/recipes/634437-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
+          }
+        }
+      }
+    }
   }
 }
