@@ -1,4 +1,4 @@
-from typing import List, Tuple, Dict
+from typing import List, Tuple, Dict, Any
 import json
 
 
@@ -25,6 +25,7 @@ class UserProfile:
         saved_recipes=[],
         analysis_results: List = [],
         mealplan=[],
+        symptom_analysis: Dict[str, Any] = {}
     ) -> None:
         """
         Initializes a User Profile object.
@@ -46,6 +47,7 @@ class UserProfile:
             saved_recipes
             analysis_results
             mealplan: The user's generated meal plan.
+            symptom_analysis: previously analyzed symptoms
         """
         self.username = username
         self.password = password
@@ -63,6 +65,7 @@ class UserProfile:
         self.saved_recipes = saved_recipes
         self.analysis_results = analysis_results
         self.mealplan = mealplan
+        self.symptom_analysis = symptom_analysis
 
         # Validates the information
         if not username:
@@ -112,6 +115,7 @@ class UserProfile:
             "saved_recipes": self.saved_recipes,
             "analysis_results": self.analysis_results,
             "mealplan": self.mealplan,
+            "symptom_analysis": self.symptom_analysis
         }
 
 
