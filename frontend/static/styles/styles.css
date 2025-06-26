@@ -553,3 +553,51 @@ img {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+
+
+/*results*/
+.card {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--pastel-blue);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #a5d0ff;
+}
+
+.btn-primary {
+    background-color: var(--pastel-purple);
+}
+
+.btn-primary:hover {
+    background-color: #d1b8f7;
+}
+
+.btn-danger {
+    background-color: #ffb6b6;
+}
+
+.btn-danger:hover {
+    background-color: #ff9e9e;
+}
