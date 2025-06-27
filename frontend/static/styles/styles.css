@@ -1061,7 +1061,7 @@ img {
 .faq-image-container {
     flex: 0 0 auto;
     /* Do not allow this item to grow or shrink, base size on content */
-    max-width: 100px;
+    max-width: 200px;
     /* Adjust this value to control the maximum width of your image */
     width: 100%;
     /* Ensures it takes full width up to max-width */
@@ -1069,7 +1069,6 @@ img {
     /* No explicit right margin here, gap handles spacing */
     text-align: center;
     /* Center image within its container for smaller screens */
-    height: 400px;
 }
 
 .faq-image-container .faq-image {
