@@ -13,12 +13,13 @@
     --text-color: hsl(233, 4%, 35%);
     --body-color: hsl(2, 100%, 97%);
 
-    /*========== Font and typography ==========*/
-    /*.5rem = 8px | 1rem = 16px ...*/
-    --body-font: 'Open Sans', sans-serif;
-    --second-font: 'Lemon', cursive;
-    --biggest-font-size: 2.25rem;
-    --normal-font-size: .938rem;
+    /* New variables for base.html integration and other sections */
+    --pastel-blue: #ADD8E6; /* Light Blue */
+    --pastel-purple: #D8BFD8; /* Thistle */
+    --white: #FFFFFF;
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --primary-color: #f9798e; /* Reusing first-color */
+    --secondary-color: hsl(233, 4%, 35%); /* Reusing text-color */
 }
 
 /* Responsive typography */
@@ -37,10 +38,51 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* This ensures the body is at least the height of the viewport */
+    margin: 0;
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
     color: var(--text-color);
+}
+
+
+
+/* Push the footer to the bottom */
+.main {
+    flex: 1; /* This makes the main content area grow and push the footer down */
+}
+
+/* Styling for the footer for better visual separation */
+.footer {
+    background-color: #f8f8f8; /* A light background color */
+    color: #333; /* Darker text color */
+    padding: 20px 0; /* Padding above and below the content */
+    text-align: center; /* Center the text */
+    border-top: 1px solid #eee; /* A subtle line at the top of the footer */
+    margin-top: 40px; /* Add some space between the main content and the footer */
+}
+
+.footer .container {
+    max-width: 960px; /* Match your main container width */
+    margin: 0 auto; /* Center the container */
+    padding: 0 15px; /* Add some horizontal padding */
+}
+
+.footer p {
+    margin: 5px 0; /* Adjust spacing between paragraphs */
+    font-size: 0.9em; /* Slightly smaller font size */
+}
+
+.footer a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 ul {
@@ -66,15 +108,19 @@ img {
 .main {
     overflow: hidden;
     /* For the animations */
+    /* Add padding to account for the fixed header */
+    padding-top: calc(var(--header-height) + 1.5rem); /* Adjust as needed, check if 1.5rem is enough */
 }
 
-/*=============== HEADER & NAV ===============*/
+/*=============== HEADER & NAV (RE-ADDED AND POTENTIALLY ADJUSTED) ===============*/
 .header {
-    position: fixed;
+    position: fixed; /* Make the header stick */
     width: 100%;
     top: 0;
     left: 0;
     z-index: 100;
+    background-color: var(--body-color); /* Add a background to ensure content doesn't show through */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
 }
 
 .nav {
@@ -88,6 +134,9 @@ img {
 .nav__logo {
     font-family: var(--second-font);
     color: var(--first-color);
+    font-size: 1.5rem; /* Adjust logo size if needed */
+    font-weight: 600;
+    z-index: 101; /* Ensure logo is above menu on mobile */
 }
 
 .nav__logo span {
@@ -95,10 +144,11 @@ img {
 }
 
 .nav__toggle {
-    display: inline-flex;
-    font-size: 1.25rem;
+    display: inline-flex; /* Keep it visible for mobile */
+    font-size: 1.75rem; /* Larger icon */
     color: var(--title-color);
     cursor: pointer;
+    z-index: 101; /* Ensure toggle is above menu on mobile */
 }
 
 @media screen and (max-width: 767px) {
@@ -106,8 +156,8 @@ img {
         position: fixed;
         background-color: var(--body-color);
         left: 0;
-        top: -100%;
-        box-shadow: 0 8px 24px lch(37.32% 79.69 40.35 / 0.2);
+        top: -100%; /* Initially hidden above viewport */
+        box-shadow: 0 8px 24px hsla(233, 32%, 15%, 0.2); /* Adjust shadow color */
         width: 100%;
         padding: 3.5rem 0 3rem;
         border-radius: 0 0 2rem 2rem;
@@ -117,10 +167,26 @@ img {
 
 .nav__list {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Stacked vertically on mobile */
     text-align: center;
     row-gap: 2rem;
 }
+
+.nav__item .dropdown .dropbtn { /* Style dropdown button within nav */
+    padding: 0; /* Remove default padding from button */
+    font-weight: 600; /* Match nav links */
+    color: var(--title-color); /* Match nav links */
+    transition: color .4s;
+    display: flex; /* Allow icon to align */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Center button text */
+}
+
+.nav__item .dropdown .dropbtn:hover {
+    color: var(--first-color);
+}
+
 
 .nav__link,
 .nav__close {
@@ -140,7 +206,8 @@ img {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 2rem; /* Larger close icon */
+    color: var(--title-color); /* Ensure visibility */
     cursor: pointer;
 }
 
@@ -149,11 +216,12 @@ img {
     position: absolute;
     top: -.75rem;
     left: 1.5rem;
+    display: none; /* Hide on larger screens, only for mobile menu background */
 }
 
 /* Show menu */
 .show-menu {
-    top: 0;
+    top: 0; /* Bring menu into view */
 }
 
 /* Active link */
@@ -161,14 +229,14 @@ img {
     color: var(--first-color);
 }
 
-/*=============== HOME ===============*/
+/*=============== HOME (Remaining styles for the main content of homepage.html) ===============*/
 .home,
 .home__container {
     position: relative;
 }
 
 .home__container {
-    padding-top: 8rem;
+    padding-top: 8rem; /* Keep this for the specific content within this section */
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -219,19 +287,44 @@ img {
 }
 
 .home__input {
-    background-color: var(--white-color);
+    background-color: var(--white);
     border: none;
     padding: 1rem;
     border-radius: .5rem;
     font-size: var(--normal-font-size);
-    color: var(--first-color-dark);
+    color: var(--title-color);
 }
 
-.home__form {
+/* Ensure the input and button align for the new "Symptoms Analyzer" form */
+.symptoms-form .input-with-button {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    align-items: center;
+    gap: 0.5rem; /* Space between input and button */
+}
+
+.symptoms-form .home__input {
+    flex-grow: 1; /* Allow input to take available space */
+}
+
+.symptoms-form .analyze-button {
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 0.8rem 1.2rem; /* Adjusted padding for the button */
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background .4s;
+}
+
+.symptoms-form .analyze-button:hover {
+    background-color: var(--first-color-alt);
+}
+
+.symptoms-form .analyze-button i {
+    font-size: 1.2rem;
 }
 
 .home__images {
@@ -256,7 +349,7 @@ img {
     transform: rotate(15deg);
     left: 1rem;
     right: 0;
-    top: 5rem;
+    top: 8rem;
     margin: 0 auto;
     animation: float-juice 4s ease-in-out infinite;
 }
@@ -399,18 +492,26 @@ img {
 /* For medium devices */
 @media screen and (min-width: 767px) {
     .nav {
-        height: calc(var(--header-height) + 1.5rem);
+        height: calc(var(--header-height) + 1.5rem); /* Adjust header height on larger screens */
     }
 
     .nav__toggle,
     .nav__close,
     .nav__img {
-        display: none;
+        display: none; /* Hide toggle and close buttons on larger screens */
+    }
+
+    .nav__menu {
+        position: static; /* Reset menu position for desktop */
+        background-color: transparent; /* Transparent background */
+        box-shadow: none; /* No shadow */
+        padding: 0; /* Remove padding */
+        border-radius: 0; /* Remove border radius */
     }
 
     .nav__list {
-        flex-direction: row;
-        column-gap: 3rem;
+        flex-direction: row; /* Horizontal layout for desktop */
+        column-gap: 3rem; /* Space between links */
     }
 
     .home__container {
@@ -513,9 +614,10 @@ img {
     }
 }
 
-/*=============== DROPDOWN STYLES ===============*/
+/*=============== DROPDOWN STYLES (for base.html header dropdown) ===============*/
 .dropdown {
     position: relative;
+    display: inline-block; /* Essential for dropdown to work correctly in a horizontal nav */
 }
 
 .dropbtn {
@@ -524,30 +626,36 @@ img {
     color: inherit;
     font: inherit;
     cursor: pointer;
-    padding: 0;
+    padding: 0; /* Reset padding from button defaults */
+    display: flex; /* To align icon with text */
+    align-items: center;
+    gap: 0.25rem; /* Space between text and dropdown arrow */
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fff;
+    background-color: var(--body-color); /* Use body color for consistency */
     max-height: 300px;
     overflow-y: auto;
     min-width: 180px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     z-index: 10;
     border-radius: 8px;
+    top: calc(var(--header-height) - 0.5rem); /* Position below header */
+    left: 0;
 }
 
 .dropdown-content a {
-    color: #333;
+    color: var(--title-color);
     padding: 0.75rem 1rem;
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #f5f5f5;
+    background-color: var(--first-color-alt); /* Lighter hover color */
+    color: var(--white); /* White text on hover */
 }
 
 .dropdown:hover .dropdown-content {
@@ -555,7 +663,8 @@ img {
 }
 
 
-/*results*/
+/*=============== RESULTS & NEW SECTIONS STYLES ===============*/
+/* Added variables for the new content */
 .card {
     background-color: var(--white);
     border-radius: 10px;
@@ -600,4 +709,995 @@ img {
 
 .btn-danger:hover {
     background-color: #ff9e9e;
+}
+
+/* Additional styles for the new sections in homepage.html */
+.home-container { /* Renamed from .container for clarity in specific sections if needed */
+    padding: 4rem 0; /* Add some vertical padding */
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem; /* Matches existing container padding */
+    padding-right: 1.5rem; /* Matches existing container padding */
+}
+
+.home-container h2 {
+    font-family: var(--second-font);
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem; /* Adjusted for consistency */
+}
+
+/* Symptoms Analyzer specific styling */
+.symptoms-form {
+    max-width: 600px;
+    margin: 2.5rem auto 4rem auto; /* Center form and add bottom margin, increased top margin to separate from button */
+    display: flex;
+    justify-content: center; /* Center the input-button group */
+}
+
+.symptoms-form .input-with-button {
+    display: flex;
+    width: 100%;
+    border-radius: .5rem; /* Match existing input styles */
+    overflow: hidden; /* Ensure button stays within rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.symptoms-form input[type="text"] {
+    flex-grow: 1;
+    border: none;
+    padding: 1rem 1.25rem;
+    font-size: var(--normal-font-size);
+    color: var(--text-color);
+    background-color: var(--white);
+    outline: none; /* Remove outline on focus */
+}
+
+.symptoms-form .analyze-button {
+    background-color: var(--first-color);
+    color: #fff;
+    border: none;
+    padding: 0 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.symptoms-form .analyze-button:hover {
+    background-color: var(--first-color-alt);
+}
+
+/* Timeline Section */
+.timeline-section {
+    position: relative;
+    padding: 6rem 0; /* Adjust padding as needed */
+    background-color: var(--first-color); /* Example background */
+    margin-bottom: 4rem; /* Space after this section */
+}
+
+.section-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2); /* Dark overlay for text readability */
+    z-index: 1;
+}
+
+.container-custom {
+    max-width: 960px; /* Custom width for this section */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* For z-index to work */
+    z-index: 2; /* Bring content to front of overlay */
+    padding: 0 1.5rem;
+}
+
+.row-custom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col-center {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white-custom {
+    color: var(--white);
+}
+
+.mb-4-custom {
+    margin-bottom: 1.5rem;
+}
+
+.col-content-center {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.mx-auto-custom {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.timeline-container {
+    position: relative;
+    padding: 2rem 0;
+}
+
+.vertical-scrollable-timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-scrollable-timeline li {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-left: 2rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.5); /* Line for timeline */
+    color: var(--white); /* Ensure text is white */
+}
+
+.vertical-scrollable-timeline li:last-child {
+    margin-bottom: 0;
+    border-left: none; /* No line after the last item */
+}
+
+.vertical-scrollable-timeline h4 {
+    font-family: var(--body-font); /* Using body font for consistency */
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.vertical-scrollable-timeline p {
+    font-size: var(--normal-font-size);
+    line-height: 1.6;
+}
+
+.icon-holder {
+    position: absolute;
+    left: -1rem; /* Adjust to center on the line */
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--first-color);
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.list-progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background-color: var(--first-color-alt); /* Progress line color */
+    z-index: 0;
+}
+
+.list-progress .inner {
+    width: 100%;
+    height: 0; /* Controlled by JS for animation */
+    background-color: var(--white); /* Color of the filled progress */
+}
+
+.mt-5-custom {
+    margin-top: 3rem;
+}
+
+.btn-custom {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.custom-btn {
+    background-color: var(--white);
+    color: var(--first-color);
+}
+
+.custom-btn:hover {
+    background-color: var(--body-color);
+    color: var(--first-color-alt);
+}
+
+.custom-border-btn {
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+}
+
+.custom-border-btn:hover {
+    background-color: var(--white);
+    color: var(--first-color);
+}
+
+.ms-3-custom {
+    margin-left: 1rem;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 6rem 0;
+    margin-bottom: 4rem; /* Space after this section */
+}
+
+.faq-section h2 {
+    font-family: var(--second-font);
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 3rem; /* Still center the main heading */
+}
+
+/* New: Flexbox container for image and accordion */
+.faq-layout {
+    display: flex; /* Arrange children (image and accordion) in a row */
+    align-items: flex-start; /* Align items to the top of the container */
+    gap: 30px; /* Space between the image and accordion content */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line on smaller screens */
+    justify-content: center; /* Center the entire layout when it wraps */
+}
+
+/* New: Container for the FAQ image */
+.faq-image-container {
+    flex: 0 0 auto; /* Do not allow this item to grow or shrink, base size on content */
+    max-width: 300px; /* Adjust this value to control the maximum width of your image */
+    width: 100%; /* Ensures it takes full width up to max-width */
+    margin-right: 0; /* No explicit right margin here, gap handles spacing */
+    text-align: center; /* Center image within its container for smaller screens */
+}
+
+.faq-image-container .faq-image {
+    display: block;
+    max-width: 100%; /* Image will scale down to fit its container */
+    height: auto; /* Maintain aspect ratio */
+    /* Remove previous margin rules as they are handled by faq-image-container or faq-layout */
+}
+
+/* Updated: Accordion content container */
+.faq-content {
+    flex: 1; /* Allows this item to grow and take up available space */
+    min-width: 300px; /* Ensures the accordion doesn't become too narrow */
+    padding-left: 0; /* Reset padding, as gap handles spacing */
+    padding-right: 0; /* Reset padding, as gap handles spacing */
+}
+
+.custom-accordion .accordion-item {
+    border: 1px solid #eee;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.custom-accordion .accordion-header {
+    background-color: var(--body-color);
+    border-bottom: 1px solid #eee;
+}
+
+.custom-accordion .accordion-button {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--title-color);
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative; /* For the chevron icon */
+}
+
+.custom-accordion .accordion-button::after { /* Chevron icon */
+    content: '\203A'; /* Unicode for right-pointing angle bracket */
+    font-size: 1.5rem;
+    position: absolute;
+    right: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg); /* Rotate for collapsed state */
+    transition: transform 0.3s ease;
+    color: var(--title-color);
+}
+
+.custom-accordion .accordion-button:not(.collapsed)::after {
+    transform: translateY(-50%) rotate(-90deg); /* Rotate back for expanded state */
+    color: var(--white); /* Change color when open */
+}
+
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    background-color: var(--first-color-alt);
+    color: var(--white);
+}
+
+.custom-accordion .accordion-body {
+    padding: 1rem 1.25rem;
+    color: var(--text-color);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .faq-layout {
+        flex-direction: column; /* Stack image and accordion vertically */
+        align-items: center; /* Center them when stacked */
+        gap: 20px; /* Adjust gap for vertical stacking */
+    }
+
+    .faq-image-container {
+        max-width: 250px; /* Make the image slightly smaller on very small screens if desired */
+    }
+}
+
+/* Nutrient Periodical Table Section */
+.nutrient-periodical-table-section {
+    padding: 6rem 0;
+    background-color: var(--body-color); /* Light background for contrast */
+}
+
+.nutrient-periodical-table-section h2,
+.nutrient-periodical-table-section p {
+    text-align: center;
+}
+
+.text-primary-color {
+    color: var(--first-color);
+}
+
+.text-secondary-color {
+    color: var(--text-color);
+}
+
+.nutrient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    max-width: 960px; /* Constrain width of the grid */
+    margin: 2rem auto; /* Center the grid */
+}
+
+.nutrient-card {
+    background-color: var(--white);
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+    color: var(--text-color);
+}
+
+.nutrient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    color: var(--first-color-alt); /* Change text color on hover */
+}
+
+.nutrient-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--first-color); /* Icon color */
+}
+
+.nutrient-card:hover .nutrient-icon {
+    color: var(--first-color-alt); /* Icon color on hover */
+}
+
+.nutrient-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Responsive adjustments for new sections */
+@media screen and (max-width: 768px) {
+    .home-container {
+        padding: 2rem 1rem;
+    }
+
+    .home-container h2 {
+        font-size: 1.8rem;
+    }
+
+    .symptoms-form {
+        margin-bottom: 2rem;
+    }
+
+    .timeline-section,
+    .faq-section,
+    .nutrient-periodical-table-section {
+        padding: 3rem 0;
+        margin-bottom: 2rem;
+    }
+
+    .vertical-scrollable-timeline li {
+        margin-bottom: 2rem;
+        padding-left: 1.5rem;
+    }
+
+    .icon-holder {
+        left: -0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+
+    .custom-accordion .accordion-button {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+    }
+
+    .nutrient-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 0.75rem;
+    }
+
+    .nutrient-card {
+        padding: 0.8rem;
+    }
+
+    .nutrient-icon {
+        font-size: 1.5rem;
+    }
+
+    .nutrient-name {
+        font-size: 0.8rem;
+    }
+}
+
+/* Additional media query for smaller screens on the timeline/faq/nutrients sections */
+@media screen and (max-width: 480px) {
+    .timeline-section,
+    .faq-section,
+    .nutrient-periodical-table-section {
+        padding: 2rem 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .vertical-scrollable-timeline h4 {
+        font-size: 1.1rem;
+    }
+
+    .vertical-scrollable-timeline p {
+        font-size: 0.85rem;
+    }
+
+    .btn-custom {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+/* Search Container */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon-wrapper {
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    color: #666;
+    background-color: #f9f9f9;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.search-icon-wrapper:hover {
+    border-color: #3C7F72;
+    color: #3C7F72;
+}
+
+.search-toggle-icon {
+    font-size: 1.1em;
+}
+
+.search-nav-form {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    background-color: #f9f9f9;
+    max-width: 0;
+    opacity: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: max-width 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+
+.search-nav-form.active {
+    max-width: 300px; /* Adjust as needed for desktop */
+    opacity: 1;
+    padding: 2px 10px;
+    z-index: 1;
+    max-height: 40px;
+    right: 0;
+    margin-right: 48px; /* Offset for the search icon */
+}
+
+.search-nav-form.active input.search-input {
+    padding: 6px 10px;
+    height: 36px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: transparent;
+    flex-grow: 1;
+    width: fit-content;
+}
+
+.search-nav-form.active .search-button {
+    background-color: transparent;
+    color: #3C7F72;
+    border: none;
+    padding: 0 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    height: 36px;
+    width: auto;
+    margin: 0;
+    transition: color 0.2s ease;
+}
+
+.search-nav-form.active .search-button:hover {
+    color: #2E6C60;
+    background-color: transparent;
+    transform: none;
+}
+
+.search-nav-form input {
+    width: 100%;
+    margin-bottom: 0; /* Override any global input margin */
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+    /* Changed from inline-block to match your existing nav__item structure */
+    /* If your nav__item uses flex, this might need adjustment */
+    /* For the nav__item in your base.html, display: inline-block or flex might work best */
+    /* If dropdown is within nav__list, it should be li.nav__item.dropdown */
+    /* And the display property on the li will handle it */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    max-height: 300px;
+    overflow-y: auto;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    border-radius: 6px;
+    padding: 0.5em 0;
+    left: 0; /* Align dropdown to the left edge of the parent */
+    top: 100%; /* Position below the dropdown button */
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/*--- Media Queries ---*/
+@media screen and (max-width: 600px) {
+    /* Existing nav rules might conflict, review and merge as necessary */
+    /* If you have a .nav class, ensure these adjust it correctly */
+    .nav { /* Assuming your header nav is .nav */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+        padding-bottom: 9px;
+    }
+
+    /* Your existing .nav__menu (mobile menu) will likely manage these items */
+    /* You need to decide how the profile dropdown fits into your mobile menu */
+    /* For now, these rules from the provided CSS will likely hide elements */
+    /* that are NOT the hamburger icon. */
+    .nav-left .dropdown, /* If you had a .nav-left div containing dropdowns */
+    .nav-left a:not(.icon) {
+        display: none;
+    }
+
+    .nav-left a.icon {
+        display: block;
+    }
+
+    /* Adjust search container behavior for smaller screens */
+    .search-nav-form.active {
+        max-width: calc(100vw - 120px); /* Adjust based on your header's total width */
+        margin-right: 0;
+        left: auto;
+        right: 48px; /* Position relative to the icon */
+    }
+
+    /* Ensure your mobile navigation (.nav__menu in your base.html) also correctly
+       handles the new dropdowns and overall layout on small screens.
+       You might need to add specific rules for .nav__menu and its children here. */
+}
+
+/*--- Other Sections (as provided) ---*/
+/* You should integrate these into your styles.css as well,
+   placing them where appropriate or simply appending them. */
+
+.meal-section {
+    margin-bottom: 3em;
+}
+
+.meal-section h2 {
+    color: #333;
+    margin-bottom: 1em;
+}
+
+.recipe-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5em;
+}
+
+.recipe-card {
+    flex: 0 0 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    background-color: #fafafa;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+}
+
+.recipe-card p {
+    margin: 0.5em 0;
+    color: #444;
+    font-weight: 500;
+}
+
+.view-button,
+.favorite-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+}
+
+.view-button {
+    background-color: #3C7F72;
+    color: white;
+    transition: background-color 0.2s ease;
+}
+
+.view-button:hover {
+    background-color: #2E6C60;
+}
+
+.favorite-btn {
+    background-color: #f5f5f5;
+    border: 1px solid #bbb;
+    margin-top: 0.5em;
+    color: #333;
+}
+
+.favorite-btn:hover {
+    background-color: #ddd;
+}
+
+.submit-btn {
+    margin-top: 2em;
+    background-color: #7BB349;
+    color: white;
+    padding: 0.75em 1.5em;
+    border-radius: 6px;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #6A9E3C;
+}
+
+.spoonacular-link {
+    text-align: center;
+    margin-top: 3em;
+}
+
+.spoonacular-link a {
+    color: #3C7F72;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.spoonacular-link a:hover {
+    text-decoration: underline;
+}
+
+/*--- Analysis History Section ---*/
+.entry {
+    margin-bottom: 2.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #ddd;
+}
+
+.entry h4 {
+    margin-bottom: 0.3em;
+}
+
+/*--- Authentication Section ---*/
+.register-section {
+    padding: 0.75em 1.5em;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+/*--- Profile Section ---*/
+.profile-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5em;
+    gap: 1em;
+}
+
+.profile-actions button,
+.profile-actions .logout-btn {
+    width: auto;
+    flex-grow: 1;
+    margin: 0;
+    text-align: center;
+}
+
+.profile-actions .update-profile-btn {
+    background-color: #3C7F72;
+    color: white;
+    border: none;
+    padding: 0.75em;
+    font-size: 1em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.profile-actions .update-profile-btn:hover {
+    background-color: #2E6C60;
+    transform: translateY(-1px);
+}
+
+.logout-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.75em;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+    transform: translateY(-1px);
+}
+
+/*--- Results Section ---*/
+#analysis {
+    white-space: pre-wrap;
+    background-color: #f9f9f9;
+    padding: 1.5em;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 2em;
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #333;
+}
+
+.button-link {
+    display: inline-block;
+    background-color: #3C7F72;
+    color: white;
+    padding: 0.75em 1.5em;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.button-link:hover {
+    background-color: #2E6C60;
+}
+
+.link-wrapper {
+    text-align: center;
+}
+
+/*--- Recipe Details Section ---*/
+.recipe-container img {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.instructions {
+    margin-top: 1em;
+    line-height: 1.6em;
+    color: #555;
+}
+
+/*--- Homepage Section ---*/
+.home-container h1 {
+    margin-top: 0.5em;
+    font-size: 1.4em;
+}
+
+.home-container h2 {
+    color: black;
+}
+
+.home-container h2.text-white-custom {
+    color: white;
+}
+
+.search-form {
+    margin-bottom: 2em;
+}
+
+.search-form input[type="text"] {
+    max-width: 400px;
+}
+
+.testimonials {
+    background: #f9f9f9;
+    padding: 2em;
+    text-align: center;
+}
+
+.testimonials blockquote {
+    font-style: italic;
+    color: #555;
+    margin: 1em auto;
+    max-width: 600px;
+}
+
+
+/* --- NEW Nutrients Periodical Table Section Styles --- */
+.nutrient-periodical-table-section {
+    background-color: var(--background-light);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.nutrient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 15px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.nutrient-card {
+    background-color: #fcfdfe;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+    min-height: 110px;
+    position: relative;
+    overflow: hidden;
+}
+
+.nutrient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color-hover);
+    background-color: var(--hover-background-light);
+}
+
+.nutrient-icon {
+    font-size: 2.5em;
+    margin-bottom: 8px;
+    color: #3A836D; /* Specific green for icons */
+    transition: color 0.2s ease;
+}
+
+.nutrient-card:hover .nutrient-icon {
+    color: var(--secondary-color);
+}
+
+.nutrient-name {
+    display: block;
+    word-break: break-word;
+    line-height: 1.2;
+}
+
+/* Adjustments for text colors in the Nutrients section based on your provided HTML */
+.nutrient-periodical-table-section .text-primary-color {
+    color: var(--primary-color); /* Use the defined variable */
+}
+
+.nutrient-periodical-table-section .text-secondary-color {
+    color: var(--text-color); /* Using --text-color as a suitable secondary text color */
+    margin-bottom: 40px; /* Add some space below the description */
 }

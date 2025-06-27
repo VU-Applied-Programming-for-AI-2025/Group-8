@@ -15905,6 +15905,36 @@
           "meals": {
             "breakfast": [
               {
+                "id": 660368,
+                "title": "Smoked Salmon Eggs Benedict With Lemon Dill Hollandaise",
+                "image": "https://img.spoonacular.com/recipes/660368-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 22.5281,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659081,
+                "title": "Salmon Frittata",
+                "image": "https://img.spoonacular.com/recipes/659081-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 14.965,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
                 "id": 642129,
                 "title": "Easy To Make Spring Rolls",
                 "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
@@ -15952,46 +15982,91 @@
             ],
             "lunch": [
               {
-                "id": 716408,
-                "title": "Greek-Style Baked Fish: Fresh, Simple, and Delicious",
-                "image": "https://img.spoonacular.com/recipes/716408-312x231.jpg",
+                "id": 639411,
+                "title": "Cilantro Lime Halibut",
+                "image": "https://img.spoonacular.com/recipes/639411-312x231.jpg",
                 "imageType": "jpg",
                 "nutrition": {
                   "nutrients": [
                     {
-                      "name": "Calcium",
-                      "amount": 107.337,
-                      "unit": "mg"
+                      "name": "Vitamin D",
+                      "amount": 10.6594,
+                      "unit": "\u00b5g"
                     }
                   ]
                 }
               },
               {
-                "id": 659135,
-                "title": "Salmon with roasted vegetables",
-                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "id": 660736,
+                "title": "Soy Ginger Glazed Halibut with Ginger Peach Relish",
+                "image": "https://img.spoonacular.com/recipes/660736-312x231.jpg",
                 "imageType": "jpg",
                 "nutrition": {
                   "nutrients": [
                     {
-                      "name": "Calcium",
-                      "amount": 110.454,
-                      "unit": "mg"
+                      "name": "Vitamin D",
+                      "amount": 10.6594,
+                      "unit": "\u00b5g"
                     }
                   ]
                 }
               },
               {
-                "id": 633921,
-                "title": "Balsamic & Honey Glazed Salmon with Lemony Asparagus",
-                "image": "https://img.spoonacular.com/recipes/633921-312x231.jpg",
+                "id": 634972,
+                "title": "Bigoli with smoked salmon",
+                "image": "https://img.spoonacular.com/recipes/634972-312x231.jpg",
                 "imageType": "jpg",
                 "nutrition": {
                   "nutrients": [
                     {
-                      "name": "Calcium",
-                      "amount": 65.1378,
-                      "unit": "mg"
+                      "name": "Vitamin D",
+                      "amount": 11.7173,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659927,
+                "title": "Shrimp and Avocado Salad",
+                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin B12",
+                      "amount": 4.6509,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659143,
+                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
+                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin B12",
+                      "amount": 4.00037,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 661126,
+                "title": "Spicy Lump Crab and Avocado Salad",
+                "image": "https://img.spoonacular.com/recipes/661126-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin B12",
+                      "amount": 10.2184,
+                      "unit": "\u00b5g"
                     }
                   ]
                 }
@@ -16004,23 +16079,8 @@
                 "nutrition": {
                   "nutrients": [
                     {
-                      "name": "Calcium",
-                      "amount": 220.289,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659237,
-                "title": "San Francisco Cioppino",
-                "image": "https://img.spoonacular.com/recipes/659237-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 210.449,
+                      "name": "Iron",
+                      "amount": 10.7881,
                       "unit": "mg"
                     }
                   ]
@@ -16034,8 +16094,23 @@
                 "nutrition": {
                   "nutrients": [
                     {
-                      "name": "Calcium",
-                      "amount": 317.925,
+                      "name": "Iron",
+                      "amount": 10.2565,
+                      "unit": "mg"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 641653,
+                "title": "Dried Prawns Yee Mee Soup",
+                "image": "https://img.spoonacular.com/recipes/641653-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Iron",
+                      "amount": 11.3007,
                       "unit": "mg"
                     }
                   ]
@@ -16043,6 +16118,111 @@
               }
             ],
             "dinner": [
+              {
+                "id": 639411,
+                "title": "Cilantro Lime Halibut",
+                "image": "https://img.spoonacular.com/recipes/639411-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 10.6594,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 660736,
+                "title": "Soy Ginger Glazed Halibut with Ginger Peach Relish",
+                "image": "https://img.spoonacular.com/recipes/660736-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 10.6594,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 634972,
+                "title": "Bigoli with smoked salmon",
+                "image": "https://img.spoonacular.com/recipes/634972-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 11.7173,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659927,
+                "title": "Shrimp and Avocado Salad",
+                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin B12",
+                      "amount": 4.6509,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659109,
+                "title": "Salmon Quinoa Risotto",
+                "image": "https://img.spoonacular.com/recipes/659109-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin B12",
+                      "amount": 2.25379,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659143,
+                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
+                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin B12",
+                      "amount": 4.00037,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 642129,
+                "title": "Easy To Make Spring Rolls",
+                "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Iron",
+                      "amount": 14.1894,
+                      "unit": "mg"
+                    }
+                  ]
+                }
+              },
               {
                 "id": 652775,
                 "title": "Mussels With Tomatoes and Fennel",
@@ -16072,81 +16252,165 @@
                     }
                   ]
                 }
+              }
+            ]
+          }
+        }
+      },
+      "acne": {
+        "analyse": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminB6**:\n- Why: Lack of VitaminB6 can contribute to acne due to its role in regulating hormones and immune system function. As a 22-year-old female, hormonal fluctuations may increase the need for VitaminB6. \n- Foods: Salmon, Tuna, Sardines, Anchovies, Mackerel, Crab\n- Tip: Consider keeping a food diary to track any potential food triggers for acne.\n\n**Zinc**:\n- Why: Zinc plays a crucial role in skin health and immune function, and its lack can lead to acne. As a pescetarian, it's possible to have a limited zinc intake, and a lack of zinc can be exacerbated by a diet high in phytates (found in some plant-based foods).\n- Foods: Oysters, Crab, Lobster, Shrimp, Tuna, Salmon\n- Tip: Increase zinc absorption by consuming zinc-rich foods with acidic foods like citrus fruits or tomatoes.\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in skin cell turnover and differentiation. As a 22-year-old female, VitaminA is essential for maintaining healthy skin.\n- Foods: Sweet Potatoes, Carrots, Dark Leafy Greens, Fatty Fish (Salmon, Tuna), Shrimp\n- Tip: Include VitaminA-rich foods in your diet, but avoid excessive intake, as high doses can be toxic.\n\n**Urgency Note**: No urgent medical concerns are flagged based on the provided information. However, if acne persists or worsens, consult a healthcare professional for proper evaluation and treatment."
+      },
+      "null": {
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 660368,
+                "title": "Smoked Salmon Eggs Benedict With Lemon Dill Hollandaise",
+                "image": "https://img.spoonacular.com/recipes/660368-312x231.jpg",
+                "imageType": "jpg"
               },
               {
-                "id": 648247,
-                "title": "Italian Seafood Stew",
-                "image": "https://img.spoonacular.com/recipes/648247-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 10.7881,
-                      "unit": "mg"
-                    }
-                  ]
-                }
+                "id": 640275,
+                "title": "Crab Cakes Eggs Benedict",
+                "image": "https://img.spoonacular.com/recipes/640275-312x231.jpg",
+                "imageType": "jpg"
               },
               {
-                "id": 659927,
-                "title": "Shrimp and Avocado Salad",
-                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 143.535,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659109,
-                "title": "Salmon Quinoa Risotto",
-                "image": "https://img.spoonacular.com/recipes/659109-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 336.592,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659143,
-                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
-                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 109.204,
-                      "unit": "mg"
-                    }
-                  ]
-                }
+                "id": 659081,
+                "title": "Salmon Frittata",
+                "image": "https://img.spoonacular.com/recipes/659081-312x231.jpg",
+                "imageType": "jpg"
               },
               {
                 "id": 642129,
                 "title": "Easy To Make Spring Rolls",
                 "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 14.1894,
-                      "unit": "mg"
-                    }
-                  ]
-                }
+                "imageType": "jpg"
+              },
+              {
+                "id": 663177,
+                "title": "Thai-Style Mussels",
+                "image": "https://img.spoonacular.com/recipes/663177-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 652775,
+                "title": "Mussels With Tomatoes and Fennel",
+                "image": "https://img.spoonacular.com/recipes/652775-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 648320,
+                "title": "Jade Buddha Salmon Tartare",
+                "image": "https://img.spoonacular.com/recipes/648320-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716408,
+                "title": "Greek-Style Baked Fish: Fresh, Simple, and Delicious",
+                "image": "https://img.spoonacular.com/recipes/716408-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659927,
+                "title": "Shrimp and Avocado Salad",
+                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659143,
+                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
+                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 661126,
+                "title": "Spicy Lump Crab and Avocado Salad",
+                "image": "https://img.spoonacular.com/recipes/661126-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 648247,
+                "title": "Italian Seafood Stew",
+                "image": "https://img.spoonacular.com/recipes/648247-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659237,
+                "title": "San Francisco Cioppino",
+                "image": "https://img.spoonacular.com/recipes/659237-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 638588,
+                "title": "Chilled Avocado and Cucumber Soup With Prawn and Scallop Salsa",
+                "image": "https://img.spoonacular.com/recipes/638588-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 648320,
+                "title": "Jade Buddha Salmon Tartare",
+                "image": "https://img.spoonacular.com/recipes/648320-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716408,
+                "title": "Greek-Style Baked Fish: Fresh, Simple, and Delicious",
+                "image": "https://img.spoonacular.com/recipes/716408-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659135,
+                "title": "Salmon with roasted vegetables",
+                "image": "https://img.spoonacular.com/recipes/659135-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659927,
+                "title": "Shrimp and Avocado Salad",
+                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659109,
+                "title": "Salmon Quinoa Risotto",
+                "image": "https://img.spoonacular.com/recipes/659109-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 659143,
+                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
+                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642129,
+                "title": "Easy To Make Spring Rolls",
+                "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 663177,
+                "title": "Thai-Style Mussels",
+                "image": "https://img.spoonacular.com/recipes/663177-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 652775,
+                "title": "Mussels With Tomatoes and Fennel",
+                "image": "https://img.spoonacular.com/recipes/652775-312x231.jpg",
+                "imageType": "jpg"
               }
             ]
           }
