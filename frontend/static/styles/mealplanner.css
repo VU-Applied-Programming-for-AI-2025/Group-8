@@ -869,3 +869,128 @@
         grid-template-columns: 1fr;
     }
 }
+
+.btn.btn-secondary {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+.btn-icon {
+    margin-right: 0.5rem;
+}
+
+/* Mealplanner page wrapper */
+.mealplanner-page {
+    min-height: 100vh;
+    background: var(--body-color);
+    padding: 2rem 1rem;
+}
+
+/* Mealplanner actions section */
+.mealplanner-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.mealplanner-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-primary);
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-color);
+}
+
+.mealplanner-actions .btn:hover {
+    background: var(--first-color-alt);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.mealplanner-actions .btn-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive design for mealplanner actions */
+@media (max-width: 600px) {
+    .mealplanner-actions {
+        margin-top: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .mealplanner-actions .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: var(--small-font-size);
+    }
+}
+
+/* Builtin meal planner page wrapper */
+.bmr-mealplanner-page {
+    min-height: 100vh;
+    background: var(--body-color);
+    padding: 2rem 1rem;
+}
+
+/* Builtin meal planner actions section */
+.bmr-mealplanner-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.bmr-mealplanner-actions .btn,
+.bmr-mealplanner-actions .btn.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: var(--gradient-primary) !important;
+    color: var(--white-color) !important;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: none;
+}
+
+.bmr-mealplanner-actions .btn:hover,
+.bmr-mealplanner-actions .btn.btn-secondary:hover {
+    background: var(--first-color-alt) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.bmr-mealplanner-actions .btn-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive design for builtin meal planner actions */
+@media (max-width: 600px) {
+    .bmr-mealplanner-actions {
+        margin-top: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .bmr-mealplanner-actions .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: var(--small-font-size);
+    }
+}

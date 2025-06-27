@@ -170,38 +170,43 @@
             <p class="text-secondary-color">Discover the essential building blocks for a healthy body.</p>
 
             <div class="nutrient-grid">
-                <div class="nutrient-card">
-                    <i class='bx bxs-lemon nutrient-icon'></i>
-                    <span class="nutrient-name">Vitamin C</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bxs-sun nutrient-icon'></i>
-                    <span class="nutrient-name">Vitamin D</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bx-bone nutrient-icon'></i>
-                    <span class="nutrient-name">Calcium</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bxs-leaf nutrient-icon'></i>
-                    <span class="nutrient-name">Iron</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bx-brain nutrient-icon'></i>
-                    <span class="nutrient-name">Omega-3</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bxs-cheese nutrient-icon'></i>
-                    <span class="nutrient-name">Protein</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bxs-grain nutrient-icon'></i>
-                    <span class="nutrient-name">Fiber</span>
-                </div>
-                <div class="nutrient-card">
-                    <i class='bx bxs-virus nutrient-icon'></i>
-                    <span class="nutrient-name">Zinc</span>
-                </div>
+                {% set nutrients = [
+                    ('Copper', 'fa-microchip'),
+                    ('Choline', 'fa-brain'),
+                    ('Cholesterol', 'fa-heartbeat'),
+                    ('Fluoride', 'fa-tooth'),
+                    ('SaturatedFat', 'fa-bacon'),
+                    ('Vitamin C', 'fa-lemon'),
+                    ('Vitamin E', 'fa-leaf'),
+                    ('Vitamin K', 'fa-hand-holding-medical'),
+                    ('Vitamin A', 'fa-eye'),
+                    ('Vitamin D', 'fa-sun'),
+                    ('Vitamin B1', 'fa-seedling'),
+                    ('Vitamin B2', 'fa-capsules'),
+                    ('Vitamin B3', 'fa-flask'),
+                    ('Vitamin B5', 'fa-droplet'),
+                    ('Vitamin B6', 'fa-apple-whole'),
+                    ('Vitamin B12', 'fa-dna'),
+                    ('Fiber', 'fa-wheat-awn'),
+                    ('Folic Acid', 'fa-pills'),
+                    ('Calcium', 'fa-bone'),
+                    ('Folate', 'fa-leaf'),
+                    ('Iodine', 'fa-flask'),
+                    ('Iron', 'fa-drumstick-bite'),
+                    ('Magnesium', 'fa-mound'),
+                    ('Manganese', 'fa-mortar-pestle'),
+                    ('Phosphorus', 'fa-dna'),
+                    ('Potassium', 'fa-leaf'),
+                    ('Selenium', 'fa-seedling'),
+                    ('Sodium', 'fa-cube'),
+                    ('Zinc', 'fa-fish')
+                ] %}
+                {% for nutrient, icon in nutrients %}
+                <a href="{{ url_for('nutrients') }}?nutrient={{ nutrient|replace(' ', '') }}" class="nutrient-card">
+                    <i class="fas {{ icon }} nutrient-icon"></i>
+                    <span class="nutrient-name">{{ nutrient }}</span>
+                </a>
+                {% endfor %}
             </div>
         </div>
     </section>

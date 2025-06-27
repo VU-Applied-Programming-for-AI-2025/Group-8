@@ -340,7 +340,7 @@ body {
 
 @media (max-width: 480px) {
     .recipes-header h1 {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     .recipes-grid {
@@ -356,6 +356,53 @@ body {
     }
 
     .alternative-option {
-        padding: 1.5rem 1rem;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Recipes actions section */
+.recipes-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+}
+
+.recipes-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(185, 100, 122, 0.2);
+}
+
+.recipes-actions .btn:hover {
+    background: linear-gradient(135deg, #e86a7a, #a85a6a);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(185, 100, 122, 0.3);
+}
+
+.recipes-actions .btn-icon {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive design for recipes actions */
+@media (max-width: 600px) {
+    .recipes-actions {
+        margin-top: 2rem;
+        padding: 1rem 0;
+    }
+    
+    .recipes-actions .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: var(--small-font-size);
     }
 }
