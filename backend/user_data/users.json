@@ -226,38 +226,38 @@
     "mealplan": {
       "meals": [
         {
-          "id": 1161746,
-          "image": "peanut-butter-muffins-1161746.jpg",
+          "id": 648006,
+          "image": "https://img.spoonacular.com/recipes/648006-556x370.jpg",
           "imageType": "jpg",
-          "title": "Peanut Butter Muffins",
-          "readyInMinutes": 28,
-          "servings": 12,
-          "sourceUrl": "https://www.pinkwhen.com/peanut-butter-muffins/"
-        },
-        {
-          "id": 653251,
-          "image": "Noodles-and-Veggies-With-Peanut-Sauce-653251.jpg",
-          "imageType": "jpg",
-          "title": "Noodles and Veggies With Peanut Sauce",
-          "readyInMinutes": 30,
-          "servings": 4,
-          "sourceUrl": "https://www.foodista.com/recipe/5VRHVVWQ/noodles-and-veggies-with-peanut-sauce"
-        },
-        {
-          "id": 679540,
-          "image": "baked-whole-wheat-breakfast-quesadilla-679540.png",
-          "imageType": "png",
-          "title": "Baked Whole Wheat Breakfast Quesadilla",
+          "title": "Irish Soda Bread By Mommie Cooks",
           "readyInMinutes": 45,
-          "servings": 2,
-          "sourceUrl": "https://fullbellysisters.blogspot.com/2015/08/baked-whole-wheat-breakfast-quesadilla.html"
+          "servings": 8,
+          "sourceUrl": "https://www.foodista.com/recipe/RNKM52BK/irish-soda-bread-by-mommie-cooks"
+        },
+        {
+          "id": 1171085,
+          "image": "https://img.spoonacular.com/recipes/1171085-556x370.jpg",
+          "imageType": "jpg",
+          "title": "How to Make an Easy Chicken Enchilada",
+          "readyInMinutes": 25,
+          "servings": 4,
+          "sourceUrl": "https://www.pinkwhen.com/easy-chicken-fajita-enchiladas-recipe/"
+        },
+        {
+          "id": 640843,
+          "image": "https://img.spoonacular.com/recipes/640843-556x370.jpg",
+          "imageType": "jpg",
+          "title": "Crispy Southern Fried Chicken",
+          "readyInMinutes": 45,
+          "servings": 4,
+          "sourceUrl": "https://www.foodista.com/recipe/868TLMQL/crispy-southern-fried-chicken"
         }
       ],
       "nutrients": {
-        "calories": 1733.28,
-        "protein": 68.26,
-        "fat": 81.13,
-        "carbohydrates": 184.12
+        "calories": 1733.4,
+        "protein": 77.71,
+        "fat": 102.03,
+        "carbohydrates": 123.89
       }
     },
     "symptom_analysis": {
@@ -443,6 +443,323 @@
       },
       "acne": {
         "analyse": "Here is the analysis:\n\n**VitaminA**:\n- Why: A lack of VitaminA can cause acne due to its role in regulating skin cell turnover and sebum production. As a 20-year-old female, adequate VitaminA intake is crucial for maintaining healthy skin.\n- Foods: sweet potatoes, carrots, dark leafy greens\n- Tip: Include VitaminA-rich foods in your daily meals to support skin health.\n\n**VitaminC**:\n- Why: A lack of VitaminC can contribute to acne due to its antioxidant properties and role in collagen production. As a young adult, VitaminC is essential for overall health and skin well-being.\n- Foods: citrus fruits, strawberries, bell peppers\n- Tip: Eat foods high in VitaminC with meals to enhance iron absorption and support skin health.\n\n**Zinc**:\n- Why: A lack of Zinc can lead to acne due to its role in regulating sebum production, wound healing, and immune function. As a female, Zinc is particularly important for reproductive health.\n- Foods: oysters, beef, chicken\n- Tip: Include Zinc-rich foods in your diet, especially during menstruation to support hormonal balance.\n\n**Urgency Note**: None flagged. However, if acne persists or worsens, consult a healthcare professional to rule out underlying conditions. \n\nNo other vitamins/minerals were included in the top 3 likely deficiencies for acne based on the user's profile. Let me know if you'd like me to clarify anything."
+      },
+      "null": {
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 660368,
+                "title": "Smoked Salmon Eggs Benedict With Lemon Dill Hollandaise",
+                "image": "https://img.spoonacular.com/recipes/660368-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 22.5281,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 645032,
+                "title": "Goldilocks Chia Seed Porridge",
+                "image": "https://img.spoonacular.com/recipes/645032-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 59.0,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 659081,
+                "title": "Salmon Frittata",
+                "image": "https://img.spoonacular.com/recipes/659081-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 14.965,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 632347,
+                "title": "Ancient Grains Bread",
+                "image": "https://img.spoonacular.com/recipes/632347-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Calcium",
+                      "amount": 151.722,
+                      "unit": "mg"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 661292,
+                "title": "Spinach Coriander Chive Bread",
+                "image": "https://img.spoonacular.com/recipes/661292-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Calcium",
+                      "amount": 411.864,
+                      "unit": "mg"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 654425,
+                "title": "Pan Roasted Raspberries Bread",
+                "image": "https://img.spoonacular.com/recipes/654425-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Calcium",
+                      "amount": 143.541,
+                      "unit": "mg"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 641128,
+                "title": "Curry Mussels",
+                "image": "https://img.spoonacular.com/recipes/641128-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Iron",
+                      "amount": 21.6475,
+                      "unit": "mg"
+                    }
+                  ]
+                }
+              }
+            ],
+            "lunch": [
+              {
+                "id": 639411,
+                "title": "Cilantro Lime Halibut",
+                "image": "https://img.spoonacular.com/recipes/639411-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 10.6594,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 716364,
+                "title": "Rice and Peas with Coconut Curry Mackerel",
+                "image": "https://img.spoonacular.com/recipes/716364-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 10.2375,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              },
+              {
+                "id": 660736,
+                "title": "Soy Ginger Glazed Halibut with Ginger Peach Relish",
+                "image": "https://img.spoonacular.com/recipes/660736-312x231.jpg",
+                "imageType": "jpg",
+                "nutrition": {
+                  "nutrients": [
+                    {
+                      "name": "Vitamin D",
+                      "amount": 10.6594,
+                      "unit": "\u00b5g"
+                    }
+                  ]
+                }
+              }
+            ],
+            "dinner": []
+          }
+        }
+      },
+      "null": {
+        "recommended_meals": {
+          "meals": {
+            "breakfast": [
+              {
+                "id": 756814,
+                "title": "Powerhouse Almond Matcha Superfood Smoothie",
+                "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 636589,
+                "title": "Butternut Squash Frittata",
+                "image": "https://img.spoonacular.com/recipes/636589-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716432,
+                "title": "Finger Foods: Frittata Muffins",
+                "image": "https://img.spoonacular.com/recipes/716432-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 632347,
+                "title": "Ancient Grains Bread",
+                "image": "https://img.spoonacular.com/recipes/632347-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 661292,
+                "title": "Spinach Coriander Chive Bread",
+                "image": "https://img.spoonacular.com/recipes/661292-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 654425,
+                "title": "Pan Roasted Raspberries Bread",
+                "image": "https://img.spoonacular.com/recipes/654425-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716406,
+                "title": "Asparagus and Pea Soup: Real Convenience Food",
+                "image": "https://img.spoonacular.com/recipes/716406-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716426,
+                "title": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+                "image": "https://img.spoonacular.com/recipes/716426-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642129,
+                "title": "Easy To Make Spring Rolls",
+                "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "lunch": [
+              {
+                "id": 715415,
+                "title": "Red Lentil Soup with Chicken and Turnips",
+                "image": "https://img.spoonacular.com/recipes/715415-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715446,
+                "title": "Slow Cooker Beef Stew",
+                "image": "https://img.spoonacular.com/recipes/715446-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 782601,
+                "title": "Red Kidney Bean Jambalaya",
+                "image": "https://img.spoonacular.com/recipes/782601-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 661925,
+                "title": "Strawberry-Mango Quinoa Salad",
+                "image": "https://img.spoonacular.com/recipes/661925-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 157344,
+                "title": "Spicy Salad with Kidney Beans, Cheddar, and Nuts",
+                "image": "https://img.spoonacular.com/recipes/157344-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 661340,
+                "title": "Spinach Salad with Strawberry Vinaigrette",
+                "image": "https://img.spoonacular.com/recipes/661340-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716406,
+                "title": "Asparagus and Pea Soup: Real Convenience Food",
+                "image": "https://img.spoonacular.com/recipes/716406-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ],
+            "dinner": [
+              {
+                "id": 715415,
+                "title": "Red Lentil Soup with Chicken and Turnips",
+                "image": "https://img.spoonacular.com/recipes/715415-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 715446,
+                "title": "Slow Cooker Beef Stew",
+                "image": "https://img.spoonacular.com/recipes/715446-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 782601,
+                "title": "Red Kidney Bean Jambalaya",
+                "image": "https://img.spoonacular.com/recipes/782601-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 644387,
+                "title": "Garlicky Kale",
+                "image": "https://img.spoonacular.com/recipes/644387-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716426,
+                "title": "Cauliflower, Brown Rice, and Vegetable Fried Rice",
+                "image": "https://img.spoonacular.com/recipes/716426-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716627,
+                "title": "Easy Homemade Rice and Beans",
+                "image": "https://img.spoonacular.com/recipes/716627-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 716406,
+                "title": "Asparagus and Pea Soup: Real Convenience Food",
+                "image": "https://img.spoonacular.com/recipes/716406-312x231.jpg",
+                "imageType": "jpg"
+              },
+              {
+                "id": 642129,
+                "title": "Easy To Make Spring Rolls",
+                "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
+                "imageType": "jpg"
+              }
+            ]
+          }
+        }
       }
     }
   },
@@ -15911,366 +16228,6 @@
                 "id": 660368,
                 "title": "Smoked Salmon Eggs Benedict With Lemon Dill Hollandaise",
                 "image": "https://img.spoonacular.com/recipes/660368-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 22.5281,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659081,
-                "title": "Salmon Frittata",
-                "image": "https://img.spoonacular.com/recipes/659081-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 14.965,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 642129,
-                "title": "Easy To Make Spring Rolls",
-                "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 14.1894,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 652775,
-                "title": "Mussels With Tomatoes and Fennel",
-                "image": "https://img.spoonacular.com/recipes/652775-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 14.9722,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 641128,
-                "title": "Curry Mussels",
-                "image": "https://img.spoonacular.com/recipes/641128-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 21.6475,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              }
-            ],
-            "lunch": [
-              {
-                "id": 639411,
-                "title": "Cilantro Lime Halibut",
-                "image": "https://img.spoonacular.com/recipes/639411-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.6594,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 660736,
-                "title": "Soy Ginger Glazed Halibut with Ginger Peach Relish",
-                "image": "https://img.spoonacular.com/recipes/660736-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.6594,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 634972,
-                "title": "Bigoli with smoked salmon",
-                "image": "https://img.spoonacular.com/recipes/634972-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 11.7173,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659927,
-                "title": "Shrimp and Avocado Salad",
-                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin B12",
-                      "amount": 4.6509,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659143,
-                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
-                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin B12",
-                      "amount": 4.00037,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 661126,
-                "title": "Spicy Lump Crab and Avocado Salad",
-                "image": "https://img.spoonacular.com/recipes/661126-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin B12",
-                      "amount": 10.2184,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 648247,
-                "title": "Italian Seafood Stew",
-                "image": "https://img.spoonacular.com/recipes/648247-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 10.7881,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 638588,
-                "title": "Chilled Avocado and Cucumber Soup With Prawn and Scallop Salsa",
-                "image": "https://img.spoonacular.com/recipes/638588-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 10.2565,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 641653,
-                "title": "Dried Prawns Yee Mee Soup",
-                "image": "https://img.spoonacular.com/recipes/641653-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 11.3007,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              }
-            ],
-            "dinner": [
-              {
-                "id": 639411,
-                "title": "Cilantro Lime Halibut",
-                "image": "https://img.spoonacular.com/recipes/639411-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.6594,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 660736,
-                "title": "Soy Ginger Glazed Halibut with Ginger Peach Relish",
-                "image": "https://img.spoonacular.com/recipes/660736-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.6594,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 634972,
-                "title": "Bigoli with smoked salmon",
-                "image": "https://img.spoonacular.com/recipes/634972-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 11.7173,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659927,
-                "title": "Shrimp and Avocado Salad",
-                "image": "https://img.spoonacular.com/recipes/659927-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin B12",
-                      "amount": 4.6509,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659109,
-                "title": "Salmon Quinoa Risotto",
-                "image": "https://img.spoonacular.com/recipes/659109-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin B12",
-                      "amount": 2.25379,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659143,
-                "title": "Salmon, Watercress, Fennel and Baby Beetroot Salad With Lemony \"Caviar\" Dressing",
-                "image": "https://img.spoonacular.com/recipes/659143-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin B12",
-                      "amount": 4.00037,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 642129,
-                "title": "Easy To Make Spring Rolls",
-                "image": "https://img.spoonacular.com/recipes/642129-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 14.1894,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 652775,
-                "title": "Mussels With Tomatoes and Fennel",
-                "image": "https://img.spoonacular.com/recipes/652775-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 14.9722,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 641128,
-                "title": "Curry Mussels",
-                "image": "https://img.spoonacular.com/recipes/641128-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 21.6475,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      },
-      "acne": {
-        "analyse": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminB6**:\n- Why: Lack of VitaminB6 can contribute to acne due to its role in regulating hormones and immune system function. As a 22-year-old female, hormonal fluctuations may increase the need for VitaminB6. \n- Foods: Salmon, Tuna, Sardines, Anchovies, Mackerel, Crab\n- Tip: Consider keeping a food diary to track any potential food triggers for acne.\n\n**Zinc**:\n- Why: Zinc plays a crucial role in skin health and immune function, and its lack can lead to acne. As a pescetarian, it's possible to have a limited zinc intake, and a lack of zinc can be exacerbated by a diet high in phytates (found in some plant-based foods).\n- Foods: Oysters, Crab, Lobster, Shrimp, Tuna, Salmon\n- Tip: Increase zinc absorption by consuming zinc-rich foods with acidic foods like citrus fruits or tomatoes.\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in skin cell turnover and differentiation. As a 22-year-old female, VitaminA is essential for maintaining healthy skin.\n- Foods: Sweet Potatoes, Carrots, Dark Leafy Greens, Fatty Fish (Salmon, Tuna), Shrimp\n- Tip: Include VitaminA-rich foods in your diet, but avoid excessive intake, as high doses can be toxic.\n\n**Urgency Note**: No urgent medical concerns are flagged based on the provided information. However, if acne persists or worsens, consult a healthcare professional for proper evaluation and treatment."
-      },
-      "null": {
-        "recommended_meals": {
-          "meals": {
-            "breakfast": [
-              {
-                "id": 660368,
-                "title": "Smoked Salmon Eggs Benedict With Lemon Dill Hollandaise",
-                "image": "https://img.spoonacular.com/recipes/660368-312x231.jpg",
                 "imageType": "jpg"
               },
               {
@@ -16418,6 +16375,9 @@
             ]
           }
         }
+      },
+      "acne": {
+        "analyse": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminB6**:\n- Why: Lack of VitaminB6 can contribute to acne due to its role in regulating hormones and immune system function. As a 22-year-old female, hormonal fluctuations may increase the need for VitaminB6. \n- Foods: Salmon, Tuna, Sardines, Anchovies, Mackerel, Crab\n- Tip: Consider keeping a food diary to track any potential food triggers for acne.\n\n**Zinc**:\n- Why: Zinc plays a crucial role in skin health and immune function, and its lack can lead to acne. As a pescetarian, it's possible to have a limited zinc intake, and a lack of zinc can be exacerbated by a diet high in phytates (found in some plant-based foods).\n- Foods: Oysters, Crab, Lobster, Shrimp, Tuna, Salmon\n- Tip: Increase zinc absorption by consuming zinc-rich foods with acidic foods like citrus fruits or tomatoes.\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in skin cell turnover and differentiation. As a 22-year-old female, VitaminA is essential for maintaining healthy skin.\n- Foods: Sweet Potatoes, Carrots, Dark Leafy Greens, Fatty Fish (Salmon, Tuna), Shrimp\n- Tip: Include VitaminA-rich foods in your diet, but avoid excessive intake, as high doses can be toxic.\n\n**Urgency Note**: No urgent medical concerns are flagged based on the provided information. However, if acne persists or worsens, consult a healthcare professional for proper evaluation and treatment."
       }
     }
   }
