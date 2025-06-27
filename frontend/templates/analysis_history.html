@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %} {# <--- ADD THIS LINE #}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis History - NutriSpoon</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis_history.css') }}">
-</head>
+{% block title %}Analysis History - NutriSpoon{% endblock %}
 
-<body>
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
+{% endblock %}
+
+
+{% block content %}
     <div class="container">
         <header class="analysis-header">
             <h1>📚 Your Analysis History</h1>
@@ -69,6 +68,4 @@
             </div>
         </main>
     </div>
-</body>
-
-</html>
+{% endblock %}

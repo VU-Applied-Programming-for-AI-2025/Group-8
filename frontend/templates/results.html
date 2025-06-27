@@ -99,26 +99,12 @@
     </div>
 
     <style>
-    :root {
-        --first-color: #f9798e;
-        --first-color-alt: #B9647A;
-        --title-color: hsl(233, 32%, 15%);
-        --text-color: hsl(233, 4%, 35%);
-        --body-color: hsl(2, 100%, 97%);
-        --white-color: #fff;
-        --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        --accent-pink-light: #ffe3ea;
-        --accent-pink-bg: linear-gradient(135deg, rgba(249, 121, 142, 0.05) 0%, rgba(185, 100, 122, 0.05) 100%);
-        --font-main: 'Open Sans', sans-serif;
-        --font-title: 'Lemon', cursive;
-    }
-
     body {
-        font-family: var(--font-main);
-        background-color: var(--body-color);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f6;
         margin: 0;
         padding: 0;
-        color: var(--text-color);
+        color: #333;
         line-height: 1.6;
     }
 
@@ -132,24 +118,25 @@
         text-align: center;
         border: none;
         cursor: pointer;
-        background-color: var(--first-color);
-        color: var(--white-color);
-        box-shadow: 0 4px 15px rgba(249, 121, 142, 0.15);
     }
 
     .btn-primary {
-        background-color: var(--first-color-alt);
-        color: var(--white-color);
+        background-color: #6c8fc7;
+        color: white;
     }
 
-    .btn-primary:hover, .btn:hover {
-        background-color: var(--first-color-alt);
+    .btn-primary:hover {
+        background-color: #4a6fa5;
+        transform: translateY(-2px);
+    }
+
+    .btn:hover {
         transform: translateY(-2px);
     }
 
     .intro-analysis-text {
         font-style: italic;
-        color: var(--first-color-alt);
+        color: #4a6fa5;
         margin-bottom: 1.5rem;
         padding: 0.5rem 0;
     }
@@ -158,7 +145,7 @@
         grid-column: 1 / -1;
         margin: 1rem 0;
         padding: 1rem;
-        background: var(--accent-pink-light);
+        background: #f8f9fa;
         border-radius: 8px;
         line-height: 1.6;
     }
@@ -167,17 +154,16 @@
         max-width: 800px;
         margin: 2rem auto;
         padding: 2rem;
-        background: var(--white-color);
+        background: white;
         border-radius: 15px;
-        box-shadow: var(--shadow);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
 
-    .analysis-title, .typewriter {
+    .analysis-title {
         text-align: center;
-        color: var(--first-color-alt);
+        color: #4a6fa5;
         margin-bottom: 2rem;
         font-size: 2rem;
-        font-family: var(--font-title);
     }
 
     .symptoms-display {
@@ -189,22 +175,22 @@
 
     .user-avatar {
         font-size: 3rem;
-        color: var(--first-color-alt);
+        color: #6c8fc7;
     }
 
     .symptoms-bubble p {
         margin: 0;
         font-weight: 500;
-        color: var(--first-color-alt);
+        color: #666;
     }
 
     .bubble {
-        background: var(--accent-pink-light);
+        background: #f0f7ff;
         padding: 0.5rem 1rem;
         border-radius: 20px;
         display: inline-block;
         margin-top: 0.5rem;
-        color: var(--first-color-alt);
+        color: #4a6fa5;
         font-weight: 600;
     }
 
@@ -216,11 +202,11 @@
     }
 
     .nutrient-card {
-        background: var(--white-color);
+        background: white;
         border-radius: 12px;
         padding: 1.5rem;
-        box-shadow: 0 3px 10px rgba(249, 121, 142, 0.08);
-        border: 1px solid #f9b6c3;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        border: 1px solid #e1e8f0;
         transition: all 0.3s ease;
         cursor: pointer;
         overflow: hidden;
@@ -231,9 +217,15 @@
         z-index: 1;
     }
 
-    .nutrient-card:nth-child(1) { animation-delay: 0s; }
-    .nutrient-card:nth-child(2) { animation-delay: 0.3s; }
-    .nutrient-card:nth-child(3) { animation-delay: 0.6s; }
+    .nutrient-card:nth-child(1) {
+        animation-delay: 0s;
+    }
+    .nutrient-card:nth-child(2) {
+        animation-delay: 0.3s;
+    }
+    .nutrient-card:nth-child(3) {
+        animation-delay: 0.6s;
+    }
 
     @keyframes fadeInUp {
         to {
@@ -244,7 +236,7 @@
 
     .nutrient-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(249, 121, 142, 0.15);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .nutrient-header {
@@ -256,8 +248,8 @@
 
     .nutrient-icon {
         font-size: 1.5rem;
-        color: var(--first-color);
-        background: var(--accent-pink-light);
+        color: #6c8fc7;
+        background: #f0f7ff;
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -269,15 +261,17 @@
     .nutrient-header h3 {
         margin: 0;
         flex-grow: 1;
-        color: var(--first-color-alt);
-        font-family: var(--font-title);
+        color: #4a4a4a;
     }
 
     .severity-indicator {
         width: 15px;
         height: 15px;
         border-radius: 50%;
-        background: var(--first-color);
+    }
+
+    .severity-indicator.low {
+        background: #4caf50;
     }
 
     .nutrient-details {
@@ -308,7 +302,7 @@
     }
 
     .detail-section h4 {
-        color: var(--first-color-alt);
+        color: #4a6fa5;
         margin-bottom: 0.5rem;
         display: flex;
         align-items: center;
@@ -323,8 +317,8 @@
     }
 
     .food-bubble {
-        background: var(--accent-pink-light);
-        color: var(--first-color-alt);
+        background: #e8f5e9;
+        color: #2e7d32;
         padding: 0.3rem 0.8rem;
         border-radius: 15px;
         font-size: 0.9rem;
@@ -332,15 +326,15 @@
     }
 
     .tip-section {
-        background: #ffe3ea;
+        background: #fff8e1;
         padding: 1rem;
         border-radius: 8px;
-        border-left: 4px solid var(--first-color);
+        border-left: 4px solid #ffc107;
     }
 
     .urgency-note {
-        background: #ffe3ea;
-        border-left: 4px solid var(--first-color-alt);
+        background: #fff3e0;
+        border-left: 4px solid #ff9800;
         padding: 1rem;
         border-radius: 0 8px 8px 0;
         margin: 2rem 0;
@@ -350,7 +344,7 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        color: var(--first-color-alt);
+        color: #e65100;
         margin-bottom: 0.5rem;
     }
 
@@ -362,10 +356,19 @@
         justify-content: center;
     }
 
+    .actions .btn:first-of-type {
+        background-color: #6c8fc7;
+        color: white;
+    }
+
+    .actions .btn:first-of-type:hover {
+        background-color: #4a6fa5;
+    }
+
     .typewriter {
         overflow: hidden;
         white-space: nowrap;
-        border-right: 3px solid var(--first-color-alt);
+        border-right: 3px solid #4a6fa5;
         width: 0;
         animation: typing 2s steps(40, end) forwards;
     }
