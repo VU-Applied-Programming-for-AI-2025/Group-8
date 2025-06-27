@@ -97,55 +97,56 @@
     </section>
 
     <section class="faq-section" id="faq">
-        <div class="container">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-layout">
-                <div class="faq-image-container">
-                    <img src="{{ url_for('static', filename='img/faq_banner.png') }}" alt="FAQ banner" class="faq-image">
-                </div>
-                <div class="faq-content">
-                    <div class="custom-accordion">
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    Is NutriSpoon a substitute for professional medical advice?
-                                </button>
-                            </h3>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent=".custom-accordion">
-                                <div class="accordion-body">
-                                    No, NutriSpoon is designed to provide informative insights and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for any health concerns.
-                                </div>
-                            </div>
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-layout">
+            <div class="faq-image-container">
+                <img src="{{ url_for('static', filename='img/faq_banner.png') }}" alt="FAQ banner" class="faq-image">
+            </div>
+            <div class="faq-content">
+                <div class="custom-accordion">
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button">
+                                Is NutriSpoon a substitute for professional medical advice?
+                            </button>
+                        </h3>
+                        <div class="accordion-body" style="display: none;">
+                            No, NutriSpoon is designed to provide informative insights and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for any health concerns.
                         </div>
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    How accurate are the symptom analyses?
-                                </button>
-                            </h3>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent=".custom-accordion">
-                                <div class="accordion-body">
-                                    Our symptom analyzer uses a comprehensive knowledge base to provide potential insights. However, its accuracy depends on the information you provide and should be used for informational purposes only.
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button">
+                                How accurate are the symptom analyses?
+                            </button>
+                        </h3>
+                        <div class="accordion-body" style="display: none;">
+                            Our symptom analyzer uses a comprehensive knowledge base to provide potential insights. However, its accuracy depends on the information you provide and should be used for informational purposes only.
                         </div>
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Can I trust the nutrient recommendations?
-                                </button>
-                            </h3>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent=".custom-accordion">
-                                <div class="accordion-body">
-                                    The nutrient recommendations are based on general health guidelines and scientific research. It's always best to discuss dietary changes or supplement use with a healthcare professional or registered dietitian.
-                                </div>
-                            </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button">
+                                Can I trust the nutrient recommendations?
+                            </button>
+                        </h3>
+                        <div class="accordion-body" style="display: none;">
+                            The nutrient recommendations are based on general health guidelines and scientific research. It's always best to discuss dietary changes or supplement use with a healthcare professional or registered dietitian.
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
+<!-- Make sure this Bootstrap JS is included before </body> -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 
     <section class="nutrient-periodical-table-section" id="nutrients">
         <div class="container">
@@ -264,4 +265,27 @@
             }
         });
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.accordion-button');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const body = button.parentElement.nextElementSibling;
+            const isOpen = !button.classList.contains('collapsed');
+
+            // Close all
+            document.querySelectorAll('.accordion-button').forEach(b => b.classList.add('collapsed'));
+            document.querySelectorAll('.accordion-body').forEach(b => b.style.display = 'none');
+
+            // Toggle clicked one
+            if (!isOpen) {
+                button.classList.remove('collapsed');
+                body.style.display = 'block';
+            }
+        });
+    });
+});
+</script>
+
 {% endblock %}
