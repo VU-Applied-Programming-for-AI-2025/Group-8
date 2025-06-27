@@ -130,8 +130,7 @@ def register() -> Union[str, Response]:
         country = request.form.get("country")
         medication = request.form.get("medication", "").split(",")
         diet = request.form.get("diet")
-        existing_conditions = request.form.get(
-            "existing_conditions", "").split(",")
+        existing_conditions = request.form.get("existing_conditions", "").split(",")
         allergies = request.form.get("allergies", "").split(",")
 
         # Makes a user profile object and adds it to the users_data object
@@ -140,7 +139,6 @@ def register() -> Union[str, Response]:
                 username,
                 password,
                 name,
-                age,
                 sex,
                 height,
                 weight,
@@ -180,8 +178,7 @@ def login() -> Union[str, Response]:
         password = request.form.get("password")
 
         # Checks if the username and password corresponds to a user profile in the users_data object
-        authenticated, message = users_data.user_authentication(
-            username, password)
+        authenticated, message = users_data.user_authentication(username, password)
 
         # If the authentication succeeded, the user will be logged in and redirected to the homepage.
         if authenticated:
@@ -454,16 +451,21 @@ def display_results() -> Union[str, Response]:
     symptoms = request.args.get("symptoms")
     past_analysis = user.symptom_analysis
     if symptoms in past_analysis:
-        return render_template("results.html", symptoms=symptoms, analysis=past_analysis[symptoms]["analyse"], form=form)
+        return render_template(
+            "results.html",
+            symptoms=symptoms,
+            analysis=past_analysis[symptoms]["analyse"],
+            form=form,
+        )
     analysis = analyze_symptoms()
 
     # store the analysis result to database for later use
     # we don't want to call groq over and over again for the same symptoms
-    user.symptom_analysis[symptoms] = {
-        "analyse": analysis
-    }
+    user.symptom_analysis[symptoms] = {"analyse": analysis}
     users_data.save_to_file()
-    return render_template("results.html", symptoms=symptoms, analysis=analysis, form=form)
+    return render_template(
+        "results.html", symptoms=symptoms, analysis=analysis, form=form
+    )
 
 
 @app.route("/recommendations")
@@ -491,7 +493,9 @@ def recommendations() -> Union[str, Response]:
         found_symptom = previously_analyzed_symptoms[symptoms]
 
     if "recommended_meals" in found_symptom:
-        meal_recipes = previously_analyzed_symptoms[symptoms]["recommended_meals"]["meals"]
+        meal_recipes = previously_analyzed_symptoms[symptoms]["recommended_meals"][
+            "meals"
+        ]
         return render_template("recipes.html", recipes_by_meal=meal_recipes, form=form)
 
     try:
@@ -573,9 +577,8 @@ def recipe_details(recipe_id) -> str:
     """
     response = requests.get(
         f"https://api.spoonacular.com/recipes/{recipe_id}/information",
-        params={"apiKey": spoonacular_api_key,
-                        "includeNutrition": True},
-            )
+        params={"apiKey": spoonacular_api_key, "includeNutrition": True},
+    )
     recipe_info = response.json()
     return render_template("recipe_details.html", recipe=recipe_info)
 
@@ -629,12 +632,39 @@ def spoonacular_builtin_mealplanner() -> Union[str, Response]:
             "https://api.spoonacular.com/mealplanner/generate", params=params
         )
         if response.status_code == 200:
-            # Save meal plan and redirect
-            user.mealplan = response.json()
+            mealplan = response.json()
+            # Add images and readyInMinutes for each meal
+            if "meals" in mealplan:
+                # Day plan
+                for meal in mealplan["meals"]:
+                    recipe_id = meal["id"]
+                    info_resp = requests.get(
+                        f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+                        params={"apiKey": spoonacular_api_key},
+                    )
+                    if info_resp.status_code == 200:
+                        info = info_resp.json()
+                        meal["image"] = info.get("image")
+                        meal["readyInMinutes"] = info.get("readyInMinutes")
+            elif "week" in mealplan:
+                # Week plan
+                for day, data in mealplan["week"].items():
+                    for meal in data["meals"]:
+                        recipe_id = meal["id"]
+                        info_resp = requests.get(
+                            f"https://api.spoonacular.com/recipes/{recipe_id}/information",
+                            params={"apiKey": spoonacular_api_key},
+                        )
+                        if info_resp.status_code == 200:
+                            info = info_resp.json()
+                            meal["image"] = info.get("image")
+                            meal["readyInMinutes"] = info.get("readyInMinutes")
+            user.mealplan = mealplan
             print("spoonacular response mealplan")
             print(user.mealplan)
             users_data.save_to_file()
             return redirect(url_for("edit_meal_planner"))
+
         else:
             return render_template(
                 "builtin_meal_planner.html", error="Failed to fetch meal plan."
@@ -847,7 +877,9 @@ def show_history() -> Union[str, Response]:
         return redirect(url_for("auth_page"))
 
     form = SearchForm()
-    return render_template("analysis_history.html", results=user.analysis_results, form=form)
+    return render_template(
+        "analysis_history.html", results=user.analysis_results, form=form
+    )
 
 
 def get_nutrient_info() -> Dict[str, Any]:
@@ -856,8 +888,7 @@ def get_nutrient_info() -> Dict[str, Any]:
 
     :return: Dictionary of nutrient data.
     """
-    path = os.path.join(os.path.dirname(__file__),
-                        "data", "nutrient_info.json")
+    path = os.path.join(os.path.dirname(__file__), "data", "nutrient_info.json")
     with open(path, "r") as f:
         nutrients_data = json.load(f)
     return nutrients_data
