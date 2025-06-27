@@ -139,6 +139,7 @@ def register() -> Union[str, Response]:
                 username,
                 password,
                 name,
+                age,
                 sex,
                 height,
                 weight,
