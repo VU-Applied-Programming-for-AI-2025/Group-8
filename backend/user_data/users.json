@@ -9785,167 +9785,6 @@
           "meals": {
             "breakfast": [
               {
-                "id": 660368,
-                "title": "Smoked Salmon Eggs Benedict With Lemon Dill Hollandaise",
-                "image": "https://img.spoonacular.com/recipes/660368-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 22.5281,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 645032,
-                "title": "Goldilocks Chia Seed Porridge",
-                "image": "https://img.spoonacular.com/recipes/645032-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 59.0,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 659081,
-                "title": "Salmon Frittata",
-                "image": "https://img.spoonacular.com/recipes/659081-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 14.965,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 632347,
-                "title": "Ancient Grains Bread",
-                "image": "https://img.spoonacular.com/recipes/632347-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 151.722,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 661292,
-                "title": "Spinach Coriander Chive Bread",
-                "image": "https://img.spoonacular.com/recipes/661292-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 411.864,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 654425,
-                "title": "Pan Roasted Raspberries Bread",
-                "image": "https://img.spoonacular.com/recipes/654425-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Calcium",
-                      "amount": 143.541,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 641128,
-                "title": "Curry Mussels",
-                "image": "https://img.spoonacular.com/recipes/641128-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Iron",
-                      "amount": 21.6475,
-                      "unit": "mg"
-                    }
-                  ]
-                }
-              }
-            ],
-            "lunch": [
-              {
-                "id": 639411,
-                "title": "Cilantro Lime Halibut",
-                "image": "https://img.spoonacular.com/recipes/639411-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.6594,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 716364,
-                "title": "Rice and Peas with Coconut Curry Mackerel",
-                "image": "https://img.spoonacular.com/recipes/716364-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.2375,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              },
-              {
-                "id": 660736,
-                "title": "Soy Ginger Glazed Halibut with Ginger Peach Relish",
-                "image": "https://img.spoonacular.com/recipes/660736-312x231.jpg",
-                "imageType": "jpg",
-                "nutrition": {
-                  "nutrients": [
-                    {
-                      "name": "Vitamin D",
-                      "amount": 10.6594,
-                      "unit": "\u00b5g"
-                    }
-                  ]
-                }
-              }
-            ],
-            "dinner": []
-          }
-        }
-      },
-      "null": {
-        "recommended_meals": {
-          "meals": {
-            "breakfast": [
-              {
                 "id": 756814,
                 "title": "Powerhouse Almond Matcha Superfood Smoothie",
                 "image": "https://img.spoonacular.com/recipes/756814-312x231.jpg",
@@ -25716,5 +25555,30 @@
         "analyse": "Based on the user's profile and symptoms, here is the analysis:\n\n**VitaminB6**:\n- Why: Lack of VitaminB6 can contribute to acne due to its role in regulating hormones and immune system function. As a 22-year-old female, hormonal fluctuations may increase the need for VitaminB6. \n- Foods: Salmon, Tuna, Sardines, Anchovies, Mackerel, Crab\n- Tip: Consider keeping a food diary to track any potential food triggers for acne.\n\n**Zinc**:\n- Why: Zinc plays a crucial role in skin health and immune function, and its lack can lead to acne. As a pescetarian, it's possible to have a limited zinc intake, and a lack of zinc can be exacerbated by a diet high in phytates (found in some plant-based foods).\n- Foods: Oysters, Crab, Lobster, Shrimp, Tuna, Salmon\n- Tip: Increase zinc absorption by consuming zinc-rich foods with acidic foods like citrus fruits or tomatoes.\n\n**VitaminA**:\n- Why: A lack of VitaminA can contribute to acne due to its role in skin cell turnover and differentiation. As a 22-year-old female, VitaminA is essential for maintaining healthy skin.\n- Foods: Sweet Potatoes, Carrots, Dark Leafy Greens, Fatty Fish (Salmon, Tuna), Shrimp\n- Tip: Include VitaminA-rich foods in your diet, but avoid excessive intake, as high doses can be toxic.\n\n**Urgency Note**: No urgent medical concerns are flagged based on the provided information. However, if acne persists or worsens, consult a healthcare professional for proper evaluation and treatment."
       }
     }
+  },
+  "b": {
+    "username": "b",
+    "password": "b",
+    "name": "b",
+    "age": 24,
+    "sex": "male",
+    "height": 188.0,
+    "weight": 56.0,
+    "skin_color": "light",
+    "country": "congo",
+    "medication": [
+      ""
+    ],
+    "diet": "none",
+    "existing_conditions": [
+      ""
+    ],
+    "allergies": [
+      ""
+    ],
+    "saved_recipes": [],
+    "analysis_results": [],
+    "mealplan": [],
+    "symptom_analysis": {}
   }
 }
