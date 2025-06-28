@@ -237,15 +237,21 @@ def analyze_symptoms() -> str:
     Other functions can parse this text to extract vitamins or recommended foods.
     :return: Textual analysis from Groq LLM based on symptoms and user profile.
     """
-    # Get current user from session
+    # Get the currently logged-in user
     username = session["username"]
     user = users_data.get_user(username)
 
-    # Get symptoms from request and save to session
-    symptoms = request.args.get("symptoms")
+    # Get raw symptom input from query parameters
+    raw_symptoms = request.args.get("symptoms", "").strip()
+
+    # Normalize input: split by comma, strip extra spaces, and join back with proper formatting
+    symptom_list = [s.strip() for s in raw_symptoms.split(",") if s.strip()]
+    symptoms = ", ".join(symptom_list)
+
+    # Save to session for reuse
     session["last_symptoms"] = symptoms
 
-    # Build detailed prompt for LLM with user profile and request instructions
+    # Create the prompt to send to Groq LLM
     ai_prompt = f"""
         user profile:
         - name: {user.name}
@@ -264,8 +270,8 @@ def analyze_symptoms() -> str:
         required analysis: 
         1. top 3 likely vitamin/mineral deficiencies for each symptom based on the user's age, sex, height/weight. ONLY use these vitamin/minerals: Copper, Calcium, Choline, Cholesterol, Fluoride, SaturatedFat, VitaminA, VitaminC, VitaminD, VitaminE, VitaminK, VitaminB1, VitaminB2, VitaminB3, VitaminB5, VitaminB6, VitaminB12, Fiber, Folate, FolicAcid, Iodine, Iron, Magnesium, Manganese, Phosphorus, Potassium, Selenium, Sodium, Sugar, Zinc
         2. for each deficiency:
-        - biological explanation, if the user's profile plays a role on the vitamin/nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", in stead use something like "lack of")
-        - top 3 foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-seperated list, no extra information, list each food on its own)
+        - biological explanation, if the user's profile plays a role on the vitamin/nutrient like age, sex, existing conditions, include that information (short but detailed, easy to grasp. don't use the word "deficiency", instead use something like "lack of")
+        - top 3 foods to eat to fix the issue, keep in mind the user's medication, allergies and diet (comma-separated list, no extra information, list each food on its own)
         - 1 lifestyle tip, that aligns with the user's profile
         3. flag any urgent medical concerns, including the user's medication, existing conditions and allergies
 
@@ -276,9 +282,7 @@ def analyze_symptoms() -> str:
         - Tip: [actionable advice]
 
         [Urgency Note]: (optional)
-        """
-
-    # llm should incorporate the pesonal details of the user like allergies, pregnancy, etc
+    """
 
     try:
         response = client.chat.completions.create(
