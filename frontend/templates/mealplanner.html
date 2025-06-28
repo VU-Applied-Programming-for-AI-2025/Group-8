@@ -1,123 +1,128 @@
-<!-- templates/mealplanner.html -->
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Latest Meal Plan - NutriSpoon</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
-</head>
+{% block title %}Your Latest Meal Plan - NutriSpoon{% endblock %}
 
-<body>
-  <div class="mealplanner-page">
-    <h1 class="mealplan-title">Your Latest Meal Plan</h1>
-    <button onclick="window.print()" class="mealplan-print-button">Print Meal Plan</button>
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
+    <style>
+        @media print {
+            .header, .footer, .nav__search, .nav__toggle, .mealplanner-actions, .mealplan-print-button {
+                display: none !important;
+            }
+            .main {
+                padding-top: 0 !important; 
+            }
+            .mealplan-container {
+                margin-top: 0 !important;
+            }
+            body {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
+        }
+    </style>
+{% endblock %}
 
-    <div class="mealplan-container">
-      {% if message %}
-      <p class="mealplan-info">{{ message }}</p>
+{% block content %}
+    <div class="mealplanner-page">
+        <h1 class="mealplan-title">Your Latest Meal Plan</h1>
+        <button onclick="window.print()" class="mealplan-print-button">Print Meal Plan</button>
 
-      {% elif day_plan %}
-      <div class="mealplan-day-section">
-        <h2 class="mealplan-day-title">Recipes</h2>
-        <div class="mealplan-meal-grid">
-          {% for meal in day_plan.meals %}
-          <div class="mealplan-meal-card">
-            <a href="{{ url_for('recipe_details', recipe_id=meal.id) }}">
-              <img src="{{ meal.image }}" alt="{{ meal.title }}">
-              <div class="mealplan-meal-info">
-                <div class="mealplan-meal-title">{{ meal.title }}</div>
-                <div class="mealplan-meal-time">{{ meal.readyInMinutes }} min</div>
-              </div>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="mealplan-nutrients-block">
-          <div class="mealplan-nutrients-title">Nutrients</div>
-          <ul>
-            {% for key, value in day_plan.nutrients.items() %}
-            <li>
-              <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
-              <span class="mealplan-nutrient-value">{{ value }}</span>
-            </li>
+        <div class="mealplan-container">
+            {% if message %}
+            <p class="mealplan-info">{{ message }}</p>
+
+            {% elif day_plan %}
+            <div class="mealplan-day-section">
+                <h2 class="mealplan-day-title">Recipes</h2>
+                <div class="mealplan-meal-grid">
+                    {% for meal in day_plan.meals %}
+                    <div class="mealplan-meal-card">
+                        <a href="{{ url_for('recipe_details', recipe_id=meal.id) }}">
+                            <img src="{{ meal.image }}" alt="{{ meal.title }}">
+                            <div class="mealplan-meal-info">
+                                <div class="mealplan-meal-title">{{ meal.title }}</div>
+                                <div class="mealplan-meal-time">{{ meal.readyInMinutes }} min</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mealplan-nutrients-block">
+                    <div class="mealplan-nutrients-title">Nutrients</div>
+                    <ul>
+                        {% for key, value in day_plan.nutrients.items() %}
+                        <li>
+                            <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
+                            <span class="mealplan-nutrient-value">{{ value }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            {% elif week_plan %}
+            {% for day, data in week_plan.items() %}
+            <div class="mealplan-day-section">
+                <h2 class="mealplan-day-title">{{ day.capitalize() }}</h2>
+                <div class="mealplan-meal-grid">
+                    {% for meal in data.meals %}
+                    <div class="mealplan-meal-card">
+                        <a href="{{ url_for('recipe_details', recipe_id=meal.id) }}">
+                            <img src="{{ meal.image }}" alt="{{ meal.title }}">
+                            <div class="mealplan-meal-info">
+                                <div class="mealplan-meal-title">{{ meal.title }}</div>
+                                <div class="mealplan-meal-time">{{ meal.readyInMinutes }} min</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mealplan-nutrients-block">
+                    <div class="mealplan-nutrients-title">Nutrients</div>
+                    <ul>
+                        {% for key, value in data.nutrients.items() %}
+                        <li>
+                            <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
+                            <span class="mealplan-nutrient-value">{{ value }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
             {% endfor %}
-          </ul>
-        </div>
-      </div>
 
-      {% elif week_plan %}
-      {% for day, data in week_plan.items() %}
-      <div class="mealplan-day-section">
-        <h2 class="mealplan-day-title">{{ day.capitalize() }}</h2>
-        <div class="mealplan-meal-grid">
-          {% for meal in data.meals %}
-          <div class="mealplan-meal-card">
-            <a href="{{ url_for('recipe_details', recipe_id=meal.id) }}">
-              <img src="{{ meal.image }}" alt="{{ meal.title }}">
-              <div class="mealplan-meal-info">
-                <div class="mealplan-meal-title">{{ meal.title }}</div>
-                <div class="mealplan-meal-time">{{ meal.readyInMinutes }} min</div>
-              </div>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="mealplan-nutrients-block">
-          <div class="mealplan-nutrients-title">Nutrients</div>
-          <ul>
-            {% for key, value in data.nutrients.items() %}
-            <li>
-              <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
-              <span class="mealplan-nutrient-value">{{ value }}</span>
-            </li>
+            {% else %}
+            {% for day, meals in mealplan.items() %}
+            <div class="mealplan-day-section">
+                <h2 class="mealplan-day-title">Day {{ day }}</h2>
+                <div class="mealplan-meal-grid">
+                    {% for meal_name, recipe in meals.items() %}
+                    <div class="mealplan-meal-card">
+                        <a href="{{ url_for('recipe_details', recipe_id=recipe.id) }}">
+                            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                            <div class="mealplan-meal-info">
+                                <div class="mealplan-meal-title">{{ meal_name.capitalize() }}: {{ recipe.title }}</div>
+                                <div class="mealplan-meal-time">{{ recipe.readyInMinutes }} min</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mealplan-nutrients-block">
+                    <div class="mealplan-nutrients-title">Nutrients</div>
+                    <ul>
+                        {% for key, value in meals.nutrients.items() %}
+                        <li>
+                            <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
+                            <span class="mealplan-nutrient-value">{{ value }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
             {% endfor %}
-          </ul>
+            {% endif %}
         </div>
-      </div>
-      {% endfor %}
-
-      {% else %}
-      {% for day, meals in mealplan.items() %}
-      <div class="mealplan-day-section">
-        <h2 class="mealplan-day-title">Day {{ day }}</h2>
-        <div class="mealplan-meal-grid">
-          {% for meal_name, recipe in meals.items() %}
-          <div class="mealplan-meal-card">
-            <a href="{{ url_for('recipe_details', recipe_id=recipe.id) }}">
-              <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
-              <div class="mealplan-meal-info">
-                <div class="mealplan-meal-title">{{ meal_name.capitalize() }}: {{ recipe.title }}</div>
-                <div class="mealplan-meal-time">{{ recipe.readyInMinutes }} min</div>
-              </div>
-            </a>
-          </div>
-          {% endfor %}
-        </div>
-        <div class="mealplan-nutrients-block">
-          <div class="mealplan-nutrients-title">Nutrients</div>
-          <ul>
-            {% for key, value in meals.nutrients.items() %}
-            <li>
-              <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
-              <span class="mealplan-nutrient-value">{{ value }}</span>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-      {% endfor %}
-      {% endif %}
     </div>
-
-    <div class="mealplanner-actions">
-      <a href="{{ url_for('home') }}" class="btn btn-secondary">
-        <span class="btn-icon">←</span>
-        Back to Home
-      </a>
-    </div>
-  </div>
-</body>
-
-</html>
+{% endblock %}

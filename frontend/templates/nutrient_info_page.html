@@ -1,8 +1,3 @@
-{% extends 'base.html' %}
-
-{% block title %}NutriSpoon - Your Health Companion{% endblock %}
-
-{% block content %}
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/nutrient_info.css') }}">
 <main class="main">
     <div class="container">
@@ -81,17 +76,6 @@
                     </div>
                 </section>
             </div>
-
-            <!--==================== NUTRIENT ACTIONS ====================-->
-            <div class="nutrient-actions">
-                <a href="{{ url_for('home') }}" class="btn btn-secondary">
-                    <span class="btn-icon">←</span>
-                    Back to Home
-                </a>
-                </a>
-            </div>
         </div>
     </div>
 </main>
-
-{% endblock %}

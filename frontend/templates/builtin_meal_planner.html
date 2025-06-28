@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMR Meal Planner - NutriSpoon</title>
+{% extends "base.html" %}
+
+{% block title %}BMR Meal Planner - NutriSpoon{% endblock %}
+
+{% block extra_head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <div class="bmr-mealplanner-page">
         <h1 class="bmr-mealplan-main-title">BMR-Based Meal Plan Generator</h1>
         <p class="bmr-mealplan-subtitle">
@@ -34,13 +34,5 @@
 
             <button type="submit" class="bmr-mealplan-button">Generate Plan</button>
         </form>
-
-        <div class="bmr-mealplanner-actions">
-            <a href="{{ url_for('home') }}" class="btn btn-primary">
-                <span class="btn-icon">←</span>
-                Back to Home
-            </a>
-        </div>
     </div>
-</body>
-</html>
+{% endblock %}

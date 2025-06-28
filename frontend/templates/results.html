@@ -1,105 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Personalized Nutrition Analysis</title>
+{% block title %}Your Personalized Nutrition Analysis{% endblock %}
+
+{% block extra_head %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-
-<body>
-    <div class="interactive-analysis">
-        <div class="analysis-header">
-            <h1 class="typewriter">Your Personalized Nutrition Analysis</h1>
-
-            <div class="symptoms-display">
-                <div class="user-avatar">
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <div class="symptoms-bubble">
-                    <p>Reported Symptoms:</p>
-                    <div class="bubble">{{ symptoms }}</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="nutrient-cards">
-            {% set nutrient_blocks = analysis.split('\n\n') %}
-            {% for block in nutrient_blocks %}
-            {% set clean_block = block.strip() %}
-
-            {% if clean_block.startswith('[Urgency Note]:') or clean_block.startswith('**Urgency Note**') %}
-            <div class="urgency-note">
-                <div class="note-header">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    <h3>Urgency Note</h3>
-                </div>
-                <p>{{ clean_block | replace('[Urgency Note]:', '') | replace('**Urgency Note**', '') | trim }}</p>
-            </div>
-
-            {% elif clean_block.startswith('Based on') %}
-            <p class="intro-analysis-text">{{ clean_block }}</p>
-
-            {% elif clean_block and
-            clean_block.split('\n')[0].endswith(':') and
-            ('- Why:' in clean_block or '- Foods:' in clean_block or '- Tip:' in clean_block) %}
-            {% set lines = clean_block.split('\n') %}
-            <div class="nutrient-card">
-                <div class="nutrient-header">
-                    <div class="nutrient-icon">
-                        {% if 'VitaminD' in clean_block %}
-                        <i class="fas fa-sun"></i>
-                        {% elif 'Iron' in clean_block %}
-                        <i class="fas fa-magnet"></i>
-                        {% elif 'VitaminB' in clean_block %}
-                        <i class="fas fa-bolt"></i>
-                        {% else %}
-                        <i class="fas fa-pills"></i>
-                        {% endif %}
-                    </div>
-                    <h3>{{ lines[0].replace(':', '') }}</h3>
-                    <div class="severity-indicator low"></div>
-                </div>
-
-                <div class="nutrient-details">
-                    {% for line in lines[1:] %}
-                    {% if line.startswith('- Why:') %}
-                    <div class="detail-section">
-                        <h4><i class="fas fa-question-circle"></i> Why This Matters</h4>
-                        <p>{{ line[6:] }}</p>
-                    </div>
-                    {% elif line.startswith('- Foods:') %}
-                    <div class="detail-section">
-                        <h4><i class="fas fa-utensils"></i> Recommended Foods</h4>
-                        <div class="food-bubbles">
-                            {% for food in line[8:].split(', ') %}
-                            <span class="food-bubble">{{ food }}</span>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% elif line.startswith('- Tip:') %}
-                    <div class="detail-section tip-section">
-                        <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
-                        <p>{{ line[6:] }}</p>
-                    </div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-
-            {% elif clean_block and not clean_block.startswith('No other vitamins') %}
-            <div class="general-text-block">{{ clean_block }}</div>
-            {% endif %}
-            {% endfor %}
-        </div>
-
-        <div class="actions">
-            <a href="{{ url_for('home') }}" class="btn">Back home</a>
-            <a href="{{ url_for('recommendations') }}" class="btn btn-primary">Get Food Recommendations</a>
-        </div>
-    </div>
-
     <style>
         :root {
             --first-color: #f9798e;
@@ -118,8 +22,9 @@
         body {
             font-family: var(--font-main);
             background-color: var(--body-color);
-            margin: 0;
-            padding: 0;
+            /* We should remove body margin/padding here if base.html handles it */
+            /* margin: 0; */
+            /* padding: 0; */
             color: var(--text-color);
             line-height: 1.6;
         }
@@ -409,7 +314,101 @@
             }
         }
     </style>
+{% endblock %}
 
+{% block content %}
+    <div class="interactive-analysis">
+        <div class="analysis-header">
+            <h1 class="typewriter">Your Personalized Nutrition Analysis</h1>
+
+            <div class="symptoms-display">
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="symptoms-bubble">
+                    <p>Reported Symptoms:</p>
+                    <div class="bubble">{{ symptoms }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nutrient-cards">
+            {% set nutrient_blocks = analysis.split('\n\n') %}
+            {% for block in nutrient_blocks %}
+            {% set clean_block = block.strip() %}
+
+            {% if clean_block.startswith('[Urgency Note]:') or clean_block.startswith('**Urgency Note**') %}
+            <div class="urgency-note">
+                <div class="note-header">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <h3>Urgency Note</h3>
+                </div>
+                <p>{{ clean_block | replace('[Urgency Note]:', '') | replace('**Urgency Note**', '') | trim }}</p>
+            </div>
+
+            {% elif clean_block.startswith('Based on') %}
+            <p class="intro-analysis-text">{{ clean_block }}</p>
+
+            {% elif clean_block and
+            clean_block.split('\n')[0].endswith(':') and
+            ('- Why:' in clean_block or '- Foods:' in clean_block or '- Tip:' in clean_block) %}
+            {% set lines = clean_block.split('\n') %}
+            <div class="nutrient-card">
+                <div class="nutrient-header">
+                    <div class="nutrient-icon">
+                        {% if 'VitaminD' in clean_block %}
+                        <i class="fas fa-sun"></i>
+                        {% elif 'Iron' in clean_block %}
+                        <i class="fas fa-magnet"></i>
+                        {% elif 'VitaminB' in clean_block %}
+                        <i class="fas fa-bolt"></i>
+                        {% else %}
+                        <i class="fas fa-pills"></i>
+                        {% endif %}
+                    </div>
+                    <h3>{{ lines[0].replace(':', '') }}</h3>
+                    <div class="severity-indicator low"></div>
+                </div>
+
+                <div class="nutrient-details">
+                    {% for line in lines[1:] %}
+                    {% if line.startswith('- Why:') %}
+                    <div class="detail-section">
+                        <h4><i class="fas fa-question-circle"></i> Why This Matters</h4>
+                        <p>{{ line[6:] }}</p>
+                    </div>
+                    {% elif line.startswith('- Foods:') %}
+                    <div class="detail-section">
+                        <h4><i class="fas fa-utensils"></i> Recommended Foods</h4>
+                        <div class="food-bubbles">
+                            {% for food in line[8:].split(', ') %}
+                            <span class="food-bubble">{{ food }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% elif line.startswith('- Tip:') %}
+                    <div class="detail-section tip-section">
+                        <h4><i class="fas fa-lightbulb"></i> Pro Tip</h4>
+                        <p>{{ line[6:] }}</p>
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% elif clean_block and not clean_block.startswith('No other vitamins') %}
+            <div class="general-text-block">{{ clean_block }}</div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('recommendations') }}" class="btn btn-primary">Get Food Recommendations</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const nutrientCardsContainer = document.querySelector('.nutrient-cards');
@@ -437,6 +436,4 @@
             });
         });
     </script>
-</body>
-
-</html>
+{% endblock %}

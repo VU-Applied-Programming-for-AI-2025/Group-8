@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Favorite Recipes - NutriSpoon</title>
+{% block title %}Your Favorite Recipes - NutriSpoon{% endblock %}
+
+{% block extra_head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/favorites.css') }}">
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
     <div class="container">
         <header class="page-header">
             <h1>🍽️ Your Favorite Recipes</h1>
             <p class="subtitle">Your saved recipes are ready to cook!</p>
         </header>
-
 
         <main class="favorites-content">
             {% if recipes %}
@@ -45,17 +42,10 @@
                 <div class="empty-icon">📚</div>
                 <h2>No favorites yet!</h2>
                 <p>Start exploring recipes and save your favorites to see them here.</p>
-                <a href="/home" class="btn btn-primary">Explore Recipes</a>
+                <a href="{{ url_for('home') }}" class="btn btn-primary">Explore Recipes</a>
             </div>
             {% endif %}
         </main>
 
-        <footer class="page-footer">
-            <a href="/home" class="btn btn-secondary">
-                <span>←</span> Back to Home
-            </a>
-        </footer>
     </div>
-</body>
-
-</html>
+{% endblock %}

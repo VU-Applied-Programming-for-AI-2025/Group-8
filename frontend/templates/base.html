@@ -29,13 +29,13 @@
                         <a href="{{ url_for('home') }}" class="nav__link active-link">Home</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#how-it-works" class="nav__link">How it Works?</a>
+                        <a href="{{ url_for('home', _anchor='how-it-works') }}" class="nav__link">How it Works?</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#faq" class="nav__link">FAQ</a>
+                        <a href="{{ url_for('home', _anchor='faq') }}" class="nav__link">FAQ</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#nutrients" class="nav__link">Nutrients</a>
+                        <a href="{{ url_for('home', _anchor='nutrients') }}" class="nav__link">Nutrients</a>
                     </li>
                     <li class="nav__item dropdown">
                         <button class="dropbtn nav__link">
@@ -47,7 +47,7 @@
                             <a href="{{ url_for('edit_meal_planner') }}">My Meal Plan</a>
                             <a href="{{ url_for('show_history') }}">View Analysis History</a>
                         </div>
-                    </div>
+                    </li>
                 </ul>
 
                 <div class="nav__close" id="nav-close">

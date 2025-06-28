@@ -21,22 +21,24 @@
     --normal-font-size: .938rem;
 }
 
+/* Base Body Styles - These are probably already in styles.css, but good to have them if this is a standalone file for some reason */
 body {
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     background-color: var(--body-color);
     color: var(--text-color);
     line-height: 1.6;
-    min-height: 100vh;
+    /* min-height: 100vh; -- This might be handled by styles.css on html/body flex */
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    /* REMOVE min-height: 100vh; here, as it conflicts with flex:1 on main/body */
+    /* REMOVE display: flex; flex-direction: column; from here if this container is just for width/padding */
+    /* If you need it for internal layout WITHIN the container, you can keep it,
+       but it's likely causing issues when combined with flex:1 on favorites-content */
 }
 
 /* Header Styles */
@@ -66,7 +68,8 @@ body {
 
 /* Main Content */
 .favorites-content {
-    flex: 1;
+    /* REMOVED flex: 1; from here. It's likely causing the issue. */
+    /* The .main (parent of .container) is already flex: 1, and .container might not need to be a flex container */
     margin-bottom: 40px;
 }
 
@@ -152,14 +155,14 @@ body {
 
 .btn-primary {
     background: linear-gradient(135deg, var(--first-color)0%,
-            var(--first-color-alt) 100%);
+                var(--first-color-alt) 100%);
     color: white;
     box-shadow: 0 5px 10px rgba(249, 121, 142, 0.3);
 }
 
 .btn-primary:hover {
     background: linear-gradient(135deg, var(--first-color)0%,
-            var(--first-color-alt) 100%);
+                var(--first-color-alt) 100%);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
@@ -177,14 +180,14 @@ body {
 
 .btn-secondary {
     background: linear-gradient(135deg, var(--first-color)0%,
-            var(--first-color-alt) 100%);
+                var(--first-color-alt) 100%);
     color: white;
     box-shadow: 0 5px 10px rgba(249, 121, 142, 0.3);
 }
 
 .btn-secondary:hover {
     background: linear-gradient(135deg, var(--first-color)0%,
-            var(--first-color-alt) 100%);
+                var(--first-color-alt) 100%);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
 }
@@ -227,6 +230,9 @@ body {
 }
 
 /* Footer */
+/* This .page-footer might be redundant if base.html has a global footer. */
+/* If you want this specific footer only on the favorites page, keep it. */
+/* If you want the base.html footer, remove this entire block. */
 .page-footer {
     text-align: center;
     padding: 20px 0;

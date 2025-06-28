@@ -307,7 +307,7 @@
                             timelineProgress.style.transition = 'height 1.5s ease-out';
                             observer.unobserve(entry.target); // Stop observing once animated
                         } else {
-                            // Reset height when not in view (optional, if you want it to re-animate on scroll back)
+                            // We can reset height when not in view
                             // timelineProgress.style.height = '0%';
                         }
                     });
