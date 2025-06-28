@@ -1,368 +1,267 @@
-/*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Open+Sans:wght@400;600;700&display=swap");
-
-/*=============== VARIABLES CSS ===============*/
+/*=============== PINK THEME VARIABLES ===============*/
 :root {
-    --header-height: 3.5rem;
     --first-color: #f9798e;
     --first-color-alt: #B9647A;
     --title-color: hsl(233, 32%, 15%);
     --text-color: hsl(233, 4%, 35%);
     --body-color: hsl(2, 100%, 97%);
-    --white-color: #ffffff;
-    --card-bg: rgba(255, 240, 245, 0.95);
-    --shadow-color: rgba(255, 182, 193, 0.2);
-
-    /* Font sizes */
-    --normal-font-size: 0.938rem;
-    --small-font-size: 0.813rem;
-    --smaller-font-size: 0.75rem;
-
-    /* Font families */
-    --body-font: 'Open Sans', sans-serif;
-    --second-font: 'Lemon', cursive;
-}
-
-/*=============== BASE STYLES ===============*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --white-color: #fff;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --accent-pink-light: #ffe3ea;
+    --accent-pink-bg: linear-gradient(135deg, rgba(249, 121, 142, 0.05) 0%, rgba(185, 100, 122, 0.05) 100%);
+    --font-main: 'Open Sans', sans-serif;
+    --font-title: 'Lemon', cursive;
 }
 
 body {
-    font-family: var(--body-font);
-    font-size: var(--normal-font-size);
-    background-color: var(--body-color);
+    font-family: var(--font-main);
+    background: var(--body-color);
     color: var(--text-color);
-    line-height: 1.4;
-    min-height: 100vh;
-    padding: 0;
-    margin: 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: calc(var(--header-height) + 1rem) 1.5rem 1rem;
-}
-
-/*=============== HEADER ===============*/
-.analysis-header {
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.analysis-header h1 {
-    font-family: var(--second-font);
-    color: var(--first-color);
-    font-size: 2.2rem;
-    margin: 0;
-    font-weight: 700;
-}
-
-.symptoms-text {
+/* Interactive Analysis Styles */
+.intro-analysis-text {
+    font-style: italic;
     color: var(--first-color-alt);
-    text-decoration: underline;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
 }
 
-#analysis {
-    white-space: normal;
-    word-break: break-word;
-    overflow-x: hidden;
-    max-width: 100%;
+.interactive-analysis {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--white-color);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
 }
 
-/*=============== ANALYSIS CONTAINER ===============*/
-.analysis-container {
+.analysis-title {
+    text-align: center;
+    color: var(--first-color-alt);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-family: var(--font-title);
+}
+
+.symptoms-display {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: 2rem;
+    margin-bottom: 2rem;
 }
 
-/*=============== ANALYSIS BOXES ===============*/
-.analysis-report {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+.user-avatar {
+    font-size: 3rem;
+    color: var(--first-color-alt);
 }
 
-.nutrient-box {
-    background-color: var(--white-color);
+.symptoms-bubble p {
+    margin: 0;
+    font-weight: 500;
+    color: var(--first-color-alt);
+}
+
+.bubble {
+    background: var(--accent-pink-light);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--first-color-alt);
+    font-weight: 600;
+}
+
+.nutrient-cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: start;
+}
+
+.nutrient-card {
+    background: var(--white-color);
     border-radius: 12px;
-    padding: 1.25rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid var(--first-color);
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(249, 121, 142, 0.08);
+    border: 1px solid #f9b6c3;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.nutrient-card:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.nutrient-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.nutrient-card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nutrient-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(249, 121, 142, 0.15);
 }
 
 .nutrient-header {
     display: flex;
     align-items: center;
-    margin-bottom: 0.75rem;
-}
-
-.nutrient-name {
-    font-family: var(--second-font);
-    font-size: 1.5rem;
-    color: var(--first-color-alt);
-    font-weight: 700;
-    margin: 0;
-}
-
-.nutrient-content {
-    padding-left: 0.5rem;
-}
-
-.nutrient-detail {
-    margin-bottom: 0.5rem;
-    display: flex;
-}
-
-.detail-label {
-    font-weight: 600;
-    color: var(--title-color);
-    min-width: 60px;
-    margin-right: 0.5rem;
-}
-
-.detail-value {
-    color: var(--text-color);
-}
-
-/*=============== HISTORY ENTRY STYLES ===============*/
-.history-entry {
-    background: var(--white-color);
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-    border-left: 5px solid var(--first-color);
-    margin-bottom: 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.history-entry:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(185, 100, 122, 0.15);
-}
-
-.entry-header {
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--card-bg);
-}
-
-.symptoms-title {
-    font-family: var(--second-font);
-    color: var(--first-color-alt);
-    font-size: 1.6rem;
-    margin: 0;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.symptoms-title .icon {
-    font-size: 1.4rem;
-}
-
-.entry-content {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-}
-
-/*=============== ANALYSIS ACTIONS ===============*/
-.analysis-actions {
-    text-align: center;
-    margin-top: 2rem;
-}
-
-/*=============== BUTTON STYLES ===============*/
-.btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.9rem 1.5rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    justify-content: center;
-    font-family: var(--body-font);
-}
-
-.btn-primary {
-    background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
-    color: var(--white-color);
-}
-
-.btn-primary:hover {
-    background: linear-gradient(135deg, #e86a7a, #a85a6a);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(185, 100, 122, 0.4);
-}
-
-.btn-secondary {
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--first-color-alt);
-    border: 2px solid var(--first-color);
-}
-
-.btn-secondary:hover {
-    background: var(--first-color);
-    color: var(--white-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(185, 100, 122, 0.3);
-}
-
-/* Urgency Note Box */
-.urgency-box {
-    background-color: #fff0f0;
-    border-left: 5px solid #ff6b6b;
-    padding: 1rem;
-    margin-top: 1.5rem;
-    border-radius: 8px;
-}
-
-.urgency-title {
-    color: #ff4757;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-/*=============== RECOMMENDATION BUTTON ===============*/
-.recommendation {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.recommendation a {
-    background: linear-gradient(to right, var(--first-color), var(--first-color-alt));
-    color: var(--white-color);
-    padding: 0.9rem 2rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    display: inline-block;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-    box-shadow: 0 4px 12px rgba(185, 100, 122, 0.3);
-}
-
-.recommendation a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(185, 100, 122, 0.4);
-}
-
-/*=============== EMPTY STATE ===============*/
-.empty-state {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: var(--card-bg);
-    border-radius: 15px;
-    border: 2px dashed var(--first-color-alt);
-    margin: 2rem 0;
-}
-
-.empty-icon {
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
-    display: block;
-}
-
-.empty-state h2 {
-    font-family: var(--second-font);
-    color: var(--first-color-alt);
-    font-size: 1.8rem;
+    gap: 1rem;
     margin-bottom: 1rem;
-    font-weight: 700;
 }
 
-.empty-state p {
-    color: var(--text-color);
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+.nutrient-icon {
+    font-size: 1.5rem;
+    color: var(--first-color);
+    background: var(--accent-pink-light);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/*=============== RESPONSIVE ===============*/
+.nutrient-header h3 {
+    margin: 0;
+    flex-grow: 1;
+    color: var(--first-color-alt);
+    font-family: var(--font-title);
+}
+
+.severity-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--first-color);
+}
+
+.nutrient-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    margin-top: 0;
+    /* Prevents spacing issues when collapsed */
+}
+
+.nutrient-card.expanded .nutrient-details {
+    max-height: 1000px;
+    /* Should be enough for your content */
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+    color: var(--first-color-alt);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+
+.food-bubbles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.food-bubble {
+    background: var(--accent-pink-light);
+    color: var(--first-color-alt);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.tip-section {
+    background: #ffe3ea;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid var(--first-color);
+}
+
+.action-btn {
+    background: var(--first-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin-top: 1rem;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.action-btn:hover {
+    background: var(--first-color-alt);
+}
+
+/* Remove urgency box styles */
+.urgency-note,
+.note-header {
+    display: none !important;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--first-color-alt);
+    width: 0;
+    animation: typing 2s steps(40, end) forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
-    .container {
-        padding: calc(var(--header-height) + 0.5rem) 1rem 0.5rem;
-    }
-
-    .analysis-header h1 {
-        font-size: 1.8rem;
-    }
-
-    .nutrient-name {
-        font-size: 1.3rem;
-    }
-
-    .history-entry {
-        padding: 1.5rem;
-    }
-
-    .symptoms-title {
-        font-size: 1.4rem;
-    }
-
-    .nutrient-detail {
+    .symptoms-display {
         flex-direction: column;
-        gap: 0.25rem;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
-    .detail-label {
-        min-width: auto;
-        margin-right: 0;
+    .nutrient-cards {
+        grid-template-columns: 1fr;
     }
 
-    .recommendation a {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .empty-state {
-        padding: 3rem 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .analysis-header h1 {
-        font-size: 1.6rem;
-    }
-
-    .history-entry {
-        padding: 1.25rem;
-    }
-
-    .symptoms-title {
-        font-size: 1.3rem;
-    }
-
-    .nutrient-box {
-        padding: 1rem;
-    }
-
-    .nutrient-name {
-        font-size: 1.2rem;
-    }
-
-    .empty-state {
-        padding: 2rem 1rem;
-    }
-
-    .empty-state h2 {
-        font-size: 1.5rem;
+    .actions {
+        flex-direction: column;
     }
 }

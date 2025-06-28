@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Profile</title>
+{% block title %}Your Profile - NutriSpoon{% endblock %}
+
+{% block extra_head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/profile.css') }}">
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
     <div class="profile-container">
         <div class="profile-header">
             <h2>Profile for {{ user.name }}</h2>
@@ -102,9 +100,6 @@
 
             <button type="submit" class="submit-btn">Update Profile</button>
         </form>
-
-        <a href="{{ url_for('home') }}" class="back-link">← Back to Home</a>
+        <a href="{{ url_for('logout') }}" style="margin-top:1.5rem; display:block; text-align:center;">Logout</a>
     </div>
-</body>
-
-</html>
+{% endblock %}

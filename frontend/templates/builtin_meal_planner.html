@@ -1,72 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spoonacular Meal Planner - NutriSpoon</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
-</head>
+{% block title %}BMR Meal Planner - NutriSpoon{% endblock %}
 
-<body>
-  <div class="container">
-    <header class="mealplan-header">
-      <h1>🔧 Generate Meal Plan with Spoonacular</h1>
-      <p class="subtitle">Create personalized meal plans using Spoonacular's AI</p>
-    </header>
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
+{% endblock %}
 
-    <main class="mealplan-content">
-      {% if error %}
-      <div class="message-box">
-        <p style="color: #ff4757;">{{ error }}</p>
-      </div>
-      {% endif %}
+{% block content %}
+    <div class="bmr-mealplanner-page">
+        <h1 class="bmr-mealplan-main-title">BMR-Based Meal Plan Generator</h1>
+        <p class="bmr-mealplan-subtitle">
+            Based on your Basal Metabolic Rate (BMR), you can generate a personalized meal plan to help you reach your goals.<br>
+            Select your plan duration and goal below to get a meal plan for gaining weight, losing weight, or staying healthy.
+        </p>
 
-      <section class="mealplan-section">
-        <h2 class="section-title">
-          <span class="icon">⚙️</span>
-          Plan Configuration
-        </h2>
+        {% if error %}
+        <p style="color:red;text-align:center;">{{ error }}</p>
+        {% endif %}
 
-        <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}" class="mealplan-form">
-          <div class="form-group">
-            <label for="timeFrame" class="form-label">
-              <span class="icon">📅</span>
-              Plan Duration
-            </label>
-            <select name="timeFrame" id="timeFrame" class="form-select">
-              <option value="day">1 Day</option>
-              <option value="week">1 Week</option>
+        <form method="POST" action="{{ url_for('spoonacular_builtin_mealplanner') }}" class="bmr-mealplan-form">
+            <label for="timeFrame" class="bmr-mealplan-label">Plan for:</label>
+            <select name="timeFrame" id="timeFrame" class="bmr-mealplan-select">
+                <option value="day">1 Day</option>
+                <option value="week">1 Week</option>
             </select>
-          </div>
 
-          <div class="form-group">
-            <label for="diet" class="form-label">
-              <span class="icon">🎯</span>
-              Diet Goal
-            </label>
-            <select name="diet" id="diet" class="form-select">
-              <option value="gain">Gain Weight</option>
-              <option value="loose">Lose Weight</option>
-              <option value="health">Stay Healthy</option>
+            <label for="diet" class="bmr-mealplan-label">Goal:</label>
+            <select name="diet" id="diet" class="bmr-mealplan-select">
+                <option value="gain">Gain weight</option>
+                <option value="loose">Lose weight</option>
+                <option value="health">Stay healthy</option>
             </select>
-          </div>
 
-          <div class="form-actions">
-            <button type="submit" class="btn btn-primary generate-btn">
-              <span>🚀</span> Generate Plan
-            </button>
-          </div>
+            <button type="submit" class="bmr-mealplan-button">Generate Plan</button>
         </form>
-      </section>
-
-      <div class="mealplan-actions">
-        <a href="javascript:history.back()" class="btn btn-secondary">
-          <span>←</span> Back
-        </a>
-      </div>
-    </main>
-  </div>
-</body>
-
-</html>
+    </div>
+{% endblock %}

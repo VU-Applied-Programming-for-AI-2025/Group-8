@@ -1,144 +1,128 @@
-<!-- templates/mealplanner.html -->
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Meal Plan - NutriSpoon</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
-</head>
+{% block title %}Your Latest Meal Plan - NutriSpoon{% endblock %}
 
-<body>
-  <div class="container">
-    <header class="mealplan-header">
-      <h1>📋 Your Meal Plan</h1>
-      <p class="subtitle">Your personalized nutrition journey starts here</p>
-    </header>
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/mealplanner.css') }}">
+    <style>
+        @media print {
+            .header, .footer, .nav__search, .nav__toggle, .mealplanner-actions, .mealplan-print-button {
+                display: none !important;
+            }
+            .main {
+                padding-top: 0 !important; 
+            }
+            .mealplan-container {
+                margin-top: 0 !important;
+            }
+            body {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
+        }
+    </style>
+{% endblock %}
 
-    <main class="mealplan-content">
-      {% if message %}
-      <div class="message-box">
-        <p>{{ message }}</p>
-      </div>
-      {% elif day_plan %}
-      <!-- Day Plan Display -->
-      <section class="mealplan-section">
-        <h2 class="section-title">
-          <span class="icon">📅</span>
-          Day Plan
-        </h2>
+{% block content %}
+    <div class="mealplanner-page">
+        <h1 class="mealplan-title">Your Latest Meal Plan</h1>
+        <button onclick="window.print()" class="mealplan-print-button">Print Meal Plan</button>
 
-        <div class="meals-container">
-          {% for meal in day_plan.meals %}
-          <div class="meal-card">
-            <div class="meal-header">
-              <h3 class="meal-title">{{ meal.title }}</h3>
-              <span class="cooking-time">
-                <span class="icon">⏱️</span>
-                {{ meal.readyInMinutes }} min
-              </span>
+        <div class="mealplan-container">
+            {% if message %}
+            <p class="mealplan-info">{{ message }}</p>
+
+            {% elif day_plan %}
+            <div class="mealplan-day-section">
+                <h2 class="mealplan-day-title">Recipes</h2>
+                <div class="mealplan-meal-grid">
+                    {% for meal in day_plan.meals %}
+                    <div class="mealplan-meal-card">
+                        <a href="{{ url_for('recipe_details', recipe_id=meal.id) }}">
+                            <img src="{{ meal.image }}" alt="{{ meal.title }}">
+                            <div class="mealplan-meal-info">
+                                <div class="mealplan-meal-title">{{ meal.title }}</div>
+                                <div class="mealplan-meal-time">{{ meal.readyInMinutes }} min</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mealplan-nutrients-block">
+                    <div class="mealplan-nutrients-title">Nutrients</div>
+                    <ul>
+                        {% for key, value in day_plan.nutrients.items() %}
+                        <li>
+                            <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
+                            <span class="mealplan-nutrient-value">{{ value }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-            <div class="meal-actions">
-              <a href="{{ meal.sourceUrl }}" target="_blank" class="btn btn-primary">
-                <span>👁️</span> View Recipe
-              </a>
-            </div>
-          </div>
-          {% endfor %}
-        </div>
 
-        <div class="nutrients-section">
-          <h3 class="nutrients-title">
-            <span class="icon">📊</span>
-            Daily Nutrients
-          </h3>
-          <div class="nutrients-grid">
-            {% for key, value in day_plan.nutrients.items() %}
-            <div class="nutrient-item">
-              <span class="nutrient-name">{{ key }}</span>
-              <span class="nutrient-value">{{ value }}</span>
+            {% elif week_plan %}
+            {% for day, data in week_plan.items() %}
+            <div class="mealplan-day-section">
+                <h2 class="mealplan-day-title">{{ day.capitalize() }}</h2>
+                <div class="mealplan-meal-grid">
+                    {% for meal in data.meals %}
+                    <div class="mealplan-meal-card">
+                        <a href="{{ url_for('recipe_details', recipe_id=meal.id) }}">
+                            <img src="{{ meal.image }}" alt="{{ meal.title }}">
+                            <div class="mealplan-meal-info">
+                                <div class="mealplan-meal-title">{{ meal.title }}</div>
+                                <div class="mealplan-meal-time">{{ meal.readyInMinutes }} min</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mealplan-nutrients-block">
+                    <div class="mealplan-nutrients-title">Nutrients</div>
+                    <ul>
+                        {% for key, value in data.nutrients.items() %}
+                        <li>
+                            <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
+                            <span class="mealplan-nutrient-value">{{ value }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
             {% endfor %}
-          </div>
-        </div>
-      </section>
 
-      {% elif week_plan %}
-      <!-- Week Plan Display -->
-      <section class="mealplan-section">
-        <h2 class="section-title">
-          <span class="icon">📅</span>
-          Week Plan
-        </h2>
-
-        <div class="week-container">
-          {% for day, data in week_plan.items() %}
-          <div class="day-card">
-            <h3 class="day-title">{{ day.capitalize() }}</h3>
-            <div class="day-meals">
-              {% for meal in data.meals %}
-              <div class="meal-item">
-                <div class="meal-info">
-                  <h4 class="meal-name">{{ meal.title }}</h4>
-                  <span class="meal-time">
-                    <span class="icon">⏱️</span>
-                    {{ meal.readyInMinutes }} min
-                  </span>
+            {% else %}
+            {% for day, meals in mealplan.items() %}
+            <div class="mealplan-day-section">
+                <h2 class="mealplan-day-title">Day {{ day }}</h2>
+                <div class="mealplan-meal-grid">
+                    {% for meal_name, recipe in meals.items() %}
+                    <div class="mealplan-meal-card">
+                        <a href="{{ url_for('recipe_details', recipe_id=recipe.id) }}">
+                            <img src="{{ recipe.image }}" alt="{{ recipe.title }}">
+                            <div class="mealplan-meal-info">
+                                <div class="mealplan-meal-title">{{ meal_name.capitalize() }}: {{ recipe.title }}</div>
+                                <div class="mealplan-meal-time">{{ recipe.readyInMinutes }} min</div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
                 </div>
-                <a href="{{ meal.sourceUrl }}" target="_blank" class="btn btn-secondary">
-                  <span>👁️</span> View
-                </a>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-          {% endfor %}
-        </div>
-      </section>
-
-      {% else %}
-      <!-- Custom Meal Plan Display -->
-      <section class="mealplan-section">
-        <h2 class="section-title">
-          <span class="icon">🍽️</span>
-          Your Custom Meal Plan
-        </h2>
-
-        <div class="custom-mealplan">
-          {% for day, meals in mealplan.items() %}
-          <div class="day-card">
-            <h3 class="day-title">Day {{ day }}</h3>
-            <div class="day-meals">
-              {% for meal_name, recipe in meals.items() %}
-              <div class="meal-item">
-                <div class="meal-info">
-                  <h4 class="meal-name">{{ meal_name.capitalize() }}</h4>
-                  <p class="recipe-title">{{ recipe.title }}</p>
-                  <span class="meal-time">
-                    <span class="icon">⏱️</span>
-                    {{ recipe.readyInMinutes }} min
-                  </span>
+                <div class="mealplan-nutrients-block">
+                    <div class="mealplan-nutrients-title">Nutrients</div>
+                    <ul>
+                        {% for key, value in meals.nutrients.items() %}
+                        <li>
+                            <span class="mealplan-nutrient-key">{{ key|capitalize }}</span>
+                            <span class="mealplan-nutrient-value">{{ value }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-                <a href="{{ recipe.sourceUrl }}" target="_blank" class="btn btn-primary">
-                  <span>👁️</span> View Recipe
-                </a>
-              </div>
-              {% endfor %}
             </div>
-          </div>
-          {% endfor %}
+            {% endfor %}
+            {% endif %}
         </div>
-      </section>
-      {% endif %}
-
-      <div class="mealplan-actions">
-        <a href="javascript:history.back()" class="btn btn-secondary">
-          <span>←</span> Back
-        </a>
-      </div>
-    </main>
-  </div>
-</body>
-
-</html>
+    </div>
+{% endblock %}

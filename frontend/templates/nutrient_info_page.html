@@ -1,7 +1,15 @@
-<link rel="stylesheet" href="{{ url_for('static', filename='styles/nutrient_info.css') }}">
+{% extends "base.html" %}
+
+{% block title %}{{ name }} - Nutrient Information{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/nutrient_info.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock %}
+
+{% block content %}
 <main class="main">
     <div class="container">
-        <!--==================== NUTRIENT HEADER ====================-->
         <header class="nutrient-header">
             <div class="nutrient-hero">
                 <h1 class="nutrient-title">
@@ -15,10 +23,8 @@
             </div>
         </header>
 
-        <!--==================== NUTRIENT CONTENT ====================-->
         <div class="nutrient-content">
             <div class="nutrient-sections">
-                <!-- Function Section -->
                 <section class="nutrient-section function-section">
                     <h2 class="section-title">
                         <span class="icon">⚙️</span>
@@ -29,7 +35,6 @@
                     </div>
                 </section>
 
-                <!-- Importance Section -->
                 <section class="nutrient-section importance-section">
                     <h2 class="section-title">
                         <span class="icon">⭐</span>
@@ -40,7 +45,6 @@
                     </div>
                 </section>
 
-                <!-- Deficiency Symptoms Section -->
                 <section class="nutrient-section symptoms-section">
                     <h2 class="section-title">
                         <span class="icon">⚠️</span>
@@ -58,7 +62,6 @@
                     </div>
                 </section>
 
-                <!-- Food Sources Section -->
                 <section class="nutrient-section foods-section">
                     <h2 class="section-title">
                         <span class="icon">🍽️</span>
@@ -76,15 +79,7 @@
                     </div>
                 </section>
             </div>
-
-            <!--==================== NUTRIENT ACTIONS ====================-->
-            <div class="nutrient-actions">
-                <a href="{{ url_for('home') }}" class="btn btn-secondary">
-                    <span class="btn-icon">←</span>
-                    Back to Nutrient List
-                </a>
-                </a>
-            </div>
         </div>
     </div>
 </main>
+{% endblock %}

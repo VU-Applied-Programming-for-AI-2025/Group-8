@@ -1,20 +1,31 @@
 {% extends "base.html" %}
 
-{% block title %}Your Favorite Recipes{% endblock %}
+{% block title %}Create Meal Planner - NutriSpoon{% endblock %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
+{% endblock %}
+
 
 {% block content %}
+    <div class="container" style="padding: 20px; text-align: center;"> {# Added some inline styling for basic centering/padding #}
+        <h1>Create Your Custom Meal Plan</h1>
+        <p>Set up the duration and select the meals you'd like to plan for.</p>
 
-<form method="POST" action="/recommendations/mealplanner/create">
-    <label>Number of days:</label>
-    <input type="number" name="days" min="1" max="31" value="7" required><br>
-    <label>Meals to plan:</label>
-    <input type="checkbox" name="meals" value="breakfast" checked> Breakfast
-    <input type="checkbox" name="meals" value="lunch" checked> Lunch
-    <input type="checkbox" name="meals" value="dinner" checked> Dinner
-    <br>
-    <button type="submit">Create Meal Planner</button>
-</form>
+        <form method="POST" action="/recommendations/mealplanner/create" style="margin-top: 30px;">
+            <div style="margin-bottom: 15px;">
+                <label for="days" style="display: block; margin-bottom: 5px; font-weight: bold;">Number of days:</label>
+                <input type="number" name="days" id="days" min="1" max="31" value="7" required style="padding: 8px; border: 1px solid #ccc; border-radius: 4px; width: 200px;"><br>
+            </div>
 
-{% end block %}
-
-{% block scripts % % }
+            <div style="margin-bottom: 20px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: bold;">Meals to plan:</label>
+                <input type="checkbox" name="meals" value="breakfast" id="breakfast" checked> <label for="breakfast">Breakfast</label>
+                <input type="checkbox" name="meals" value="lunch" id="lunch" checked> <label for="lunch">Lunch</label>
+                <input type="checkbox" name="meals" value="dinner" id="dinner" checked> <label for="dinner">Dinner</label>
+            </div>
+            
+            <button type="submit" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">Create Meal Planner</button>
+        </form>
+    </div>
+{% endblock %}

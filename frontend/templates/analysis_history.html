@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Analysis History - NutriSpoon</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis.css') }}">
-</head>
+{% block title %}Analysis History - NutriSpoon{% endblock %}
 
-<body>
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/analysis_history.css') }}">
+{% endblock %}
+
+{% block content %}
     <div class="container">
         <header class="analysis-header">
             <h1>📚 Your Analysis History</h1>
@@ -61,14 +59,6 @@
                 <a href="{{ url_for('home') }}" class="btn btn-primary">Start Analysis</a>
             </div>
             {% endif %}
-
-            <div class="analysis-actions">
-                <a href="{{ url_for('home') }}" class="btn btn-secondary">
-                    <span>←</span> Back to Home
-                </a>
-            </div>
         </main>
     </div>
-</body>
-
-</html>
+{% endblock %}

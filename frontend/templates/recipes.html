@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes Matching Your Diet - NutriSpoon</title>
+{% block title %}Recipes Matching Your Diet - NutriSpoon{% endblock %}
+
+{% block extra_head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/recipes.css') }}">
-</head>
+{% endblock %}
 
-<body>
+{% block content %}
     <div class="container">
         <header class="recipes-header">
             <h1>🍽️ Recipes Matching Your Diet</h1>
@@ -74,7 +72,9 @@
             </div>
         </main>
     </div>
+{% endblock %}
 
+{% block extra_js %}
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.querySelectorAll(".favorite-btn").forEach(button => {
@@ -107,6 +107,4 @@
             });
         });
     </script>
-</body>
-
-</html>
+{% endblock %}

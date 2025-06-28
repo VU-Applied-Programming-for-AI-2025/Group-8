@@ -1,0 +1,180 @@
+/* assets/nutrition-analysis.css */
+/* Extends your existing styles.css */
+
+/* Card Styles */
+.nutrition-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 24px hsla(2, 100%, 45%, 0.1);
+    transition: transform 0.3s;
+}
+
+.nutrition-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Header Styles */
+.analysis-header {
+    margin-bottom: 2rem;
+}
+
+.typewriter {
+    font-family: var(--second-font);
+    color: var(--title-color);
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid var(--first-color);
+    width: 0;
+    animation: typing 2s steps(40) forwards;
+}
+
+.typewriter span {
+    color: var(--first-color);
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Symptoms Display */
+.symptoms-display {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.user-avatar i {
+    font-size: 3rem;
+    color: var(--first-color);
+}
+
+.symptoms-bubble {
+    background-color: hsl(2, 100%, 94%);
+    padding: 1rem 1.5rem;
+    border-radius: 2rem;
+    color: var(--title-color);
+}
+
+/* Nutrient Cards Grid */
+.nutrient-cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    margin: 2rem 0;
+}
+
+/* Individual Nutrient Cards */
+.nutrient-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.nutrient-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.nutrient-icon {
+    font-size: 1.5rem;
+    color: white;
+    background-color: var(--first-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.severity-indicator {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.severity-low { background-color: #4caf50; }
+.severity-medium { background-color: #ffc107; }
+.severity-high { background-color: #f44336; }
+
+/* Nutrient Details */
+.nutrient-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.nutrient-card.expanded .nutrient-details {
+    max-height: 1000px;
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+    color: var(--first-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.food-bubbles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.food-bubble {
+    background-color: hsl(2, 100%, 94%);
+    padding: 0.35rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+}
+
+/* Urgency Note */
+.urgency-note {
+    background-color: hsl(2, 100%, 96%);
+    border-left: 4px solid var(--first-color-alt);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.note-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--first-color-alt);
+    margin-bottom: 0.5rem;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .nutrient-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .actions {
+        flex-direction: column;
+    }
+    
+    .symptoms-display {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

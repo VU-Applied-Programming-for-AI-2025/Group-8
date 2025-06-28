@@ -1,138 +1,320 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+
+{% block title %}NutriSpoon - Your Health Companion{% endblock %}
+
+{% block content %}
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--=============== FAVICON ===============-->
-    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png' )}} type=" image/x-icon">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon">
+
 
     <!--=============== REMIXICONS ===============-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/styles.css') }}">
 
+    <section class="home" id="home">
+        <div class="home__shape-small"></div>
+        <div class="home__shape-big"></div>
+        <img src="{{ url_for('static', filename='img/shape-bg.png') }}" alt="" class="home__shape-bg">
 
+        <div class="home__container container">
+            <div class="home__data">
+                <h1 class="home__title">
+                    The health <span>you deserve.</span>
+                </h1>
+                <p class="home__description">
+                    At NutriSpoon, we provide personalized insights and resources to help you live a healthier, happier
+                    life.
+                </p>
 
-    <title>Welcome to NutriSpoon{{response.fullname}}</title>
-</head>
-
-<body>
-
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav__logo">
-                Nutri<span>Spoon</span>
-            </a>
+                <form method="POST" action="/home" class="home__form symptoms-form" id="symptoms-input-form-anchor">
+                    <div class="input-with-button">
+                        <input type="text" name="symptoms" required
+                            placeholder="Enter your symptoms (e.g., headache, fever)" class="home__input">
+                        <button type="submit" class="analyze-button">
+                            <i class='bx bx-search'></i>
+                        </button>
+                    </div>
+                </form>
             </div>
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="/profile" class="nav__link">Profile</a></li>
-                    <li class="nav__item dropdown">
-                        <button class="dropbtn nav__link">Nutrients</button>
-                        <div class="dropdown-content">
-                            <a href="{{ url_for('nutrients') }}?nutrient=Copper">Copper</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Calcium">Calcium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Choline">Choline</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Cholesterol">Cholesterol</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Fluoride">Fluoride</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=SaturatedFat">Saturated Fat</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminA">Vitamin A</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminC">Vitamin C</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminD">Vitamin D</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminE">Vitamin E</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminK">Vitamin K</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB1">Vitamin B1</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB2">Vitamin B2</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB3">Vitamin B3</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB5">Vitamin B5</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB6">Vitamin B6</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=VitaminB12">Vitamin B12</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Fiber">Fiber</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Folate">Folate</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=FolicAcid">Folic Acid</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Iodine">Iodine</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Iron">Iron</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Magnesium">Magnesium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Manganese">Manganese</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Phosphorus">Phosphorus</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Potassium">Potassium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Selenium">Selenium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Sodium">Sodium</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Sugar">Sugar</a>
-                            <a href="{{ url_for('nutrients') }}?nutrient=Zinc">Zinc</a>
+
+            <div class="home__images">
+                <img src="{{ url_for('static', filename='img/liquid-fruit.png') }}" alt="Liquid image"
+                    class="home__liquid">
+                <div class="home__juice-animate">
+                    <img src="{{ url_for('static', filename='img/Pill_Copilot.png') }}" alt="Juice image"
+                        class="home__juice">
+                </div>
+                <img src="{{ url_for('static', filename='img/apple1.png') }}" alt="Apple image" class="home__apple1">
+                <img src="{{ url_for('static', filename='img/apple2.png') }}" alt="Apple image" class="home__apple2">
+                <div>
+                    <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                    <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                    <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                    <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                    <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                    <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section" id="how-it-works">
+        <div class="section-overlay"></div>
+        <div class="container container-custom">
+            <div class="row-custom text-center text-white-custom mb-4-custom">
+                <div class="col-center">
+                    <h2>How It Works?</h2>
+                    <p>Discover the simple steps to a healthier you.</p>
+                </div>
+            </div>
+
+            <div class="row-custom">
+                <div class="col-content-center mx-auto-custom">
+                    <div class="timeline-container text-white-custom">
+                        <ul class="vertical-scrollable-timeline">
+                            <li>
+                                <div class="icon-holder"><i class='bx bxs-edit'></i></div>
+                                <h4>Input Your Symptoms</h4>
+                                <p>Start by describing what you're feeling. Our smart analyzer helps pinpoint potential
+                                    issues.</p>
+                            </li>
+                            <li>
+                                <div class="icon-holder"><i class='bx bxs-flask'></i></div>
+                                <h4>Get Personalized Insights</h4>
+                                <p>Receive immediate, easy-to-understand information about possible conditions and their
+                                    causes.</p>
+                            </li>
+                            <li>
+                                <div class="icon-holder"><i class='bx bxs-bowl-hot'></i></div>
+                                <h4>Discover Nutrient Solutions</h4>
+                                <p>Learn about specific nutrients, foods, and lifestyle changes that can support your
+                                    well-being.</p>
+                            </li>
+                            <li>
+                                <div class="icon-holder"><i class='bx bxs-heart-circle'></i></div>
+                                <h4>Empower Your Health Journey</h4>
+                                <p>Take control with actionable advice and connect with relevant health resources.</p>
+                            </li>
+                        </ul>
+                        <div class="list-progress">
+                            <div class="inner"></div>
                         </div>
-                    </li>
-
-                    <li class="nav__item"><a href="/show_favorites" class="nav__link">Favorites</a></li>
-                    <li class="nav__item"><a href="{{ url_for('edit_meal_planner') }}" class="nav__link">My Meal
-                            Plan</a></li>
-                    <li class="nav__item"><a href="{{ url_for('show_history') }}" class=" nav__link">View Analysis
-                            History</a></li>
-                    <li class="nav__item"><a href="/logout" class="nav__link">Logout</a></li>
-                </ul>
-                <div class="nav__close" id="nav-close">
-                    <i class="ri-close-line"></i>
-                </div>
-                <img src="{{ url_for('static', filename='img/nav-img.png') }}" alt="Nav image" class="nav__img">
-            </div>
-
-            <!-- Toggle button -->
-            <div class="nav__toggle" id="nav-toggle">
-                <i class="ri-menu-line"></i>
-            </div>
-        </nav>
-    </header>
-
-    <main class="main">
-        <!--==================== HOME ====================-->
-        <section class="home">
-            <div class="home__shape-small"></div>
-            <div class="home__shape-big"></div>
-            <img src="{{ url_for('static', filename='img/shape-bg.png') }}" alt="" class="home__shape-bg">
-
-
-            <div class="home__container container">
-                <div class="home__data">
-                    <h1 class="home__title">Symptoms <span>Analyzer</span></h1>
-                    <p class="home__description">Understand your symptoms.</p>
-                    <form method="POST" action="/home" class="home__form">
-                        <input type="text" id="symptoms" name="symptoms" required class="home__input"
-                            placeholder="Enter your symptoms here...">
-                        <button type="submit" class="home__button">Analyze</button>
-                    </form>
-                </div>
-
-                <div class="home__images">
-                    <img src="{{ url_for('static', filename='img/liquid-fruit.png') }}" alt="Liquid image"
-                        class="home__liquid">
-                    <div class="home__juice-animate">
-                        <img src="{{ url_for('static', filename='img/pill.png') }}" alt="Juice image"
-                            class="home__juice">
-                    </div>
-                    <img src="{{ url_for('static', filename='img/apple1.png') }}" alt="Apple image"
-                        class="home__apple1">
-                    <img src="{{ url_for('static', filename='img/apple2.png') }}" alt="Apple image"
-                        class="home__apple2">
-                    <div>
-                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
-                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
-                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
-                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
-                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
-                        <img src="{{ url_for('static', filename='img/leaf.png') }}" alt="Leaf image" class="home__leaf">
                     </div>
                 </div>
             </div>
 
-        </section>
-    </main>
+            <div class="row-custom text-center mt-5-custom">
+                <div class="col-center">
+                    <a href="home" class="btn-custom custom-btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-layout">
+                <div class="faq-image-container">
+                    <img src="{{ url_for('static', filename='img/faq_banner.png') }}" alt="FAQ banner" class="faq-image">
+                </div>
+                <div class="faq-content">
+                    <div class="custom-accordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button">
+                                    Is NutriSpoon a substitute for professional medical advice?
+                                </button>
+                            </h3>
+                            <div class="accordion-body" style="display: none;">
+                                No, NutriSpoon is designed to provide informative insights and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with a qualified healthcare provider for any health concerns.
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button">
+                                    How accurate are the symptom analyses?
+                                </button>
+                            </h3>
+                            <div class="accordion-body" style="display: none;">
+                                Our symptom analyzer uses a comprehensive knowledge base to provide potential insights. However, its accuracy depends on the information you provide and should be used for informational purposes only.
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button">
+                                    Can I trust the nutrient recommendations?
+                                </button>
+                            </h3>
+                            <div class="accordion-body" style="display: none;">
+                                The nutrient recommendations are based on general health guidelines and scientific research. It's always best to discuss dietary changes or supplement use with a healthcare professional or registered dietitian.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+    <section class="nutrient-periodical-table-section" id="nutrients">
+        <div class="container">
+            <h2 class="text-primary-color">Explore Key Nutrients</h2>
+            <p class="text-secondary-color">Discover the essential building blocks for a healthy body.</p>
+
+            <div class="nutrient-grid">
+                {% set nutrients = [
+                    ('Copper', 'fa-microchip'),
+                    ('Choline', 'fa-brain'),
+                    ('Cholesterol', 'fa-heartbeat'),
+                    ('Fluoride', 'fa-tooth'),
+                    ('SaturatedFat', 'fa-bacon'),
+                    ('Vitamin C', 'fa-lemon'),
+                    ('Vitamin E', 'fa-leaf'),
+                    ('Vitamin K', 'fa-hand-holding-medical'),
+                    ('Vitamin A', 'fa-eye'),
+                    ('Vitamin D', 'fa-sun'),
+                    ('Vitamin B1', 'fa-seedling'),
+                    ('Vitamin B2', 'fa-capsules'),
+                    ('Vitamin B3', 'fa-flask'),
+                    ('Vitamin B5', 'fa-droplet'),
+                    ('Vitamin B6', 'fa-apple-whole'),
+                    ('Vitamin B12', 'fa-dna'),
+                    ('Fiber', 'fa-wheat-awn'),
+                    ('Folic Acid', 'fa-pills'),
+                    ('Calcium', 'fa-bone'),
+                    ('Folate', 'fa-leaf'),
+                    ('Iodine', 'fa-flask'),
+                    ('Iron', 'fa-drumstick-bite'),
+                    ('Magnesium', 'fa-mound'),
+                    ('Manganese', 'fa-mortar-pestle'),
+                    ('Phosphorus', 'fa-dna'),
+                    ('Potassium', 'fa-leaf'),
+                    ('Selenium', 'fa-seedling'),
+                    ('Sodium', 'fa-cube'),
+                    ('Zinc', 'fa-fish')
+                ] %}
+                {% for nutrient, icon in nutrients %}
+                <a href="{{ url_for('nutrients') }}?nutrient={{ nutrient|replace(' ', '') }}" class="nutrient-card">
+                    <i class="fas {{ icon }} nutrient-icon"></i>
+                    <span class="nutrient-name">{{ nutrient }}</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
     <!--=============== GSAP ===============-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 
 
     <!--===== MAIN JS =====-->
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-</body>
+    </body>
+    {% endblock %}
 
-</html>
+    {% block extra_js %}
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.accordion-button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const body = button.parentElement.nextElementSibling;
+                const isOpen = !button.classList.contains('collapsed');
+
+                // Close all
+                document.querySelectorAll('.accordion-button').forEach(b => b.classList.add('collapsed'));
+                document.querySelectorAll('.accordion-body').forEach(b => b.style.display = 'none');
+
+                // Toggle clicked one
+                if (!isOpen) {
+                    button.classList.remove('collapsed');
+                    body.style.display = 'block';
+                }
+            });
+        });
+    });
+    </script>
+    
+    <script>
+        // JavaScript for custom accordion (if not using Bootstrap)
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionButtons = document.querySelectorAll('.custom-accordion .accordion-button');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-bs-target');
+                    const targetCollapse = document.querySelector(targetId);
+                    const isCollapsed = button.classList.contains('collapsed');
+
+                    // Close all other open accordion items
+                    document.querySelectorAll('.custom-accordion .accordion-collapse.show').forEach(openCollapse => {
+                        if (openCollapse !== targetCollapse) {
+                            openCollapse.classList.remove('show');
+                            openCollapse.previousElementSibling.querySelector('.accordion-button').classList.add('collapsed');
+                            openCollapse.previousElementSibling.querySelector('.accordion-button').setAttribute('aria-expanded', 'false');
+                        }
+                    });
+
+                    // Toggle current accordion item
+                    if (isCollapsed) {
+                        targetCollapse.classList.add('show');
+                        button.classList.remove('collapsed');
+                        button.setAttribute('aria-expanded', 'true');
+                    } else {
+                        targetCollapse.classList.remove('show');
+                        button.classList.add('collapsed');
+                        button.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links (if not handled by another library/framework)
+            // This existing logic will handle the smooth scroll to #symptoms-input-form-anchor
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Timeline progress animation (simple version)
+            const timelineSection = document.querySelector('.timeline-section');
+            const timelineProgress = document.querySelector('.list-progress .inner');
+
+            if (timelineSection && timelineProgress) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '0px',
+                    threshold: 0.1 // When 10% of the section is visible
+                };
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Animate progress bar to 100% when section enters viewport
+                            timelineProgress.style.height = '100%';
+                            timelineProgress.style.transition = 'height 1.5s ease-out';
+                            observer.unobserve(entry.target); // Stop observing once animated
+                        } else {
+                            // We can reset height when not in view
+                            // timelineProgress.style.height = '0%';
+                        }
+                    });
+                }, observerOptions);
+
+                observer.observe(timelineSection);
+            }
+        });
+    </script>
+    {% endblock %}
